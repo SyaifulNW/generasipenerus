@@ -457,8 +457,8 @@ a:hover {
 }
 
  .daftar {
-    background-color: #ffffff;
-    color: #c40000;
+    background-color:  #c40000;
+    color: #ffff;
     padding: 25px;
     border-radius: 10px;
     font-family: Arial, sans-serif;
@@ -485,8 +485,8 @@ a:hover {
     display: inline-block;
     margin: 15px 0;
     padding: 12px 24px;
-    background-color: #d1001f;
-    color: #fff;
+    background-color: white;
+    color: red;
     text-decoration: none;
     font-weight: bold;
     border-radius: 6px;
@@ -494,7 +494,7 @@ a:hover {
   }
 
   .cta-btn:hover {
-    background-color: #a80017;
+    background-color:whitesmoke ; /* merah tua */
   }
 
   .daftar strong {
