@@ -28,7 +28,7 @@ blockquote{
     padding: 4px 10px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width:  768px) {
     section#masalah-ortu h2 {
       font-size: 20px;
     }
@@ -323,7 +323,7 @@ table th {
 footer {
     text-align: center;
     padding: 20px;
-    background: #e0f2f1;
+    background: #0a0a0a;
     font-style: italic;
 }
 footer p {
@@ -374,7 +374,7 @@ a:hover {
 
 .benefit {
   background-color: #d62828; /* merah terang */
-  color: #ffffff;
+  color: black;
   padding: 60px 20px;
   border-radius: 12px;
   margin-top: 40px;
@@ -403,7 +403,7 @@ a:hover {
 }
 
 .benefit-list li {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #FFF;
   padding: 16px 24px;
   border-radius: 10px;
   font-size: 16px;
@@ -462,14 +462,16 @@ a:hover {
     padding: 25px;
     border-radius: 10px;
     font-family: Arial, sans-serif;
-    max-width: 600px;
+    max-width: 1300px;
     margin: 30px auto;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
   }
 
   .daftar h2 {
-    font-size: 1.7em;
+    font-size: 28px;
+    font-weight: 700;
+    color: #d1001f;
     margin-bottom: 15px;
   }
 
