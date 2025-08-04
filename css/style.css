@@ -577,3 +577,32 @@ a:hover {
 .kurikulum-section ul li em {
   color: #888;
 }
+
+section.daftar {
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode:  overlay;
+    /* Background kombinasi gradasi */
+ background: linear-gradient(135deg, 
+#d70726, #810113), url('https://cdn.pixabay.com/photo/2016/11/29/09/08/people-1868728_1280.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn {
+  display: inline-block;
+  background-color: #fff;
+  color: #d70726;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cta-btn:hover {
+  background-color: #f7e2e5;
+  color: #a5051c;
+}
