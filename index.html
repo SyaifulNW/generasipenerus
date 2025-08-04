@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KAMPUS Generasi Penerus MBC</title>
+  <!-- favicon -->
+  <link rel="icon" href="img/favicon.ico" type="image/png" />
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -39,14 +41,14 @@
         <div class="col-lg-7 col-md-12">
           <div class="hero-content text-white" style="position: relative; z-index: 1; padding-top: 20px; padding-left: 15px; padding-right: 15px;">
             <h1 class="display-4 fw-bold" style="font-size: 2.2rem;">KAMPUS GENERASI PENERUS MBC</h1>
-            <p class="lead" style="font-size: 1.5rem; font-weight: 400; color:#d70726; margin-bottom: 0.5rem;">
+            <p class="lead" style="font-size: 1.3rem; font-weight: 400; color:#d70726; margin-bottom: 0.5rem;">
           “KAMPUS NYA ANAK PENGUSAHA, DIAJARKAN ILMU BISNIS, LEADERSHIP, MINDSET JUARA dan AKHLAKUL KARIMAH dalam bisnis yang tidak diajarkan di Sekolah Formal."
             </p>
             <h2 style="font-size: 1.1rem; margin-top: 1.2rem;">
               Benarkah Ada Mitos Bahwa :
             </h2>
             <div class="kutipan">
-              <h3 style="color:#d70726; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.8rem;">
+              <h3 style="color:#d70726; font-size: 1rem; font-weight: bold; margin-bottom: 0.4rem;">
                 "Generasi pertama membangun, generasi kedua menikmati, dan generasi ketiga menghancurkan" ?
               </h3>
             </div>
@@ -149,6 +151,69 @@
   </header>
   <br />
   <!-- Section 10 Masalah -->
+
+  <!-- Section Slide kelas -->
+  <section>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <div class="container text-center" data-aos="fade-up" data-aos-duration="1200">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="img/gp1.jpg" alt="Kelas 1" class="img-fluid rounded shadow" />
+          </div>
+          <div class="swiper-slide">
+            <img src="img/gp3.jpg" alt="Kelas 2" class="img-fluid rounded shadow" />
+          </div>
+          <div class="swiper-slide">
+            <img src="img/gp2.jpg" alt="Kelas 3" class="img-fluid rounded shadow" />
+          </div>
+      
+          <div class="swiper-slide">
+            <img src="img/gp11.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
+          </div>
+        </div>
+        <!-- Swiper navigation -->
+  
+        <!-- Swiper pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2
+          },
+          992: {
+            slidesPerView: 3
+          }
+        }
+      });
+    </script>
+    <!-- Keterangan -->
+      <div class="text-center mt-3">
+        <p class="text-dark" style="font-size: 1.1rem;">
+      Di Bimbing oleh Coach Fitra Jaya Saleh, bisnis Coach yang membina Ribuan pengusaha dan telah berpengalaman bertahun tahun dalam dunia coaching bisnis.
+        </p>
+      </div>
+    </div>
+   </section>
 
   <!-- Section Masalah Orang Tua -->
   <section class="py-5" style="background-color: #fff;">
@@ -314,15 +379,15 @@
       <div class="row align-items-center h-100" style="min-height: 60vh;">
         <div class="col-lg-7 col-md-12">
           <div class="hero-content text-white" style="position: relative; z-index: 1; padding-top: 20px; padding-left: 15px; padding-right: 15px;">
-            <h1 class="display-4 fw-bold" style="font-size: 2.2rem;">KAMPUS GENERASI PENERUS MBC</h1>
-            <p style="font-size: 1.5rem; font-weight: 700; color:#d70726; margin-bottom: 0.5rem; text-align: center;">
-              “Dari Pewaris Menjadi Pemimpin”
+            <h1 class="display-4 fw-bold" style="font-size: 2.2rem; text-align: center;">KAMPUS GENERASI PENERUS MBC</h1>
+            <p style="font-size: 1.3rem; font-weight: 600; color:#d70726; margin-bottom: 0.5rem; text-align: center;">
+                    “KAMPUS NYA ANAK PENGUSAHA, DIAJARKAN ILMU BISNIS, LEADERSHIP, MINDSET JUARA dan AKHLAKUL KARIMAH dalam bisnis yang tidak diajarkan di Sekolah Formal."
             </p>
             <p class="lead" style="color: white; font-size: 1.1rem; margin-bottom: 0.8rem;">
               Sebuah program pengembangan karakter, kemampuan bisnis dan kepemimpinan untuk anak pengusaha, agar mereka:
             </p>
-            <div class="text-left" style="font-size: 1.1rem; line-height: 1.6; margin: 0 auto; max-width: 1200px;">
-              <strong>✅ Menyiapkan anak-anak pengusaha untuk menjadi pengusaha yang lebih baik.</strong><br />
+            <div class="text-left" style="font-size: 1.1rem; line-height: 1.6; margin: 0 auto; max-width: 1300px;">
+              <strong>✅ Menyiapkan anak-anak pengusaha untuk menjadi pengusaha  yang lebih baik.</strong><br /> 
               <strong>✅ Membekali keterampilan bisnis nyata, mindset seorang juara dan akhlak mulia seorang pengusaha muslim</strong><br />
               <strong>✅ Memiliki mentor dan komunitas bisnis Muslim</strong><br />
               <strong>✅ ⁠Memberikan anak anda Networking jaringan sesama pengusaha muslim yang saling suport dalam kebaikan</strong>
@@ -664,33 +729,33 @@
       <div class="row justify-content-center">
         <div class="col-lg-10">
           <div class="table-responsive">
-            <table class="table table-bordered table-hover text-start align-middle shadow-sm">
+            <table class="table table-bordered table-hover text-start align-middle shadow-sm" style="border-width:2px; border-style:solid;">
               <thead class="table-light">
                 <tr>
-                  <th class="text-center">SEBELUM</th>
-                  <th class="text-center">SESUDAH</th>
+                  <th class="text-center" style="border-width:2px;">SEBELUM</th>
+                  <th class="text-center" style="border-width:2px;">SESUDAH</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Bingung arah hidup</td>
-                  <td>Visioner, punya rencana jangka panjang</td>
+                  <td style="border-width:2px;">Bingung arah hidup</td>
+                  <td style="border-width:2px;">Visioner, punya rencana jangka panjang</td>
                 </tr>
                 <tr>
-                  <td>Malu & minder</td>
-                  <td>Percaya diri berbicara di depan publik</td>
+                  <td style="border-width:2px;">Malu & minder</td>
+                  <td style="border-width:2px;">Percaya diri berbicara di depan publik</td>
                 </tr>
                 <tr>
-                  <td>Tidak paham bisnis</td>
-                  <td>Paham keuangan, SDM, operasional</td>
+                  <td style="border-width:2px;">Tidak paham bisnis</td>
+                  <td style="border-width:2px;">Paham keuangan, SDM, operasional</td>
                 </tr>
                 <tr>
-                  <td>Sering konflik dengan ortu</td>
-                  <td>Jadi partner diskusi dan pengambil keputusan</td>
+                  <td style="border-width:2px;">Sering konflik dengan ortu</td>
+                  <td style="border-width:2px;">Jadi partner diskusi dan pengambil keputusan</td>
                 </tr>
                 <tr>
-                  <td>Gaptek & konsumtif</td>
-                  <td>Melek AI, digital marketing, dan punya portofolio nyata</td>
+                  <td style="border-width:2px;">Gaptek & konsumtif</td>
+                  <td style="border-width:2px;">Melek AI, digital marketing, dan punya portofolio nyata</td>
                 </tr>
               </tbody>
             </table>
