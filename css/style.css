@@ -519,3 +519,61 @@ a:hover {
     line-height: 1.5;
     margin: 0;
   }
+
+  .kurikulum-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.kurikulum-section .container {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.kurikulum-section .title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.kurikulum-section .subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.kurikulum-section .fase {
+  margin-bottom: 40px;
+}
+
+.kurikulum-section h3 {
+  color: #16a085;
+  margin-bottom: 8px;
+}
+
+.kurikulum-section .fase-sub {
+  color: #7f8c8d;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.kurikulum-section ul {
+  padding-left: 20px;
+}
+
+.kurikulum-section ul li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.kurikulum-section ul li em {
+  color: #888;
+}
