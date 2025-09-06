@@ -20,44 +20,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
   <!-- AOS CSS -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
 
 </head>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  // Efek teks ketik
-  const typingText = "Membentuk Generasi Penerus Bisnis Orang Tua";
-  let i = 0;
-  function typeEffect() {
-    if (i < typingText.length) {
-      document.getElementById("typingText").innerHTML += typingText.charAt(i);
-      i++;
-      setTimeout(typeEffect, 80);
-    }
-  }
-  window.onload = typeEffect;
-
-  // Animasi angka berjalan
-  function animateCounter(id, start, end, duration) {
-    let obj = document.getElementById(id);
-    let current = start;
-    let step = (end - start) / (duration / 50);
-    let timer = setInterval(() => {
-      current += step;
-      if (current >= end) {
-        current = end;
-        clearInterval(timer);
-      }
-      obj.textContent = Math.floor(current);
-    }, 50);
-  }
-
-  document.addEventListener("DOMContentLoaded", function() {
-    animateCounter("pesertaCount", 0, 1200, 2000); // contoh: 1200 peserta
-    animateCounter("tahunCount", 0, 15, 2000);    // contoh: 15 tahun
-  });
-</script>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -427,7 +392,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="row align-items-center h-100" style="min-height: 60vh;">
         <div class="col-lg-7 col-md-12">
           <div class="hero-content text-white" style="position: relative; z-index: 1; padding-top: 20px; padding-left: 15px; padding-right: 15px;">
-            <h1 class="display-4 fw-bold" style="font-size: 2.2rem; text-align: center;">START-UP MUDA ACADEMY MBC</h1>
+            <h1 class="display-4 fw-bold" style="font-size: 2.2rem; text-align: center;">KAMPUS GENERASI PENERUS MBC</h1>
             <p style="font-size: 1.3rem; font-weight: 600; color:#d70726; margin-bottom: 0.5rem;  background-color: #ffff; text-align: center;">
                     “KAMPUS NYA ANAK PENGUSAHA, DIAJARKAN ILMU BISNIS, LEADERSHIP, MINDSET JUARA dan AKHLAKUL KARIMAH dalam bisnis yang tidak diajarkan di Sekolah Formal."
             </p>
@@ -571,213 +536,299 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!-- Section Roadmap 20 -->
-<!-- ================== SECTION ROADMAP ================== -->
-<section id="roadmap" class="py-5">
-  <style>
-    .roadmap-wrapper {
-      position: relative;
-      overflow-x: auto;
-      padding-bottom: 40px;
-    }
-    .roadmap-line {
-      position: absolute;
-      top: 100px; /* sejajar dengan icon */
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: #dee2e6;
-      z-index: 1;
-    }
-    .roadmap-progress {
-      position: absolute;
-      top: 100px;
-      left: 0;
-      height: 4px;
-      background: #0d6efd;
-      width: 0%;
-      transition: width 1s ease;
-      z-index: 2;
-    }
-    .roadmap-steps {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 30px;
-      position: relative;
-      z-index: 3;
-    }
-    .step {
-      flex: 1;
-      min-width: 220px;
-      background: #fff;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform .3s, box-shadow .3s;
-      cursor: pointer;
-      text-align: center;
-      position: relative;
-    }
-    .step:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-    .step-icon {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      margin: 0 auto 15px auto;
-      color: #fff;
-      z-index: 5;
-      position: relative;
-    }
-    .step h5 {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .detail {
-      margin-top: 15px;
-      font-size: 14px;
-      text-align: left;
-    }
-    /* Arrow antar card */
-    .arrow {
-      position: absolute;
-      top: 100px;
-      right: -20px;
-      font-size: 24px;
-      color: #adb5bd;
-      z-index: 4;
-      animation: arrowMove 1.5s infinite;
-    }
-    @keyframes arrowMove {
-      0%   { transform: translateX(0); opacity: 0.5; }
-      50%  { transform: translateX(8px); opacity: 1; }
-      100% { transform: translateX(0); opacity: 0.5; }
-    }
-  </style>
+<section>
 
-  <div class="container my-5">
-    <div class="roadmap-section">
-      <div class="roadmap-title text-center mb-5">
-        <h2 class="fw-bold">🚀 Roadmap Start Up Muda Academy</h2>
-        <p class="text-muted">Perjalanan pembelajaran bertahap dari fondasi hingga bisnis nyata</p>
+</section>
+
+
+  <!-- Section Apa saja  -->
+
+  <!-- <section class="py-5" style="background-color: #d70726;">
+    <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
+      <h2 class="fw-bold mb-4 text-center text-white">
+         APA SAJA YANG AKAN DIPEROLEH ANAK ANDA DI  KAMPUS GENERASI PENERUS MBC ?
+      </h2>
+      <div>
+        <p class="lead text-white text-center" style="font-size: 1.2rem;">
+          Di Kampus MBC Generasi Penerus, anak-anak tidak hanya belajar teori di ruang kelas. Mereka akan menjalani <strong>pengalaman pembelajaran total</strong> — dari pembentukan karakter, penguatan mental, pengasahan skill, hingga praktek nyata di dunia bisnis.
+        </p>
+      </div>
+      <div id="mbc-detail" style="display: none;">
+        <hr class="bg-white">
+        <h4 class="fw-bold text-white mb-3"> Pembelajaran Kelas Eksklusif Bersama Coach FJS</h4>
+        <ul class="text-white" style="font-size: 1.1rem;">
+          <li>Mindset dan mentalitas pengusaha sejati</li>
+          <li>Manajemen bisnis modern & leadership Islami</li>
+          <li>Strategi pemasaran, keuangan, dan operasional</li>
+          <li>Pemanfaatan teknologi dan AI dalam bisnis</li>
+        </ul>
+        <blockquote class="blockquote text-dark"> Anak Anda tidak hanya jadi pintar, tapi juga siap memimpin.</blockquote>
+        <hr class="bg-white">
+        <h4 class="fw-bold text-white mb-3">Internship di Perusahaan Mitra Pengusaha Muslim</h4>
+        <ul class="text-white" style="font-size: 1.1rem;">
+          <li>Magang langsung di bisnis nyata alumni MBC</li>
+          <li>Ditempa karakter tanggung jawab & profesionalitas</li>
+          <li>Belajar bekerja dalam tim dan menyelesaikan proyek bisnis</li>
+        </ul>
+        <blockquote class="blockquote text-dark">Dari hanya tahu teori, menjadi anak yang bisa dipercaya di lapangan.</blockquote>
+        <hr class="bg-white">
+        <h4 class="fw-bold text-white mb-3"> Pelatihan Soft Skill & Personal Branding</h4>
+        <ul class="text-white" style="font-size: 1.1rem;">
+          <li>Public Speaking dan presentasi ide</li>
+          <li>Komunikasi efektif dalam tim dan bisnis keluarga</li>
+          <li>Manajemen emosi & kepercayaan diri</li>
+          <li>Membangun personal branding sebagai pemuda calon pemimpin</li>
+        </ul>
+        <blockquote class="blockquote text-dark">Bukan hanya pintar, tapi percaya diri dan disegani.</blockquote>
+        <hr class="bg-white">
+        <h4 class="fw-bold text-white mb-3"> Outbound, Team Building & Leadership Camp</h4>
+        <ul class="text-white" style="font-size: 1.1rem;">
+          <li>Simulasi tim di alam terbuka</li>
+          <li>Tantangan kerjasama dan keberanian</li>
+          <li>Refleksi spiritual dan mental juang</li>
+        </ul>
+        <blockquote class="blockquote text-dark"> Anak Anda akan lebih kuat, lebih tangguh, lebih dewasa.</blockquote>
+        <hr class="bg-white">
+        <h4 class="fw-bold text-white mb-3">Mentoring & Perencanaan Masa Depan</h4>
+        <ul class="text-white" style="font-size: 1.1rem;">
+          <li>Memiliki roadmap bisnis pribadi & keluarga</li>
+          <li>Membuat presentasi bisnis akhir di depan mentor & keluarga</li>
+          <li>Membangun portofolio nyata: proposal, laporan, hingga testimoni</li>
+        </ul>
+        <blockquote class="blockquote text-dark"> Siap naik kelas dari anak biasa menjadi calon CEO bisnis keluarga.</blockquote>
+        <hr class="bg-white">
+        <h5 class="fw-bold text-white mb-2">Satu Kalimat Kesimpulan untuk Orang Tua:</h5>
+        <blockquote class="blockquote text-dark" style="font-size: 1.1rem;">
+          <em>“Kami tidak hanya mendidik anak Anda untuk siap mewarisi, tapi untuk layak memimpin dan membawa bisnis keluarga ke masa depan yang lebih hebat.”</em>
+        </blockquote>
+      </div>
+      <div class="text-center mt-4">
+        <button class="btn btn-outline-light" id="mbcReadMoreBtn" onclick="toggleMbcDetail()">Lihat Selengkapnya</button>
+      </div>
+    </div>
+  </section>
+  <script>
+    function toggleMbcDetail() {
+      const detail = document.getElementById("mbc-detail");
+      const btn = document.getElementById("mbcReadMoreBtn");
+      if (detail.style.display === "none") {
+        detail.style.display = "block";
+        btn.innerText = "Sembunyikan";
+      } else {
+        detail.style.display = "none";
+        btn.innerText = "Lihat Selengkapnya";
+      }
+    }
+  </script> -->
+
+
+  <!-- Section Anak Bisa Apa -->
+  <!-- <section class="py-5" style="background-color: #ffffff;">
+    <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
+      <h2 class="fw-bold mb-4 text-center text-danger">
+        Anak anak peserta didik bisa apa setelah lulus program GENERASI PENERUS dari MBC ini ? 
+      </h2>
+
+  
+      <div class="mb-4">
+        <h5><strong>✅ 1. <em>Terjun Langsung ke Bisnis Keluarga</em></strong></h5>
+        <blockquote class="blockquote">
+          Bukan cuma “ikut-ikutan”, tapi sudah <em>siap jadi operator atau pemimpin mini-proyek</em>.
+        </blockquote>
+        <ul>
+          <li>Memimpin unit usaha atau cabang kecil</li>
+          <li>Mengelola satu divisi (misal: marketing, keuangan, atau SDM)</li>
+          <li>Menganalisis dan memberi solusi atas masalah nyata di bisnis orang tua</li>
+          <li>Membuat laporan sederhana, pitching ide, hingga buat presentasi bisnis ke keluarga</li>
+        </ul>
       </div>
 
-      <div class="roadmap-wrapper">
-        <div class="roadmap-line"></div>
-        <div class="roadmap-progress" id="roadmapProgress"></div>
 
-        <div class="roadmap-steps">
-          <!-- Fase 1 -->
-          <div class="step">
-            <div class="step-icon bg-warning">📘</div>
-            <h5 class="text-warning">Fase 1</h5>
-            <p>Fondasi Diri & Karakter</p>
-            <button class="btn btn-sm btn-outline-warning" data-bs-toggle="collapse" data-bs-target="#fase1">Detail</button>
-            <div id="fase1" class="collapse detail">
-              <ul>
-                <li>Dream Book & Life Vision</li>
-                <li>Design Kebiasaan Harian</li>
-                <li>Emotional & Social Intelligence</li>
-                <li>Benchmark: Role Model Board</li>
-              </ul>
-            </div>
-            <div class="arrow">➡️</div>
-          </div>
+      <div id="more-content" style="display: none;">
+   
+        <div class="mb-4">
+          <h5><strong>✅ 2.<em>Jadi Asisten Kepercayaan Orang Tua</em></strong></h5>
+          <blockquote>Bukan anak manja, tapi <em>jadi tangan kanan ayah/ibu</em> dalam urusan bisnis</blockquote>
+          <ul>
+            <li>Ikut dalam rapat-rapat internal</li>
+            <li>Bisa dipercaya pegang data, keuangan dasar, atau komunikasi dengan vendor</li>
+            <li>Membuat sistem kerja atau SOP mini dari pelajaran program</li>
+            <li>Jadi jembatan antara orang tua yang konvensional dan tim muda yang digital</li>
+          </ul>
+        </div>
 
-          <!-- Fase 2 -->
-          <div class="step">
-            <div class="step-icon bg-danger">💡</div>
-            <h5 class="text-danger">Fase 2</h5>
-            <p>Mindset Pemenang & Grit</p>
-            <button class="btn btn-sm btn-outline-danger" data-bs-toggle="collapse" data-bs-target="#fase2">Detail</button>
-            <div id="fase2" class="collapse detail">
-              <ul>
-                <li>Mental Blok: Fixed vs Growth</li>
-                <li>Self Talk & Affirmasi Juara</li>
-                <li>Conceptual Thinking → Rencana Bisnis</li>
-                <li>Creative Problem Solving & Innovation</li>
-                <li>Communication & Influence</li>
-              </ul>
-            </div>
-            <div class="arrow">➡️</div>
-          </div>
+      
+        <div class="mb-4">
+          <h5><strong>✅ 3. <em>Membawa Inovasi dan Digitalisasi</em></strong></h5>
+          <blockquote>Dengan bekal AI, digital marketing, dan desain grafis...</blockquote>
+          <ul>
+            <li>Bikin campaign online untuk produk keluarga</li>
+            <li>Bantu bisnis keluarga masuk ke marketplace atau digital tools</li>
+            <li>Bikin konten sosial media & branding personal usaha keluarga</li>
+            <li>Menyederhanakan proses manual ke otomatisasi sederhana</li>
+          </ul>
+        </div>
 
-          <!-- Fase 3 -->
-          <div class="step">
-            <div class="step-icon bg-success">🤝</div>
-            <h5 class="text-success">Fase 3</h5>
-            <p>Leadership & Kolaborasi</p>
-            <button class="btn btn-sm btn-outline-success" data-bs-toggle="collapse" data-bs-target="#fase3">Detail</button>
-            <div id="fase3" class="collapse detail">
-              <ul>
-                <li>Self-Leadership</li>
-                <li>Membentuk Tim Project</li>
-                <li>Problem Solving Bersama</li>
-                <li>Proyek Kolaborasi Kecil</li>
-                <li>Public Speaking & Storytelling</li>
-              </ul>
-            </div>
-            <div class="arrow">➡️</div>
-          </div>
 
-          <!-- Fase 4 -->
-          <div class="step">
-            <div class="step-icon bg-primary">📱</div>
-            <h5 class="text-primary">Fase 4</h5>
-            <p>Bisnis & Digital</p>
-            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#fase4">Detail</button>
-            <div id="fase4" class="collapse detail">
-              <ul>
-                <li>Video AI Storytelling tentang Brand</li>
-                <li>Simulasi Meta Ads</li>
-                <li>TikTok Konten & Ads</li>
-              </ul>
-            </div>
-            <div class="arrow">➡️</div>
-          </div>
+        <div class="mb-4">
+          <h5><strong>✅ 4. <em>Menumbuhkan Bisnis Baru yang Menyatu dengan Visi Keluarga</em></strong></h5>
+          <blockquote>Kalau bisnis orang tua belum cocok, dia bisa bikin cabang bisnis turunan.</blockquote>
+          <ul>
+            <li>Misalnya: ortunya punya toko konvensional, anak bikin versi online-nya</li>
+            <li>Atau ortunya punya pabrik, anak bikin produk olahannya dengan brand baru</li>
+            <li>Atau justru bangun bisnis mandiri tapi tetap sinergi dengan ekosistem keluarga</li>
+          </ul>
+        </div>
 
-          <!-- Fase 5 -->
-          <div class="step">
-            <div class="step-icon" style="background:#6f42c1;">💼</div>
-            <h5 style="color:#6f42c1;">Fase 5</h5>
-            <p>Family Business & Resiliensi</p>
-            <button class="btn btn-sm btn-outline-dark" data-bs-toggle="collapse" data-bs-target="#fase5">Detail</button>
-            <div id="fase5" class="collapse detail">
-              <ul>
-                <li>Improvement untuk Bisnis Keluarga</li>
-                <li>Financial Literacy</li>
-                <li>Final Project Presentation</li>
-              </ul>
-            </div>
-          </div>
+   
+        <div class="mb-4">
+          <h5><strong>✅ 5. <em>Jadi Anak yang Dipercaya & Diandalkan</em></strong></h5>
+          <blockquote>Ini bukan hanya tentang bisnis, tapi <em>perubahan karakter dan hubungan</em>.</blockquote>
+          <ul>
+            <li>Komunikasi dengan orang tua lebih nyambung dan dewasa</li>
+            <li>Mampu berpikir strategis saat diskusi keluarga</li>
+            <li>Tidak gampang emosi, lebih stabil secara emosional</li>
+            <li>Jadi inspirasi bagi adik-adiknya dan regenerasi bisnis keluarga</li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h5><strong>✅ 6. <em>Membangun Roadmap Bisnis Keluarga 5 Tahun ke Depan</em></strong></h5>
+          <blockquote>Anak tidak lagi bingung arah, tapi sudah tahu:</blockquote>
+          <ul>
+            <li>“Visi saya untuk bisnis keluarga ini ke mana?”</li>
+            <li>“Apa strategi jangka pendek dan jangka panjang?”</li>
+            <li>“Apa nilai yang mau saya bangun di bisnis warisan ini?”</li>
+          </ul>
+        </div>
+
+      
+        <div class="mb-4">
+          <h5><strong>🎯 BONUS: <em>PORTOFOLIO KEREN</em></strong></h5>
+          <ul>
+            <li>Sertifikat program</li>
+            <li>Laporan proyek magang</li>
+            <li>Video pitching bisnis</li>
+            <li>Proposal ide pengembangan usaha</li>
+            <li>Testimoni dari mentor dan mitra bisnis</li>
+          </ul>
+        </div>
+      </div>
+
+  
+      <div class="text-center">
+        <button class="btn btn-outline-danger" id="readMoreBtn" onclick="toggleContent()">Lihat Selengkapnya</button>
+      </div>
+    </div>
+  </section> 
+
+  <!-- Section Kurikulum -->
+
+<!-- <section class="container my-5" id="kurikulum">
+  <h2 class="fw-bold mb-4 text-center text-danger">KURIKULUM PROGRAM GENERASI PENERUS</h2>
+<div class="container">
+  <div class="row justify-content-center text-center mb-3">
+    <div class="col-12 col-md-5 mb-2">
+      <span class="badge bg-danger fs-6 w-100">
+        Durasi Program: 6 Bulan (24 Minggu)
+      </span>
+    </div>
+    <div class="col-12 col-md-5 mb-2">
+      <span class="badge bg-danger fs-6 w-100">
+        Roadmap 30 Langkah Generasi Penerus MBC
+      </span>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="accordion" id="accordionKurikulum">
+
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="fase1Heading">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#fase1"
+          aria-expanded="true" aria-controls="fase1">
+          <strong>FASE 1: Fondasi Diri & Karakter</strong>
+        </button>
+      </h2>
+      <div id="fase1" class="accordion-collapse collapse show" aria-labelledby="fase1Heading"
+        data-bs-parent="#accordionKurikulum">
+        <div class="accordion-body">
+          <ul>
+            <li><strong>Langkah 1:</strong> Mengenal Potensi Diri dan Misi Hidup — <em>Siswa memahami kekuatan, bakat, dan passion mereka</em></li>
+            <li><strong>Langkah 2:</strong> Membuat Jurnal Impian dan Nilai Hidup — <em>Membentuk arah hidup berdasarkan nilai Islam dan impian</em></li>
+            <li><strong>Langkah 3:</strong> Adab Terhadap Ilmu, Waktu, dan Orang Tua — <em>Membangun dasar etika dan akhlak dalam belajar dan hidup</em></li>
+            <li><strong>Langkah 4:</strong> Menata Niat & Visi Berbisnis Sebagai Ibadah — <em>Mengubah bisnis dari sekadar profit menjadi jalan dakwah</em></li>
+            <li><strong>Langkah 5:</strong> Latihan Disiplin Waktu Harian — <em>Mengelola waktu sebagai amanah dan modal hidup</em></li>
+            <li><strong>Langkah 6:</strong> Mengenal Dunia Bisnis dan Peran Pengusaha Muslim — <em>Menumbuhkan kebanggaan dan tanggung jawab sebagai pengusaha</em></li>
+            <li><strong>Langkah 7:</strong> Observasi Usaha Orang Tua — <em>Belajar dari lingkungan terdekat</em></li>
+            <li><strong>Langkah 8:</strong> Menulis 3 Hal yang Disukai dan Bisa Jadi Bisnis — <em>Menumbuhkan benih ide bisnis dari hal yang dicintai</em></li>
+            <li><strong>Langkah 9:</strong> Prinsip Rezeki & Tawakal dalam Bisnis — <em>Menanamkan prinsip spiritual dalam ekonomi</em></li>
+            <li><strong>Langkah 10:</strong> Mini Project: Interview Pengusaha Muslim — <em>Belajar langsung dari pengalaman nyata dan membuat catatan pelajaran hidup</em></li>
+          </ul>
         </div>
       </div>
     </div>
+
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="fase2Heading">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fase2"
+          aria-expanded="false" aria-controls="fase2">
+          <strong>FASE 2: TAHU ILMU — Skill Bisnis Praktis dan Pola Pikir Tumbuh</strong>
+        </button>
+      </h2>
+      <div id="fase2" class="accordion-collapse collapse" aria-labelledby="fase2Heading"
+        data-bs-parent="#accordionKurikulum">
+        <div class="accordion-body">
+          <ul>
+            <li><strong>Langkah 11:</strong> Cashflow Dasar dan Manajemen Uang — <em>Melatih kesadaran keuangan sejak dini</em></li>
+            <li><strong>Langkah 12:</strong> Problem Solving: Bisnis Adalah Solusi — <em>Menumbuhkan cara berpikir pengusaha</em></li>
+            <li><strong>Langkah 13:</strong> Tantangan Jualan 3 Hari — <em>Menguji keberanian dan praktek langsung</em></li>
+            <li><strong>Langkah 14:</strong> Public Speaking & Storytelling Dasar — <em>Melatih komunikasi pengaruh</em></li>
+            <li><strong>Langkah 15:</strong> Membuat Konten dan Caption Bisnis — <em>Belajar strategi promosi di era digital</em></li>
+            <li><strong>Langkah 16:</strong> Produksi Produk / Jasa Sederhana Sendiri — <em>Menciptakan produk yang bisa dijual</em></li>
+            <li><strong>Langkah 17:</strong> Jualan Pertama (Tanpa Modal Orang Tua) — <em>Melatih kemandirian dan kreativitas</em></li>
+            <li><strong>Langkah 18:</strong> Mengelola Penolakan dan Kritik — <em>Membangun resiliensi</em></li>
+            <li><strong>Langkah 19:</strong> Catatan Penjualan & Pengeluaran Harian — <em>Membangun kebiasaan tertib finansial</em></li>
+            <li><strong>Langkah 20:</strong> Refleksi Proses Jualan — <em>Menyadari perubahan diri dan pertumbuhan</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="fase3Heading">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fase3"
+          aria-expanded="false" aria-controls="fase3">
+          <strong>FASE 3: TAHU ARAH — Duplikasi, Kontribusi, Proyek Nyata</strong>
+        </button>
+      </h2>
+      <div id="fase3" class="accordion-collapse collapse" aria-labelledby="fase3Heading"
+        data-bs-parent="#accordionKurikulum">
+        <div class="accordion-body">
+          <ul>
+            <li><strong>Langkah 21:</strong> Personal Branding dan Citra Diri Positif — <em>Membangun kesadaran diri dan reputasi</em></li>
+            <li><strong>Langkah 22:</strong> Latihan Presentasi Bisnis — <em>Meningkatkan rasa percaya diri</em></li>
+            <li><strong>Langkah 23:</strong> Membuat Sistem Kerja Mini — <em>Menyusun sistem sederhana agar usaha tertata</em></li>
+            <li><strong>Langkah 24:</strong> Menjadi Mentor untuk Orang Lain — <em>Melatih kepemimpinan dan duplikasi ilmu</em></li>
+            <li><strong>Langkah 25:</strong> Bergabung dalam Forum Alumni MBC — <em>Menumbuhkan kebanggaan komunitas dan jejaring</em></li>
+            <li><strong>Langkah 26:</strong> Etika Bisnis: Jujur, Amanah, dan Profesional — <em>Menanamkan integritas</em></li>
+            <li><strong>Langkah 27:</strong> Rancang Proyek Bisnis Sosial — <em>Menghubungkan bisnis dengan kontribusi sosial</em></li>
+            <li><strong>Langkah 28:</strong> Menyusun Pitch Deck + Business Plan — <em>Melatih perencanaan dan presentasi ide</em></li>
+            <li><strong>Langkah 29:</strong> Simulasi Final Project — <em>Latihan presentasi dan evaluasi</em></li>
+            <li><strong>Langkah 30:</strong> FINAL PROJECT: Pameran, Presentasi Usaha, dan Amal Nyata — <em>Menampilkan hasil belajar, bisnis nyata, dan kontribusi sosial</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
-
-  <script>
-    // Progres bar ikut scroll
-    window.addEventListener('scroll', () => {
-      const roadmap = document.getElementById('roadmap');
-      const progress = document.getElementById('roadmapProgress');
-      const rect = roadmap.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      if (rect.top < windowHeight && rect.bottom > 0) {
-        const visible = Math.min(1, (windowHeight - rect.top) / (rect.height + windowHeight));
-        progress.style.width = (visible * 100) + '%';
-      }
-    });
-  </script>
-</section>
-<!-- ================== END SECTION ROADMAP ================== -->
-
+</section> -->
 
 
   <script>

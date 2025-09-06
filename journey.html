@@ -10,141 +10,203 @@
       background: #f8f9fa;
       font-family: 'Poppins', sans-serif;
     }
-    .journey-line {
-      position: absolute;
-      top: 0; bottom: 0; left: 50%;
-      width: 6px;
-      background: #ffc107;
-      transform: translateX(-50%);
+    .roadmap-section {
+      background: linear-gradient(135deg, #fff, #f1f5f9);
+      padding: 60px 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
-    .phase {
+    .roadmap-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .roadmap-steps {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 40px;
+      flex-wrap: wrap;
       position: relative;
-      margin-bottom: 70px;
     }
-    .phase-content {
+    .step {
+      flex: 1;
+      min-width: 220px;
       background: #fff;
       padding: 25px;
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 45%;
-      transition: transform .3s;
-    }
-    .phase-content:hover {
-      transform: translateY(-6px);
-    }
-    .phase:nth-child(even) .phase-content { margin-left: auto; }
-    .phase-icon {
-      position: absolute;
-      top: 20px; left: 50%;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      width: 65px; height: 65px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px; font-weight: bold;
-      color: #fff;
+      position: relative;
+      transition: transform .3s, box-shadow .3s;
+      cursor: pointer;
+      overflow: hidden;
       z-index: 2;
     }
-    .fade-in {
-      opacity: 0; transform: translateY(30px);
-      transition: all 0.6s ease-out;
+    .step:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-    .fade-in.show { opacity: 1; transform: translateY(0); }
+    .step-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin-bottom: 15px;
+      color: #fff;
+      transition: transform .6s ease;
+    }
+    .step:hover .step-icon {
+      transform: rotate(15deg) scale(1.1);
+    }
+    .step h5 {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    /* Panah antar card */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -40px;
+      font-size: 30px;
+      color: #adb5bd;
+      z-index: 1;
+      opacity: 0;
+      transition: all .5s ease;
+    }
+    .step.show .arrow {
+      opacity: 1;
+      color: #0d6efd;
+      animation: arrowMove 1.2s infinite;
+    }
+
+    @keyframes arrowMove {
+      0%   { transform: translateY(-50%) translateX(0); opacity: 0.5; }
+      50%  { transform: translateY(-50%) translateX(10px); opacity: 1; }
+      100% { transform: translateY(-50%) translateX(0); opacity: 0.5; }
+    }
+
+    /* Animasi fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(.19,1,.22,1);
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Collapse detail */
+    .detail {
+      margin-top: 15px;
+      font-size: 14px;
+      animation: fadeDetail .4s ease;
+    }
+    @keyframes fadeDetail {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
-<div class="container py-5 position-relative">
-  <div class="journey-line"></div>
+<div class="container my-5">
+  <div class="roadmap-section">
+    <div class="roadmap-title">
+      <h2 class="fw-bold">🚀 Roadmap Start Up Muda Academy</h2>
+      <p class="text-muted">Perjalanan pembelajaran bertahap dari fondasi hingga bisnis nyata</p>
+    </div>
+    <div class="roadmap-steps">
 
-  <!-- FASE 1 -->
-  <div class="phase fade-in">
-    <div class="phase-icon bg-warning">📘</div>
-    <div class="phase-content">
-      <h4 class="text-warning">FASE 1: Fondasi Diri & Karakter</h4>
-      <p>Membangun pondasi spiritual, mindset, dan karakter.</p>
-      <button class="btn btn-sm btn-outline-warning" data-bs-toggle="collapse" data-bs-target="#fase1">Detail</button>
-      <div id="fase1" class="collapse mt-3">
-        <ul>
-          <li>Membuat Dream Book & Life Vision</li>
-          <li>Design Kebiasaan Harian</li>
-          <li>Emotional & Social Intelligence (Tes Kepribadian, Relasi Sehat)</li>
-          <li>Benchmark: Role Model Board</li>
-        </ul>
+      <!-- Fase 1 -->
+      <div class="step fade-in">
+        <div class="step-icon bg-warning">📘</div>
+        <h5 class="text-warning">Fase 1</h5>
+        <p>Fondasi Diri & Karakter</p>
+        <button class="btn btn-sm btn-outline-warning" data-bs-toggle="collapse" data-bs-target="#fase1">Detail</button>
+        <div id="fase1" class="collapse detail">
+          <ul>
+            <li>Dream Book & Life Vision</li>
+            <li>Design Kebiasaan Harian</li>
+            <li>Emotional & Social Intelligence</li>
+            <li>Benchmark: Role Model Board</li>
+          </ul>
+        </div>
+        <div class="arrow">➡️</div>
       </div>
+
+      <!-- Fase 2 -->
+      <div class="step fade-in">
+        <div class="step-icon bg-danger">💡</div>
+        <h5 class="text-danger">Fase 2</h5>
+        <p>Mindset Pemenang & Grit</p>
+        <button class="btn btn-sm btn-outline-danger" data-bs-toggle="collapse" data-bs-target="#fase2">Detail</button>
+        <div id="fase2" class="collapse detail">
+          <ul>
+            <li>Mental Blok: Fixed vs Growth</li>
+            <li>Self Talk & Affirmasi Juara</li>
+            <li>Conceptual Thinking → Rencana Bisnis</li>
+            <li>Creative Problem Solving & Innovation</li>
+            <li>Communication & Influence</li>
+          </ul>
+        </div>
+        <div class="arrow">➡️</div>
+      </div>
+
+      <!-- Fase 3 -->
+      <div class="step fade-in">
+        <div class="step-icon bg-success">🤝</div>
+        <h5 class="text-success">Fase 3</h5>
+        <p>Leadership & Kolaborasi</p>
+        <button class="btn btn-sm btn-outline-success" data-bs-toggle="collapse" data-bs-target="#fase3">Detail</button>
+        <div id="fase3" class="collapse detail">
+          <ul>
+            <li>Self-Leadership</li>
+            <li>Membentuk Tim Project</li>
+            <li>Problem Solving Bersama</li>
+            <li>Proyek Kolaborasi Kecil</li>
+            <li>Public Speaking & Storytelling</li>
+          </ul>
+        </div>
+        <div class="arrow">➡️</div>
+      </div>
+
+      <!-- Fase 4 -->
+      <div class="step fade-in">
+        <div class="step-icon bg-primary">📱</div>
+        <h5 class="text-primary">Fase 4</h5>
+        <p>Bisnis & Digital</p>
+        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#fase4">Detail</button>
+        <div id="fase4" class="collapse detail">
+          <ul>
+            <li>Video AI Storytelling tentang Brand</li>
+            <li>Simulasi Meta Ads</li>
+            <li>TikTok Konten & Ads</li>
+          </ul>
+        </div>
+        <div class="arrow">➡️</div>
+      </div>
+
+      <!-- Fase 5 -->
+      <div class="step fade-in">
+        <div class="step-icon" style="background:#6f42c1;">💼</div>
+        <h5 style="color:#6f42c1;">Fase 5</h5>
+        <p>Family Business & Resiliensi</p>
+        <button class="btn btn-sm btn-outline-dark" data-bs-toggle="collapse" data-bs-target="#fase5">Detail</button>
+        <div id="fase5" class="collapse detail">
+          <ul>
+            <li>Improvement untuk Bisnis Keluarga</li>
+            <li>Financial Literacy</li>
+            <li>Final Project Presentation</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
-
-  <!-- FASE 2 -->
-  <div class="phase fade-in">
-    <div class="phase-icon bg-danger">💡</div>
-    <div class="phase-content">
-      <h4 class="text-danger">FASE 2: Mindset Pemenang & Grit</h4>
-      <p>Membangun mental juara, pola pikir tumbuh, dan problem solving.</p>
-      <button class="btn btn-sm btn-outline-danger" data-bs-toggle="collapse" data-bs-target="#fase2">Detail</button>
-      <div id="fase2" class="collapse mt-3">
-        <ul>
-          <li>Mental Blok: Fixed vs Growth</li>
-          <li>Latihan Self Talk & Affirmasi Juara</li>
-          <li>Conceptual Thinking → Rencana Bisnis</li>
-          <li>Creative Problem Solving & Innovation</li>
-          <li>Communication & Influence</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- FASE 3 -->
-  <div class="phase fade-in">
-    <div class="phase-icon bg-success">🤝</div>
-    <div class="phase-content">
-      <h4 class="text-success">FASE 3: Leadership & Kolaborasi</h4>
-      <p>Kepemimpinan diri, teamwork, dan kolaborasi nyata.</p>
-      <button class="btn btn-sm btn-outline-success" data-bs-toggle="collapse" data-bs-target="#fase3">Detail</button>
-      <div id="fase3" class="collapse mt-3">
-        <ul>
-          <li>Self-Leadership</li>
-          <li>Membentuk Tim Project</li>
-          <li>Latihan Problem Solving Bersama</li>
-          <li>Proyek Kolaborasi Kecil</li>
-          <li>Public Speaking & Storytelling</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- FASE 4 -->
-  <div class="phase fade-in">
-    <div class="phase-icon bg-primary">📱</div>
-    <div class="phase-content">
-      <h4 class="text-primary">FASE 4: Bisnis & Digital</h4>
-      <p>Menerapkan strategi digital & bisnis modern.</p>
-      <button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#fase4">Detail</button>
-      <div id="fase4" class="collapse mt-3">
-        <ul>
-          <li>Video AI Storytelling tentang Brand/Produk</li>
-          <li>Simulasi Meta Ads Kecil</li>
-          <li>TikTok Konten & Ads</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- FASE 5 -->
-  <div class="phase fade-in">
-    <div class="phase-icon bg-purple" style="background:#6f42c1;">💼</div>
-    <div class="phase-content">
-      <h4 style="color:#6f42c1;">FASE 5: Family Business & Resiliensi Nyata</h4>
-      <p>Menguatkan literasi keuangan & kontribusi nyata di bisnis keluarga.</p>
-      <button class="btn btn-sm btn-outline-dark" data-bs-toggle="collapse" data-bs-target="#fase5">Detail</button>
-      <div id="fase5" class="collapse mt-3">
-        <ul>
-          <li>Ide Improvement untuk Bisnis Orang Tua</li>
-          <li>Financial Literacy</li>
-          <li>Final Project Presentation</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
