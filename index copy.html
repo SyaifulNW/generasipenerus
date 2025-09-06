@@ -1,1043 +1,560 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>START-UP MUDA ACADEMY MBC</title>
-  <!-- favicon -->
   <link rel="icon" href="img/favicon.ico" type="image/png" />
-  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
-    <meta name="facebook-domain-verification" content="khe2ju8y46da83zp6uyb8d35m2thov"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-  <!-- AOS CSS -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="facebook-domain-verification" content="khe2ju8y46da83zp6uyb8d35m2thov"/>
 
+  <style>
+    :root{
+      --brand:#d70726;
+      --accent:#ffc107;
+      --muted:#6c757d;
+      --card-shadow: 0 6px 20px rgba(0,0,0,.12);
+      --max-width:1200px;
+    }
+    html,body{height:100%}
+    body{
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      margin:0;
+      color:#222;
+      background:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    a{ text-decoration:none; }
+
+    /* ====== GLOBAL CONTAINERS ====== */
+    .container-narrow{max-width:var(--max-width); margin:0 auto; padding:0 20px;}
+
+    /* ====== WhatsApp floating button ====== */
+    .wh-btn{
+      position:fixed; right:18px; bottom:18px; z-index:9999;
+      display:inline-flex; align-items:center; justify-content:center;
+      width:56px; height:56px; border-radius:50%;
+      background:#25D366; color:#fff; box-shadow:var(--card-shadow);
+    }
+    .wh-btn i{ font-size:22px; }
+
+    /* ====== HERO ====== */
+    header.hero{
+      min-height:90vh;
+      display:flex; align-items:center;
+      background-image:linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('img/hero1.jpg');
+      background-size:cover; background-position:center;
+      color:#fff; position:relative; padding:40px 0;
+    }
+    .hero .left h1{
+      font-size:2.4rem; margin-bottom:.6rem;
+      letter-spacing:0.2px;
+    }
+    .hero .left p.lead{ color: #ffdd57; font-weight:600; font-size:1.05rem;}
+    .hero .card-coach{ background:rgba(255,255,255,0.06); padding:18px; border-radius:12px; box-shadow:var(--card-shadow);}
+
+    .hook-text{
+      display:inline-block; font-weight:700; color:#fff; border-right:3px solid #ff4757;
+      white-space:nowrap; overflow:hidden; width:100%;
+    }
+
+    .floating-img{ max-width:100%; transition:transform .6s ease; animation:floatY 4s ease-in-out infinite; }
+    @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+    /* ====== SECTION TITLES ====== */
+    .section-title{ font-weight:700; color:var(--brand); margin-bottom:1rem; }
+    .subtle{ color:var(--muted); }
+
+    /* ====== MASALAH (list) ====== */
+    .masalah blockquote{ background:#f8f8f8; padding:12px 16px; border-left:4px solid var(--brand); }
+
+    /* ====== SWIPER ====== */
+    .swiper img{ width:100%; height:220px; object-fit:cover; border-radius:8px; }
+
+    /* ====== PROGRAM ====== */
+    .program .card{ border:0; box-shadow:var(--card-shadow); }
+
+    /* ====== ROADMAP ====== */
+    .roadmap-wrapper{ position:relative; max-width:1100px; margin:0 auto; padding:40px 20px 80px; }
+    .roadmap-svg{ width:100%; height:auto; display:block; }
+    .f-marker{
+      position:absolute; width:320px; background:#fff; padding:14px; border-radius:10px; box-shadow:var(--card-shadow);
+      transform:translateY(-10px); opacity:0;
+    }
+    .f-marker .pin{
+      width:44px; height:44px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:#fff; background:var(--brand); font-weight:700; margin-bottom:8px;
+    }
+    /* positions (desktop) */
+    .f1{ top:40px; left:60px;}
+    .f2{ top:320px; right:60px;}
+    .f3{ top:600px; left:60px;}
+    .f4{ top:880px; right:60px;}
+    .f5{ top:1160px; left:60px;}
+    /* small screens */
+    @media (max-width:900px){
+      .f-marker{ position:relative; width:auto; margin:18px auto; opacity:1; transform:none; }
+      .f1,.f2,.f3,.f4,.f5{ left:auto; right:auto; top:auto; }
+      .roadmap-wrapper{ padding-bottom:30px;}
+      .roadmap-svg{ display:none; }
+    }
+
+    /* ====== TABLE ====== */
+    .transform-table td, .transform-table th{ vertical-align:middle; }
+
+    /* ====== CTA DAFTAR SECTION ====== */
+    .daftar{ background:linear-gradient(90deg,var(--brand),#981019); color:#fff; padding:36px 20px; border-radius:12px; margin:30px 0;}
+    .cta-btn{ display:inline-block; padding:12px 18px; background:#fff; color:var(--brand); border-radius:8px; font-weight:700; box-shadow:0 8px 30px rgba(0,0,0,.12); }
+
+    /* ====== FOOTER ====== */
+    footer{ padding:28px 20px; text-align:center; color:var(--muted); background: #fff; margin-top:30px; }
+
+    /* small helpers */
+    .muted{ color:var(--muted); }
+  </style>
 </head>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSSN96SN"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak" 
-   class="float" target="_blank">
-  <i class="fa fa-whatsapp my-float"></i>
-</a>
 
-  <header class="hero" style="
-    background-image: url('img/hero1.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-blend-mode:  overlay;
-    background-color: rgba(10, 10, 10, 0.92);
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-  ">
-    <div class="container-fluid">
-      <div class="row align-items-center" style="min-height: 95vh;">
-        <div class="col-lg-7 col-md-12">
-          <div class="hero-content text-white" style="position: relative; z-index: 1; padding-top: 20px; padding-left: 15px; padding-right: 15px;">
-            <h1 class="display-4 fw-bold" style="font-size: 2.2rem;">START-UP MUDA ACADEMY MBC</h1>
-           <p class="lead" style="font-size: 1.3rem; font-weight: 600; color:#d70726; margin-bottom: 0.5rem; background-color: #ffff; padding: 0.75rem 1rem; border-radius: 10px;">
-  “KAMPUS NYA ANAK PENGUSAHA, DIAJARKAN ILMU BISNIS, LEADERSHIP, MINDSET JUARA dan AKHLAKUL KARIMAH dalam bisnis yang tidak diajarkan di Sekolah Formal."
-</p>
+  <!-- WhatsApp -->
+  <a class="wh-btn" href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-            <h2 style="font-size: 1.1rem; margin-top: 1.2rem;">
-              PERNAHKAN ANDA MENDENGAR MITOS Bahwa:
-            </h2>
-            <div class="kutipan">
-              <h3 style="color:#d70726; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.4rem;">
-                "Generasi pertama membangun, generasi kedua menikmati, dan generasi ketiga menghancurkan" ?
-              </h3>
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="container-narrow d-flex flex-wrap align-items-center gap-4">
+        <div class="left col-lg-7 col-md-12 pe-lg-5">
+          <div data-aos="fade-up">
+            <h1 class="hook-text" id="typingText">❝ START-UP MUDA ACADEMY MBC ❞</h1>
+            <p class="lead mt-3">“Kampusnya Anak Pengusaha” yang mengajarkan <strong>Ilmu Bisnis, Leadership, Mindset Juara</strong> dan <strong>Akhlaqul Karimah</strong> yang jarang diajarkan di sekolah formal.</p>
+
+            <h5 class="mt-4 mb-2">Tantangan Besar Anak Pengusaha Hari Ini:</h5>
+            <div class="kutipan mb-3">
+              <p class="mb-1" style="color:#ffdede; font-weight:700;">Banyak yang pintar di sekolah, tapi bingung saat diturunkan bisnis keluarga.</p>
+              <p class="mb-1" style="color:#ffdede; font-weight:700;">Ada yang mampu menikmati hasil, tapi tidak siap memimpin tim & menjaga legacy.</p>
             </div>
-            <p class="lead" style="color: white; font-size: 1.3srem; margin-bottom: 0.8rem;">
-              Membentuk Generasi Penerus Bisnis Orang Tua
-            </p>
-            <h3 class="lead" style="background-color: #fff; font-weight: bold; color: rgb(202, 72, 72); font-size: 1.2rem; margin-bottom: 0.8rem;">
-                    ❝ Apakah  Anda Ingin Anak Anda Siap Mewarisi, Memimpin, <br> dan Mengembangkan Bisnis
-        Keluarga Anda ? ❞
-            </h3>
-          </div>
-        </div>
-        <div class="col-lg-5 col-md-10 text-center">
-          <img src="img/fjs.png" alt="Fitra Jaya Saleh" class="img-fluid rounded shadow" style="max-width: 350px; width: 100%; margin-top: -50px; ">
-          <div style="margin-top: 12px; font-weight: bold; color: #fff; font-size: 1.1rem;">
-            Coach Fitra Jaya Saleh
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-overlay" style="
-      position: relative;
-      top: 10px;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.65);
-    "></div>
-    <style>
-      @media (max-width: 991px) {
-        header.hero .container-fluid .row {
-          flex-direction: column-reverse;
-        }
-        header.hero .col-lg-5 {
-          margin-bottom: 30px;
-        }
-        header.hero {
-          height: auto !important;
-          min-height: 100vh;
-          padding-top: 40px;
-          padding-bottom: 40px;
-        }
-        .hero-content {
-          padding-top: 40px !important;
-          padding-left: 10px !important;
-          padding-right: 10px !important;
-        }
-        .display-4 {
-          font-size: 1.5rem !important;
-        }
-        .lead, h2, .kutipan h2 {
-          font-size: 1rem !important;
-        }
-        .kutipan h2 {
-          margin-bottom: 0.5rem !important;
-        }
-        p[style*="font-size: 30px"], p[style*="font-size: 18px"] {
-          font-size: 1.2rem !important;
-        }
-        .col-lg-5 img {
-          max-width: 220px !important;
-          margin-top: 20px !important;
-        }
-        .col-lg-5 div {
-          font-size: 1rem !important;
-          margin-top: 8px !important;
-        }
-      }
-      @media (max-width: 480px) {
-        header.hero {
-          padding-top: 20px;
-          padding-bottom: 20px;
-        }
-        .hero-content {
-          padding-top: 20px !important;
-          padding-left: 5px !important;
-          padding-right: 5px !important;
-        }
-        .display-4 {
-          font-size: 1.1rem !important;
-        }
-        .lead, h2, .kutipan h2 {
-          font-size: 1.3rem !important;
-        }
-        .col-lg-5 img {
-          max-width: 140px !important;
-          margin-top: 10px !important;
-        }
-        .col-lg-5 div {
-          font-size: 0.95rem !important;
-          margin-top: 6px !important;
-        }
-      }
-    </style>
-  </header>
-  <br />
-  <!-- Section 10 Masalah -->
-  <section class="py-5" style="background-color: #fff;">
-    <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
-      <h2 class="fw-bold mb-4 text-center text-danger">
-        10 MASALAH ORANG TUA PEBISNIS SAAT INGIN ANAK JADI PENERUS BISNIS
-      </h2>
 
-      <!-- Poin 1 -->
-      <div class="mb-4">
-        <h5><strong>1. <em>Anak Tidak Tertarik atau Cuek</em></strong></h5>
-        <blockquote class="blockquote">
-          “Saya udah capek bangun usaha dari nol, eh anaknya malah sibuk main atau nge-game.”
-        </blockquote>
-        <p><em>Akar masalah:</em></p>
-        <ul>
-          <li>Tidak kenal dunia bisnis sejak kecil</li>
-          <li>Belum melihat urgensi dan tanggung jawabnya</li>
-          <li>Belum punya mimpi sendiri terkait bisnis</li>
-        </ul>
-      </div>
-
-      <!-- Poin 2 -->
-      <div class="mb-4">
-        <h5><strong>2. <em>Mental Warisan, Bukan Mental Pemimpin</em></strong></h5>
-        <blockquote class="blockquote">
-          Anak hanya mau menikmati hasil, bukan ikut berjuang.
-        </blockquote>
-        <p><em>Ciri-ciri:</em></p>
-        <ul>
-          <li>Mudah menyerah</li>
-          <li>Tidak punya ambisi</li>
-          <li>Tidak punya tanggung jawab terhadap bisnis</li>
-        </ul>
-      </div>
-
-      <!-- Poin 3-10 (disembunyikan) -->
-      <div id="morePoints" style="display: none;">
-        <!-- Poin 3 -->
-        <div class="mb-4">
-          <h5><strong>3. <em>Kurang Skill Nyata</em></strong></h5>
-          <blockquote>“Dia lulusan k mpus top, tapi pas saya suruh handle satu divisi, bingung total.”</blockquote>
-          <p><em>Gap-nya:</em></p>
-          <ul>
-            <li>Kurang pengalaman praktis</li>
-            <li>Belum paham operasional dasar bisnis</li>
-            <li>Tidak terbiasa memimpin tim</li>
-          </ul>
-        </div>
-
-        <!-- Poin 4 -->
-        <div class="mb-4">
-          <h5><strong>4. <em>Tidak Nyambung Secara Visi</em></strong></h5>
-          <blockquote>“Saya ingin bisnis ini berkembang, tapi anak saya bilang mau jadi konten kreator saja.”
-          </blockquote>
-          <p>Ini konflik antara visi generasi.<br>Butuh pendekatan agar anak bisa melihat <em>makna besar di balik
-              bisnis keluarga.</em></p>
-        </div>
-
-        <!-- Poin 5 -->
-        <div class="mb-4">
-          <h5><strong>5. <em>Tidak Ada Waktu untuk Dididik Langsung</em></strong></h5>
-          <blockquote>Orang tua sibuk urus operasional, gak sempat mendidik anaknya dari nol.</blockquote>
-          <p><strong>Solusi:</strong> Butuh program pendampingan eksternal seperti Kampus MBC ini.</p>
-        </div>
-
-        <!-- Poin 6 -->
-        <div class="mb-4">
-          <h5><strong>6. <em>Takut Anak Gagal</em></strong></h5>
-          <blockquote>“Kalau saya serahkan bisnis ke dia, jangan-jangan bisnisnya malah hancur…”</blockquote>
-          <p><em>Penyebab rasa takut ini:</em></p>
-          <ul>
-            <li>Belum ada transisi kepemimpinan yang sehat</li>
-            <li>Tidak tahu seberapa siap anaknya</li>
-            <li>Belum pernah diuji dalam konteks nyata</li>
-          </ul>
-        </div>
-
-        <!-- Poin 7 -->
-        <div class="mb-4">
-          <h5><strong>7. <em>Konflik Internal dan Ego</em></strong></h5>
-          <blockquote>Kadang orang tua terlalu dominan, anak merasa tidak dipercaya<br>Atau sebaliknya, anak terlalu
-            keras kepala tanpa pengalaman</blockquote>
-          <p><em>Butuh pelatihan komunikasi antar generasi dan penanaman nilai saling percaya.</em></p>
-        </div>
-
-        <!-- Poin 8 -->
-        <div class="mb-4">
-          <h5><strong>8. <em>Gap Teknologi dan Cara Pandang</em></strong></h5>
-          <blockquote>Anak lebih digital, orang tua lebih tradisional.<br>Tapi dua-duanya tidak saling mengerti.
-          </blockquote>
-          <p><strong>Solusi:</strong> Anak dibekali <em>skill digital modern</em>, tapi tetap hormat pada <strong>akar
-              nilai keluarga.</strong></p>
-        </div>
-
-        <!-- Poin 9 -->
-        <div class="mb-4">
-          <h5><strong>9. <em>Belum Ada Sistem Bisnis yang Bisa Ditransfer</em></strong></h5>
-          <blockquote>Banyak bisnis keluarga berbasis “kepala” ayahnya, bukan sistem.</blockquote>
-          <p><strong>Efeknya:</strong> Saat anak masuk, tidak tahu harus mulai dari mana.</p>
-        </div>
-
-        <!-- Poin 10 -->
-        <div class="mb-4">
-          <h5><strong>10. <em>Kurangnya Role Model atau Mentor</em></strong></h5>
-          <blockquote>Anak tidak punya figur inspiratif di luar orang tuanya untuk memicu semangat belajar bisnis.
-          </blockquote>
-        </div>
-      </div>
-
-      <!-- Tombol Toggle -->
-      <div class="text-center">
-        <button class="btn btn-outline-danger" id="readMoreBtn" onclick="toggleMore()">Lihat Selengkapnya</button>
-      </div>
-    </div>
-  </section>
-  <!-- Section Slide kelas -->
-  <section>
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-    <div class="container text-center" data-aos="fade-up" data-aos-duration="1200">
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="img/gp1.jpg" alt="Kelas 1" class="img-fluid rounded shadow" />
-          </div>
-          <div class="swiper-slide">
-            <img src="img/gp3.jpg" alt="Kelas 2" class="img-fluid rounded shadow" />
-          </div>
-          <div class="swiper-slide">
-            <img src="img/gp2.jpg" alt="Kelas 3" class="img-fluid rounded shadow" />
-          </div>
-      
-          <div class="swiper-slide">
-            <img src="img/gp11.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
-          </div>
-        </div>
-        <!-- Swiper navigation -->
-  
-        <!-- Swiper pagination -->
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 2
-          },
-          992: {
-            slidesPerView: 3
-          }
-        }
-      });
-    </script>
-    <!-- Keterangan -->
-      <div class="text-center mt-3" data-aos="fade-up" data-aos-duration="1200">
-        <p class="text-dark" style="font-size: 1.1rem;">
-      Di Bimbing oleh Coach Fitra Jaya Saleh, bisnis Coach yang membina Ribuan pengusaha dan telah berpengalaman bertahun tahun dalam dunia coaching bisnis.
-        </p>
-      </div>
-    </div>
-   </section>
-
-  <!-- Section Masalah Orang Tua -->
-
-  <script>
-    function toggleMore() {
-      const more = document.getElementById("morePoints");
-      const btn = document.getElementById("readMoreBtn");
-      if (more.style.display === "none") {
-        more.style.display = "block";
-        btn.innerText = "Sembunyikan";
-      } else {
-        more.style.display = "none";
-        btn.innerText = "Lihat Selengkapnya";
-      }
-    }
-  </script>
-
-
-  <section id="intro" class="intro py-5 px-3" style="background-color: #d70726">
-    <div class="container" data-aos="fade-up" data-aos-duration="1200" style="max-width: 1200px; margin: auto">
-      <h3 class="fw-bold text-dark"  style="font-size: 1.4rem; background-color: white; text-align: center;" data-aos="fade-up">
-       <p style="font-size: 1.3rem; font-family: 'Scheherazade', serif; direction: rtl; color: #131212; margin-bottom: 0.4rem; word-break: break-word;">
-              وَلْيَخْشَ الَّذِيْنَ لَوْ تَرَكُوْا مِنْ خَلْفِهِمْ ذُرِّيَّةً ضِعٰفًا خَافُوْا عَلَيْهِمْۖ فَلْيَتَّقُوا
-              اللّٰهَ وَلْيَقُوْلُوْا قَوْلًا سَدِيْدًا ۝٩
-            </p>
-            <p style="font-style: italic; font-size: 1rem; margin-bottom: 0.5rem;">
-              “Hendaklah merasa takut orang-orang yang seandainya (mati) meninggalkan setelah
-              mereka, keturunan yang lemah (yang) mereka khawatir terhadapnya. Maka, bertakwalah kepada Allah dan berbicaralah
-              dengan tutur kata yang benar (dalam hal menjaga hak-hak keturunannya).” (QS. An-Nisa': 9).
-            </p>
-      </h3>
-      <p class="mt-3 text-light" style="font-size: 1.2rem" data-aos="fade-up" data-aos-delay="200">
-        Banyak pengusaha sukses hari ini… Namun diam-diam menyimpan
-        kegelisahan besar:
-      </p>
-      <ul style="padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.6" class="mt-3 text-light"
-        style="font-size: 1.2rem" data-aos="fade-up" data-aos-delay="400">
-        <li>✅“Anakku bisa nggak ya teruskan bisnis ini?”</li>
-        <li>✅“Dia belum paham dunia nyata, apalagi dunia usaha.”</li>
-        <li>✅“Kalau aku sudah tua nanti, siapa yang akan memimpin?”</li>
-      </ul>
-    </div>
-  </section>
-  <section class="hero" style="
-    background-image: url('img/hero1.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.6);
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 80vh;
-    position: relative;
-    overflow: hidden;
-  " data-aos="fade-up" data-aos-duration="1200">
-    <div class="container-fluid h-100">
-      <div class="row align-items-center h-100" style="min-height: 60vh;">
-        <div class="col-lg-7 col-md-12">
-          <div class="hero-content text-white" style="position: relative; z-index: 1; padding-top: 20px; padding-left: 15px; padding-right: 15px;">
-            <h1 class="display-4 fw-bold" style="font-size: 2.2rem; text-align: center;">KAMPUS GENERASI PENERUS MBC</h1>
-            <p style="font-size: 1.3rem; font-weight: 600; color:#d70726; margin-bottom: 0.5rem;  background-color: #ffff; text-align: center;">
-                    “KAMPUS NYA ANAK PENGUSAHA, DIAJARKAN ILMU BISNIS, LEADERSHIP, MINDSET JUARA dan AKHLAKUL KARIMAH dalam bisnis yang tidak diajarkan di Sekolah Formal."
-            </p>
-            <p class="lead" style="color: white; font-size: 1.1rem; margin-bottom: 0.8rem;">
-              Sebuah program pengembangan karakter, kemampuan bisnis dan kepemimpinan untuk anak pengusaha, agar mereka:
-            </p>
-            <div class="text-left" style="font-size: 1.1rem; line-height: 1.6; margin: 0 auto; max-width: 1300px;">
-              <strong>✅ Menyiapkan anak-anak pengusaha untuk menjadi pengusaha  yang lebih baik.</strong><br /> 
-              <strong>✅ Membekali keterampilan bisnis nyata, mindset seorang juara dan akhlak mulia seorang pengusaha muslim</strong><br />
-              <strong>✅ Memiliki mentor dan komunitas bisnis Muslim</strong><br />
-              <strong>✅ ⁠Memberikan anak anda Networking jaringan sesama pengusaha muslim yang saling suport dalam kebaikan</strong>
+            <div class="mt-3">
+              <p class="lead" style="color:#fff;">Apakah Anda ingin anak Anda dibekali ilmu, mindset, dan leadership agar siap melanjutkan & mengembangkan bisnis keluarga?</p>
             </div>
           </div>
         </div>
-        <div class="col-lg-5 col-md-10 text-center">
-          <img src="img/fjsputih.png" alt="Fitra Jaya Saleh" class="img-fluid rounded shadow" style="max-width: 350px; width: 100%; margin-top: -50px;">
-          <div style="margin-top: 12px; font-weight: bold; color: #fff; font-size: 1.1rem;">
-            Coach Fitra Jaya Saleh
+
+        <div class="right col-lg-4 col-md-10 text-center">
+          <div class="card card-coach p-3" data-aos="zoom-in">
+            <img src="img/fjs.png" alt="Coach Fitra Jaya Saleh" class="floating-img img-fluid rounded mb-2" style="max-width:280px;">
+            <div style="font-weight:700;">Coach Fitra Jaya Saleh</div>
+            <div class="muted">Master Coach</div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="hero-overlay" style="
-      position: relative;
-      background-color:black;
-  
-    "></div>
-    <style>
-      @media (max-width: 991px) { 
-        section.hero {
-          height: auto !important;
-          min-height: 70vh;
-          padding-top: 40px;
-          padding-bottom: 40px;
-        }
-        section.hero .container-fluid .row {
-          flex-direction: column-reverse;
-        }
-        section.hero .col-lg-5 {
-          margin-bottom: 30px;
-        }
-        .hero-content {
-          padding-top: 30px !important;
-          padding-left: 10px !important;
-          padding-right: 10px !important;
-        }
-        .display-4 {
-          font-size: 1.5rem !important;
-        }
-        .lead {
-          font-size: 1rem !important;
-        }
-        .col-lg-5 img {
-          max-width: 220px !important;
-          margin-top: 20px !important;
-        }
-        .col-lg-5 div {
-          font-size: 1rem !important;
-          margin-top: 8px !important;
-        }
-        .hero-content .text-left {
-          font-size: 1rem !important;
-        }
-      }
-      @media (max-width: 480px) {
-        section.hero {
-          padding-top: 20px;
-          padding-bottom: 20px;
-        }
-        .hero-content {
-          padding-top: 15px !important;
-          padding-left: 5px !important;
-          padding-right: 5px !important;
-        }
-        .display-4 {
-          font-size: 1.1rem !important;
-        }
-        .lead {
-          font-size: 0.95rem !important;
-        }
-        .col-lg-5 img {
-          max-width: 120px !important;
-          margin-top: 10px !important;
-        }
-        .col-lg-5 div {
-          font-size: 0.95rem !important;
-          margin-top: 6px !important;
-        }
-        .hero-content .text-left {
-          font-size: 0.95rem !important;
-        }
-      }
-    </style>
-  </section>
+    </header>
 
-  <!-- Pastikan sudah include AOS seperti contoh sebelumnya -->
-  <section id="program" class="program py-5 px-3" style="background-color: #fff">
-    <div class="container">
-      <h2 class="fw-bold text-danger text-center mb-4" style="font-size: 2rem">
-        🚀 Program Intensif 6 Bulan
-      </h2>
-      <p class="text-center" style="font-size: 1.2rem" >
-       Pembelajaran Di Kelas +  Pembelajaran Lapangan
-      </p>
+    <!-- 10 MASALAH -->
+    <section class="masalah py-5" style="background:#fff;">
+      <div class="container-narrow" data-aos="fade-up">
+        <h2 class="section-title text-center">10 MASALAH ORANG TUA PEBISNIS SAAT INGIN ANAK JADI PENERUS BISNIS</h2>
 
-      <div class="row mt-5">
-        <!-- Kolom Teori -->
-        <div class="col-md-6 mb-4" >
-          <h4 class="fw-bold mb-3">📚  Pembelajaran Di Kelas </h4>
-          <ul class="list-unstyled" style="font-size: 1.1rem">
-            <li class="mb-2">✅ Mindset Juara & Leadership</li>
-            <li class="mb-2">✅ Manajemen Bisnis</li>
-            <li class="mb-2">✅ Pengelolaan Keuangan</li>
-            <li class="mb-2">✅ Digital Marketing, AI, dan Desain Grafis</li>
-            <li class="mb-2">✅ Karakter Pemenang </li>
-            <li class="mb-2">✅ Akhlaqul Karimah & Adab Islami </li>
+        <div class="mb-4">
+          <h5 class="fw-bold">1. <em>Anak Tidak Tertarik atau Cuek</em></h5>
+          <blockquote>“Saya udah capek bangun usaha dari nol, eh anaknya malah sibuk main atau nge-game.”</blockquote>
+          <p><em>Akar masalah:</em></p>
+          <ul>
+            <li>Tidak kenal dunia bisnis sejak kecil</li>
+            <li>Belum melihat urgensi dan tanggung jawabnya</li>
+            <li>Belum punya mimpi sendiri terkait bisnis</li>
           </ul>
         </div>
 
-        <!-- Kolom Magang -->
-        <div class="col-md-6 mb-4" >
-          <h4 class="fw-bold mb-3">🛠️ Pembelajaran Lapangan</h4>
-          <ul class="list-unstyled" style="font-size: 1.1rem">
-            <li class="mb-2">✅ Praktek langsung di perusahaan mitra MBC</li>
-            <li class="mb-2">✅ Membuat Project Bisnis</li>
-            <li class="mb-2">✅ Networking Pengusaha</li>
-            <li class="mb-2">✅ Dimentori oleh praktisi berpengalaman</li>
-            <li class="mb-2">✅ Problem Solving & Decision Making</li>
-            <li class="mb-2">
-              ✅ Menjalankan proyek nyata dari awal sampai pitching
-            </li>
+        <div class="mb-4">
+          <h5 class="fw-bold">2. <em>Mental Warisan, Bukan Mental Pemimpin</em></h5>
+          <blockquote>Anak hanya mau menikmati hasil, bukan ikut berjuang.</blockquote>
+          <ul>
+            <li>Mudah menyerah</li>
+            <li>Tidak punya ambisi</li>
+            <li>Tidak punya tanggung jawab terhadap bisnis</li>
           </ul>
+        </div>
+
+        <div id="morePoints" style="display:none;">
+          <!-- 3..10 hidden content (same as input) -->
+          <div class="mb-4">
+            <h5 class="fw-bold">3. <em>Kurang Skill Nyata</em></h5>
+            <blockquote>“Dia lulusan kampus top, tapi pas saya suruh handle satu divisi, bingung total.”</blockquote>
+            <ul>
+              <li>Kurang pengalaman praktis</li>
+              <li>Belum paham operasional dasar bisnis</li>
+              <li>Tidak terbiasa memimpin tim</li>
+            </ul>
+          </div>
+          <div class="mb-4">
+            <h5 class="fw-bold">4. <em>Tidak Nyambung Secara Visi</em></h5>
+            <blockquote>“Saya ingin bisnis ini berkembang, tapi anak saya bilang mau jadi konten kreator saja.”</blockquote>
+            <p>Butuh pendekatan agar anak bisa melihat makna besar di balik bisnis keluarga.</p>
+          </div>
+          <div class="mb-4">
+            <h5 class="fw-bold">5. <em>Tidak Ada Waktu untuk Dididik Langsung</em></h5>
+            <blockquote>Orang tua sibuk urus operasional, gak sempat mendidik anaknya dari nol.</blockquote>
+            <p><strong>Solusi:</strong> Butuh program pendampingan eksternal.</p>
+          </div>
+          <div class="mb-4">
+            <h5 class="fw-bold">6. <em>Takut Anak Gagal</em></h5>
+            <blockquote>“Kalau saya serahkan bisnis ke dia, jangan-jangan bisnisnya malah hancur…”</blockquote>
+          </div>
+          <div class="mb-4">
+            <h5 class="fw-bold">7. <em>Konflik Internal dan Ego</em></h5>
+            <blockquote>Sering terjadi ketidakcocokan cara pandang antar generasi.</blockquote>
+          </div>
+          <div class="mb-4">
+            <h5 class="fw-bold">8. <em>Gap Teknologi dan Cara Pandang</em></h5>
+            <blockquote>Anak lebih digital, orang tua lebih tradisional.</blockquote>
+          </div>
+          <div class="mb-4">
+            <h5 class="fw-bold">9. <em>Belum Ada Sistem Bisnis yang Bisa Ditransfer</em></h5>
+            <blockquote>Banyak bisnis keluarga berbasis “kepala” bukan sistem.</blockquote>
+          </div>
+          <div class="mb-4">
+            <h5 class="fw-bold">10. <em>Kurangnya Role Model atau Mentor</em></h5>
+            <blockquote>Anak tidak punya figur inspiratif di luar orang tuanya.</blockquote>
+          </div>
+        </div>
+
+        <div class="text-center mt-3">
+          <button id="readMoreBtn" class="btn btn-outline-danger">Lihat Selengkapnya</button>
         </div>
       </div>
+    </section>
 
-      <p class="text-center text-white mt-4" style="font-size: 1.2rem; background-color: black;">
-        Dan Masih Banyak Lagi Pembelajaran Di Kelas Maupun di Lapangan. Dengan kurikulum terstruktur & mentor andal, anak Anda siap menjadi
-        generasi penerus bisnis yang visioner .
-      </p>
-    </div>
-  </section>
+    <!-- SLIDER (KELAS) -->
+    <section class="py-5">
+      <div class="container-narrow" data-aos="fade-up">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/gp1.jpg" alt="Kelas 1"></div>
+            <div class="swiper-slide"><img src="img/gp3.jpg" alt="Kelas 2"></div>
+            <div class="swiper-slide"><img src="img/gp2.jpg" alt="Kelas 3"></div>
+            <div class="swiper-slide"><img src="img/gp11.jpg" alt="Kelas 4"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
 
-  <!-- Section Roadmap 20 -->
-<section>
+        <div class="text-center mt-3">
+          <p class="muted">Di bimbing oleh Coach Fitra Jaya Saleh, pembinaan ratusan pengusaha dengan pengalaman bertahun-tahun.</p>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <!-- INTRO AYAT -->
+    <section id="intro" class="py-5" style="background:var(--brand); color:#fff;">
+      <div class="container-narrow" data-aos="fade-up">
+        <div style="max-width:1100px; margin:0 auto; text-align:center;">
+          <p style="font-family: 'Scheherazade', serif; font-size:1.25rem; margin-bottom:.6rem;">
+            وَلْيَخْشَ الَّذِيْنَ لَوْ تَرَكُوْا مِنْ خَلْفِهِمْ ذُرِّيَّةً ضِعٰفًا خَافُوْا عَلَيْهِمْۖ فَلْيَتَّقُوا اللّٰهَ وَلْيَقُوْلُوْا قَوْلًا سَدِيْدًا ۝٩
+          </p>
+          <p class="mb-0" style="font-style:italic; opacity:.95;">“Hendaklah merasa takut orang-orang ... (QS. An-Nisa': 9).”</p>
+          <div class="mt-3" style="font-size:1.05rem;">
+            <p>✅“Anakku bisa nggak ya teruskan bisnis ini?” • ✅“Dia belum paham dunia nyata, apalagi dunia usaha.” • ✅“Kalau aku sudah tua nanti, siapa yang akan memimpin?”</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- HERO 2 / PROGRAM -->
+    <section class="py-5" style="background:#0b0b0b; color:#fff;">
+      <div class="container-narrow" data-aos="fade-up">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <h2 class="section-title" style="color:#fff;">START-UP MUDA ACADEMY MBC</h2>
+            <p class="lead" style="color:#ffdede;">Program pengembangan karakter, kemampuan bisnis & kepemimpinan untuk anak pengusaha.</p>
+            <div style="font-size:1rem; line-height:1.6;">
+              <strong>✅ Menyiapkan anak pengusaha menjadi lebih siap.</strong><br>
+              <strong>✅ Membekali skill bisnis nyata, mindset juara, & akhlak mulia.</strong><br>
+              <strong>✅ Mentor & komunitas pengusaha Muslim.</strong>
+            </div>
+          </div>
+          <div class="col-lg-5 text-center">
+            <img src="img/fjsputih.png" alt="Coach" class="img-fluid rounded" style="max-width:260px;">
+            <div class="mt-2">Coach Fitra Jaya Saleh</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Section Apa saja  -->
+    <!-- PROGRAM RINCI -->
+    <section id="program" class="py-5" style="background:#fff;">
+      <div class="container-narrow" data-aos="fade-up">
+        <h2 class="section-title text-center">🚀 Program Intensif 6 Bulan</h2>
+        <p class="text-center muted mb-4">Pembelajaran di kelas + pembelajaran lapangan</p>
 
-  <!-- <section class="py-5" style="background-color: #d70726;">
-    <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
-      <h2 class="fw-bold mb-4 text-center text-white">
-         APA SAJA YANG AKAN DIPEROLEH ANAK ANDA DI  KAMPUS GENERASI PENERUS MBC ?
-      </h2>
-      <div>
-        <p class="lead text-white text-center" style="font-size: 1.2rem;">
-          Di Kampus MBC Generasi Penerus, anak-anak tidak hanya belajar teori di ruang kelas. Mereka akan menjalani <strong>pengalaman pembelajaran total</strong> — dari pembentukan karakter, penguatan mental, pengasahan skill, hingga praktek nyata di dunia bisnis.
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h5>📚 Pembelajaran di Kelas</h5>
+              <ul class="mb-0">
+                <li>Mindset Juara & Leadership</li>
+                <li>Manajemen Bisnis</li>
+                <li>Pengelolaan Keuangan</li>
+                <li>Digital Marketing, AI, Desain Grafis</li>
+                <li>Karakter Pemenang & Akhlaqul Karimah</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h5>🛠️ Pembelajaran Lapangan</h5>
+              <ul class="mb-0">
+                <li>Praktek di perusahaan mitra MBC</li>
+                <li>Membuat Project Bisnis & Pitching</li>
+                <li>Networking Pengusaha</li>
+                <li>Mentoring praktisi berpengalaman</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center mt-4" style="background:#000; color:#fff; padding:12px; border-radius:8px;">
+          Dengan kurikulum terstruktur & mentor andal, anak Anda siap menjadi generasi penerus bisnis yang visioner.
         </p>
       </div>
-      <div id="mbc-detail" style="display: none;">
-        <hr class="bg-white">
-        <h4 class="fw-bold text-white mb-3"> Pembelajaran Kelas Eksklusif Bersama Coach FJS</h4>
-        <ul class="text-white" style="font-size: 1.1rem;">
-          <li>Mindset dan mentalitas pengusaha sejati</li>
-          <li>Manajemen bisnis modern & leadership Islami</li>
-          <li>Strategi pemasaran, keuangan, dan operasional</li>
-          <li>Pemanfaatan teknologi dan AI dalam bisnis</li>
-        </ul>
-        <blockquote class="blockquote text-dark"> Anak Anda tidak hanya jadi pintar, tapi juga siap memimpin.</blockquote>
-        <hr class="bg-white">
-        <h4 class="fw-bold text-white mb-3">Internship di Perusahaan Mitra Pengusaha Muslim</h4>
-        <ul class="text-white" style="font-size: 1.1rem;">
-          <li>Magang langsung di bisnis nyata alumni MBC</li>
-          <li>Ditempa karakter tanggung jawab & profesionalitas</li>
-          <li>Belajar bekerja dalam tim dan menyelesaikan proyek bisnis</li>
-        </ul>
-        <blockquote class="blockquote text-dark">Dari hanya tahu teori, menjadi anak yang bisa dipercaya di lapangan.</blockquote>
-        <hr class="bg-white">
-        <h4 class="fw-bold text-white mb-3"> Pelatihan Soft Skill & Personal Branding</h4>
-        <ul class="text-white" style="font-size: 1.1rem;">
-          <li>Public Speaking dan presentasi ide</li>
-          <li>Komunikasi efektif dalam tim dan bisnis keluarga</li>
-          <li>Manajemen emosi & kepercayaan diri</li>
-          <li>Membangun personal branding sebagai pemuda calon pemimpin</li>
-        </ul>
-        <blockquote class="blockquote text-dark">Bukan hanya pintar, tapi percaya diri dan disegani.</blockquote>
-        <hr class="bg-white">
-        <h4 class="fw-bold text-white mb-3"> Outbound, Team Building & Leadership Camp</h4>
-        <ul class="text-white" style="font-size: 1.1rem;">
-          <li>Simulasi tim di alam terbuka</li>
-          <li>Tantangan kerjasama dan keberanian</li>
-          <li>Refleksi spiritual dan mental juang</li>
-        </ul>
-        <blockquote class="blockquote text-dark"> Anak Anda akan lebih kuat, lebih tangguh, lebih dewasa.</blockquote>
-        <hr class="bg-white">
-        <h4 class="fw-bold text-white mb-3">Mentoring & Perencanaan Masa Depan</h4>
-        <ul class="text-white" style="font-size: 1.1rem;">
-          <li>Memiliki roadmap bisnis pribadi & keluarga</li>
-          <li>Membuat presentasi bisnis akhir di depan mentor & keluarga</li>
-          <li>Membangun portofolio nyata: proposal, laporan, hingga testimoni</li>
-        </ul>
-        <blockquote class="blockquote text-dark"> Siap naik kelas dari anak biasa menjadi calon CEO bisnis keluarga.</blockquote>
-        <hr class="bg-white">
-        <h5 class="fw-bold text-white mb-2">Satu Kalimat Kesimpulan untuk Orang Tua:</h5>
-        <blockquote class="blockquote text-dark" style="font-size: 1.1rem;">
-          <em>“Kami tidak hanya mendidik anak Anda untuk siap mewarisi, tapi untuk layak memimpin dan membawa bisnis keluarga ke masa depan yang lebih hebat.”</em>
-        </blockquote>
-      </div>
-      <div class="text-center mt-4">
-        <button class="btn btn-outline-light" id="mbcReadMoreBtn" onclick="toggleMbcDetail()">Lihat Selengkapnya</button>
-      </div>
-    </div>
-  </section>
-  <script>
-    function toggleMbcDetail() {
-      const detail = document.getElementById("mbc-detail");
-      const btn = document.getElementById("mbcReadMoreBtn");
-      if (detail.style.display === "none") {
-        detail.style.display = "block";
-        btn.innerText = "Sembunyikan";
-      } else {
-        detail.style.display = "none";
-        btn.innerText = "Lihat Selengkapnya";
-      }
-    }
-  </script> -->
+    </section>
 
+    <!-- ROADMAP (SVG + GSAP) -->
+    <section id="roadmap" class="py-5" style="background:#f8f9fa;">
+      <div class="container-narrow" data-aos="fade-up">
+        <h2 class="section-title text-center">🚀 Roadmap Start Up Muda Academy</h2>
 
-  <!-- Section Anak Bisa Apa -->
-  <!-- <section class="py-5" style="background-color: #ffffff;">
-    <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
-      <h2 class="fw-bold mb-4 text-center text-danger">
-        Anak anak peserta didik bisa apa setelah lulus program GENERASI PENERUS dari MBC ini ? 
-      </h2>
+        <div class="roadmap-wrapper" id="roadmapWrapper">
+          <!-- SVG path (desktop) -->
+          <svg viewBox="0 0 800 1700" class="roadmap-svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <!-- main road (thick) -->
+            <path id="mainRoad" d="M100 80 H700 V340 H100 V600 H700 V860 H100 V1120 H700" stroke="#2c3e50" stroke-width="60" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- dashed center -->
+            <path d="M100 80 H700 V340 H100 V600 H700 V860 H100 V1120 H700" stroke="#fff" stroke-width="6" stroke-dasharray="20 20" fill="none"/>
+          </svg>
 
-  
-      <div class="mb-4">
-        <h5><strong>✅ 1. <em>Terjun Langsung ke Bisnis Keluarga</em></strong></h5>
-        <blockquote class="blockquote">
-          Bukan cuma “ikut-ikutan”, tapi sudah <em>siap jadi operator atau pemimpin mini-proyek</em>.
-        </blockquote>
-        <ul>
-          <li>Memimpin unit usaha atau cabang kecil</li>
-          <li>Mengelola satu divisi (misal: marketing, keuangan, atau SDM)</li>
-          <li>Menganalisis dan memberi solusi atas masalah nyata di bisnis orang tua</li>
-          <li>Membuat laporan sederhana, pitching ide, hingga buat presentasi bisnis ke keluarga</li>
-        </ul>
-      </div>
+          <!-- FASE MARKERS (positioned absolute) -->
+          <div class="f-marker f1" data-phase="1">
+            <div class="pin">1</div>
+            <h6>Fase 1: Fondasi Diri & Karakter (1–6)</h6>
+            <ul class="mb-0">
+              <li>Dream Book & Life Vision</li>
+              <li>Design Kebiasaan Harian</li>
+              <li>Emotional & Social Intelligence</li>
+              <li>Role Model Board</li>
+            </ul>
+          </div>
 
+          <div class="f-marker f2" data-phase="2">
+            <div class="pin">2</div>
+            <h6>Fase 2: Mindset Pemenang & Grit (7–12)</h6>
+            <ul class="mb-0">
+              <li>Mental Blok (Fixed vs Growth)</li>
+              <li>Self Talk & Affirmasi Juara</li>
+              <li>Conceptual Thinking (Rencana Bisnis)</li>
+              <li>Creative Problem Solving & Innovation</li>
+              <li>Communication & Influence</li>
+            </ul>
+          </div>
 
-      <div id="more-content" style="display: none;">
-   
-        <div class="mb-4">
-          <h5><strong>✅ 2.<em>Jadi Asisten Kepercayaan Orang Tua</em></strong></h5>
-          <blockquote>Bukan anak manja, tapi <em>jadi tangan kanan ayah/ibu</em> dalam urusan bisnis</blockquote>
-          <ul>
-            <li>Ikut dalam rapat-rapat internal</li>
-            <li>Bisa dipercaya pegang data, keuangan dasar, atau komunikasi dengan vendor</li>
-            <li>Membuat sistem kerja atau SOP mini dari pelajaran program</li>
-            <li>Jadi jembatan antara orang tua yang konvensional dan tim muda yang digital</li>
-          </ul>
-        </div>
+          <div class="f-marker f3" data-phase="3">
+            <div class="pin">3</div>
+            <h6>Fase 3: Leadership & Kolaborasi (13–18)</h6>
+            <ul class="mb-0">
+              <li>Self-Leadership</li>
+              <li>Membentuk Tim Project</li>
+              <li>Problem Solving Bersama</li>
+              <li>Proyek Kolaborasi Kecil</li>
+              <li>Public Speaking & Storytelling</li>
+            </ul>
+          </div>
 
-      
-        <div class="mb-4">
-          <h5><strong>✅ 3. <em>Membawa Inovasi dan Digitalisasi</em></strong></h5>
-          <blockquote>Dengan bekal AI, digital marketing, dan desain grafis...</blockquote>
-          <ul>
-            <li>Bikin campaign online untuk produk keluarga</li>
-            <li>Bantu bisnis keluarga masuk ke marketplace atau digital tools</li>
-            <li>Bikin konten sosial media & branding personal usaha keluarga</li>
-            <li>Menyederhanakan proses manual ke otomatisasi sederhana</li>
-          </ul>
-        </div>
+          <div class="f-marker f4" data-phase="4">
+            <div class="pin">4</div>
+            <h6>Fase 4: Bisnis & Digital (19–24)</h6>
+            <ul class="mb-0">
+              <li>Video AI Storytelling</li>
+              <li>Simulasi Meta Ads</li>
+              <li>TikTok Konten & Ads</li>
+            </ul>
+          </div>
 
-
-        <div class="mb-4">
-          <h5><strong>✅ 4. <em>Menumbuhkan Bisnis Baru yang Menyatu dengan Visi Keluarga</em></strong></h5>
-          <blockquote>Kalau bisnis orang tua belum cocok, dia bisa bikin cabang bisnis turunan.</blockquote>
-          <ul>
-            <li>Misalnya: ortunya punya toko konvensional, anak bikin versi online-nya</li>
-            <li>Atau ortunya punya pabrik, anak bikin produk olahannya dengan brand baru</li>
-            <li>Atau justru bangun bisnis mandiri tapi tetap sinergi dengan ekosistem keluarga</li>
-          </ul>
-        </div>
-
-   
-        <div class="mb-4">
-          <h5><strong>✅ 5. <em>Jadi Anak yang Dipercaya & Diandalkan</em></strong></h5>
-          <blockquote>Ini bukan hanya tentang bisnis, tapi <em>perubahan karakter dan hubungan</em>.</blockquote>
-          <ul>
-            <li>Komunikasi dengan orang tua lebih nyambung dan dewasa</li>
-            <li>Mampu berpikir strategis saat diskusi keluarga</li>
-            <li>Tidak gampang emosi, lebih stabil secara emosional</li>
-            <li>Jadi inspirasi bagi adik-adiknya dan regenerasi bisnis keluarga</li>
-          </ul>
-        </div>
-
-        <div class="mb-4">
-          <h5><strong>✅ 6. <em>Membangun Roadmap Bisnis Keluarga 5 Tahun ke Depan</em></strong></h5>
-          <blockquote>Anak tidak lagi bingung arah, tapi sudah tahu:</blockquote>
-          <ul>
-            <li>“Visi saya untuk bisnis keluarga ini ke mana?”</li>
-            <li>“Apa strategi jangka pendek dan jangka panjang?”</li>
-            <li>“Apa nilai yang mau saya bangun di bisnis warisan ini?”</li>
-          </ul>
-        </div>
-
-      
-        <div class="mb-4">
-          <h5><strong>🎯 BONUS: <em>PORTOFOLIO KEREN</em></strong></h5>
-          <ul>
-            <li>Sertifikat program</li>
-            <li>Laporan proyek magang</li>
-            <li>Video pitching bisnis</li>
-            <li>Proposal ide pengembangan usaha</li>
-            <li>Testimoni dari mentor dan mitra bisnis</li>
-          </ul>
-        </div>
-      </div>
-
-  
-      <div class="text-center">
-        <button class="btn btn-outline-danger" id="readMoreBtn" onclick="toggleContent()">Lihat Selengkapnya</button>
-      </div>
-    </div>
-  </section> 
-
-  <!-- Section Kurikulum -->
-
-<!-- <section class="container my-5" id="kurikulum">
-  <h2 class="fw-bold mb-4 text-center text-danger">KURIKULUM PROGRAM GENERASI PENERUS</h2>
-<div class="container">
-  <div class="row justify-content-center text-center mb-3">
-    <div class="col-12 col-md-5 mb-2">
-      <span class="badge bg-danger fs-6 w-100">
-        Durasi Program: 6 Bulan (24 Minggu)
-      </span>
-    </div>
-    <div class="col-12 col-md-5 mb-2">
-      <span class="badge bg-danger fs-6 w-100">
-        Roadmap 30 Langkah Generasi Penerus MBC
-      </span>
-    </div>
-  </div>
-</div>
-
-
-
-
-  <div class="accordion" id="accordionKurikulum">
-
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="fase1Heading">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#fase1"
-          aria-expanded="true" aria-controls="fase1">
-          <strong>FASE 1: Fondasi Diri & Karakter</strong>
-        </button>
-      </h2>
-      <div id="fase1" class="accordion-collapse collapse show" aria-labelledby="fase1Heading"
-        data-bs-parent="#accordionKurikulum">
-        <div class="accordion-body">
-          <ul>
-            <li><strong>Langkah 1:</strong> Mengenal Potensi Diri dan Misi Hidup — <em>Siswa memahami kekuatan, bakat, dan passion mereka</em></li>
-            <li><strong>Langkah 2:</strong> Membuat Jurnal Impian dan Nilai Hidup — <em>Membentuk arah hidup berdasarkan nilai Islam dan impian</em></li>
-            <li><strong>Langkah 3:</strong> Adab Terhadap Ilmu, Waktu, dan Orang Tua — <em>Membangun dasar etika dan akhlak dalam belajar dan hidup</em></li>
-            <li><strong>Langkah 4:</strong> Menata Niat & Visi Berbisnis Sebagai Ibadah — <em>Mengubah bisnis dari sekadar profit menjadi jalan dakwah</em></li>
-            <li><strong>Langkah 5:</strong> Latihan Disiplin Waktu Harian — <em>Mengelola waktu sebagai amanah dan modal hidup</em></li>
-            <li><strong>Langkah 6:</strong> Mengenal Dunia Bisnis dan Peran Pengusaha Muslim — <em>Menumbuhkan kebanggaan dan tanggung jawab sebagai pengusaha</em></li>
-            <li><strong>Langkah 7:</strong> Observasi Usaha Orang Tua — <em>Belajar dari lingkungan terdekat</em></li>
-            <li><strong>Langkah 8:</strong> Menulis 3 Hal yang Disukai dan Bisa Jadi Bisnis — <em>Menumbuhkan benih ide bisnis dari hal yang dicintai</em></li>
-            <li><strong>Langkah 9:</strong> Prinsip Rezeki & Tawakal dalam Bisnis — <em>Menanamkan prinsip spiritual dalam ekonomi</em></li>
-            <li><strong>Langkah 10:</strong> Mini Project: Interview Pengusaha Muslim — <em>Belajar langsung dari pengalaman nyata dan membuat catatan pelajaran hidup</em></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="fase2Heading">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fase2"
-          aria-expanded="false" aria-controls="fase2">
-          <strong>FASE 2: TAHU ILMU — Skill Bisnis Praktis dan Pola Pikir Tumbuh</strong>
-        </button>
-      </h2>
-      <div id="fase2" class="accordion-collapse collapse" aria-labelledby="fase2Heading"
-        data-bs-parent="#accordionKurikulum">
-        <div class="accordion-body">
-          <ul>
-            <li><strong>Langkah 11:</strong> Cashflow Dasar dan Manajemen Uang — <em>Melatih kesadaran keuangan sejak dini</em></li>
-            <li><strong>Langkah 12:</strong> Problem Solving: Bisnis Adalah Solusi — <em>Menumbuhkan cara berpikir pengusaha</em></li>
-            <li><strong>Langkah 13:</strong> Tantangan Jualan 3 Hari — <em>Menguji keberanian dan praktek langsung</em></li>
-            <li><strong>Langkah 14:</strong> Public Speaking & Storytelling Dasar — <em>Melatih komunikasi pengaruh</em></li>
-            <li><strong>Langkah 15:</strong> Membuat Konten dan Caption Bisnis — <em>Belajar strategi promosi di era digital</em></li>
-            <li><strong>Langkah 16:</strong> Produksi Produk / Jasa Sederhana Sendiri — <em>Menciptakan produk yang bisa dijual</em></li>
-            <li><strong>Langkah 17:</strong> Jualan Pertama (Tanpa Modal Orang Tua) — <em>Melatih kemandirian dan kreativitas</em></li>
-            <li><strong>Langkah 18:</strong> Mengelola Penolakan dan Kritik — <em>Membangun resiliensi</em></li>
-            <li><strong>Langkah 19:</strong> Catatan Penjualan & Pengeluaran Harian — <em>Membangun kebiasaan tertib finansial</em></li>
-            <li><strong>Langkah 20:</strong> Refleksi Proses Jualan — <em>Menyadari perubahan diri dan pertumbuhan</em></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="fase3Heading">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fase3"
-          aria-expanded="false" aria-controls="fase3">
-          <strong>FASE 3: TAHU ARAH — Duplikasi, Kontribusi, Proyek Nyata</strong>
-        </button>
-      </h2>
-      <div id="fase3" class="accordion-collapse collapse" aria-labelledby="fase3Heading"
-        data-bs-parent="#accordionKurikulum">
-        <div class="accordion-body">
-          <ul>
-            <li><strong>Langkah 21:</strong> Personal Branding dan Citra Diri Positif — <em>Membangun kesadaran diri dan reputasi</em></li>
-            <li><strong>Langkah 22:</strong> Latihan Presentasi Bisnis — <em>Meningkatkan rasa percaya diri</em></li>
-            <li><strong>Langkah 23:</strong> Membuat Sistem Kerja Mini — <em>Menyusun sistem sederhana agar usaha tertata</em></li>
-            <li><strong>Langkah 24:</strong> Menjadi Mentor untuk Orang Lain — <em>Melatih kepemimpinan dan duplikasi ilmu</em></li>
-            <li><strong>Langkah 25:</strong> Bergabung dalam Forum Alumni MBC — <em>Menumbuhkan kebanggaan komunitas dan jejaring</em></li>
-            <li><strong>Langkah 26:</strong> Etika Bisnis: Jujur, Amanah, dan Profesional — <em>Menanamkan integritas</em></li>
-            <li><strong>Langkah 27:</strong> Rancang Proyek Bisnis Sosial — <em>Menghubungkan bisnis dengan kontribusi sosial</em></li>
-            <li><strong>Langkah 28:</strong> Menyusun Pitch Deck + Business Plan — <em>Melatih perencanaan dan presentasi ide</em></li>
-            <li><strong>Langkah 29:</strong> Simulasi Final Project — <em>Latihan presentasi dan evaluasi</em></li>
-            <li><strong>Langkah 30:</strong> FINAL PROJECT: Pameran, Presentasi Usaha, dan Amal Nyata — <em>Menampilkan hasil belajar, bisnis nyata, dan kontribusi sosial</em></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section> -->
-
-
-  <script>
-    function toggleContent() {
-      const content = document.getElementById("more-content");
-      const button = document.getElementById("readMoreBtn");
-      if (content.style.display === "none") {
-        content.style.display = "block";
-        button.innerText = "Sembunyikan";
-      } else {
-        content.style.display = "none";
-        button.innerText = "Lihat Selengkapnya";
-      }
-    }
-  </script>
-
-
-  <section style="background-color: #fff; padding: 60px 0;">
-    <div class="container">
-      <div class="row justify-content-center mb-4">
-        <div class="col-lg-10 text-center">
-          <h2 class="fw-bold text-danger">
-            🎯Transformasi Kepribadian Peserta yang Akan Terjadi
-          </h2>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="table-responsive">
-            <table class="table table-bordered table-hover text-start align-middle shadow-sm" style="border-width:2px; border-style:solid;">
-              <thead class="table-light">
-                <tr>
-                  <th class="text-center" style="border-width:2px;">SEBELUM IKUT PROGRAM</th>
-                  <th class="text-center" style="border-width:2px;">SETELAH IKUT PROGRAM</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="border-width:2px;">Belum Tertarik Sama Bisnis</td>
-                  <td style="border-width:2px;">Menjadi Tertarik Dengan Bisnis</td>
-                </tr>
-                <tr>
-                  <td style="border-width:2px;">Bingung arah hidup</td>
-                  <td style="border-width:2px;">Visioner, punya rencana jangka panjang</td>
-                </tr>
-                <tr>
-                  <td style="border-width:2px;">Malu & minder</td>
-                  <td style="border-width:2px;">Percaya diri berbicara di depan publik</td>
-                </tr>
-                <tr>
-                  <td style="border-width:2px;">Tidak paham bisnis</td>
-                  <td style="border-width:2px;">Paham keuangan, SDM, operasional</td>
-                </tr>
-                <tr>
-                  <td style="border-width:2px;">Sering konflik dengan ortu</td>
-                  <td style="border-width:2px;">Jadi partner diskusi dan pengambil keputusan</td>
-                </tr>
-                <tr>
-                  <td style="border-width:2px;">Gaptek & konsumtif</td>
-                  <td style="border-width:2px;">Melek AI, digital marketing, dan punya portofolio nyata</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="f-marker f5" data-phase="5">
+            <div class="pin">5</div>
+            <h6>Fase 5: Family Business & Resiliensi (25–27)</h6>
+            <ul class="mb-0">
+              <li>Improvement Bisnis Orang Tua</li>
+              <li>Financial Literacy</li>
+              <li>Final Project Presentation</li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Apa yang mereka dapatkan -->
-<!-- <section class="benefit py-5" style="background-color: #d70726;">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-4" style="color: white;">APA YANG MEREKA DAPATKAN?</h2>
-    <div class="row justify-content-center gx-2 gy-3">
-    
-      <div class="col-12 col-md-4 mb-3">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center p-3 rounded shadow-sm" style="background: #fff; height: 100%;">
-          <img src="img/sertifikat.png" alt="Sertifikat" style="width:32px; margin-bottom:12px;">
-          <span class="text-dark fw-semibold">Sertifikat Kelulusan</span>
+    <!-- TRANSFORMASI TABLE -->
+    <section class="py-5" style="background:#fff;">
+      <div class="container-narrow" data-aos="fade-up">
+        <h2 class="section-title text-center">🎯 Transformasi Kepribadian Peserta</h2>
+        <div class="table-responsive">
+          <table class="table table-bordered transform-table">
+            <thead class="table-light">
+              <tr><th class="text-center">Sebelum</th><th class="text-center">Setelah</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Belum tertarik sama bisnis</td><td>Menjadi tertarik dengan bisnis</td></tr>
+              <tr><td>Bingung arah hidup</td><td>Visioner, rencana jangka panjang</td></tr>
+              <tr><td>Malu & minder</td><td>Percaya diri berbicara di publik</td></tr>
+              <tr><td>Tidak paham bisnis</td><td>Paham keuangan, SDM, operasional</td></tr>
+              <tr><td>Sering konflik dengan ortu</td><td>Jadi partner diskusi & pengambil keputusan</td></tr>
+              <tr><td>Gaptek & konsumtif</td><td>Melek AI & digital marketing, portofolio nyata</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div class="col-12 col-md-4 mb-3">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center p-3 rounded shadow-sm" style="background: #fff; height: 100%;">
-          <img src="img/portfolio.png" alt="Portofolio" style="width:32px; margin-bottom:12px;">
-          <span class="text-dark fw-semibold">Portofolio Proyek Nyata</span>
+    </section>
+
+    <!-- BIAYA -->
+    <section class="py-5" style="background:#fff;">
+      <div class="container-narrow text-center" data-aos="fade-up">
+        <h3 class="section-title">Langkah Awal — Generasi Penerus yang Lebih Tangguh</h3>
+        <p>💰 Biaya Masuk: <strong>Rp15.000.000</strong> • SPP Bulanan: <strong>Rp2.000.000 x 6 bulan</strong></p>
+        <p><em>Program dimulai: September 2025 — Kuota terbatas</em></p>
+      </div>
+    </section>
+
+    <!-- CTA DAFTAR -->
+    <section class="daftar">
+      <div class="container-narrow d-flex flex-wrap align-items-center justify-content-between">
+        <div class="col-lg-6 col-12 mb-3">
+          <h3 class="fw-bold">DAFTARKAN SEKARANG</h3>
+          <p style="font-weight:600;">Klik tombol untuk konsultasi & pendaftaran</p>
+          <a class="cta-btn" href="https://api.whatsapp.com/send?phone=6289525742386&text=Halo%20Saya%20ingin%20konsultasi">🎯 KONSULTASI VIA WHATSAPP</a>
+          <div class="mt-3">
+            <a class="btn btn-outline-light" href="https://maps.app.goo.gl/Q5czgnTbNRBoZiZ5A" target="_blank"><i class="fas fa-map-marker-alt"></i> Lokasi: MARKAZ MBC – Solo</a>
+          </div>
+          <div class="mt-3" style="font-weight:600;">
+            <div>Pendaftaran Gelombang I: 1 Ags – 20 Ags 2025 — Rp15.000.000</div>
+            <div class="mt-2">Gel II: 21 Ags – 30 Ags 2025 — Rp17.000.000</div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 col-12 text-center">
+          <img src="img/fitra0.png" alt="Daftar" class="img-fluid rounded" style="max-width:320px;">
+          <div class="mt-2">Coach Fitra Jaya Saleh — Founder MBC</div>
         </div>
       </div>
-      <div class="col-12 col-md-4 mb-3">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center p-3 rounded shadow-sm" style="background: #fff; height: 100%;">
-          <img src="img/alumni.png" alt="Jaringan" style="width:32px; margin-bottom:12px;">
-          <span class="text-dark fw-semibold">Jaringan Alumni & Komunitas Bisnis</span>
-        </div>
-      </div>
+    </section>
 
-      <div class="col-12 col-md-4 mb-3">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center p-3 rounded shadow-sm" style="background: #fff; height: 100%;">
-          <img src="img/mentoring.png" alt="Mentor" style="width:32px; margin-bottom:12px;">
-          <span class="text-dark fw-semibold">Mentor Pribadi</span>
-        </div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center p-3 rounded shadow-sm" style="background: #fff; height: 100%;">
-          <img src="img/shirt.png" alt="Seragam" style="width:32px; margin-bottom:12px;">
-          <span class="text-dark fw-semibold">Seragam & Starter Kit</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
-
-  <section class="biaya">
-    <h2 class="text-center text-danger"> LANGKAH AWAL UNTUK GENERASI PENERUS YANG LEBIH TANGGUH :</h2>
-    <div class="text-center">
-    <p>💰 Biaya Masuk: <strong>Rp15.000.000</strong> (dibayar di awal)</p>
-    <p> 📈 SPP Bulanan: <strong>Rp2.000.000 x 6 bulan</strong></p>
-    <p><em> 📆 Program dimulai: September 2025</em></p>
-    <p>
-      <strong>Seet Terbatas</strong> — Hanya untuk anak-anak dari keluarga
-      pengusaha yang serius ingin membangun masa depan.
-    </p>
-    </div>
-   
-  </section>
-
-<section class="daftar d-flex flex-wrap align-items-center justify-content-between">
-  <div class="content col-lg-6 col-12 mb-4 mb-lg-0">
-    <h2 class="text-white"> DAFTARKAN SEKARANG </h2>
-    <p style="font-weight: 600;" >Klik tombol di bawah ini untuk konsultasi & pendaftaran:</p>
-
-    <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak" target="_blank" class="cta-btn">
-      🎯 KONSULTASI VIA WHATSAPP
-    </a>
-
-    <div class="text-center my-4">
-      <a style="color: #fff;" href="https://maps.app.goo.gl/Q5czgnTbNRBoZiZ5A" target="_blank" class="btn btn-outline-white">
-        <i class="fas fa-map-marker-alt"></i> Lokasi: MARKAZ MBC – Solo 
-      </a>
-    </div>
-  <div style="font-weight: 600; font-size: 1rem;">
-    <p class="mb-2">
-      <span style="color: #ffffff;">Pendaftaran Gelombang I :</span><br>
-      1 Agustus – 20 Agustus 2025<br>
-      <span style="color: #ffffff;">  Rp15.000.000</span>
-    </p>
-    <br>
-    <p class="mb-0">
-      <span style="color: #ffffff;">Pendaftaran Gelombang II :</span><br>
-      21 Agustus – 30 Agustus 2025<br>
-      <span style="color: #ffffff;"> Rp17.000.000</span>
-    </p>
-  </div>
-  </div>
-
-  <div class="image col-lg-5 col-12 text-center">
-    <img src="img/fitra0.png" alt="Daftar Sekarang" class="img-fluid rounded shadow" style="max-width: 80%; height: auto;">
-    <div class="mt-3" style="font-weight: bold; color: #fff; font-size: 1.1rem;">
-      Coach Fitra Jaya Saleh - Founder MBC
-  </div>
-</section>
-
-
-
+  </main>
 
   <footer>
-    <blockquote>
-      “Membantu generasi muda tak sekadar mewarisi bisnis, tapi memimpin
-      dengan visi dan nilai.”<br />— <em style="color: red;">Fitra Jaya Saleh</em>, Founder MBC
-    </blockquote>
+    <div class="container-narrow">
+      <blockquote style="margin:0; font-size:1rem;">
+        “Membantu generasi muda tak sekadar mewarisi bisnis, tapi memimpin dengan visi dan nilai.” — <em style="color:var(--brand)">Fitra Jaya Saleh</em>
+      </blockquote>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Dropdown toggle on click (bukan hover)
-    document
-      .querySelectorAll(".nav-item.dropdown .nav-link")
-      .forEach(function (el) {
-        el.addEventListener("click", function (e) {
-          e.preventDefault();
-          let dropdown = el.nextElementSibling;
-          let isShown = dropdown.classList.contains("show");
-          document
-            .querySelectorAll(".dropdown-menu.show")
-            .forEach(function (d) {
-              d.classList.remove("show");
-            });
-          if (!isShown) {
-            dropdown.classList.add("show");
-          }
-        });
-      });
+  <!-- -------------- SCRIPTS -------------- -->
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    // Klik di luar menu, tutup semua dropdown
-    document.addEventListener("click", function (e) {
-      if (!e.target.closest(".nav-item.dropdown")) {
-        document
-          .querySelectorAll(".dropdown-menu.show")
-          .forEach(function (dropdown) {
-            dropdown.classList.remove("show");
-          });
+  <script>
+    // ---------------- TYPING (hook) ----------------
+    (function typingEffect(){
+      const el = document.getElementById('typingText');
+      if(!el) return;
+      const text = "❝ START-UP MUDA ACADEMY MBC ❞";
+      el.textContent = '';
+      let idx = 0;
+      function tick(){
+        if(idx <= text.length){
+          el.textContent = text.slice(0, idx++);
+          setTimeout(tick, 35);
+        }
+      }
+      tick();
+    })();
+
+    // ---------------- READ MORE (masalah) ----------------
+    document.getElementById('readMoreBtn').addEventListener('click', function(){
+      const more = document.getElementById('morePoints');
+      if(!more) return;
+      if(more.style.display === 'none' || more.style.display === ''){
+        more.style.display = 'block';
+        this.innerText = 'Sembunyikan';
+      } else {
+        more.style.display = 'none';
+        this.innerText = 'Lihat Selengkapnya';
       }
     });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-</body>
 
+    // ---------------- SWIPER INIT ----------------
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 18,
+      loop: true,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      breakpoints: { 768:{slidesPerView:2}, 992:{slidesPerView:3} }
+    });
+
+    // ---------------- AOS ----------------
+    AOS.init({ once:true, duration:900 });
+
+    // ---------------- ROADMAP GSAP ANIMATION ----------------
+    (function roadmapAnimation(){
+      const road = document.getElementById('mainRoad');
+      if(!road) return;
+
+      // stroke draw setup
+      const len = road.getTotalLength();
+      road.style.strokeDasharray = len;
+      road.style.strokeDashoffset = len;
+
+      // markers
+      const markers = document.querySelectorAll('.f-marker');
+
+      // create timeline: draw road then reveal markers with stagger
+      gsap.registerPlugin(ScrollTrigger);
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#roadmap",
+          start: "top 70%",
+          end: "bottom 10%",
+          toggleActions: "play none none reverse"
+        }
+      });
+
+      tl.to(road, { strokeDashoffset: 0, duration: 1.2, ease: "power2.out" });
+
+      markers.forEach((m, i) => {
+        tl.fromTo(m, {y:40, autoAlpha:0, scale:0.98}, {y:0, autoAlpha:1, scale:1, duration:0.6, ease:"back.out(1.2)"}, "-=0.9+="+(i*0.08));
+      });
+    })();
+
+    // ---------------- OPTIONAL: reveal markers on small screens if no SVG ----------------
+    if(window.innerWidth < 900){
+      document.querySelectorAll('.f-marker').forEach(m=> m.style.opacity = 1);
+    }
+
+  </script>
+
+</body>
 </html>

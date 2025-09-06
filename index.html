@@ -81,40 +81,98 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     position: relative;
     overflow: hidden;
   ">
-    <div class="container-fluid">
-      <div class="row align-items-center" style="min-height: 95vh;">
-        <div class="col-lg-7 col-md-12">
-          <div class="hero-content text-white" style="position: relative; z-index: 1; padding-top: 20px; padding-left: 15px; padding-right: 15px;">
-            <h1 class="display-4 fw-bold" style="font-size: 2.2rem;">START-UP MUDA ACADEMY MBC</h1>
-           <p class="lead" style="font-size: 1.3rem; font-weight: 600; color:#d70726; margin-bottom: 0.5rem; background-color: #ffff; padding: 0.75rem 1rem; border-radius: 10px;">
-  “KAMPUS NYA ANAK PENGUSAHA, DIAJARKAN ILMU BISNIS, LEADERSHIP, MINDSET JUARA dan AKHLAKUL KARIMAH dalam bisnis yang tidak diajarkan di Sekolah Formal."
-</p>
+   <div class="container-fluid">
+  <div class="row align-items-center" style="min-height: 95vh;">
+    
+    <!-- Bagian Kiri -->
+    <div class="col-lg-7 col-md-12">
+      <div class="hero-content text-white" style="position: relative; z-index: 1; padding: 20px 15px;">
 
-            <h2 style="font-size: 1.1rem; margin-top: 1.2rem;">
-              PERNAHKAN ANDA MENDENGAR MITOS Bahwa:
-            </h2>
-            <div class="kutipan">
-              <h3 style="color:#d70726; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.4rem;">
-                "Generasi pertama membangun, generasi kedua menikmati, dan generasi ketiga menghancurkan" ?
-              </h3>
-            </div>
-            <p class="lead" style="color: white; font-size: 1.3srem; margin-bottom: 0.8rem;">
-              Membentuk Generasi Penerus Bisnis Orang Tua
-            </p>
-            <h3 class="lead" style="background-color: #fff; font-weight: bold; color: rgb(202, 72, 72); font-size: 1.2rem; margin-bottom: 0.8rem;">
-                    ❝ Apakah  Anda Ingin Anak Anda Siap Mewarisi, Memimpin, <br> dan Mengembangkan Bisnis
-        Keluarga Anda ? ❞
-            </h3>
-          </div>
-        </div>
-        <div class="col-lg-5 col-md-10 text-center">
-          <img src="img/fjs.png" alt="Fitra Jaya Saleh" class="img-fluid rounded shadow" style="max-width: 350px; width: 100%; margin-top: -50px; ">
-          <div style="margin-top: 12px; font-weight: bold; color: #fff; font-size: 1.1rem;">
-            Coach Fitra Jaya Saleh
-          </div>
-        </div>
+        <!-- HOOK -->
+        <h1 class="hook-text fw-bold"></h1>
+
+        <!-- Subheadline -->
+        <p class="lead" style="font-size: 1.2rem; font-weight: 600; color:#ffdd57; margin-bottom: 0.8rem;">
+          “Kampusnya Anak Pengusaha” yang mengajarkan <b>Ilmu Bisnis, Leadership, Mindset Juara,</b> dan <b>Akhlakul Karimah</b> yang jarang diajarkan di sekolah formal.
+        </p>
+
+        <!-- Mitos -->
+   <!-- Tantangan Nyata -->
+<h2 style="font-size: 1.1rem; margin-top: 1.2rem; font-weight: bold;">
+  Tantangan Besar Anak Pengusaha Hari Ini:
+</h2>
+<div class="kutipan">
+  <h3 style="color:#d70726; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.4rem;">
+    Banyak yang pintar di sekolah, tapi bingung saat diturunkan bisnis keluarga.  
+  </h3>
+  <h3 style="color:#d70726; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.4rem;">
+    Ada yang mampu menikmati hasil, tapi tidak siap memimpin tim & menjaga legacy.  
+  </h3>
+</div>
+
+<!-- Pertanyaan kunci -->
+<h3 class="lead" style="background-color: #fff; font-weight: bold; color: rgb(202, 72, 72); font-size: 1.2rem; margin-top: 1rem; padding: 0.75rem 1rem; border-radius: 8px;">
+  ❝ Apakah Anda Ingin Anak Anda Dibekali Ilmu, Mindset, dan Leadership agar Siap Melanjutkan & Mengembangkan Bisnis Keluarga? ❞
+</h3>
+
+
       </div>
     </div>
+
+    <!-- Bagian Kanan (Coach) -->
+    <div class="col-lg-5 col-md-10 text-center">
+      <img src="img/fjs.png" alt="Fitra Jaya Saleh" class="img-fluid rounded shadow floating-img" style="max-width: 350px; width: 100%; margin-top: -50px;">
+      <div style="margin-top: 12px; font-weight: bold; color: #fff; font-size: 1.1rem;">
+        Coach Fitra Jaya Saleh
+      </div>
+      <div style="margin-top: 12px; font-weight: bold; color: #c4b7b7; font-size: 1.1rem;">
+        Master Coach
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  /* Hook typing effect */
+  .hook-text {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    color: #fff;
+    border-right: 3px solid #ff4757;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 5s steps(60, end) forwards, blink 0.75s step-end infinite;
+  }
+
+  @keyframes typing { from { width: 0 } to { width: 100% } }
+  @keyframes blink { 50% { border-color: transparent } }
+
+  /* Floating animasi foto coach */
+  .floating-img {
+    animation: floatY 4s ease-in-out infinite;
+  }
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  @media (max-width: 991px) {
+    .hook-text { font-size: 1.6rem; }
+  }
+  @media (max-width: 480px) {
+    .hook-text { font-size: 1.2rem; }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const hook = document.querySelector(".hook-text");
+    hook.textContent = '❝ START-UP MUDA ACADEMY MBC ❞';
+  });
+</script>
+
     <div class="hero-overlay" style="
       position: relative;
       top: 10px;
@@ -570,216 +628,151 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- Section Roadmap 20 -->
-<!-- ================== SECTION ROADMAP ================== -->
-<section id="roadmap" class="py-5">
-  <style>
-    .roadmap-wrapper {
-      position: relative;
-      overflow-x: auto;
-      padding-bottom: 40px;
-    }
-    .roadmap-line {
-      position: absolute;
-      top: 100px; /* sejajar dengan icon */
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: #dee2e6;
-      z-index: 1;
-    }
-    .roadmap-progress {
-      position: absolute;
-      top: 100px;
-      left: 0;
-      height: 4px;
-      background: #0d6efd;
-      width: 0%;
-      transition: width 1s ease;
-      z-index: 2;
-    }
-    .roadmap-steps {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 30px;
-      position: relative;
-      z-index: 3;
-    }
-    .step {
-      flex: 1;
-      min-width: 220px;
-      background: #fff;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform .3s, box-shadow .3s;
-      cursor: pointer;
-      text-align: center;
-      position: relative;
-    }
-    .step:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-    .step-icon {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      margin: 0 auto 15px auto;
-      color: #fff;
-      z-index: 5;
-      position: relative;
-    }
-    .step h5 {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .detail {
-      margin-top: 15px;
-      font-size: 14px;
-      text-align: left;
-    }
-    /* Arrow antar card */
-    .arrow {
-      position: absolute;
-      top: 100px;
-      right: -20px;
-      font-size: 24px;
-      color: #adb5bd;
-      z-index: 4;
-      animation: arrowMove 1.5s infinite;
-    }
-    @keyframes arrowMove {
-      0%   { transform: translateX(0); opacity: 0.5; }
-      50%  { transform: translateX(8px); opacity: 1; }
-      100% { transform: translateX(0); opacity: 0.5; }
-    }
-  </style>
+<!-- Roadmap -->
+<section id="roadmap" style="background:#f8f9fa; padding:60px 0;">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-5">🚀 Roadmap Start Up Muda Academy</h2>
 
-  <div class="container my-5">
-    <div class="roadmap-section">
-      <div class="roadmap-title text-center mb-5">
-        <h2 class="fw-bold">🚀 Roadmap Start Up Muda Academy</h2>
-        <p class="text-muted">Perjalanan pembelajaran bertahap dari fondasi hingga bisnis nyata</p>
+    <div class="roadmap-wrapper">
+      <!-- SVG Jalan bentuk S memanjang -->
+      <svg viewBox="0 0 600 1600" class="roadmap-path">
+        <!-- Jalan utama -->
+        <path id="mainRoad"
+          d="M300 50
+             C 550 150, 550 350, 300 450
+             C 50 550, 50 750, 300 850
+             C 550 950, 550 1150, 300 1250
+             C 50 1350, 50 1500, 300 1550"
+          stroke="#2c3e50" stroke-width="60" fill="none"
+          stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Garis putih putus-putus -->
+        <path
+          d="M300 50
+             C 550 150, 550 350, 300 450
+             C 50 550, 50 750, 300 850
+             C 550 950, 550 1150, 300 1250
+             C 50 1350, 50 1500, 300 1550"
+          stroke="#fff" stroke-width="6" stroke-dasharray="20 20" fill="none"/>
+      </svg>
+
+      <!-- Fase-fase zigzag -->
+      <div class="fase fase1" style="top:30px; left:60px;">
+        <div class="pin">1</div>
+        <h5>Fondasi Diri & Karakter</h5>
+        <ul>
+          <li>Dream Book & Life Vision</li>
+          <li>Design Kebiasaan Harian</li>
+          <li>Emotional & Social Intelligence</li>
+          <li>Role Model Board</li>
+        </ul>
       </div>
 
-      <div class="roadmap-wrapper">
-        <div class="roadmap-line"></div>
-        <div class="roadmap-progress" id="roadmapProgress"></div>
+      <div class="fase fase2" style="top:400px; right:60px;">
+        <div class="pin">2</div>
+        <h5>Mindset Pemenang & Grit</h5>
+        <ul>
+          <li>Growth Mindset</li>
+          <li>Self Talk & Affirmasi</li>
+          <li>Conceptual Thinking</li>
+          <li>Creative Problem Solving</li>
+          <li>Communication & Influence</li>
+        </ul>
+      </div>
 
-        <div class="roadmap-steps">
-          <!-- Fase 1 -->
-          <div class="step">
-            <div class="step-icon bg-warning">📘</div>
-            <h5 class="text-warning">Fase 1</h5>
-            <p>Fondasi Diri & Karakter</p>
-            <button class="btn btn-sm btn-outline-warning" data-bs-toggle="collapse" data-bs-target="#fase1">Detail</button>
-            <div id="fase1" class="collapse detail">
-              <ul>
-                <li>Dream Book & Life Vision</li>
-                <li>Design Kebiasaan Harian</li>
-                <li>Emotional & Social Intelligence</li>
-                <li>Benchmark: Role Model Board</li>
-              </ul>
-            </div>
-            <div class="arrow">➡️</div>
-          </div>
+      <div class="fase fase3" style="top:750px; left:60px;">
+        <div class="pin">3</div>
+        <h5>Leadership & Kolaborasi</h5>
+        <ul>
+          <li>Self-Leadership</li>
+          <li>Membentuk Tim Project</li>
+          <li>Problem Solving Bersama</li>
+          <li>Proyek Kolaborasi Kecil</li>
+          <li>Public Speaking & Storytelling</li>
+        </ul>
+      </div>
 
-          <!-- Fase 2 -->
-          <div class="step">
-            <div class="step-icon bg-danger">💡</div>
-            <h5 class="text-danger">Fase 2</h5>
-            <p>Mindset Pemenang & Grit</p>
-            <button class="btn btn-sm btn-outline-danger" data-bs-toggle="collapse" data-bs-target="#fase2">Detail</button>
-            <div id="fase2" class="collapse detail">
-              <ul>
-                <li>Mental Blok: Fixed vs Growth</li>
-                <li>Self Talk & Affirmasi Juara</li>
-                <li>Conceptual Thinking → Rencana Bisnis</li>
-                <li>Creative Problem Solving & Innovation</li>
-                <li>Communication & Influence</li>
-              </ul>
-            </div>
-            <div class="arrow">➡️</div>
-          </div>
+      <div class="fase fase4" style="top:1150px; right:60px;">
+        <div class="pin">4</div>
+        <h5>Bisnis & Digital</h5>
+        <ul>
+          <li>Video AI Storytelling</li>
+          <li>Simulasi Meta Ads</li>
+          <li>TikTok Konten & Ads</li>
+        </ul>
+      </div>
 
-          <!-- Fase 3 -->
-          <div class="step">
-            <div class="step-icon bg-success">🤝</div>
-            <h5 class="text-success">Fase 3</h5>
-            <p>Leadership & Kolaborasi</p>
-            <button class="btn btn-sm btn-outline-success" data-bs-toggle="collapse" data-bs-target="#fase3">Detail</button>
-            <div id="fase3" class="collapse detail">
-              <ul>
-                <li>Self-Leadership</li>
-                <li>Membentuk Tim Project</li>
-                <li>Problem Solving Bersama</li>
-                <li>Proyek Kolaborasi Kecil</li>
-                <li>Public Speaking & Storytelling</li>
-              </ul>
-            </div>
-            <div class="arrow">➡️</div>
-          </div>
-
-          <!-- Fase 4 -->
-          <div class="step">
-            <div class="step-icon bg-primary">📱</div>
-            <h5 class="text-primary">Fase 4</h5>
-            <p>Bisnis & Digital</p>
-            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#fase4">Detail</button>
-            <div id="fase4" class="collapse detail">
-              <ul>
-                <li>Video AI Storytelling tentang Brand</li>
-                <li>Simulasi Meta Ads</li>
-                <li>TikTok Konten & Ads</li>
-              </ul>
-            </div>
-            <div class="arrow">➡️</div>
-          </div>
-
-          <!-- Fase 5 -->
-          <div class="step">
-            <div class="step-icon" style="background:#6f42c1;">💼</div>
-            <h5 style="color:#6f42c1;">Fase 5</h5>
-            <p>Family Business & Resiliensi</p>
-            <button class="btn btn-sm btn-outline-dark" data-bs-toggle="collapse" data-bs-target="#fase5">Detail</button>
-            <div id="fase5" class="collapse detail">
-              <ul>
-                <li>Improvement untuk Bisnis Keluarga</li>
-                <li>Financial Literacy</li>
-                <li>Final Project Presentation</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <div class="fase fase5" style="top:1450px; left:60px;">
+        <div class="pin">5</div>
+        <h5>Family Business & Resiliensi</h5>
+        <ul>
+          <li>Improvement Bisnis Orang Tua</li>
+          <li>Financial Literacy</li>
+          <li>Final Project Presentation</li>
+        </ul>
       </div>
     </div>
   </div>
-
-  <script>
-    // Progres bar ikut scroll
-    window.addEventListener('scroll', () => {
-      const roadmap = document.getElementById('roadmap');
-      const progress = document.getElementById('roadmapProgress');
-      const rect = roadmap.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      if (rect.top < windowHeight && rect.bottom > 0) {
-        const visible = Math.min(1, (windowHeight - rect.top) / (rect.height + windowHeight));
-        progress.style.width = (visible * 100) + '%';
-      }
-    });
-  </script>
 </section>
-<!-- ================== END SECTION ROADMAP ================== -->
 
+<style>
+.roadmap-wrapper {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.roadmap-path { width: 100%; height: auto; }
+.fase {
+  position: absolute;
+  width: 260px;
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  text-align:left;
+  opacity:0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.fase.show { opacity:1; transform: translateY(0); }
+.fase h5 { font-weight:bold; margin-bottom:8px; color:#e74c3c; }
+.fase ul { padding-left:18px; margin:0; font-size:0.9rem; }
+.fase .pin {
+  width:40px; height:40px;
+  background:#e74c3c; color:#fff;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:bold; margin-bottom:10px;
+}
+</style>
+    
+<script>
+const road = document.querySelector("#mainRoad");
+const length = road.getTotalLength();
+road.style.strokeDasharray = length;
+road.style.strokeDashoffset = length;
 
+window.addEventListener("scroll", () => {
+  const section = document.querySelector("#roadmap");
+  const rect = section.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
 
+  if (rect.top < windowHeight && rect.bottom > 0) {
+    let progress = 1 - rect.top / windowHeight;
+    if (progress > 1) progress = 1;
+    if (progress < 0) progress = 0;
+    road.style.strokeDashoffset = length * (1 - progress);
+  }
+
+  document.querySelectorAll(".fase").forEach((fase) => {
+    const pos = fase.getBoundingClientRect().top;
+    if (pos < windowHeight - 100) {
+      fase.classList.add("show");
+    }
+  });
+});
+</script>
+
+  <!-- Tabel Transformasi -->
   <script>
     function toggleContent() {
       const content = document.getElementById("more-content");
