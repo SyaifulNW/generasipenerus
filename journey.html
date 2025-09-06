@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap Start Up Muda Academy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+    }
+    .journey-line {
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 6px;
+      background: #ffc107;
+      transform: translateX(-50%);
+    }
+    .phase {
+      position: relative;
+      margin-bottom: 70px;
+    }
+    .phase-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 45%;
+      transition: transform .3s;
+    }
+    .phase-content:hover {
+      transform: translateY(-6px);
+    }
+    .phase:nth-child(even) .phase-content { margin-left: auto; }
+    .phase-icon {
+      position: absolute;
+      top: 20px; left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      width: 65px; height: 65px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; font-weight: bold;
+      color: #fff;
+      z-index: 2;
+    }
+    .fade-in {
+      opacity: 0; transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .fade-in.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+<div class="container py-5 position-relative">
+  <div class="journey-line"></div>
+
+  <!-- FASE 1 -->
+  <div class="phase fade-in">
+    <div class="phase-icon bg-warning">📘</div>
+    <div class="phase-content">
+      <h4 class="text-warning">FASE 1: Fondasi Diri & Karakter</h4>
+      <p>Membangun pondasi spiritual, mindset, dan karakter.</p>
+      <button class="btn btn-sm btn-outline-warning" data-bs-toggle="collapse" data-bs-target="#fase1">Detail</button>
+      <div id="fase1" class="collapse mt-3">
+        <ul>
+          <li>Membuat Dream Book & Life Vision</li>
+          <li>Design Kebiasaan Harian</li>
+          <li>Emotional & Social Intelligence (Tes Kepribadian, Relasi Sehat)</li>
+          <li>Benchmark: Role Model Board</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="phase fade-in">
+    <div class="phase-icon bg-danger">💡</div>
+    <div class="phase-content">
+      <h4 class="text-danger">FASE 2: Mindset Pemenang & Grit</h4>
+      <p>Membangun mental juara, pola pikir tumbuh, dan problem solving.</p>
+      <button class="btn btn-sm btn-outline-danger" data-bs-toggle="collapse" data-bs-target="#fase2">Detail</button>
+      <div id="fase2" class="collapse mt-3">
+        <ul>
+          <li>Mental Blok: Fixed vs Growth</li>
+          <li>Latihan Self Talk & Affirmasi Juara</li>
+          <li>Conceptual Thinking → Rencana Bisnis</li>
+          <li>Creative Problem Solving & Innovation</li>
+          <li>Communication & Influence</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 3 -->
+  <div class="phase fade-in">
+    <div class="phase-icon bg-success">🤝</div>
+    <div class="phase-content">
+      <h4 class="text-success">FASE 3: Leadership & Kolaborasi</h4>
+      <p>Kepemimpinan diri, teamwork, dan kolaborasi nyata.</p>
+      <button class="btn btn-sm btn-outline-success" data-bs-toggle="collapse" data-bs-target="#fase3">Detail</button>
+      <div id="fase3" class="collapse mt-3">
+        <ul>
+          <li>Self-Leadership</li>
+          <li>Membentuk Tim Project</li>
+          <li>Latihan Problem Solving Bersama</li>
+          <li>Proyek Kolaborasi Kecil</li>
+          <li>Public Speaking & Storytelling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 4 -->
+  <div class="phase fade-in">
+    <div class="phase-icon bg-primary">📱</div>
+    <div class="phase-content">
+      <h4 class="text-primary">FASE 4: Bisnis & Digital</h4>
+      <p>Menerapkan strategi digital & bisnis modern.</p>
+      <button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#fase4">Detail</button>
+      <div id="fase4" class="collapse mt-3">
+        <ul>
+          <li>Video AI Storytelling tentang Brand/Produk</li>
+          <li>Simulasi Meta Ads Kecil</li>
+          <li>TikTok Konten & Ads</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASE 5 -->
+  <div class="phase fade-in">
+    <div class="phase-icon bg-purple" style="background:#6f42c1;">💼</div>
+    <div class="phase-content">
+      <h4 style="color:#6f42c1;">FASE 5: Family Business & Resiliensi Nyata</h4>
+      <p>Menguatkan literasi keuangan & kontribusi nyata di bisnis keluarga.</p>
+      <button class="btn btn-sm btn-outline-dark" data-bs-toggle="collapse" data-bs-target="#fase5">Detail</button>
+      <div id="fase5" class="collapse mt-3">
+        <ul>
+          <li>Ide Improvement untuk Bisnis Orang Tua</li>
+          <li>Financial Literacy</li>
+          <li>Final Project Presentation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Animasi scroll reveal
+  const elements = document.querySelectorAll('.fade-in');
+  function checkScroll() {
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 50) {
+        el.classList.add('show');
+      }
+    });
+  }
+  window.addEventListener('scroll', checkScroll);
+  checkScroll();
+</script>
+</body>
+</html>
