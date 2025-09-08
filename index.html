@@ -24,6 +24,82 @@
 
 
 </head>
+
+<style>
+  /* Pastikan Chart responsif */
+  #masalahAnakRadar {
+    max-width: 100%;
+    height: auto !important;
+  }
+
+  /* Responsiveness untuk Hero */
+  @media (max-width: 991px) {
+    header.hero .container-fluid .row {
+      flex-direction: column-reverse;
+    }
+    header.hero .col-lg-5 {
+      margin-bottom: 30px;
+    }
+    header.hero {
+      height: auto !important;
+      min-height: 100vh;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .hero-content {
+      padding: 20px 10px !important;
+      text-align: center;
+    }
+    .hook-text {
+      font-size: 1.6rem;
+    }
+    .headline {
+      font-size: 1.2rem;
+    }
+    .col-lg-5 img {
+      max-width: 220px !important;
+      margin-top: 20px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header.hero {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .hook-text {
+      font-size: 1.2rem;
+    }
+    .headline {
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+    .kutipan h3 {
+      font-size: 0.95rem !important;
+      line-height: 1.4;
+    }
+    .col-lg-5 img {
+      max-width: 160px !important;
+      margin-top: 10px !important;
+    }
+    .col-lg-5 div {
+      font-size: 0.9rem !important;
+    }
+    /* CTA button lebih lebar di mobile */
+    .d-flex.gap-3 {
+      flex-direction: column;
+      gap: 12px !important;
+    }
+    .btn-lg {
+      width: 100%;
+    }
+    /* Chart Label lebih kecil biar muat */
+    canvas#masalahAnakRadar {
+      max-width: 100%;
+    }
+  }
+</style>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   // Efek teks ketik
@@ -64,7 +140,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSSN96SN"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak" 
+  <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Start-Up%20Muda-Indonesia%20yaa%20kak" 
    class="float" target="_blank">
   <i class="fa fa-whatsapp my-float"></i>
 </a>
@@ -268,100 +344,185 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </header>
   <br />
 
-  <!-- Section 10 Masalah -->
+
+<!-- Section Masalah Anak Pengusaha dengan Radar Chart -->
+<style>
+  /* Biar chart tidak kepotong di layar kecil */
+ #masalahAnakRadar {
+  width: 100% !important;
+  height: 350px !important; /* bisa disesuaikan */
+}
+
+
+  /* Tablet */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.3rem !important;
+      line-height: 1.4;
+    }
+    h3 {
+      font-size: 1.2rem !important;
+    }
+    h4 {
+      font-size: 1.1rem !important;
+    }
+    p.lead {
+      font-size: 1rem !important;
+      line-height: 1.5;
+      padding: 0 10px;
+    }
+    .btn-lg {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  }
+
+  /* Mobile kecil */
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1.1rem !important;
+      line-height: 1.3;
+    }
+    h3 {
+      font-size: 1rem !important;
+    }
+    h4 {
+      font-size: 0.95rem !important;
+    }
+    p.lead {
+      font-size: 0.9rem !important;
+    }
+    /* CTA stack biar gampang diklik */
+    .d-flex.gap-3 {
+      flex-direction: column;
+      gap: 12px !important;
+    }
+    .btn-lg {
+      width: 100%;
+    }
+    /* Label chart lebih kecil supaya muat */
+    canvas#masalahAnakRadar {
+      max-width: 100%;
+    }
+  }
+</style>
+
+
 <section class="py-5" style="background-color: #fff;">
   <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
-    <h2 class="fw-bold mb-4 text-center text-danger">
-      10 MASALAH ORANG TUA PEBISNIS SAAT INGIN ANAK JADI PENERUS BISNIS
+
+    <!-- Headline -->
+    <h2 class="fw-bold mb-4 text-center text-danger" style="font-size: 1.6rem; line-height:1.4;">
+      “Bingung Anak Muda Mulai Usaha? <br>Mau bantu usaha orang tua juga bingung mulai dari mana? 
+      <br />Jangan Biarkan Mereka Salah Langkah!”
     </h2>
 
+    <!-- Subheadline -->
+
+<div class="mb-5 p-4 rounded shadow-sm" style="background: #f8f9fa; border-left: 5px solid #dc3545;">
+  <p class="lead text-center mb-0" style="max-width: 1000px; margin: 0 auto; font-size: 1.1rem; color:#444;">
+    Banyak anak muda punya ide, tapi tanpa bimbingan, mereka bisa 
+    <span class="fw-bold text-danger">tersesat, frustrasi, atau cepat menyerah</span>.  
+    <br />Startup Muda Indonesia hadir untuk membantu mereka tumbuh menjadi pengusaha juara.
+  </p>
+</div>
+
+
+    <!-- Masalah List -->
+    <h3 class="fw-bold text-center text-dark mb-4" style="font-size: 1.6rem;">
+      Masalah Umum Anak Pengusaha / Anak Muda
+    </h3>
+
+    <!-- Headline Chart -->
+    <h4 class="fw-bold text-center text-danger mb-3" style="font-size: 1.3rem;">
+      Tingkat Masalah yang Paling Sering Dialami
+    </h4>
+
     <!-- Chart -->
-    <div class="mb-5">
-      <canvas id="masalahRadar"></canvas>
+    <div class="mb-3">
+      <canvas id="masalahAnakRadar"></canvas>
     </div>
 
-    <!-- Poin 3-10 (disembunyikan) -->
-    <div id="morePoints" style="display: none;">
-      <!-- ... isi poin 3–10 sama seperti punyamu ... -->
+    <!-- CTA -->
+    <div class="text-center mt-5">
+      <h3 class="fw-bold text-dark mb-3" style="font-size: 1.5rem;">
+        “Jangan Tunggu Hingga Terlambat. Siapkan Anak Muda Anda Jadi Pengusaha Juara Sekarang!”
+      </h3>
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Start-Up%20Muda-Indonesia%20yaa%20kak" class="btn btn-danger btn-lg px-4">Daftar Sekarang</a>
+        <a href="#program" class="btn btn-outline-danger btn-lg px-4">Pelajari Program</a>
+      </div>
     </div>
 
-    <!-- Tombol Toggle -->
-    <!-- <div class="text-center">
-      <button class="btn btn-outline-danger" id="readMoreBtn" onclick="toggleMore()">Lihat Selengkapnya</button>
-    </div> -->
   </div>
 </section>
 
 <!-- Chart.js CDN -->
-<!-- Chart.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  const ctxRadar = document.getElementById('masalahRadar');
+  const ctxRadarAnak = document.getElementById('masalahAnakRadar');
 
-  new Chart(ctxRadar, {
-    type: 'radar',
-    data: {
-      labels: [
-        'Tidak Tertarik',
-        'Mental Warisan',
-        'Kurang Skill',
-        'Visi Tidak Nyambung',
-        'Tidak Ada Waktu Dididik',
-        'Takut Anak Gagal',
-        'Konflik Internal',
-        'Gap Teknologi',
-        'Tidak Ada Sistem',
-        'Kurang Role Model'
-      ],
-      datasets: [{
-        label: 'Tingkat Masalah (%)',
-        data: [85, 75, 70, 65, 60, 55, 50, 45, 40, 35], // contoh data dummy
-        backgroundColor: 'rgba(220,53,69,0.3)', 
-        borderColor: '#dc3545',
-        borderWidth: 2,
-        pointBackgroundColor: '#dc3545',
-        pointRadius: 4,
-        pointHoverRadius: 6
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        r: {
-          beginAtZero: true,
-          angleLines: { color: '#ddd' },
-          grid: { color: '#eee' },
-          suggestedMin: 0,
-          suggestedMax: 100,
-          ticks: {
-            stepSize: 20,
-            color: '#555',
-            backdropColor: 'transparent'
-          },
-          pointLabels: {
-            font: { size: 18, weight: 'bold' }, // 🔥 lebih besar biar jelas
-            color: '#333'
-          }
-        }
-      },
-      plugins: {
-        legend: {
-          display: true,
-          labels: { color: '#333', font: { size: 14, weight: 'bold' } }
+new Chart(ctxRadarAnak, {
+  type: 'radar',
+  data: {
+    labels: [
+      ['Kurang Pengalaman', '& Pengetahuan'],
+      ['Mindset', '& Mental Belum Siap'],
+      ['Kurang Jaringan', '& Mentor'],
+      ['Manajemen Waktu', '& Prioritas'],
+      ['Kurang Percaya Diri', '& Visi Jelas']
+    ],
+    datasets: [{
+      label: 'Tingkat Masalah (%)',
+      data: [90, 80, 70, 65, 75],
+      backgroundColor: 'rgba(220,53,69,0.3)',
+      borderColor: '#dc3545',
+      borderWidth: 2,
+      pointBackgroundColor: '#dc3545',
+      pointRadius: 4,
+      pointHoverRadius: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false, // biar chart bisa menyesuaikan tinggi container
+    scales: {
+      r: {
+        beginAtZero: true,
+        angleLines: { color: '#ddd' },
+        grid: { color: '#eee' },
+        suggestedMin: 0,
+        suggestedMax: 100,
+        ticks: {
+          stepSize: 20,
+          color: '#555',
+          backdropColor: 'transparent',
+          font: { size: 12 } // angka lebih kecil di mobile
         },
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              return context.raw + '% mengalami masalah ini';
-            }
+        pointLabels: {
+          font: { size: 12, weight: 'bold' },
+          color: '#333'
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        display: true,
+        labels: { color: '#333', font: { size: 12 } }
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return context.raw + '% mengalami masalah ini';
           }
         }
       }
     }
-  });
+  }
+});
+
 </script>
 
-  <br />
 
   <!-- Section Slide kelas -->
   <section>
@@ -442,7 +603,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   </script>
 
-
+<!-- 
   <section id="intro" class="intro py-5 px-3" style="background-color: #d70726">
     <div class="container" data-aos="fade-up" data-aos-duration="1200" style="max-width: 1200px; margin: auto">
       <h3 class="fw-bold text-dark"  style="font-size: 1.4rem; background-color: white; text-align: center;" data-aos="fade-up">
@@ -467,8 +628,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li>✅“Kalau aku sudah tua nanti, siapa yang akan memimpin?”</li>
       </ul>
     </div>
-  </section>
-  <section class="hero" style="
+  </section> -->
+
+  <!-- <section class="hero" style="
     background-image: url('img/hero1.jpg');
     background-size: cover;
     background-attachment: fixed;
@@ -578,10 +740,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       }
     </style>
-  </section>
+  </section> -->
 
   <!-- Pastikan sudah include AOS seperti contoh sebelumnya -->
-  <section id="program" class="program py-5 px-3" style="background-color: #fff">
+  <section id="#program" class="program py-5 px-3" style="background-color: #fff">
     <div class="container">
       <h2 class="fw-bold text-danger text-center mb-4" style="font-size: 2rem">
         🚀 Program Intensif 6 Bulan
