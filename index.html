@@ -179,7 +179,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Mitos -->
    <!-- Tantangan Nyata -->
     
-    <br>
+    
 <h2 style="font-size: 1.4rem; margin-top: 1.2rem; font-weight: bold;">
   Testimoni
 </h2>
@@ -234,6 +234,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     line-height: 1.4;
     color: #fff;
     border-right: 3px solid #ff4757;
+    margin: 20px auto;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     white-space: nowrap;
     overflow: hidden;
     width: 0;
@@ -260,11 +262,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 </style>
 
+
 <script>
+  function resizeHook() {
+    const hook = document.querySelector(".hook-text");
+    let vw = window.innerWidth;
+    if (vw < 480) {
+      hook.style.fontSize = "1rem";   // hp kecil
+    } else if (vw < 768) {
+      hook.style.fontSize = "1.5rem"; // tablet
+    } else if (vw < 1200) {
+      hook.style.fontSize = "2rem";   // laptop
+    } else {
+      hook.style.fontSize = "2.5rem"; // layar besar
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function() {
     const hook = document.querySelector(".hook-text");
     hook.textContent = '❝ START-UP MUDA INDONESIA ❞';
+    resizeHook();
   });
+
+  window.addEventListener("resize", resizeHook);
 </script>
 
     <div class="hero-overlay" style="
@@ -545,6 +565,15 @@ new Chart(ctxRadarAnak, {
           <div class="swiper-slide">
             <img src="img/gp11.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
           </div>
+          <div class="swiper-slide">
+            <img src="img/gp2.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
+          </div>
+          <div class="swiper-slide">
+            <img src="img/gp13.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
+          </div>
+          <div class="swiper-slide">
+            <img src="img/gp14.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
+          </div>
         </div>
         <!-- Swiper navigation -->
   
@@ -792,146 +821,169 @@ new Chart(ctxRadarAnak, {
 <!-- Roadmap -->
 <section id="roadmap" style="background:#f8f9fa; padding:60px 0;">
   <div class="container text-center">
-    <h2 class="fw-bold mb-5">🚀 Roadmap Start Up Muda Academy</h2>
+    <h2 class="fw-bold mb-5">
+      🚀 PROJEK KURIKULUM PEMBELAJARAN SELAMA 6 BULAN RELATIF
+    </h2>
 
-    <div class="roadmap-wrapper">
-      <!-- SVG Jalan bentuk S memanjang -->
-      <svg viewBox="0 0 600 1600" class="roadmap-path">
-        <!-- Jalan utama -->
-        <path id="mainRoad"
-          d="M300 50
-             C 550 150, 550 350, 300 450
-             C 50 550, 50 750, 300 850
-             C 550 950, 550 1150, 300 1250
-             C 50 1350, 50 1500, 300 1550"
-          stroke="#2c3e50" stroke-width="60" fill="none"
-          stroke-linecap="round" stroke-linejoin="round"/>
-        <!-- Garis putih putus-putus -->
-        <path
-          d="M300 50
-             C 550 150, 550 350, 300 450
-             C 50 550, 50 750, 300 850
-             C 550 950, 550 1150, 300 1250
-             C 50 1350, 50 1500, 300 1550"
-          stroke="#fff" stroke-width="6" stroke-dasharray="20 20" fill="none"/>
-      </svg>
+    <div class="timeline">
+      <!-- START -->
+      <div class="fase left">
+        <div class="pin">▶</div>
+        <div class="content">
+          <h5>Start</h5>
+          <p>Perjalanan dimulai dari pemahaman diri dan membangun karakter kuat untuk melangkah.</p>
+        </div>
+      </div>
 
-      <!-- Fase-fase zigzag -->
-      <div class="fase fase1" style="top:30px; left:60px;">
+      <!-- Fase-fase -->
+      <div class="fase right">
         <div class="pin">1</div>
-        <h5>Fondasi Diri & Karakter</h5>
-        <ul>
-          <li>1. Dream Book & Life Vision</li>
-          <li>2. Design Kebiasaan Harian</li>
-          <li>3. Emotional & Social Intelligence</li>
-          <li>4. Role Model Board</li>
-        </ul>
+        <div class="content">
+          <h5>Fondasi Diri & Karakter</h5>
+          <ul>
+            <li>1. Dream Book & Life Vision</li>
+            <li>2. Design Kebiasaan Harian</li>
+            <li>3. Emotional & Social Intelligence</li>
+            <li>4. Role Model Board</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="fase fase2" style="top:400px; right:60px;">
+      <div class="fase left">
         <div class="pin">2</div>
-        <h5>Mindset Pemenang & Grit</h5>
-        <ul>
-          <li>5. Growth Mindset</li>
-          <li>6. Self Talk & Affirmasi</li>
-          <li>7. Conceptual Thinking</li>
-          <li>8. Creative Problem Solving</li>
-          <li>9. Communication & Influence</li>
-        </ul>
+        <div class="content">
+          <h5>Mindset Pemenang & Grit</h5>
+          <ul>
+            <li>5. Growth Mindset</li>
+            <li>6. Self Talk & Affirmasi</li>
+            <li>7. Conceptual Thinking</li>
+            <li>8. Creative Problem Solving</li>
+            <li>9. Communication & Influence</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="fase fase3" style="top:750px; left:60px;">
+      <div class="fase right">
         <div class="pin">3</div>
-        <h5>Leadership & Kolaborasi</h5>
-        <ul>
-          <li>10. Self-Leadership</li>
-          <li>11. Membentuk Tim Project</li>
-          <li>12. Problem Solving Bersama</li>
-          <li>13. Proyek Kolaborasi Kecil</li>
-          <li>14. Public Speaking & Storytelling</li>
-        </ul>
+        <div class="content">
+          <h5>Leadership & Kolaborasi</h5>
+          <ul>
+            <li>10. Self-Leadership</li>
+            <li>11. Membentuk Tim Project</li>
+            <li>12. Problem Solving Bersama</li>
+            <li>13. Proyek Kolaborasi Kecil</li>
+            <li>14. Public Speaking & Storytelling</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="fase fase4" style="top:1150px; right:60px;">
+      <div class="fase left">
         <div class="pin">4</div>
-        <h5>Bisnis & Digital</h5>
-        <ul>
-          <li>15. Video AI Storytelling</li>
-          <li>16. Simulasi Meta Ads</li>
-          <li>17. TikTok Konten & Ads</li>
-        </ul>
+        <div class="content">
+          <h5>Bisnis & Digital</h5>
+          <ul>
+            <li>15. Video AI Storytelling</li>
+            <li>16. Simulasi Meta Ads</li>
+            <li>17. TikTok Konten & Ads</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="fase fase5" style="top:1450px; left:60px;">
+      <div class="fase right">
         <div class="pin">5</div>
-        <h5>Family Business & Resiliensi</h5>
-        <ul>
-          <li>18. Improvement Bisnis Orang Tua</li>
-          <li>19. Financial Literacy</li>
-          <li>20. Final Project Presentation</li>
-        </ul>
+        <div class="content">
+          <h5>Family Business & Resiliensi</h5>
+          <ul>
+            <li>18. Improvement Bisnis Orang Tua</li>
+            <li>19. Financial Literacy</li>
+            <li>20. Final Project Presentation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FINISH -->
+      <div class="fase left">
+        <div class="pin">🏁</div>
+        <div class="content">
+          <h5>Finish</h5>
+          <p>Selamat! Kamu siap menjadi pengusaha muda dengan mental kuat, skill digital, dan karya nyata.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-.roadmap-wrapper {
+.timeline {
   position: relative;
-  max-width: 600px;
+  max-width: 1000px;
   margin: 0 auto;
+  padding: 20px 0;
 }
-.roadmap-path { width: 100%; height: auto; }
-.fase {
+
+.timeline::after {
+  content: '';
   position: absolute;
-  width: 260px;
-  background:#fff;
-  padding:15px;
-  border-radius:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.15);
-  text-align:left;
-  opacity:0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+  width: 4px;
+  background: #2c3e50;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
 }
-.fase.show { opacity:1; transform: translateY(0); }
-.fase h5 { font-weight:bold; margin-bottom:8px; color:#e74c3c; }
-.fase ul { padding-left:18px; margin:0; font-size:0.9rem; }
+
+.fase {
+  padding: 20px;
+  position: relative;
+  width: 50%;
+}
+
+.fase .content {
+  padding: 15px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  text-align: left;
+}
+
 .fase .pin {
-  width:40px; height:40px;
-  background:#e74c3c; color:#fff;
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-weight:bold; margin-bottom:10px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  background: #e74c3c; /* merah */
+  color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  z-index: 1;
+}
+
+.fase.left { left: 0; }
+.fase.left .pin { right: -16px; }
+.fase.right { left: 50%; }
+.fase.right .pin { left: -16px; }
+
+.fase h5 { 
+  font-size: 16px; 
+  margin-bottom: 6px; 
+  color: #e74c3c; /* judul merah */
+}
+
+.fase ul { padding-left: 18px; margin: 0; font-size: 13px; }
+
+@media (max-width: 768px) {
+  .timeline::after { left: 20px; }
+  .fase { width: 100%; padding-left: 50px; padding-right: 0; }
+  .fase.right { left: 0; }
+  .fase .pin { left: 0; right: auto; }
 }
 </style>
-    
-<script>
-const road = document.querySelector("#mainRoad");
-const length = road.getTotalLength();
-road.style.strokeDasharray = length;
-road.style.strokeDashoffset = length;
 
-window.addEventListener("scroll", () => {
-  const section = document.querySelector("#roadmap");
-  const rect = section.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
 
-  if (rect.top < windowHeight && rect.bottom > 0) {
-    let progress = 1 - rect.top / windowHeight;
-    if (progress > 1) progress = 1;
-    if (progress < 0) progress = 0;
-    road.style.strokeDashoffset = length * (1 - progress);
-  }
 
-  document.querySelectorAll(".fase").forEach((fase) => {
-    const pos = fase.getBoundingClientRect().top;
-    if (pos < windowHeight - 100) {
-      fase.classList.add("show");
-    }
-  });
-});
-</script>
 
   <!-- Tabel Transformasi -->
   <script>
@@ -1045,7 +1097,7 @@ window.addEventListener("scroll", () => {
 
 
   <section class="biaya">
-    <h2 class="text-center text-danger"> LANGKAH AWAL UNTUK GENERASI PENERUS YANG LEBIH TANGGUH :</h2>
+    <h2 class="text-center text-danger"> LANGKAH AWAL UNTUK START-UP MUDA YANG LEBIH TANGGUH :</h2>
     <div class="text-center">
     <p>💰 Biaya Masuk: <strong>Rp15.000.000</strong> (dibayar di awal)</p>
     <p> 📈 SPP Bulanan: <strong>Rp2.000.000 x 6 bulan</strong></p>
