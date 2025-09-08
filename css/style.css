@@ -11,6 +11,21 @@
 
 }
 
+.kutipan .headline {
+  font-family: "Poppins", "Segoe UI", sans-serif; /* pilih font yang khas untuk headline */
+  font-size: 1.4rem; /* lebih besar biar kesan judul */
+  font-weight: 800; /* tebal */
+  color: #dc3545; /* warna sesuai tema */
+  text-align: center; /* opsional, biar fokus di tengah */
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.kutipan .headline {
+  text-transform: uppercase; /* semua huruf kapital */
+  letter-spacing: 1px;       /* jarak antar huruf */
+}
+
 blockquote{
   background: #f8f9fa;
   border-left: 5px solid #dc3545;
