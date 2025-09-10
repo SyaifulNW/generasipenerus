@@ -985,6 +985,178 @@ new Chart(ctxRadarAnak, {
 }
 </style>
 
+  <!-- Section Timeline Kegiatan Fitur Kalender --> 
+<!-- Section Timeline Kegiatan Fitur Kalender --> 
+
+<!-- Kalender Section -->
+<section class="py-5" style="background:#f8f9fa;">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-5 text-danger" style="font-size:2rem;">
+      📅 Kalender Kegiatan Program
+    </h2>
+
+    <div class="calendar-wrapper p-4 bg-white rounded-3 shadow">
+      <div id="calendar"></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FullCalendar & SweetAlert -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+  /* Kalender container */
+  #calendar {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    background: #fff;
+    border-radius: 12px;
+  }
+
+  .calendar-wrapper {
+    border: 2px solid #eee;
+  }
+
+  .fc-toolbar-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #25799E;
+  }
+
+  .fc-col-header-cell-cushion {
+    color: #333;
+    font-weight: 600;
+  }
+
+  .fc-daygrid-day-number {
+    color: #444;
+    font-weight: 600;
+  }
+
+  .fc-day-today .fc-daygrid-day-number {
+    border: 2px solid #25799E;
+    border-radius: 50%;
+    padding: 4px 7px;
+    color: white;
+    background-color: #25799E;
+  }
+
+  .fc {
+    font-size: 1em;
+  }
+
+  .fc-event {
+    border-radius: 6px;
+    padding: 3px 6px;
+    font-size: 0.85em;
+  }
+
+  /* Responsive style */
+  @media (max-width: 768px) {
+    .fc-toolbar-title {
+      font-size: 1.2em;
+    }
+    .fc {
+      font-size: 0.85em;
+    }
+    .calendar-wrapper {
+      padding: 8px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      locale: 'id',
+      height: 'auto',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,listWeek'
+      },
+
+      dayHeaderFormat: { weekday: 'long' }, //// auto switch
+      events: [
+        {
+          title: 'Orientasi & Ice Breaking',
+          start: '2025-07-01',
+          description: 'Memperkenalkan peserta dengan program dan membangun semangat kebersamaan.'
+        },
+        {
+          title: 'Workshop Mindset Juara',
+          start: '2025-07-08',
+          description: 'Membangun pola pikir positif dan mental juara dalam berbisnis.'
+        },
+        {
+          title: 'Pelatihan Digital Marketing',
+          start: '2025-07-15',
+          description: 'Mengenal strategi pemasaran digital untuk bisnis modern.'
+        },
+        {
+          title: 'Praktek Lapangan 1',
+          start: '2025-07-22',
+          description: 'Mengaplikasikan ilmu yang telah dipelajari di lingkungan bisnis nyata.'
+        },
+        {
+          title: 'Workshop Manajemen Keuangan',
+          start: '2025-07-29',
+          description: 'Belajar mengelola keuangan bisnis dengan efektif dan efisien.'
+        },
+        {
+          title: 'Praktek Lapangan 2',
+          start: '2025-08-05',
+          description: 'Melanjutkan praktek lapangan dengan fokus pada pengelolaan keuangan.'
+        },
+        {
+          title: 'Sesi Mentoring Bisnis',
+          start: '2025-08-12',
+          description: 'Diskusi langsung dengan mentor berpengalaman untuk membahas tantangan bisnis.'
+        },
+        {
+          title: 'Final Project Presentation',
+          start: '2025-08-19',
+          description: 'Presentasi hasil proyek bisnis yang telah dikerjakan selama program.'
+        },
+        {
+          title: 'Graduation & Sertifikat',
+          start: '2025-08-26',
+          description: 'Acara penutupan program dan pemberian sertifikat kelulusan kepada peserta.'
+        }
+      ],
+      eventClick: function (info) {
+        Swal.fire({
+          title: info.event.title,
+          text: info.event.extendedProps.description,
+          icon: 'info',
+          confirmButtonText: 'OK'
+        });
+      },
+      dayCellDidMount: function (info) {
+        if (info.date.getDay() === 0) { 
+          info.el.style.backgroundColor = '#ffe5e5';
+        }
+      }
+    });
+
+    calendar.render();
+
+    // Responsive re-render jika layar di-resize
+    window.addEventListener('resize', function () {
+      var newView = window.innerWidth < 768 ? 'listWeek' : 'dayGridMonth';
+      if (calendar.view.type !== newView) {
+        calendar.changeView(newView);
+      }
+    });
+  });
+</script>
 
 
 
