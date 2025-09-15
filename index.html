@@ -593,7 +593,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- Masalah List -->
-    <h3 class="fw-bold text-center text-dark mb-4 section-subtitle">
+    <h3 class="fw-bold text-center text-dark mb-4">
       Masalah Umum Anak Pengusaha / Anak Muda
     </h3>
 
@@ -601,20 +601,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h4 class="fw-bold text-center text-danger mb-3 chart-title">
       Tingkat Masalah yang Paling Sering Dialami
     </h4>
+<!-- Chart Section -->
+<section class="chart-section py-5">
+  <div class="container text-center">
 
     <!-- Chart -->
     <div class="mb-3 chart-container">
       <canvas id="masalahAnakBar"></canvas>
     </div>
 
+    <!-- Keterangan Warna -->
+    <!-- <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
+      <span class="badge bg-danger">Kurang Pengalaman & Pengetahuan</span>
+      <span class="badge bg-orange">Mindset & Mental Belum Siap</span>
+      <span class="badge bg-warning text-dark">Kurang Jaringan & Mentor</span>
+      <span class="badge bg-success">Manajemen Waktu & Prioritas</span>
+      <span class="badge bg-primary">Kurang Percaya Diri & Visi Jelas</span>
+    </div> -->
+
     <!-- CTA -->
-    <div class="text-center mt-5">
+    <div class="text-center px-2">
       <h3 class="fw-bold text-dark mb-3 cta-text">
         “Jangan Tunggu Hingga Terlambat. Siapkan Anak Muda Anda Jadi Pengusaha Juara Sekarang!”
       </h3>
-      <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
-        <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Start-Up%20Muda-Indonesia%20yaa%20kak" class="btn btn-danger btn-lg px-4">Daftar Sekarang</a>
-        <a href="#program" class="btn btn-outline-danger btn-lg px-4">Pelajari Program</a>
+      <div class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
+        <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Start-Up%20Muda-Indonesia%20yaa%20kak" 
+           class="btn btn-danger btn-lg px-3 py-2">Daftar Sekarang</a>
+        <a href="#" class="btn btn-outline-danger btn-lg px-3 py-2">Pelajari Program</a>
       </div>
     </div>
 
@@ -622,23 +635,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <style>
-/* Responsive Typography & Boxes */
-.headline { font-size: 1.6rem; line-height:1.4; }
-.subheadline-box { background: #f8f9fa; border-left: 5px solid #dc3545; }
-.subheadline-text { max-width: 1000px; margin: 0 auto; font-size: 1.1rem; color:#444; }
-.section-subtitle { font-size: 1.6rem; }
-.chart-title { font-size: 1.3rem; }
-.chart-container { position: relative; height: 400px; }
+/* Chart Container Responsive */
+.chart-container {
+  position: relative;
+  height: auto;
+  min-height: 300px;
+}
+
+/* Badge Custom */
+.badge.bg-orange { background-color: #fd7e14; color: #fff; }
 
 /* Mobile Responsive */
+@media (max-width: 992px) {
+  .chart-container { min-height: 280px; }
+  .cta-text { font-size: 1.3rem; }
+}
 @media (max-width: 768px) {
-  .headline { font-size: 1.3rem; }
-  .subheadline-text { font-size: 1rem; }
-  .section-subtitle { font-size: 1.3rem; }
-  .chart-title { font-size: 1.2rem; }
-  .chart-container { height: 300px; }
-  .cta-text { font-size: 1.2rem; }
-  .btn { font-size: 0.9rem; padding: 0.5rem 1rem; }
+  .chart-container { min-height: 240px; }
+  .cta-text { font-size: 1.1rem; }
+  .btn { font-size: 0.85rem; padding: 0.5rem 1rem; }
+  .badge { font-size: 0.8rem; padding: 0.35rem 0.6rem; }
 }
 </style>
 
@@ -661,30 +677,23 @@ new Chart(ctxBar, {
       label: 'Tingkat Masalah (%)',
       data: [90, 80, 70, 65, 75],
       backgroundColor: [
-        '#dc3545',
-        '#fd7e14',
-        '#ffc107',
-        '#198754',
-        '#0d6efd'
-      ],
-      borderColor: [
-        '#b02a37',
-        '#d46b08',
-        '#cc9a06',
-        '#146c43',
-        '#0a58ca'
+        '#dc3545',  // merah
+        '#fd7e14',  // orange
+        '#ffc107',  // kuning
+        '#198754',  // hijau
+        '#0d6efd'   // biru
       ],
       borderWidth: 2,
       borderRadius: 6
     }]
   },
   options: {
+    indexAxis: 'y', // buat horizontal bar agar label panjang lebih rapi
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
       tooltip: {
-        enabled: true,
         callbacks: {
           label: function(context) {
             return context.raw + '% mengalami masalah ini';
@@ -693,19 +702,20 @@ new Chart(ctxBar, {
       }
     },
     scales: {
-      x: { ticks: { font: { size: 14, weight: 'bold' }, color: '#333' }, grid: { display: false } },
-      y: { 
-        beginAtZero: true, max: 100, 
-        ticks: { stepSize: 20, font: { size: 14 }, color: '#333', callback: function(value) { return value + '%' } },
-        grid: { color: '#eee' } 
+      x: { 
+        beginAtZero: true, max: 100,
+        ticks: { stepSize: 20, callback: val => val + '%' },
+        grid: { color: '#eee' }
+      },
+      y: {
+        ticks: { font: { size: 13, weight: 'bold' }, color: '#333' },
+        grid: { display: false }
       }
     },
-    animation: { duration: 1500, easing: 'easeOutBounce' }
+    animation: { duration: 1200, easing: 'easeOutCubic' }
   }
 });
 </script>
-
-
 
 
   <!-- Section Slide kelas -->
@@ -1009,7 +1019,7 @@ new Chart(ctxBar, {
 
 <!-- 6 Bulan Relatif -->
  <!-- Section Belajar Bisnis Hybrid -->
-<section class="smi-hybrid py-5">
+<section id="program" class="smi-hybrid py-5">
   <div class="container text-center">
     <!-- Headline -->
     <h2 class="section-title mb-4" data-aos="fade-up">Belajar Bisnis Tanpa Terhalang Waktu! 🚀</h2>
@@ -1060,7 +1070,7 @@ new Chart(ctxBar, {
   font-size: 1.1rem;
   max-width: 700px;
   margin: 0 auto 2.5rem auto;
-  color: #fffff;
+  color: white;
 }
 
 .hybrid-card {
@@ -1583,9 +1593,7 @@ new Chart(ctxBar, {
     <p> 📈 SPP Bulanan: <strong>Rp2.000.000 x 6 bulan</strong></p>
     <p><em> 📆 Program dimulai: September 2025</em></p>
     <p>
-      <strong>Seet Terbatas</strong> — Hanya untuk anak-anak dari keluarga
-      pengusaha yang serius ingin membangun masa depan.
-    </p>
+      <strong>Seat Terbatas</strong> 
     </div>
    
   </section>
@@ -1894,17 +1902,25 @@ new Chart(ctxBar, {
 
 
 <!-- Daftar Sekarang -->
-<section class="daftar d-flex flex-wrap align-items-center justify-content-between">
-  <div class="content col-lg-6 col-12 mb-4 mb-lg-0">
-    <h2 class="text-white"> DAFTARKAN SEKARANG </h2>
-    <p style="font-weight: 600;" >Klik tombol di bawah ini untuk konsultasi & pendaftaran:</p>
+<section class="daftar d-flex flex-wrap align-items-center justify-content-between py-5" style="background:rgb(243, 210, 22);">
+  <div class="content col-lg-6 col-12 mb-4 mb-lg-0 text-white">
 
-    <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak" target="_blank" class="cta-btn">
+    <!-- Batch Info -->
+  
+    <h2 class="text-dark mb-3">DAFTARKAN SEKARANG</h2>
+      <div class="batch-info mb-3 p-3 rounded" style="background: rgba(255,255,255,0.1); border-left: 5px solid #07ff28;">
+      <strong class="text-dark">Batch 1: &nbsp;</strong> <strong class="text-dark">23 September 2025</strong> 
+    </div>
+
+    <p style="font-weight: 600;">Klik tombol di bawah ini untuk konsultasi & pendaftaran:</p>
+
+    <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak" 
+       target="_blank" class="cta-btn btn btn-success text-dark fw-bold mb-3">
       🎯 KONSULTASI VIA WHATSAPP
     </a>
 
     <div class="text-center my-4">
-      <a style="color: #fff;" href="https://maps.app.goo.gl/Q5czgnTbNRBoZiZ5A" target="_blank" class="btn btn-outline-white">
+      <a style="color: #fff;" href="https://maps.app.goo.gl/Q5czgnTbNRBoZiZ5A" target="_blank" class="btn btn-outline-light">
         <i class="fas fa-map-marker-alt"></i> Lokasi: MARKAZ MBC – Solo 
       </a>
     </div>
@@ -1913,10 +1929,26 @@ new Chart(ctxBar, {
 
   <div class="image col-lg-5 col-12 text-center">
     <img src="img/fitra0.png" alt="Daftar Sekarang" class="img-fluid rounded shadow" style="max-width: 80%; height: auto;">
-    <div class="mt-3" style="font-weight: bold; color: #fff; font-size: 1.1rem;">
+    <div class="mt-3 fw-bold" style="color: #fff; font-size: 1.1rem;">
       Coach Fitra Jaya Saleh - Founder MBC
+    </div>
   </div>
 </section>
+
+<style>
+/* Batch Info Styling */
+.batch-info {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .batch-info { font-size: 0.9rem; padding: 0.8rem; }
+  .cta-btn { font-size: 0.9rem; padding: 0.6rem 1rem; }
+}
+</style>
+
 
 
 
