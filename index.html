@@ -277,15 +277,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- Bagian Kanan (Coach) -->
-    <div class="col-lg-5 col-md-10 text-center">
-      <img src="img/fjs.png" alt="Fitra Jaya Saleh" class="img-fluid rounded shadow floating-img" style="max-width: 350px; width: 100%; margin-top: -50px;">
-      <div style="margin-top: 12px; font-weight: bold; color: #fff; font-size: 1.1rem;">
-        Coach Fitra Jaya Saleh
-      </div>
-      <div style="margin-top: 12px; font-weight: bold; color: #f7f4f4; font-size: 1.1rem;">
-        Master Coach
-      </div>
-    </div>
+ <div class="col-lg-5 col-md-10 text-center">
+  <div class="profile-card">
+    <img src="img/fjs.png" alt="Fitra Jaya Saleh" 
+         class="img-fluid rounded shadow floating-img" 
+         style="max-width: 320px; width: 100%;">
+    <h3 class="profile-name">Coach Fitra Jaya Saleh</h3>
+    <p class="profile-title">Master Coach</p>
+  </div>
+</div>
+
+<style>
+  .profile-card {
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    background: rgba(0,0,0,0.6); /* supaya tulisan kontras */
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .profile-name {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .profile-title {
+    margin-top: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ddd;
+  }
+
+  @media (max-width: 600px) {
+    .profile-card {
+      padding: 0.8rem;
+      max-width: 90%;
+    }
+    .profile-name {
+      font-size: 1.1rem;
+    }
+    .profile-title {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
 
   </div>
 </div>
@@ -496,48 +535,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 </style>
 
-
 <section class="py-5" style="background-color: #fff;">
   <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
 
     <!-- Headline -->
-    <h2 class="fw-bold mb-4 text-center text-danger" style="font-size: 1.6rem; line-height:1.4;">
+    <h2 class="fw-bold mb-4 text-center text-danger headline">
       “Bingung Anak Muda Mulai Usaha? <br>Mau bantu usaha orang tua juga bingung mulai dari mana? 
       <br />Jangan Biarkan Mereka Salah Langkah!”
     </h2>
 
     <!-- Subheadline -->
-
-<div class="mb-5 p-4 rounded shadow-sm" style="background: #f8f9fa; border-left: 5px solid #dc3545;">
-  <p class="lead text-center mb-0" style="max-width: 1000px; margin: 0 auto; font-size: 1.1rem; color:#444;">
-    Banyak anak muda punya ide, tapi tanpa bimbingan, mereka bisa 
-    <span class="fw-bold text-danger">tersesat, frustrasi, atau cepat menyerah</span>.  
-    <br />Startup Muda Indonesia hadir untuk membantu mereka tumbuh menjadi pengusaha juara.
-  </p>
-</div>
-
+    <div class="mb-5 p-4 rounded shadow-sm subheadline-box">
+      <p class="lead text-center mb-0 subheadline-text">
+        Banyak anak muda punya ide, tapi tanpa bimbingan, mereka bisa 
+        <span class="fw-bold text-danger">tersesat, frustrasi, atau cepat menyerah</span>.  
+        <br />Startup Muda Indonesia hadir untuk membantu mereka tumbuh menjadi pengusaha juara.
+      </p>
+    </div>
 
     <!-- Masalah List -->
-    <h3 class="fw-bold text-center text-dark mb-4" style="font-size: 1.6rem;">
+    <h3 class="fw-bold text-center text-dark mb-4 section-subtitle">
       Masalah Umum Anak Pengusaha / Anak Muda
     </h3>
 
     <!-- Headline Chart -->
-    <h4 class="fw-bold text-center text-danger mb-3" style="font-size: 1.3rem;">
+    <h4 class="fw-bold text-center text-danger mb-3 chart-title">
       Tingkat Masalah yang Paling Sering Dialami
     </h4>
 
     <!-- Chart -->
-    <div class="mb-3">
-      <canvas id="masalahAnakRadar"></canvas>
+    <div class="mb-3 chart-container">
+      <canvas id="masalahAnakBar"></canvas>
     </div>
 
     <!-- CTA -->
     <div class="text-center mt-5">
-      <h3 class="fw-bold text-dark mb-3" style="font-size: 1.5rem;">
+      <h3 class="fw-bold text-dark mb-3 cta-text">
         “Jangan Tunggu Hingga Terlambat. Siapkan Anak Muda Anda Jadi Pengusaha Juara Sekarang!”
       </h3>
-      <div class="d-flex justify-content-center gap-3 mt-4">
+      <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
         <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Start-Up%20Muda-Indonesia%20yaa%20kak" class="btn btn-danger btn-lg px-4">Daftar Sekarang</a>
         <a href="#program" class="btn btn-outline-danger btn-lg px-4">Pelajari Program</a>
       </div>
@@ -546,147 +582,166 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<style>
+/* Responsive Typography & Boxes */
+.headline { font-size: 1.6rem; line-height:1.4; }
+.subheadline-box { background: #f8f9fa; border-left: 5px solid #dc3545; }
+.subheadline-text { max-width: 1000px; margin: 0 auto; font-size: 1.1rem; color:#444; }
+.section-subtitle { font-size: 1.6rem; }
+.chart-title { font-size: 1.3rem; }
+.chart-container { position: relative; height: 400px; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .headline { font-size: 1.3rem; }
+  .subheadline-text { font-size: 1rem; }
+  .section-subtitle { font-size: 1.3rem; }
+  .chart-title { font-size: 1.2rem; }
+  .chart-container { height: 300px; }
+  .cta-text { font-size: 1.2rem; }
+  .btn { font-size: 0.9rem; padding: 0.5rem 1rem; }
+}
+</style>
+
 <!-- Chart.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  const ctxRadarAnak = document.getElementById('masalahAnakRadar');
+const ctxBar = document.getElementById('masalahAnakBar');
 
-new Chart(ctxRadarAnak, {
-  type: 'radar',
+new Chart(ctxBar, {
+  type: 'bar',
   data: {
     labels: [
-      ['Kurang Pengalaman', '& Pengetahuan'],
-      ['Mindset', '& Mental Belum Siap'],
-      ['Kurang Jaringan', '& Mentor'],
-      ['Manajemen Waktu', '& Prioritas'],
-      ['Kurang Percaya Diri', '& Visi Jelas']
+      'Kurang Pengalaman & Pengetahuan',
+      'Mindset & Mental Belum Siap',
+      'Kurang Jaringan & Mentor',
+      'Manajemen Waktu & Prioritas',
+      'Kurang Percaya Diri & Visi Jelas'
     ],
     datasets: [{
       label: 'Tingkat Masalah (%)',
       data: [90, 80, 70, 65, 75],
-      backgroundColor: 'rgba(220,53,69,0.3)',
-      borderColor: '#dc3545',
+      backgroundColor: [
+        '#dc3545',
+        '#fd7e14',
+        '#ffc107',
+        '#198754',
+        '#0d6efd'
+      ],
+      borderColor: [
+        '#b02a37',
+        '#d46b08',
+        '#cc9a06',
+        '#146c43',
+        '#0a58ca'
+      ],
       borderWidth: 2,
-      pointBackgroundColor: '#dc3545',
-      pointRadius: 4,
-      pointHoverRadius: 6
+      borderRadius: 6
     }]
   },
   options: {
     responsive: true,
-    maintainAspectRatio: false, // biar chart bisa menyesuaikan tinggi container
-    scales: {
-      r: {
-        beginAtZero: true,
-        angleLines: { color: '#ddd' },
-        grid: { color: '#eee' },
-        suggestedMin: 0,
-        suggestedMax: 100,
-        ticks: {
-          stepSize: 20,
-          color: '#555',
-          backdropColor: 'transparent',
-          font: { size: 12 } // angka lebih kecil di mobile
-        },
-        pointLabels: {
-          font: { size: 12, weight: 'bold' },
-          color: '#333'
-        }
-      }
-    },
+    maintainAspectRatio: false,
     plugins: {
-      legend: {
-        display: true,
-        labels: { color: '#333', font: { size: 12 } }
-      },
+      legend: { display: false },
       tooltip: {
+        enabled: true,
         callbacks: {
           label: function(context) {
             return context.raw + '% mengalami masalah ini';
           }
         }
       }
-    }
+    },
+    scales: {
+      x: { ticks: { font: { size: 14, weight: 'bold' }, color: '#333' }, grid: { display: false } },
+      y: { 
+        beginAtZero: true, max: 100, 
+        ticks: { stepSize: 20, font: { size: 14 }, color: '#333', callback: function(value) { return value + '%' } },
+        grid: { color: '#eee' } 
+      }
+    },
+    animation: { duration: 1500, easing: 'easeOutBounce' }
   }
 });
-
 </script>
 
 
+
+
   <!-- Section Slide kelas -->
-  <section>
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<section>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <div class="container text-center" data-aos="fade-up" data-aos-duration="1200">
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="img/gp1.jpg" alt="Kelas 1" class="img-fluid rounded shadow" />
-          </div>
-          <div class="swiper-slide">
-            <img src="img/gp3.jpg" alt="Kelas 2" class="img-fluid rounded shadow" />
-          </div>
-          <div class="swiper-slide">
-            <img src="img/gp2.jpg" alt="Kelas 3" class="img-fluid rounded shadow" />
-          </div>
-      
-          <div class="swiper-slide">
-            <img src="img/gp11.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
-          </div>
-          <div class="swiper-slide">
-            <img src="img/gp2.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
-          </div>
-          <div class="swiper-slide">
-            <img src="img/gp13.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
-          </div>
-          <div class="swiper-slide">
-            <img src="img/gp14.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
-          </div>
-          <div class="swiper-slide">
-            <img src="img/gp15.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
-          </div>
+  <div class="container text-center" data-aos="fade-up" data-aos-duration="1200">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="img/gp1.jpg" alt="Kelas 1" class="img-fluid rounded shadow" />
         </div>
-        <!-- Swiper navigation -->
-  
-        <!-- Swiper pagination -->
-        <div class="swiper-pagination"></div>
+        <div class="swiper-slide">
+          <img src="img/gp3.jpg" alt="Kelas 2" class="img-fluid rounded shadow" />
+        </div>
+        <div class="swiper-slide">
+          <img src="img/gp2.jpg" alt="Kelas 3" class="img-fluid rounded shadow" />
+        </div>
+        <div class="swiper-slide">
+          <img src="img/gp11.jpg" alt="Kelas 4" class="img-fluid rounded shadow" />
+        </div>
+        <div class="swiper-slide">
+          <img src="img/gp12.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
+        </div>
+        <div class="swiper-slide">
+          <img src="img/gp13.jpg" alt="Kelas 6" class="img-fluid rounded shadow" />
+        </div>
+        <div class="swiper-slide">
+          <img src="img/gp14.jpg" alt="Kelas 7" class="img-fluid rounded shadow" />
+        </div>
+        <div class="swiper-slide">
+          <img src="img/gp15.jpg" alt="Kelas 8" class="img-fluid rounded shadow" />
+        </div>
       </div>
+      <!-- Swiper pagination -->
+      <div class="swiper-pagination"></div>
     </div>
+  </div>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 2500, // jeda 2,5 detik
+        disableOnInteraction: false, // tetap jalan meski user klik
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
         },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true
+        992: {
+          slidesPerView: 3,
         },
-        breakpoints: {
-          768: {
-            slidesPerView: 2
-          },
-          992: {
-            slidesPerView: 3
-          }
-        }
-      });
-    </script>
-    <!-- Keterangan -->
-      <div class="text-center mt-3" data-aos="fade-up" data-aos-duration="1200">
-        <p class="text-dark" style="font-size: 1.1rem;">
-      Di Bimbing oleh Coach Fitra Jaya Saleh, bisnis Coach yang membina Ribuan pengusaha dan telah berpengalaman bertahun tahun dalam dunia coaching bisnis.
-        </p>
-      </div>
-    </div>
-   </section>
+      },
+    });
+  </script>
+
+  <!-- Keterangan -->
+  <div class="text-center mt-3" data-aos="fade-up" data-aos-duration="1200">
+    <p class="text-dark" style="font-size: 1.1rem;">
+      Dibimbing oleh Coach Fitra Jaya Saleh, Master Coach yang membina ribuan pengusaha dan telah berpengalaman bertahun-tahun dalam dunia coaching bisnis.
+    </p>
+  </div>
+</section>
+
+   
 
   <!-- Section Masalah Orang Tua -->
 
@@ -704,144 +759,188 @@ new Chart(ctxRadarAnak, {
     }
   </script>
 
-<!-- 
-  <section id="intro" class="intro py-5 px-3" style="background-color: #d70726">
-    <div class="container" data-aos="fade-up" data-aos-duration="1200" style="max-width: 1200px; margin: auto">
-      <h3 class="fw-bold text-dark"  style="font-size: 1.4rem; background-color: white; text-align: center;" data-aos="fade-up">
-       <p style="font-size: 1.3rem; font-family: 'Scheherazade', serif; direction: rtl; color: #131212; margin-bottom: 0.4rem; word-break: break-word;">
-              وَلْيَخْشَ الَّذِيْنَ لَوْ تَرَكُوْا مِنْ خَلْفِهِمْ ذُرِّيَّةً ضِعٰفًا خَافُوْا عَلَيْهِمْۖ فَلْيَتَّقُوا
-              اللّٰهَ وَلْيَقُوْلُوْا قَوْلًا سَدِيْدًا ۝٩
-            </p>
-            <p style="font-style: italic; font-size: 1rem; margin-bottom: 0.5rem;">
-              “Hendaklah merasa takut orang-orang yang seandainya (mati) meninggalkan setelah
-              mereka, keturunan yang lemah (yang) mereka khawatir terhadapnya. Maka, bertakwalah kepada Allah dan berbicaralah
-              dengan tutur kata yang benar (dalam hal menjaga hak-hak keturunannya).” (QS. An-Nisa': 9).
-            </p>
-      </h3>
-      <p class="mt-3 text-light" style="font-size: 1.2rem" data-aos="fade-up" data-aos-delay="200">
-        Banyak pengusaha sukses hari ini… Namun diam-diam menyimpan
-        kegelisahan besar:
-      </p>
-      <ul style="padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.6" class="mt-3 text-light"
-        style="font-size: 1.2rem" data-aos="fade-up" data-aos-delay="400">
-        <li>✅“Anakku bisa nggak ya teruskan bisnis ini?”</li>
-        <li>✅“Dia belum paham dunia nyata, apalagi dunia usaha.”</li>
-        <li>✅“Kalau aku sudah tua nanti, siapa yang akan memimpin?”</li>
-      </ul>
-    </div>
-  </section> -->
+<!-- Program Startup Muda Indonesia -->
+<section class="smi-program py-5">
+  <div class="container text-center">
+    <h2 class="section-title" data-aos="fade-up">Program Startup Muda Indonesia</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+      Program intensif untuk anak muda usia 15–28 tahun yang ingin membangun bisnis nyata sejak dini.
+    </p>
 
-  <!-- <section class="hero" style="
-    background-image: url('img/hero1.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.6);
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 80vh;
-    position: relative;
-    overflow: hidden;
-  " data-aos="fade-up" data-aos-duration="1200">
-    <div class="container-fluid h-100">
-      <div class="row align-items-center h-100" style="min-height: 60vh;">
-        <div class="col-lg-7 col-md-12">
-          <div class="hero-content text-white" style="position: relative; z-index: 1; padding-top: 20px; padding-left: 15px; padding-right: 15px;">
-            <h1 class="display-4 fw-bold" style="font-size: 2.2rem; text-align: center;">START-UP MUDA ACADEMY MBC</h1>
-            <p style="font-size: 1.3rem; font-weight: 600; color:#d70726; margin-bottom: 0.5rem;  background-color: #ffff; text-align: center;">
-                    “KAMPUS NYA ANAK PENGUSAHA, DIAJARKAN ILMU BISNIS, LEADERSHIP, MINDSET JUARA dan AKHLAKUL KARIMAH dalam bisnis yang tidak diajarkan di Sekolah Formal."
-            </p>
-            <p class="lead" style="color: white; font-size: 1.1rem; margin-bottom: 0.8rem;">
-              Sebuah program pengembangan karakter, kemampuan bisnis dan kepemimpinan untuk anak pengusaha, agar mereka:
-            </p>
-            <div class="text-left" style="font-size: 1.1rem; line-height: 1.6; margin: 0 auto; max-width: 1300px;">
-              <strong>✅ Menyiapkan anak-anak pengusaha untuk menjadi pengusaha  yang lebih baik.</strong><br /> 
-              <strong>✅ Membekali keterampilan bisnis nyata, mindset seorang juara dan akhlak mulia seorang pengusaha muslim</strong><br />
-              <strong>✅ Memiliki mentor dan komunitas bisnis Muslim</strong><br />
-              <strong>✅ ⁠Memberikan anak anda Networking jaringan sesama pengusaha muslim yang saling suport dalam kebaikan</strong>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-5 col-md-10 text-center">
-          <img src="img/fjsputih.png" alt="Fitra Jaya Saleh" class="img-fluid rounded shadow" style="max-width: 350px; width: 100%; margin-top: -50px;">
-          <div style="margin-top: 12px; font-weight: bold; color: #fff; font-size: 1.1rem;">
-            Coach Fitra Jaya Saleh
-          </div>
-        </div>
+    <div class="program-cards">
+      <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+        <p>🚀 <strong>Belajar Langsung Praktik:</strong> Kamu tidak hanya belajar teori, tapi dibimbing langkah demi langkah dengan roadmap jelas, didukung mentor berpengalaman.</p>
+      </div>
+
+      <div class="program-card" data-aos="fade-up" data-aos-delay="300">
+        <p>🤝 <strong>Komunitas Supportive:</strong> Dikelilingi komunitas pengusaha muda yang saling mendukung dan berbagi pengalaman.</p>
+      </div>
+
+      <div class="program-card" data-aos="fade-up" data-aos-delay="400">
+        <p>📈 <strong>Hasil Nyata 6 Bulan:</strong> Bayangkan dalam 6 bulan kamu sudah punya bisnis yang jalan, jaringan teman pebisnis se-Indonesia, dan melampaui keraguan.</p>
+      </div>
+
+      <div class="program-card highlight" data-aos="fade-up" data-aos-delay="500">
+        <p>⚡ <strong>Masa depan dimenangkan oleh mereka yang berani mulai lebih cepat!</strong></p>
       </div>
     </div>
-    <div class="hero-overlay" style="
-      position: relative;
-      background-color:black;
-  
-    "></div>
-    <style>
-      @media (max-width: 991px) { 
-        section.hero {
-          height: auto !important;
-          min-height: 70vh;
-          padding-top: 40px;
-          padding-bottom: 40px;
-        }
-        section.hero .container-fluid .row {
-          flex-direction: column-reverse;
-        }
-        section.hero .col-lg-5 {
-          margin-bottom: 30px;
-        }
-        .hero-content {
-          padding-top: 30px !important;
-          padding-left: 10px !important;
-          padding-right: 10px !important;
-        }
-        .display-4 {
-          font-size: 1.5rem !important;
-        }
-        .lead {
-          font-size: 1rem !important;
-        }
-        .col-lg-5 img {
-          max-width: 220px !important;
-          margin-top: 20px !important;
-        }
-        .col-lg-5 div {
-          font-size: 1rem !important;
-          margin-top: 8px !important;
-        }
-        .hero-content .text-left {
-          font-size: 1rem !important;
-        }
-      }
-      @media (max-width: 480px) {
-        section.hero {
-          padding-top: 20px;
-          padding-bottom: 20px;
-        }
-        .hero-content {
-          padding-top: 15px !important;
-          padding-left: 5px !important;
-          padding-right: 5px !important;
-        }
-        .display-4 {
-          font-size: 1.1rem !important;
-        }
-        .lead {
-          font-size: 0.95rem !important;
-        }
-        .col-lg-5 img {
-          max-width: 120px !important;
-          margin-top: 10px !important;
-        }
-        .col-lg-5 div {
-          font-size: 0.95rem !important;
-          margin-top: 6px !important;
-        }
-        .hero-content .text-left {
-          font-size: 0.95rem !important;
-        }
-      }
-    </style>
-  </section> -->
+  </div>
+</section>
+
+<style>
+  .smi-program {
+    background: linear-gradient(135deg, #d70726, #f76b1c);
+    color: #fff;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .program-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .program-card {
+    background: rgba(0,0,0,0.4);
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    max-width: 320px;
+    text-align: left;
+    line-height: 1.6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  }
+
+  .program-card.highlight {
+    background: rgba(0,0,0,0.6);
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.6rem;
+    }
+    .section-subtitle {
+      font-size: 1rem;
+    }
+    .program-card {
+      max-width: 90%;
+      padding: 1.2rem;
+    }
+  }
+</style>
+
+<!-- AOS JS (untuk animasi fade-in saat scroll) -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true, // animasi hanya sekali saat muncul
+    duration: 800
+  });
+</script>
+
+<section class="smi-fit py-5" style="background-color: #fdf2f2;">
+  <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
+
+    <!-- Headline -->
+    <h2 class="fw-bold text-center text-danger mb-4" style="font-size: 1.8rem;">
+      Program  Startup Muda Indonesia  Cocok Untuk:
+    </h2>
+
+    <!-- List Cards -->
+    <div class="row justify-content-center gap-3">
+
+      <div class="col-lg-5 col-md-8 col-sm-12 mb-3">
+        <div class="card shadow-sm p-3 h-100 border-start border-5 border-danger">
+          <p class="mb-0" style="font-size: 1.1rem; text-align: justify;">
+            🚀 <strong>Anak muda usia 15–28 tahun</strong> yang punya semangat membangun usaha, tapi masih bingung mulai dari mana.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-5 col-md-8 col-sm-12 mb-3">
+        <div class="card shadow-sm p-3 h-100 border-start border-5 border-danger">
+          <p class="mb-0" style="font-size: 1.1rem; text-align: justify;">
+            🏢 <strong>Anak pengusaha</strong> yang ingin meneruskan atau mengembangkan bisnis keluarga dengan cara yang lebih modern dan relevan dengan zaman.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-5 col-md-8 col-sm-12 mb-3">
+        <div class="card shadow-sm p-3 h-100 border-start border-5 border-danger">
+          <p class="mb-0" style="font-size: 1.1rem; text-align: justify;">
+            🎓 <strong>Mahasiswa atau pelajar</strong> yang ingin belajar bisnis sejak dini supaya tidak hanya mengandalkan ijazah.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-5 col-md-8 col-sm-12 mb-3">
+        <div class="card shadow-sm p-3 h-100 border-start border-5 border-danger">
+          <p class="mb-0" style="font-size: 1.1rem; text-align: justify;">
+            💼 <strong>Freelancer atau pekerja muda</strong> yang ingin naik level, tidak sekadar jualan kecil-kecilan, tapi membangun bisnis yang serius dan berkelanjutan.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-5 col-md-8 col-sm-12 mb-3">
+        <div class="card shadow-sm p-3 h-100 border-start border-5 border-danger">
+          <p class="mb-0" style="font-size: 1.1rem; text-align: justify;">
+            📈 <strong>Pengusaha pemula</strong> yang sudah mulai usaha kecil, tapi merasa stagnan dan butuh arahan supaya bisnisnya bisa naik kelas.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .smi-fit h2 {
+    line-height: 1.3;
+  }
+
+  .smi-fit .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .smi-fit .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  @media (max-width: 768px) {
+    .smi-fit h2 {
+      font-size: 1.5rem;
+    }
+    .smi-fit .card p {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+
 
   <!-- Pastikan sudah include AOS seperti contoh sebelumnya -->
   <section id="#program" class="program py-5 px-3" style="background-color: #fff">
@@ -1058,7 +1157,7 @@ new Chart(ctxRadarAnak, {
 <!-- Section Timeline Kegiatan Fitur Kalender --> 
 
 <!-- Kalender Section -->
-<section class="py-5" style="background:#f8f9fa;">
+<!-- <section class="py-5" style="background:#f8f9fa;">
   <div class="container">
     <h2 class="fw-bold text-center mb-5 text-danger" style="font-size:2rem;">
       📅 Kalender Kegiatan Program
@@ -1068,7 +1167,7 @@ new Chart(ctxRadarAnak, {
       <div id="calendar"></div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 
@@ -1297,46 +1396,7 @@ new Chart(ctxRadarAnak, {
     </div>
   </section>
 
-  <!-- Apa yang mereka dapatkan -->
-<!-- <section class="benefit py-5" style="background-color: #d70726;">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-4" style="color: white;">APA YANG MEREKA DAPATKAN?</h2>
-    <div class="row justify-content-center gx-2 gy-3">
-    
-      <div class="col-12 col-md-4 mb-3">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center p-3 rounded shadow-sm" style="background: #fff; height: 100%;">
-          <img src="img/sertifikat.png" alt="Sertifikat" style="width:32px; margin-bottom:12px;">
-          <span class="text-dark fw-semibold">Sertifikat Kelulusan</span>
-        </div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center p-3 rounded shadow-sm" style="background: #fff; height: 100%;">
-          <img src="img/portfolio.png" alt="Portofolio" style="width:32px; margin-bottom:12px;">
-          <span class="text-dark fw-semibold">Portofolio Proyek Nyata</span>
-        </div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center p-3 rounded shadow-sm" style="background: #fff; height: 100%;">
-          <img src="img/alumni.png" alt="Jaringan" style="width:32px; margin-bottom:12px;">
-          <span class="text-dark fw-semibold">Jaringan Alumni & Komunitas Bisnis</span>
-        </div>
-      </div>
 
-      <div class="col-12 col-md-4 mb-3">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center p-3 rounded shadow-sm" style="background: #fff; height: 100%;">
-          <img src="img/mentoring.png" alt="Mentor" style="width:32px; margin-bottom:12px;">
-          <span class="text-dark fw-semibold">Mentor Pribadi</span>
-        </div>
-      </div>
-      <div class="col-12 col-md-4 mb-3">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center p-3 rounded shadow-sm" style="background: #fff; height: 100%;">
-          <img src="img/shirt.png" alt="Seragam" style="width:32px; margin-bottom:12px;">
-          <span class="text-dark fw-semibold">Seragam & Starter Kit</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 
 
@@ -1368,19 +1428,7 @@ new Chart(ctxRadarAnak, {
         <i class="fas fa-map-marker-alt"></i> Lokasi: MARKAZ MBC – Solo 
       </a>
     </div>
-  <!-- <div style="font-weight: 600; font-size: 1rem;">
-    <p class="mb-2">
-      <span style="color: #ffffff;">Pendaftaran Gelombang I :</span><br>
-      1 Agustus – 20 Agustus 2025<br>
-      <span style="color: #ffffff;">  Rp15.000.000</span>
-    </p>
-    <br>
-    <p class="mb-0">
-      <span style="color: #ffffff;">Pendaftaran Gelombang II :</span><br>
-      21 Agustus – 30 Agustus 2025<br>
-      <span style="color: #ffffff;"> Rp17.000.000</span>
-    </p>
-  </div> -->
+
   </div>
 
   <div class="image col-lg-5 col-12 text-center">
