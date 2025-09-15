@@ -167,45 +167,108 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- HOOK -->
         <h1 class="hook-text fw-bold"></h1>
 
+        <style>
+  .headline {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #222;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .sub-tagline {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+    text-align: center;
+    margin-top: -5px;
+  }
+</style>
+
+
         <!-- Subheadline -->
        <div class="kutipan">
   <p class="headline">
     “Dari Pemula Jadi Pengusaha Muda Hebat”
   </p>
+    <p class="sub-tagline">
+    “Punya mimpi jadi pengusaha muda sukses? Jangan tunggu umur 30, mulai dari sekarang!”
+  </p>
+  
 </div>
 
       
 
         <!-- Mitos -->
    <!-- Tantangan Nyata -->
-    
-    
-<h2 style="font-size: 1.4rem; margin-top: 1.2rem; font-weight: bold;">
-  Testimoni
-</h2>
+<style>
+  /* Section Judul */
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1.2rem 0;
+    color: #f3f2f2;
+  }
+
+  /* Box Testimoni */
+  .kutipan {
+    background: #fff;
+    border-left: 4px solid #d70726;
+    padding: 0.8rem 1rem;
+    margin: 0.8rem auto;
+    max-width: 550px; /* dikecilkan */
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+
+  .kutipan h3 {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .kutipan .pesan {
+    color: #d70726;
+    font-weight: 600;
+  }
+
+  .kutipan .nama {
+    color: #333;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  /* Responsif Mobile */
+  @media (max-width: 600px) {
+    .section-title {
+      font-size: 1.3rem;
+    }
+    .kutipan {
+      padding: 0.6rem 0.8rem;
+      max-width: 90%;
+    }
+    .kutipan h3 {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+<!-- HTML -->
+<h2 class="section-title">Testimoni</h2>
+
 <div class="kutipan">
-  <h3 style="color:#d70726; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.4rem;">
-“Program ini bikin saya lebih percaya diri dan punya mindset pemenang. Bisnis saya sekarang jalan 3x lebih efektif!”
-
+  <h3 class="pesan">
+    “Program ini bikin saya lebih percaya diri dan punya mindset pemenang. Bisnis saya sekarang jalan 3x lebih efektif!”
   </h3>
-  <h3 style="color:#1f1d1d; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.4rem;">
-  – Aisya, 20 tahun
-
-  </h3>
- 
-
+  <h3 class="nama">– Aisya, 20 tahun</h3>
 </div>
+
 <div class="kutipan">
-  <h3 style="color:#d70726; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.4rem;">
-“Awalnya saya ikut karena orang tua, tapi ternyata saya belajar banyak tentang karakter dan leadership.”
-
+  <h3 class="pesan">
+    “Awalnya saya ikut karena orang tua, tapi ternyata saya belajar banyak tentang karakter dan leadership.”
   </h3>
-  <h3 style="color:#1f1d1d; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.4rem;">
-  – Alfi, 21 tahun
-
-  </h3>
- 
-
+  <h3 class="nama">– Alfi, 21 tahun</h3>
 </div>
 
 <!-- Pertanyaan kunci -->
@@ -230,16 +293,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>
   /* Hook typing effect */
   .hook-text {
-    font-size: 2.2rem;
-    line-height: 1.4;
-    color: #fff;
-    border-right: 3px solid #ff4757;
-    margin: 20px auto;
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    animation: typing 5s steps(60, end) forwards, blink 0.75s step-end infinite;
+   font-size: 2rem;
+    font-weight: bold;
+    color: white; /* agar kontras */
+    background: rgba(0, 0, 0, 0.6); /* semi transparan */
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* bayangan teks */
+  }
+
+    .tagline {
+    font-size: 1rem;
+    font-style: italic;
+    color: #ffd700; /* emas biar catchy */
+    margin-top: 8px;
+    display: block;
+    text-align: center;
   }
 
   @keyframes typing { from { width: 0 } to { width: 100% } }
@@ -278,12 +349,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   }
 
-  document.addEventListener("DOMContentLoaded", function() {
+ document.addEventListener("DOMContentLoaded", function() {
     const hook = document.querySelector(".hook-text");
     hook.textContent = '❝ START-UP MUDA INDONESIA ❞';
-    resizeHook();
   });
-
   window.addEventListener("resize", resizeHook);
 </script>
 
