@@ -1016,13 +1016,11 @@ new Chart(ctxBar, {
     }
   }
 </style>
-
 <!-- 6 Bulan Relatif -->
- <!-- Section Belajar Bisnis Hybrid -->
 <section id="program" class="smi-hybrid py-5">
   <div class="container text-center">
     <!-- Headline -->
-    <h2 class="section-title mb-4" data-aos="fade-up">Belajar Bisnis Tanpa Terhalang Waktu! 🚀</h2>
+    <h2 class="section-title mb-3" data-aos="fade-up">Belajar Bisnis Tanpa Terhalang Waktu! </h2>
     <p class="section-subtitle mb-5" data-aos="fade-up" data-aos-delay="100">
       Program SMI berlangsung 6 bulan dengan sistem <strong>Hybrid Super Fleksibel</strong>: offline untuk kelas utama & praktek lapangan, online untuk tugas & pendampingan.  
       Kuliah? Kerja? Santai. Kamu bisa jeda dan lanjut lagi, yang penting 20 penugasan – dan lulus sebagai pebisnis tangguh!
@@ -1043,7 +1041,7 @@ new Chart(ctxBar, {
         </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-        <div class="hybrid-card highlight-card">
+        <div class="hybrid-card ">
           <h4>✅ Fleksibel</h4>
           <p>Bisa jeda sementara, kemudian lanjut lagi. Fokus pada 20 penugasan & lulus sebagai pebisnis tangguh.</p>
         </div>
@@ -1055,30 +1053,31 @@ new Chart(ctxBar, {
 <!-- CSS -->
 <style>
 .smi-hybrid {
-  background: #d70726; /* soft gradient merah-putih */
+  background: linear-gradient(135deg, #d70726 0%, #f44336 100%);
   color: #111;
 }
 
 .section-title {
   font-size: 2rem;
-  font-weight: bold;
-  color: #fcf9f9;
+  font-weight: 700;
+  color: #fff;
   margin-bottom: 0.8rem;
 }
 
 .section-subtitle {
   font-size: 1.1rem;
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto 2.5rem auto;
-  color: white;
+  color: #fff;
+  line-height: 1.6;
 }
 
 .hybrid-card {
   background: #fff;
   border-left: 5px solid #d70726;
-  padding: 1.5rem 1rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  padding: 1.8rem 1.2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: left;
 }
@@ -1086,23 +1085,27 @@ new Chart(ctxBar, {
 .hybrid-card h4 {
   font-size: 1.3rem;
   color: #d70726;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .hybrid-card p {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #111;
 }
 
 .hybrid-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
 }
 
 .highlight-card {
   border-left: 5px solid #000;
   background: #f9f9f9;
+}
+
+@media (max-width: 992px) {
+  .hybrid-card { padding: 1.5rem 1rem; }
 }
 
 @media (max-width: 768px) {
@@ -1119,7 +1122,6 @@ new Chart(ctxBar, {
 <script>
   AOS.init({ once: true, duration: 800 });
 </script>
-
 
 
   <!-- Pastikan sudah include AOS seperti contoh sebelumnya -->
@@ -1902,21 +1904,30 @@ new Chart(ctxBar, {
 
 
 <!-- Daftar Sekarang -->
-<section class="daftar d-flex flex-wrap align-items-center justify-content-between py-5" style="background:rgb(243, 122, 22);">
+<section class="daftar d-flex flex-wrap align-items-center justify-content-between py-5" 
+         style="background: linear-gradient(135deg, #d70726, #f44336, #ff6f61);">
+
+
   <div class="content col-lg-6 col-12 mb-4 mb-lg-0 text-white">
 
     <!-- Batch Info -->
-  
     <h2 class="text-white mb-3">DAFTARKAN SEKARANG</h2>
-      <div class="batch-info mb-3 p-3 rounded" style="background: rgba(241, 236, 236, 0.1); border-left: 5px solid #ffff;">
+    <div class="batch-info mb-3 p-3 rounded" style="background: rgba(241, 236, 236, 0.1); border-left: 5px solid #ffff;">
       <strong class="text-white">Batch 1: &nbsp;</strong> <strong class="text-white">23 September 2025</strong> 
     </div>
 
     <p style="font-weight: 600;">Klik tombol di bawah ini untuk konsultasi & pendaftaran:</p>
 
+    <!-- Tombol WA Admin Livia -->
     <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak" 
-       target="_blank" class="cta-btn btn btn-success text-white fw-bold mb-3">
-      🎯 KONSULTASI VIA WHATSAPP
+       target="_blank" class="cta-btn btn btn-success text-white fw-bold mb-2 w-80">
+      Hubungi Admin Livia
+    </a>
+    <br>
+    <!-- Tombol WA Admin Tursia -->
+    <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Tursia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak" 
+       target="_blank" class="cta-btn btn btn-success text-white fw-bold mb-2 w-80">
+       Hubungi Admin Tursia
     </a>
 
     <div class="text-center my-4">
@@ -1942,7 +1953,10 @@ new Chart(ctxBar, {
   font-weight: bold;
 }
 
-/* Responsive */
+/* Tombol WA Responsive */
+.cta-btn { padding: 0.7rem 1rem; font-size: 1rem; border-radius: 0.4rem; }
+.btn-warning.text-white { color: #fff !important; }
+
 @media (max-width: 768px) {
   .batch-info { font-size: 0.9rem; padding: 0.8rem; }
   .cta-btn { font-size: 0.9rem; padding: 0.6rem 1rem; }
