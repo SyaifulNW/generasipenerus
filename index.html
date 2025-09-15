@@ -186,6 +186,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </style>
 
 
+<!-- Headline -->
+<!-- Headline Section dengan Background -->
+<!-- Headline Section dengan Background Transparan -->
+<div class="headline-section text-center p-4 rounded mb-4" data-aos="fade-up">
+  <!-- Headline -->
+
+
+  <!-- Subheadline / subtitle -->
+  <p class="section-subtitle mb-0">
+    Program intensif untuk anak muda usia 15–28 tahun yang ingin membangun bisnis nyata sejak dini.
+  </p>
+</div>
+
+<!-- CSS -->
+<style>
+  .headline-section {
+    background: rgba(13, 110, 253, 0.7); /* biru transparan */
+    color: #fff; /* teks putih */
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* shadow agar mengambang */
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+
+  /* Responsif */
+  @media (max-width: 768px) {
+    .section-title { font-size: 2rem; }
+    .section-subtitle { font-size: 1rem; }
+    .headline-section { padding: 1.5rem 1rem; }
+  }
+</style>
+
+
+
+
         <!-- Subheadline -->
        <div class="kutipan">
   <p class="headline">
@@ -254,22 +300,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 </style>
 
+
 <!-- HTML -->
-<h2 class="section-title">Testimoni</h2>
-
-<div class="kutipan">
-  <h3 class="pesan">
-    “Program ini bikin saya lebih percaya diri dan punya mindset pemenang. Bisnis saya sekarang jalan 3x lebih efektif!”
-  </h3>
-  <h3 class="nama">– Aisya, 20 tahun</h3>
-</div>
-
-<div class="kutipan">
-  <h3 class="pesan">
-    “Awalnya saya ikut karena orang tua, tapi ternyata saya belajar banyak tentang karakter dan leadership.”
-  </h3>
-  <h3 class="nama">– Alfi, 21 tahun</h3>
-</div>
 
 <!-- Pertanyaan kunci -->
 
@@ -335,7 +367,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    font-size: 2rem;
     font-weight: bold;
     color: white; /* agar kontras */
-    background: rgba(0, 0, 0, 0.6); /* semi transparan */
+    background: rgba(216, 16, 16, 0.6); /* semi transparan */
     padding: 10px 20px;
     border-radius: 8px;
     display: inline-block;
@@ -401,7 +433,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.65);
+      background-color: rgba(207, 44, 44, 0.65);
     "></div>
     <style>
       @media (max-width: 991px) {
@@ -760,13 +792,15 @@ new Chart(ctxBar, {
   </script>
 
 <!-- Program Startup Muda Indonesia -->
+<!-- Program Startup Muda Indonesia -->
 <section class="smi-program py-5">
   <div class="container text-center">
+    <!-- Headline -->
     <h2 class="section-title" data-aos="fade-up">Program Startup Muda Indonesia</h2>
-    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-      Program intensif untuk anak muda usia 15–28 tahun yang ingin membangun bisnis nyata sejak dini.
-    </p>
+    
+     <br>
 
+    <!-- Program Cards -->
     <div class="program-cards">
       <div class="program-card" data-aos="fade-up" data-aos-delay="200">
         <p>🚀 <strong>Belajar Langsung Praktik:</strong> Kamu tidak hanya belajar teori, tapi dibimbing langkah demi langkah dengan roadmap jelas, didukung mentor berpengalaman.</p>
@@ -777,48 +811,75 @@ new Chart(ctxBar, {
       </div>
 
       <div class="program-card" data-aos="fade-up" data-aos-delay="400">
-        <p>📈 <strong>Hasil Nyata 6 Bulan:</strong> Bayangkan dalam 6 bulan kamu sudah punya bisnis yang jalan, jaringan teman pebisnis se-Indonesia, dan melampaui keraguan.</p>
+        <p>📈 <strong>Hasil Nyata 6 Bulan:</strong> <br> Dalam 6 bulan, kamu bisa punya bisnis yang berjalan, jaringan teman pebisnis se-Indonesia, dan melampaui keraguan.</p>
       </div>
 
-      <div class="program-card highlight" data-aos="fade-up" data-aos-delay="500">
-        <p>⚡ <strong>Masa depan dimenangkan oleh mereka yang berani mulai lebih cepat!</strong></p>
-      </div>
+<div class="smi-quote text-center" data-aos="fade-up" data-aos-delay="500">
+  <p>⚡ <strong>Masa depan dimenangkan oleh mereka yang berani mulai lebih cepat!</strong></p>
+</div>
     </div>
   </div>
 </section>
 
 <style>
+
+  .smi-quote {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #ffffff; /* warna emas supaya standout */
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  }
+
+  .smi-quote p {
+    margin: 0;
+  }
+
+  /* Responsif */
+  @media (max-width: 768px) {
+    .smi-quote { font-size: 1.1rem; padding: 0 1rem; }
+  }
+  /* Section background dan warna */
   .smi-program {
     background: linear-gradient(135deg, #d70726, #f76b1c);
     color: #fff;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
+  /* Headline */
   .section-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.8rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
   }
 
+  /* Subheadline */
   .section-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1.2rem;
+    max-width: 720px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    color: #f8f9fa;
   }
 
+  /* Container kartu program */
   .program-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.2rem;
+    gap: 1.5rem;
   }
 
+  /* Kartu program */
   .program-card {
-    background: rgba(0,0,0,0.4);
-    padding: 1.5rem 1rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.35);
+    padding: 1.6rem 1.2rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
     max-width: 320px;
     text-align: left;
     line-height: 1.6;
@@ -826,40 +887,39 @@ new Chart(ctxBar, {
   }
 
   .program-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
   }
 
+  /* Highlight khusus */
   .program-card.highlight {
     background: rgba(0,0,0,0.6);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     text-align: center;
+    border: 2px solid #ffd700;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
   }
 
+  /* Responsif */
   @media (max-width: 768px) {
-    .section-title {
-      font-size: 1.6rem;
-    }
-    .section-subtitle {
-      font-size: 1rem;
-    }
-    .program-card {
-      max-width: 90%;
-      padding: 1.2rem;
-    }
+    .section-title { font-size: 2rem; }
+    .section-subtitle { font-size: 1rem; }
+    .program-card { max-width: 90%; padding: 1.4rem; }
   }
 </style>
 
-<!-- AOS JS (untuk animasi fade-in saat scroll) -->
+<!-- AOS JS untuk animasi fade-in -->
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({
-    once: true, // animasi hanya sekali saat muncul
+    once: true,
     duration: 800
   });
 </script>
 
+
+<!-- Cocok untuk -->
 <section class="smi-fit py-5" style="background-color: #fdf2f2;">
   <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
 
@@ -989,6 +1049,8 @@ new Chart(ctxBar, {
     </div>
   </section>
 
+
+
 <!-- Roadmap -->
 <section id="roadmap" style="background:#f8f9fa; padding:60px 0;">
   <div class="container text-center">
@@ -1083,6 +1145,9 @@ new Chart(ctxBar, {
     </div>
   </div>
 </section>
+
+
+
 
 <style>
 .timeline {
@@ -1414,6 +1479,310 @@ new Chart(ctxBar, {
    
   </section>
 
+
+<!-- Testimoni -->
+<section id="testimoni" class="py-5 bg-light">
+  <div class="container">
+<h2 style="color: rgb(199, 44, 44);" class="section-title text-center mb-5">Testimoni</h2>
+
+
+    <div class="row justify-content-center">
+      <!-- Testimoni 1 -->
+      <div class="col-md-6 mb-4">
+        <div class="kutipan p-4 shadow-sm rounded bg-white h-100 position-relative hover-scale">
+          <!-- Bintang -->
+          <div class="rating mb-2">
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-half text-warning"></i>
+          </div>
+          <p class="pesan mb-3 fst-italic">
+            “Program ini bikin saya lebih percaya diri dan punya mindset pemenang. Bisnis saya sekarang jalan 3x lebih efektif!”
+          </p>
+          <p class="nama text-end fw-bold text-primary">– Aisya, 20 tahun</p>
+        </div>
+      </div>
+
+      <!-- Testimoni 2 -->
+      <div class="col-md-6 mb-4">
+        <div class="kutipan p-4 shadow-sm rounded bg-white h-100 position-relative hover-scale">
+          <!-- Bintang -->
+          <div class="rating mb-2">
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-fill text-warning"></i>
+          </div>
+          <p class="pesan mb-3 fst-italic">
+            “Awalnya saya ikut karena orang tua, tapi ternyata saya belajar banyak tentang karakter dan leadership.”
+          </p>
+          <p class="nama text-end fw-bold text-primary">– Alfi, 21 tahun</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSS tambahan -->
+<style>
+  .hover-scale:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s;
+  }
+  .kutipan {
+    border-left: 5px solid #0d6efd;
+  }
+  .rating i {
+    font-size: 1.2rem;
+  }
+</style>
+
+<!-- Pastikan Bootstrap Icons sudah di-load -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<!-- FAQ Section -->
+<section class="faq-section py-5">
+  <div class="container">
+    <h2 class="section-title text-center mb-4" data-aos="fade-up">
+       FAQ – Startup Muda Indonesia
+    </h2>
+
+    <div class="accordion" id="faqAccordion">
+
+      <!-- FAQ 1 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="accordion-header" id="faqHeading1">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+            1. Program ini cocok untuk siapa?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Program ini dirancang khusus untuk <em>anak muda usia 15–28 tahun</em>, baik yang sudah punya usaha kecil, baru punya ide, maupun anak pengusaha yang ingin meneruskan bisnis keluarga.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="150">
+        <h2 class="accordion-header" id="faqHeading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+            2. Saya belum punya ide bisnis, apakah tetap bisa ikut?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Bisa banget 👍. Program ini membantu kamu menemukan ide bisnis, memvalidasinya, lalu memandu langkah-langkah membangun bisnis dari nol.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="accordion-header" id="faqHeading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+            3. Apa yang akan saya pelajari di program ini?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Kamu akan belajar <em>20 tools bisnis, manajemen, dan leadership</em> yang dipakai para pengusaha sukses: mulai dari Business Model Canvas, strategi marketing, manajemen tim, hingga skill leadership. Semua diajarkan praktis dan bisa langsung dipakai.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="250">
+        <h2 class="accordion-header" id="faqHeading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+            4. Apakah program ini full teori atau praktik?
+          </button>
+        </h2>
+        <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Lebih banyak praktik 💪. Kamu akan dibimbing step-by-step, membuat proyek bisnis nyata, bahkan presentasi hasilnya di akhir program.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+        <h2 class="accordion-header" id="faqHeading5">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+            5. Berapa lama durasi program?
+          </button>
+        </h2>
+        <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Program berjalan selama <em>6 bulan</em> dengan pembelajaran mingguan, coaching, mentoring, dan proyek nyata.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="350">
+        <h2 class="accordion-header" id="faqHeading6">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+            6. Bagaimana sistem belajarnya?
+          </button>
+        </h2>
+        <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faqHeading6" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Sistem hybrid:<br>
+            <ul>
+              <li><strong>Online:</strong> kelas interaktif, coaching, dan mentoring.</li>
+              <li><strong>Offline (opsional):</strong> pertemuan intensif, networking, dan final project presentation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 7 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+        <h2 class="accordion-header" id="faqHeading7">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  data-bs-target="#faq7" aria-expanded="false" aria-controls="faq7">
+            7. Apakah setelah lulus ada sertifikat?
+          </button>
+        </h2>
+        <div id="faq7" class="accordion-collapse collapse" aria-labelledby="faqHeading7" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Ya ✅. Kamu akan mendapat <em>Sertifikat Startup Muda Indonesia</em> yang bisa menjadi nilai tambah untuk karier maupun usaha.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 8 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="450">
+        <h2 class="accordion-header" id="faqHeading8">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  data-bs-target="#faq8" aria-expanded="false" aria-controls="faq8">
+            8. Apakah ada komunitas setelah selesai program?
+          </button>
+        </h2>
+        <div id="faq8" class="accordion-collapse collapse" aria-labelledby="faqHeading8" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Ada 🚀. Peserta otomatis masuk ke <em>komunitas alumni Startup Muda Indonesia</em> yang isinya anak muda visioner, tempat kolaborasi, networking, dan peluang bisnis baru.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 9 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="500">
+        <h2 class="accordion-header" id="faqHeading9">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  data-bs-target="#faq9" aria-expanded="false" aria-controls="faq9">
+            9. Apakah saya harus dari keluarga pengusaha untuk ikut?
+          </button>
+        </h2>
+        <div id="faq9" class="accordion-collapse collapse" aria-labelledby="faqHeading9" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Tidak perlu. Program ini terbuka untuk siapa pun yang serius ingin membangun bisnis dari muda, baik anak pengusaha maupun bukan.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 10 -->
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="550">
+        <h2 class="accordion-header" id="faqHeading10">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  data-bs-target="#faq10" aria-expanded="false" aria-controls="faq10">
+            10. Bagaimana cara mendaftarnya?
+          </button>
+        </h2>
+        <div id="faq10" class="accordion-collapse collapse" aria-labelledby="faqHeading10" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Klik tombol <strong>“Daftar Sekarang”</strong> di website ini, isi data singkat, lalu tim kami akan menghubungi untuk konfirmasi dan panduan pembayaran.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+  .faq-section {
+    background: #fff;
+    color: #000;
+    padding: 5rem 0;
+  }
+
+  .faq-section .section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d70726; /* merah */
+    margin-bottom: 3rem;
+  }
+
+  .accordion-button {
+    background: #d70726; /* merah */
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  }
+
+  .accordion-button.collapsed {
+    background: #fff;
+    color: #d70726;
+  }
+
+  .accordion-button:focus {
+    box-shadow: 0 0 0 0.2rem rgba(215,7,38,0.5);
+  }
+
+  .accordion-button:not(.collapsed) {
+    background: #000; /* hitam saat terbuka */
+    color: #fff;
+  }
+
+  .accordion-body {
+    background: rgba(215,7,38,0.05);
+    border-radius: 0 0 8px 8px;
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+  }
+
+  @media (max-width: 768px) {
+    .faq-section { padding: 3rem 1rem; }
+    .faq-section .section-title { font-size: 1.6rem; }
+    .accordion-body { font-size: 0.95rem; }
+  }
+</style>
+
+<!-- Bootstrap 5 & AOS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 800
+  });
+</script>
+
+
+
+
+<!-- Daftar Sekarang -->
 <section class="daftar d-flex flex-wrap align-items-center justify-content-between">
   <div class="content col-lg-6 col-12 mb-4 mb-lg-0">
     <h2 class="text-white"> DAFTARKAN SEKARANG </h2>
