@@ -140,10 +140,17 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSSN96SN"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Start-Up%20Muda-Indonesia%20yaa%20kak" 
-   class="float" target="_blank">
-  <i class="fa fa-whatsapp my-float"></i>
+<a href="https://api.whatsapp.com/send?phone=6289525742386&text=Hallo%20Kak%20Livia,%20saya%20mau%20Konsultasi%20Program%20Start-Up%20Muda-Indonesia%20yaa%20kak" 
+   class="float position-fixed" target="_blank" title="Konsultasi via WhatsApp"
+   style="position:fixed;width:60px;height:60px;bottom:20px;right:20px;background-color:#25d366;color:#fff;border-radius:50px;text-align:center;font-size:30px;box-shadow:2px 2px 3px #999;z-index:1000;">
+  <i class="fa fa-whatsapp my-float" style="margin-top:16px;"></i>
+  <span class="badge"
+        style="position:absolute;top:5px;right:5px;padding:5px 8px;border-radius:50%;background:red;color:white;font-size:12px;">
+    1
+  </span>
 </a>
+
+
 
   <header class="hero" style="
     background-image: url('img/hero1.jpg');
@@ -194,16 +201,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <!-- Subheadline / subtitle -->
-  <p class="section-subtitle mb-0">
-    Program intensif untuk anak muda usia 15–28 tahun yang ingin membangun bisnis nyata sejak dini.
+  <p class="section-subtitle mb-0" style="color: #000;">
+   <strong>Program intensif untuk anak muda usia 15–28 tahun yang ingin membangun bisnis nyata sejak dini.</strong> 
   </p>
 </div>
 
 <!-- CSS -->
 <style>
   .headline-section {
-    background: rgba(13, 110, 253, 0.7); /* biru transparan */
-    color: #fff; /* teks putih */
+    background: rgba(255, 255, 255, 0.7); /* biru transparan */
+    color: #c73434; /* teks putih */
     max-width: 800px;
     margin: 0 auto;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* shadow agar mengambang */
@@ -213,7 +220,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   .section-title {
     font-size: 2.5rem;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 5px rgba(20, 18, 18, 0.3);
   }
 
   .section-subtitle {
@@ -1000,6 +1007,109 @@ new Chart(ctxBar, {
   }
 </style>
 
+<!-- 6 Bulan Relatif -->
+ <!-- Section Belajar Bisnis Hybrid -->
+<section class="smi-hybrid py-5">
+  <div class="container text-center">
+    <!-- Headline -->
+    <h2 class="section-title mb-4" data-aos="fade-up">Belajar Bisnis Tanpa Terhalang Waktu! 🚀</h2>
+    <p class="section-subtitle mb-5" data-aos="fade-up" data-aos-delay="100">
+      Program SMI berlangsung 6 bulan dengan sistem <strong>Hybrid Super Fleksibel</strong>: offline untuk kelas utama & praktek lapangan, online untuk tugas & pendampingan.  
+      Kuliah? Kerja? Santai. Kamu bisa jeda dan lanjut lagi, yang penting 20 penugasan – dan lulus sebagai pebisnis tangguh!
+    </p>
+
+    <!-- Cards List -->
+    <div class="row justify-content-center g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="hybrid-card">
+          <h4>✅ Offline</h4>
+          <p>Ikuti kelas MBC & praktek lapangan untuk pengalaman langsung membangun bisnis nyata.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="hybrid-card">
+          <h4>✅ Online</h4>
+          <p>Bisa belajar dari mana saja, tetap terhubung dengan mentor dan komunitas meski tidak hadir fisik.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="hybrid-card highlight-card">
+          <h4>✅ Fleksibel</h4>
+          <p>Bisa jeda sementara, kemudian lanjut lagi. Fokus pada 20 penugasan & lulus sebagai pebisnis tangguh.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.smi-hybrid {
+  background: #d70726; /* soft gradient merah-putih */
+  color: #111;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fcf9f9;
+  margin-bottom: 0.8rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  color: #fffff;
+}
+
+.hybrid-card {
+  background: #fff;
+  border-left: 5px solid #d70726;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.hybrid-card h4 {
+  font-size: 1.3rem;
+  color: #d70726;
+  margin-bottom: 0.5rem;
+}
+
+.hybrid-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #111;
+}
+
+.hybrid-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.highlight-card {
+  border-left: 5px solid #000;
+  background: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  .section-title { font-size: 1.6rem; }
+  .section-subtitle { font-size: 1rem; }
+  .hybrid-card h4 { font-size: 1.2rem; }
+  .hybrid-card p { font-size: 0.95rem; }
+}
+</style>
+
+<!-- AOS JS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ once: true, duration: 800 });
+</script>
+
 
 
   <!-- Pastikan sudah include AOS seperti contoh sebelumnya -->
@@ -1048,6 +1158,7 @@ new Chart(ctxBar, {
       </p>
     </div>
   </section>
+
 
 
 
