@@ -13,7 +13,7 @@
 
 .kutipan .headline {
   font-family: "Poppins", "Segoe UI", sans-serif; /* pilih font yang khas untuk headline */
-  font-size: 1.4rem; /* lebih besar biar kesan judul */
+  font-size: 1.3rem; /* lebih besar biar kesan judul */
   font-weight: 800; /* tebal */
   color: #dc3545; /* warna sesuai tema */
   text-align: center; /* opsional, biar fokus di tengah */
