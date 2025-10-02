@@ -1,75 +1,228 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeline Kegiatan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .table-responsive {
-            border-radius: 1rem;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <title>Custom Gantt Chart</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 20px; }
+    h2 { margin-bottom: 10px; }
+    select, button { margin: 5px; padding: 5px 8px; font-size: 12px; cursor: pointer; }
 
-        .table-bordered {
-            border: 2px solid #dee2e6 !important;
-        }
+    .gantt-container { border: 1px solid #ccc; margin-top: 15px; position: relative; }
+    .row { display: grid; grid-template-columns: 50px 250px 100px auto; border-bottom: 1px solid #eee; }
+    .cell { padding: 6px; border-right: 1px solid #eee; background: #fff; }
+    .header { font-weight: bold; background: #f7f7f7; text-align: center; }
 
-        .table-bordered th, .table-bordered td {
-            border: 2px solid #dee2e6 !important;
-        }
+    .timeline { position: relative; overflow-x: auto; }
+    .days { display: flex; position: relative; }
+    .day {
+      width: 30px; border-right: 1px solid #eee;
+      text-align: center; font-size: 11px; background: #fafafa;
+      position: relative; z-index: 1;
+    }
 
-        .table-hover tbody tr:hover {
-            background-color: #f8f9fa;
-        }
-    </style>
+    .today-day {
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      padding: 0px 0;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+    }
+
+    .today-day small {
+      font-size: 8px;
+      margin-top: -2px;
+    }
+
+    .bar {
+      position: absolute; height: 20px; border-radius: 4px;
+      top: 4px; z-index: 2;
+    }
+    .done { background: #2ecc71; }
+    .progress { background: #f1c40f; }
+    .pending { background: #e74c3c; }
+
+    /* Highlight penuh hari ini */
+    .today-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 30px;
+      background: rgba(0, 123, 255, 0.15);
+      z-index: 0;
+    }
+  </style>
 </head>
 <body>
 
-<section class="py-5" style="background-color: #f8f9fa;">
-    <div class="container">
-        <h2 class="fw-bold text-center mb-5" style="font-size: 2rem; color: #dc3545;">
-            📅 Timeline Kegiatan Program
-        </h2>
-        <div class="table-responsive shadow rounded">
-            <table class="table table-bordered table-hover text-start align-middle bg-white">
-                <thead class="table-danger">
-                    <tr>
-                        <th class="text-center text-white" style="width: 15%;">BULAN</th>
-                        <th class="text-center text-white">KEGIATAN</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="fw-semibold">Bulan 1</td>
-                        <td>Orientasi, Pengembangan Diri, Mindset Juara, Leadership, Manajemen Waktu, Perencanaan Bisnis</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-semibold">Bulan 2</td>
-                        <td>Digital Marketing Dasar, Desain Grafis, Pengenalan AI, Praktek di Perusahaan Mitra</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-semibold">Bulan 3</td>
-                        <td>Manajemen Keuangan, Pengelolaan Bisnis Keluarga, Problem Solving, Praktek di Perusahaan Mitra</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-semibold">Bulan 4</td>
-                        <td>Strategi Pemasaran Lanjutan, Pengembangan Produk, Kolaborasi Tim, Praktek di Perusahaan Mitra</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-semibold">Bulan 5</td>
-                        <td>Pitching Bisnis, Negosiasi, Manajemen Stres & Resiliensi, Praktek di Perusahaan Mitra</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-semibold">Bulan 6</td>
-                        <td>Final Project, Presentasi Bisnis, Evaluasi & Umpan Balik, Penutupan & Sertifikasi</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
+<h2>📊 Custom Gantt Chart</h2>
+<div>
+  <button id="prevBtn">⬅️ Prev</button>
+  <select id="month"></select>
+  <select id="year"></select>
+  <button id="nextBtn">Next ➡️</button>
+  <button id="todayBtn">📌 Hari Ini</button>
+</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<div id="gantt" class="gantt-container"></div>
+
+<script>
+  const monthNames = [
+    "Januari","Februari","Maret","April","Mei","Juni",
+    "Juli","Agustus","September","Oktober","November","Desember"
+  ];
+  const monthSelect = document.getElementById("month");
+  const yearSelect = document.getElementById("year");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const todayBtn = document.getElementById("todayBtn");
+
+  for (let i=0; i<12; i++) {
+    let opt = document.createElement("option");
+    opt.value = i;
+    opt.text = monthNames[i];
+    monthSelect.add(opt);
+  }
+  for (let y=2020; y<=2030; y++) {
+    let opt = document.createElement("option");
+    opt.value = y;
+    opt.text = y;
+    yearSelect.add(opt);
+  }
+  monthSelect.value = new Date().getMonth();
+  yearSelect.value = new Date().getFullYear();
+
+  // === DATA MOCK ===
+  const tasks = [
+    { id: 1, inisiatif: "Upload persyaratan ke BPOM", status: "Pending", start: {m:8,d:1}, end: {m:8,d:3} },
+    { id: 2, inisiatif: "Review notulen Agustus", status: "Done", start: {m:8,d:5}, end: {m:8,d:7} },
+    { id: 3, inisiatif: "Briefing di HO", status: "Done", start: {m:8,d:2}, end: {m:8,d:2} },
+    { id: 4, inisiatif: "Penerbitan Flow card distribusi", status: "Progress", start: {m:8,d:7}, end: {m:8,d:15} },
+    { id: 5, inisiatif: "Audit Internal", status: "Pending", start: {m:9,d:25}, end: {m:10,d:5} },
+  ];
+
+  const gantt = document.getElementById("gantt");
+  const today = new Date();
+
+  function renderGantt(month, year) {
+    gantt.innerHTML = "";
+    const daysInMonth = new Date(year, month+1, 0).getDate();
+
+    // Header
+    const header = document.createElement("div");
+    header.className = "row";
+    header.innerHTML = `
+      <div class="cell header">No</div>
+      <div class="cell header">Inisiatif</div>
+      <div class="cell header">Status</div>
+      <div class="cell header">${monthNames[month]} ${year}</div>
+    `;
+    gantt.appendChild(header);
+
+    // Row tanggal
+    const dayRow = document.createElement("div");
+    dayRow.className = "row";
+    dayRow.innerHTML = `
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell timeline"><div class="days"></div></div>
+    `;
+    gantt.appendChild(dayRow);
+
+    const daysDiv = dayRow.querySelector(".days");
+    daysDiv.innerHTML = Array.from({length: daysInMonth}, (_,i)=> {
+      const isToday = month === today.getMonth() && year === today.getFullYear() && i+1 === today.getDate();
+      const className = isToday ? 'day today-day' : 'day';
+      const content = isToday ? `${i+1}<br><small></small>` : i+1;
+      return `<div class="${className}">${content}</div>`;
+    }).join("");
+
+
+  // Overlay hari ini di seluruh tinggi timeline
+if (month===today.getMonth() && year===today.getFullYear()) {
+  gantt.querySelectorAll(".timeline").forEach(timeline => {
+    const overlay = document.createElement("div");
+    overlay.className = "today-overlay";
+    overlay.style.left = (today.getDate()-1)*30 + "px";
+    overlay.style.top = "0";
+    overlay.style.bottom = "0";
+    overlay.style.height = "100%";
+    timeline.appendChild(overlay);
+  });
+}
+
+
+    // Task rows
+    tasks.forEach(task => {
+      if (task.start.m>month || task.end.m<month) return;
+
+      const row = document.createElement("div");
+      row.className = "row";
+      row.innerHTML = `
+        <div class="cell">${task.id}</div>
+        <div class="cell">${task.inisiatif}</div>
+        <div class="cell">${task.status}</div>
+        <div class="cell timeline"><div class="days"></div></div>
+      `;
+
+      const daysRow = row.querySelector(".days");
+      daysRow.innerHTML = Array.from({length: daysInMonth}, () => `<div class="day"></div>`).join("");
+
+      const timelineDiv = row.querySelector(".timeline");
+      const bar = document.createElement("div");
+      bar.className = "bar";
+      if (task.status.toLowerCase()==="done") bar.classList.add("done");
+      else if (task.status.toLowerCase().includes("progress")) bar.classList.add("progress");
+      else bar.classList.add("pending");
+
+      const startDay = (task.start.m===month) ? task.start.d : 1;
+      const endDay = (task.end.m===month) ? task.end.d : daysInMonth;
+      const left = (startDay-1) * 30;
+      const width = (endDay - startDay + 1) * 30;
+      bar.style.left = left+"px";
+      bar.style.width = width+"px";
+
+      timelineDiv.appendChild(bar);
+      gantt.appendChild(row);
+    });
+  }
+
+  function updateGantt() {
+    renderGantt(+monthSelect.value, +yearSelect.value);
+  }
+
+  prevBtn.addEventListener("click", () => {
+    let m = +monthSelect.value;
+    let y = +yearSelect.value;
+    if (m===0) { m=11; y--; } else { m--; }
+    monthSelect.value = m;
+    yearSelect.value = y;
+    updateGantt();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    let m = +monthSelect.value;
+    let y = +yearSelect.value;
+    if (m===11) { m=0; y++; } else { m++; }
+    monthSelect.value = m;
+    yearSelect.value = y;
+    updateGantt();
+  });
+
+  todayBtn.addEventListener("click", () => {
+    monthSelect.value = today.getMonth();
+    yearSelect.value = today.getFullYear();
+    updateGantt();
+  });
+
+  updateGantt();
+</script>
 </body>
 </html>
