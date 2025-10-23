@@ -1698,16 +1698,65 @@ new Chart(ctxBar, {
 
 
 
+<section class="biaya">
+  <style>
+    .strike-red {
+      position: relative;
+      display: inline-block;
+      color: #ff4d4d;
+      font-weight: bold;
+    }
 
+    .strike-red::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 3px;
+      background: red;
+      transform: rotate(-10deg);
+    }
 
-  <section class="biaya">
+    /* Efek berdenyut merah untuk tulisan GRATIS */
+    .gratis-text {
+      font-weight: 900;
+      font-size: 1.4em;
+      color: #ff0000;
+      animation: redPulse 1.5s infinite ease-in-out;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    }
+
+    @keyframes redPulse {
+      0% {
+        color: #ff0000;
+        text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+        transform: scale(1);
+      }
+      50% {
+        color: #ff4d4d;
+        text-shadow: 0 0 20px rgba(255, 0, 0, 1);
+        transform: scale(1.25);
+      }
+      100% {
+        color: #ff0000;
+        text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+        transform: scale(1);
+      }
+    }
+  </style>
+
   <h2 class="text-center text-danger">
     LANGKAH AWAL UNTUK START-UP MUDA YANG LEBIH TANGGUH :
   </h2>
 
   <div class="text-center">
-    <p>💰 Biaya Masuk: 
-      <strong><span class="text-success">GRATIS!</span></strong>
+    <p>
+      💰 Biaya Masuk:
+      <strong>
+        <span class="strike-red">Rp15.000.000</span>
+        ➜ <span class="gratis-text">GRATIS!</span>
+      </strong>
     </p>
 
     <p>📈 SPP Bulanan: <strong>Rp2.500.000 x 6 bulan</strong></p>
@@ -1715,11 +1764,13 @@ new Chart(ctxBar, {
     <p><em>📆 Program dimulai: Oktober 2025</em></p>
     <p><strong>Seat Terbatas</strong></p>
 
-    <div style="margin-top:15px; background-color:#ffc107; display:inline-block; padding:8px 16px; border-radius:8px;">
-      <strong> Promo  Berlaku hingga 31 Desember 2025 </strong>
+    <div style="margin-top:15px; background-color:#ffc107; display:inline-block; padding:8px 16px; border-radius:8px; box-shadow: 0 0 10px rgba(255,193,7,0.7);">
+      <strong>🎉 Promo Berlaku hingga 31 Desember 2025</strong>
     </div>
   </div>
 </section>
+
+
 
 
 
