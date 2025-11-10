@@ -1859,61 +1859,101 @@ new Chart(ctxBar, {
 
 
 
-
 <!-- Testimoni -->
 <section id="testimoni" class="py-5 bg-light">
   <div class="container">
-<h2 style="color: darkgreen" class="section-title text-center mb-5">Testimoni</h2>
+    <h2 class="text-center mb-5" style="color: #007272; font-weight: 800;">
+      <i class="bi bi-chat-dots-fill text-warning me-2"></i> Testimoni Peserta
+    </h2>
 
-
-    <div class="row justify-content-center">
+    <div class="row justify-content-center gy-4">
       <!-- Testimoni 1 -->
-      <div class="col-md-6 mb-4">
-        <div class="kutipan p-4 shadow-sm rounded bg-white h-100 position-relative hover-scale">
-          <!-- Bintang -->
-          <div class="rating mb-2">
-            <i class="bi bi-star-fill text-warning"></i>
-            <i class="bi bi-star-fill text-warning"></i>
-            <i class="bi bi-star-fill text-warning"></i>
-            <i class="bi bi-star-fill text-warning"></i>
-            <i class="bi bi-star-half text-warning"></i>
-          </div>
-          <p class="pesan mb-3 fst-italic">
-            “Program ini bikin saya lebih percaya diri dan punya mindset pemenang. Bisnis saya sekarang jalan 3x lebih efektif!”
-          </p>
-          <p class="nama text-end fw-bold text-primary">– Aisya, 20 tahun</p>
+      <div class="col-md-4">
+        <div class="instagram-card p-3 rounded-4 shadow-sm bg-white h-100">
+          <blockquote 
+            class="instagram-media" 
+            data-instgrm-permalink="https://www.instagram.com/reel/DQ1V6hHE5pQ/" 
+            data-instgrm-version="14"
+            style="background:#fff; border:0; margin:0 auto; width:100%; max-width:100%;">
+          </blockquote>
         </div>
       </div>
 
       <!-- Testimoni 2 -->
-      <div class="col-md-6 mb-4">
-        <div class="kutipan p-4 shadow-sm rounded bg-white h-100 position-relative hover-scale">
-          <!-- Bintang -->
-          <div class="rating mb-2">
-            <i class="bi bi-star-fill text-warning"></i>
-            <i class="bi bi-star-fill text-warning"></i>
-            <i class="bi bi-star-fill text-warning"></i>
-            <i class="bi bi-star-fill text-warning"></i>
-            <i class="bi bi-star-fill text-warning"></i>
-          </div>
-          <p class="pesan mb-3 fst-italic">
-            “Awalnya saya ikut karena orang tua, tapi ternyata saya belajar banyak tentang karakter dan leadership.”
-          </p>
-          <p class="nama text-end fw-bold text-primary">– Alfi, 21 tahun</p>
+      <div class="col-md-4">
+        <div class="instagram-card p-3 rounded-4 shadow-sm bg-white h-100">
+          <blockquote 
+            class="instagram-media" 
+            data-instgrm-permalink="https://www.instagram.com/reel/DOx0AfKk075/" 
+            data-instgrm-version="14"
+            style="background:#fff; border:0; margin:0 auto; width:100%; max-width:100%;">
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Testimoni 3 -->
+      <div class="col-md-4">
+        <div class="instagram-card p-3 rounded-4 shadow-sm bg-white h-100">
+          <blockquote 
+            class="instagram-media" 
+            data-instgrm-permalink="https://www.instagram.com/reel/DQusNZOk168/" 
+            data-instgrm-version="14"
+            style="background:#fff; border:0; margin:0 auto; width:100%; max-width:100%;">
+          </blockquote>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Instagram Embed Script -->
+<script async src="https://www.instagram.com/embed.js"></script>
+
 <!-- CSS tambahan -->
 <style>
+  #testimoni {
+    background: linear-gradient(180deg, #f9ffff, #e7f9f9);
+  }
+
+  .instagram-card {
+    transition: all 0.3s ease;
+  }
+
+  .instagram-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 114, 114, 0.15);
+  }
+
+  h2.section-title {
+    color: #007272;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 767px) {
+    .instagram-card {
+      margin-bottom: 20px;
+    }
+  }
+</style>
+
+<!-- Instagram Embed Script -->
+<script async src="https://www.instagram.com/embed.js"></script>
+
+<!-- CSS tambahan -->
+<style>
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
   .hover-scale:hover {
     transform: scale(1.03);
-    transition: transform 0.3s;
   }
   .kutipan {
-    border-left: 5px solid #0d6efd;
+    border-left: 5px solid #007272;
+    transition: box-shadow 0.3s ease;
+  }
+  .kutipan:hover {
+    box-shadow: 0 0 15px rgba(0, 114, 114, 0.3);
   }
   .rating i {
     font-size: 1.2rem;
@@ -1922,8 +1962,11 @@ new Chart(ctxBar, {
 
 
 
+
 <!-- Pastikan Bootstrap Icons sudah di-load -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
 
 <!-- FAQ Section -->
 <section  id="faq" class="faq-section py-5">
