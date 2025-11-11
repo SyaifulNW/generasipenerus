@@ -770,62 +770,111 @@ new Chart(ctxBar, {
 
 
 <!-- Features Grid -->
-<div class="row g-4">
-  <div class="col-md-4">
-    <div class="card shadow-sm h-100 border-0 text-center p-4">
-      <div class="icon mb-3">
-        <i class="fas fa-lightbulb text-success" style="font-size: 2.5rem;"></i>
+<!-- Fitur Program -->
+<section id="fitur-program" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-success">Apa yang Akan Kamu Dapatkan?</h2>
+      <p class="text-muted">Pelajari berbagai aspek penting untuk menjadi pengusaha sukses muda.</p>
+    </div>
+
+    <!-- Baris Pertama (3 Card) -->
+    <div class="row g-4 justify-content-center mb-4">
+      <div class="col-md-4 col-sm-6">
+        <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
+          <div class="icon mb-3">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h5 class="fw-bold">Mindset & Skill</h5>
+          <p>Belajar mindset & skill pengusaha sukses yang terbukti berhasil.</p>
+        </div>
       </div>
-      <h5 class="fw-bold text-success">Mindset & Skill</h5>
-      <p>Belajar mindset & skill pengusaha sukses yang terbukti berhasil.</p>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
+          <div class="icon mb-3">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h5 class="fw-bold">Tools & Leadership</h5>
+          <p>Belajar puluhan tools bisnis, manajemen, dan leadership modern.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
+          <div class="icon mb-3">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h5 class="fw-bold">Networking</h5>
+          <p>Berjejaring langsung dengan pengusaha & komunitas pebisnis muda.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Baris Kedua (2 Card) -->
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4 col-sm-6">
+        <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
+          <div class="icon mb-3">
+            <i class="fas fa-building"></i>
+          </div>
+          <h5 class="fw-bold">Belajar di Lapangan</h5>
+          <p>Hadapi persoalan bisnis nyata & belajar cara menyelesaikannya.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
+          <div class="icon mb-3">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h5 class="fw-bold">Proyek Nyata</h5>
+          <p>Dibimbing membuat proyek bisnis nyata dari nol bersama coach.</p>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="card shadow-sm h-100 border-0 text-center p-4">
-      <div class="icon mb-3">
-        <i class="fas fa-tools text-success" style="font-size: 2.5rem;"></i>
-      </div>
-      <h5 class="fw-bold text-success">Tools & Leadership</h5>
-      <p>Belajar puluhan tools bisnis, manajemen, dan leadership modern.</p>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card shadow-sm h-100 border-0 text-center p-4">
-      <div class="icon mb-3">
-        <i class="fas fa-book-open text-success" style="font-size: 2.5rem;"></i>
-      </div>
-      <h5 class="fw-bold text-success">Kelas MBC</h5>
-      <p>Mengikuti kelas-kelas MBC yang terstruktur & aplikatif.</p>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card shadow-sm h-100 border-0 text-center p-4">
-      <div class="icon mb-3">
-        <i class="fas fa-handshake text-success" style="font-size: 2.5rem;"></i>
-      </div>
-      <h5 class="fw-bold text-success">Networking</h5>
-      <p>Berjejaring langsung dengan pengusaha & komunitas pebisnis muda.</p>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card shadow-sm h-100 border-0 text-center p-4">
-      <div class="icon mb-3">
-        <i class="fas fa-building text-success" style="font-size: 2.5rem;"></i>
-      </div>
-      <h5 class="fw-bold text-success">Belajar di Lapangan</h5>
-      <p>Hadapi persoalan bisnis nyata & belajar cara menyelesaikannya.</p>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card shadow-sm h-100 border-0 text-center p-4">
-      <div class="icon mb-3">
-        <i class="fas fa-rocket text-success" style="font-size: 2.5rem;"></i>
-      </div>
-      <h5 class="fw-bold text-success">Proyek Nyata</h5>
-      <p>Dibimbing membuat proyek bisnis nyata dari nol bersama coach.</p>
-    </div>
-  </div>
-</div>
+</section>
+
+<!-- Style Tambahan -->
+<style>
+  #fitur-program {
+    background: linear-gradient(135deg, #f9fdfb 0%, #e9f9f3 100%);
+  }
+
+  .feature-card {
+    transition: all 0.3s ease;
+    border-radius: 1rem;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 114, 114, 0.15);
+  }
+
+  .feature-card .icon i {
+    font-size: 2.5rem;
+    color: #007272;
+    transition: color 0.3s ease;
+  }
+
+  .feature-card:hover .icon i {
+    color: #00a68e;
+  }
+
+  .feature-card h5 {
+    color: #007272;
+  }
+
+  @media (max-width: 767px) {
+    .feature-card {
+      margin-bottom: 1rem;
+    }
+  }
+</style>
+
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 
     <!-- CTA -->
