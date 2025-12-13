@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coach Fitra Jaya Saleh - Start-Up Muslim Indonesia</title>
+    <!-- favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/png" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <meta name="facebook-domain-verification" content="khe2ju8y46da83zp6uyb8d35m2thov" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        /* Custom Styles for Coach Page mimicking the reference but with SMI Colors */
+        :root {
+            --smi-cyan: #007272;
+            --smi-light-cyan: #e0f7f7;
+            --smi-gold: #FFD21F;
+            --smi-dark: #13392d;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #f9fdfd;
+        }
+
+        /* ===== NAVBAR ===== */
+        .smi-navbar {
+            background-color: #007272 !important;
+            border-bottom: 3px solid #ffd21f;
+            transition: background-color 0.3s ease, padding 0.3s ease;
+            padding: 12px 0;
+            z-index: 1000;
+        }
+
+        .smi-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #fff;
+            margin-right: 10px;
+        }
+
+        .brand-text {
+            font-weight: 800;
+            font-size: 1.4rem;
+            background: linear-gradient(90deg, #FFD21F, #FFF9B0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: glowText 3s infinite ease-in-out;
+        }
+
+        @keyframes glowText {
+
+            0%,
+            100% {
+                text-shadow: 0 0 8px rgba(255, 210, 31, 0.6);
+            }
+
+            50% {
+                text-shadow: 0 0 18px rgba(255, 255, 180, 0.8);
+            }
+        }
+
+        /* Hover efek untuk menu navbar */
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #FFD21F !important;
+            transform: translateY(-2px);
+        }
+
+        /* Tombol daftar */
+        .daftar-btn {
+            background: linear-gradient(90deg, #FFD21F, #FFF59B);
+            color: #004d4d;
+            font-weight: 700;
+            border-radius: 30px;
+            padding: 10px 22px;
+            border: none;
+            box-shadow: 0 0 12px rgba(255, 210, 31, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .daftar-btn:hover {
+            transform: translateY(-2px) scale(1.07);
+            background: linear-gradient(90deg, #FFEB57, #FFF59B);
+        }
+
+        /* Efek scroll */
+        .navbar.scrolled {
+            background-color: #005e5e !important;
+            padding: 6px 0;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .coach-hero {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+            background: linear-gradient(to bottom, #f9fdfd, #fff);
+        }
+
+        .coach-headline {
+            font-weight: 700;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .coach-image-container {
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .coach-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--smi-light-cyan);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-icons-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-icon-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--smi-cyan);
+            /* SMI Cyan instead of Red/Blue */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon-btn:hover {
+            background-color: var(--smi-gold);
+            color: var(--smi-dark);
+            transform: translateY(-3px);
+        }
+
+        .coach-name {
+            font-weight: 700;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .coach-bio {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* List Sections */
+        .section-title {
+            font-weight: 700;
+            color: black;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .feature-list li i {
+            color: var(--smi-cyan);
+            /* Checkmark color */
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        /* Certificates */
+        .certificate-card {
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-card:hover {
+            transform: scale(1.02);
+        }
+
+        .certificate-img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Overrides for consistency */
+        footer {
+            background-color: #007272;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- WhatsApp Floating -->
+    <a href="#" class="wa-cta float position-fixed" target="_blank" title="Konsultasi via WhatsApp"
+        style="position:fixed;width:60px;height:60px;bottom:20px;right:20px;background-color:#25d366;color:#fff;border-radius:50px;text-align:center;font-size:30px;box-shadow:2px 2px 3px #999;z-index:1000;">
+        <i class="fa fa-whatsapp my-float" style="margin-top:16px;"></i>
+        <span class="badge"
+            style="position:absolute;top:5px;right:5px;padding:5px 8px;border-radius:50%;background:red;color:white;font-size:12px;">
+            1
+        </span>
+    </a>
+
+    <!-- ===== NAVBAR SMI ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark smi-navbar fixed-top shadow-sm">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/logosmi.png" alt="Logo SMI" class="smi-logo">
+                <span class="brand-text">Start-Up Muslim Indonesia</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSMI"
+                aria-controls="navbarSMI" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSMI">
+                <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html#home">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Tentang Kami
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="coach.html">Coach FJS</a></li>
+                            <li><a class="dropdown-item" href="#">Visi & Misi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html#program">Program</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html#roadmap">Roadmap</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html#client">Client</a></li>
+                    <li class="nav-item">
+                        <a href="#" class="btn daftar-btn position-relative wa-cta">
+                            Daftar Sekarang
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Coach Hero Section -->
+    <section class="coach-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <!-- Headline -->
+                    <h1 class="coach-headline display-5">
+                        Bangun Bisnis yang Kuat & Tersistem<br>dengan Bimbingan Coach FJS
+                    </h1>
+
+                    <!-- Image -->
+                    <div class="coach-image-container">
+                        <!-- Using fitra0.png based on previous file edits/knowledge, or placeholder if needed -->
+                        <img src="img/fitra0.png" alt="Coach Fitra Jaya Saleh" class="coach-image">
+                    </div>
+
+                    <!-- Social Icons -->
+                    <!-- <div class="social-icons-row">
+                        <a href="#" class="social-icon-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon-btn"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon-btn"><i class="fab fa-tiktok"></i></a>
+                    </div> -->
+
+                    <!-- Name & Bio -->
+                    <h2 class="coach-name display-6">Coach Fitra Jaya Saleh</h2>
+                    <div class="coach-bio text-start text-md-center">
+                        <p>
+                            Coach Fitra adalah seorang <strong>profesional</strong> berpengalaman dan pemimpin visioner
+                            dengan peran penting di berbagai organisasi. Beliau adalah CEO dari Helas Corp dan Pondok
+                            Preneur Indonesia, dua perusahaan yang bergerak di bidang pengembangan bisnis dan teknologi.
+                            Dengan gelar Master G Coach dan <strong>pengalaman sebagai Trainer Bisnis Nasional</strong>,
+                            Coach Fitra telah <strong>membantu</strong> banyak Business Owner dan perusahaan
+                            <strong>mencapai kesuksesan</strong> melalui program <strong>pelatihan dan konsultasi bisnis
+                                yang inovatif</strong>.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Expertise Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title h1">Pengalaman & Keahlian Utama</h2>
+            <ul class="feature-list lead fs-6">
+                <li>
+                    <i class="fas fa-check-square"></i>
+                    <span><strong>Business Systemization</strong> – Membantu bisnis berjalan tanpa ketergantungan pada
+                        owner</span>
+                </li>
+                <li>
+                    <i class="fas fa-check-square"></i>
+                    <span><strong>Sales & Marketing Growth</strong> – Strategi meningkatkan omset dengan cara
+                        efektif</span>
+                </li>
+                <li>
+                    <i class="fas fa-check-square"></i>
+                    <span><strong>Leadership & Team Development</strong> – Membangun tim yang solid dan produktif</span>
+                </li>
+                <li>
+                    <i class="fas fa-check-square"></i>
+                    <span><strong>Financial Management</strong> – Menata keuangan bisnis agar sehat dan
+                        menguntungkan</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="py-5" style="background-color: var(--smi-light-cyan);">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="certificate-card">
+                        <!-- Placeholder for certificates, user can replace source -->
+                        <img src="img/sertif_kelashr.png" class="certificate-img" alt="Sertifikat KelasHR">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="certificate-card">
+                        <img src="img/sertif_ibgbc_blue.png" class="certificate-img" alt="Sertifikat IBGBC Blue">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="certificate-card">
+                        <img src="img/sertif_ibgbc_green.jpg" class="certificate-img" alt="Sertifikat IBGBC Green">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title h1">Prestasi & Pengalaman Profesional</h2>
+            <ul class="feature-list lead fs-6">
+                <li>
+                    <i class="fas fa-check-square"></i>
+                    <span><strong>Founder Muslim Business Coaching (MBC)</strong> – Program mentoring bisnis berbasis
+                        sistem & keberkahan</span>
+                </li>
+                <li>
+                    <i class="fas fa-check-square"></i>
+                    <span><strong>1000++ Pengusaha Dibantu</strong> – Melalui seminar, workshop, dan coaching</span>
+                </li>
+                <li>
+                    <i class="fas fa-check-square"></i>
+                    <span><strong>Trainer Bisnis Nasional</strong> ( PT PLN, PT Nibras, Sr12, Samira tour and Travel,
+                        dll )</span>
+                </li>
+                <li>
+                    <i class="fas fa-check-square"></i>
+                    <span><strong>Financial Management</strong> – Menata keuangan bisnis agar sehat dan
+                        menguntungkan</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-5 pb-4 mt-0 border-top border-5 border-warning" style="background-color: #007272; color: #fff;">
+        <div class="container">
+            <div class="row g-5">
+
+                <!-- Logo & Brand -->
+                <div class="col-lg-5 col-md-12 text-center">
+                    <div class="d-flex flex-column align-items-center mb-4">
+                        <div class="bg-white rounded-circle d-flex justify-content-center align-items-center shadow mb-3"
+                            style="width: 100px; height: 100px;">
+                            <img src="img/logosmi.png" alt="Logo SMI" style="width: 70%; height: auto;">
+                        </div>
+                        <div>
+                            <h4 class="fw-bold fst-italic text-uppercase mb-2"
+                                style="color: #FFD21F; line-height: 1.2;">
+                                Start-Up Muslim Indonesia
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Links Group -->
+                <div class="col-lg-7 col-md-12">
+                    <div class="row g-4 justify-content-lg-end">
+
+                        <!-- Tentang Kami -->
+                        <div class="col-sm-4 col-6 text-lg-end text-start">
+                            <h5 class="fw-bold fst-italic text-uppercase mb-3" style="color: #FFD21F;">Tentang Kami</h5>
+                            <ul class="list-unstyled d-flex flex-column gap-2">
+                                <li><a href="coach.html" class="text-white text-decoration-none hover-underline"
+                                        style="text-decoration: underline !important; color: #FFD21F !important;">Coach
+                                        Fitra Jaya Saleh</a></li>
+                                <li><a href="#" class="text-white text-decoration-none hover-underline">Visi & Misi</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Program -->
+                        <div class="col-sm-4 col-6 text-lg-end text-start">
+                            <h5 class="fw-bold fst-italic text-uppercase mb-3" style="color: #FFD21F;">Program</h5>
+                            <ul class="list-unstyled d-flex flex-column gap-2">
+                                <li><a href="index.html#program"
+                                        class="text-white text-decoration-none hover-underline">Kelas Offline</a></li>
+                                <li><a href="index.html#program"
+                                        class="text-white text-decoration-none hover-underline">Kelas Online</a></li>
+                                <li><a href="index.html#roadmap"
+                                        class="text-white text-decoration-none hover-underline">Kurikulum</a></li>
+                                <li><a href="index.html#faq"
+                                        class="text-white text-decoration-none hover-underline">FAQ</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Follow Kami -->
+                        <div class="col-sm-4 col-12 text-lg-end text-start">
+                            <h5 class="fw-bold fst-italic text-uppercase mb-3" style="color: #FFD21F;">Ikuti Kami</h5>
+                            <ul class="list-unstyled d-flex flex-column gap-2">
+                                <li>
+                                    <a href="#" class="text-white text-decoration-none hover-underline">
+                                        <i class="fab fa-instagram me-2 text-warning"></i> Instagram
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-white text-decoration-none hover-underline">
+                                        <i class="fab fa-tiktok me-2 text-white"></i> Tiktok
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="mt-5 mb-4" style="height: 1px; background-color: rgba(255, 255, 255, 0.2);"></div>
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <p class="small mb-0 text-white opacity-75 fst-italic">
+                        &copy; 2025 Start-Up Muslim Indonesia. All Rights Reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-0 text-white opacity-50 fst-italic">
+                        Designed for the Future Generation
+                    </p>
+                </div>
+            </div>
+        </div>
+        <style>
+            .hover-underline:hover {
+                text-decoration: underline !important;
+                color: #FFD21F !important;
+            }
+        </style>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // WA Logic (Same as index.html)
+        const admins = [
+            { name: "Tursia", phone: "6289602697425", message: "Hallo Kak Tursia, saya mau Konsultasi Program Startup Muslim yaa kak" },
+            { name: "Latifah", phone: "6289525742386", message: "Hallo Kak Latifah, saya mau Konsultasi Program Startup Muslim yaa kak" }
+        ];
+
+        const waButtons = document.querySelectorAll(".wa-cta");
+        waButtons.forEach(btn => {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                let lastAdmin = localStorage.getItem("lastAdmin");
+                let nextAdmin;
+                if (lastAdmin === "Tursia") {
+                    nextAdmin = admins[1];
+                } else {
+                    nextAdmin = admins[0];
+                }
+                localStorage.setItem("lastAdmin", nextAdmin.name);
+                const waLink = `https://api.whatsapp.com/send?phone=${nextAdmin.phone}&text=${encodeURIComponent(nextAdmin.message)}`;
+                window.open(waLink, "_blank");
+            });
+        });
+    </script>
+</body>
+
+</html>
