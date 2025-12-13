@@ -203,7 +203,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="coach.html">Coach FJS</a></li>
-              <li><a class="dropdown-item" href="#">Visi & Misi</a></li>
+              <li><a class="dropdown-item" href="visi-misi.html">Visi & Misi</a></li>
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link text-white" href="#program">Program</a></li>
@@ -1772,11 +1772,22 @@
         }
 
         .fase .content {
-          padding: 15px;
+          padding: 25px;
           background: #fff;
           border-radius: 12px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
           text-align: left;
+          border-bottom: 5px solid #FFD21F;
+          transition: transform 0.3s ease;
+        }
+
+        .fase .content:hover {
+          transform: translateY(-5px);
+        }
+
+        .fase ol li {
+          margin-bottom: 6px;
+          line-height: 1.5;
         }
 
         .fase .pin {

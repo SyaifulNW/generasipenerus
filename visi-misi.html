@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coach Fitra Jaya Saleh - Start-Up Muslim Indonesia</title>
+    <title>Visi & Misi - Start-Up Muslim Indonesia</title>
     <!-- favicon -->
     <link rel="icon" href="img/favicon.ico" type="image/png" />
     <link rel="stylesheet" href="css/style.css" />
@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <style>
-        /* Custom Styles for Coach Page mimicking the reference but with SMI Colors */
         :root {
             --smi-cyan: #007272;
             --smi-light-cyan: #e0f7f7;
@@ -112,126 +111,95 @@
         }
 
         /* Hero Section */
-        .coach-hero {
-            padding-top: 120px;
+        .page-header {
+            padding-top: 140px;
             padding-bottom: 60px;
             text-align: center;
-            background: linear-gradient(to bottom, #f9fdfd, #fff);
-        }
-
-        .coach-headline {
-            font-weight: 700;
-            color: #333;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            line-height: 1.4;
-        }
-
-        .coach-image-container {
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .coach-image {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid var(--smi-light-cyan);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .social-icons-row {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .social-icon-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: var(--smi-cyan);
-            /* SMI Cyan instead of Red/Blue */
+            background: linear-gradient(to bottom, #007272, #005858);
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
+            border-bottom: 5px solid var(--smi-gold);
         }
 
-        .social-icon-btn:hover {
-            background-color: var(--smi-gold);
-            color: var(--smi-dark);
-            transform: translateY(-3px);
+        .page-title {
+            font-weight: 800;
+            font-size: 3rem;
+            text-transform: uppercase;
+            color: var(--smi-gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .coach-name {
-            font-weight: 700;
-            color: black;
-            margin-bottom: 20px;
-        }
-
-        .coach-bio {
-            max-width: 900px;
-            margin: 0 auto 40px;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        /* List Sections */
-        .section-title {
-            font-weight: 700;
-            color: black;
-            margin-bottom: 30px;
+        /* Content Sections */
+        .visi-section {
+            padding: 80px 0;
+            background-color: #fff;
             text-align: center;
         }
 
-        .feature-list {
-            list-style: none;
-            padding: 0;
-            max-width: 800px;
+        .visi-box {
+            max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            padding: 40px;
+            border: 2px solid var(--smi-gold);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
-        .feature-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            text-align: left;
-        }
-
-        .feature-list li i {
+        .visi-box::before {
+            content: "\f10d";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 3rem;
             color: var(--smi-cyan);
-            /* Checkmark color */
-            margin-right: 15px;
-            font-size: 1.2rem;
-            margin-top: 3px;
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 20px;
         }
 
-        /* Certificates */
-        .certificate-card {
-            border: none;
-            transition: transform 0.3s ease;
+        .visi-text {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            font-weight: 500;
+            color: var(--smi-dark);
+            font-style: italic;
         }
 
-        .certificate-card:hover {
-            transform: scale(1.02);
+        .misi-section {
+            padding: 80px 0;
+            background-color: var(--smi-light-cyan);
         }
 
-        .certificate-img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .misi-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            height: 100%;
+            border-left: 5px solid var(--smi-cyan);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
-        /* Footer Overrides for consistency */
-        footer {
-            background-color: #007272;
+        .misi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--smi-gold);
+        }
+
+        .misi-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--smi-gold);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .misi-text {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -287,126 +255,79 @@
         </div>
     </nav>
 
-    <!-- Coach Hero Section -->
-    <section class="coach-hero">
+    <!-- Header Section -->
+    <header class="page-header">
+        <div class="container" data-aos="fade-down">
+            <h1 class="page-title">Visi & Misi</h1>
+            <p class="lead text-white opacity-75">Start-Up Muslim Indonesia</p>
+        </div>
+    </header>
+
+    <!-- Visi Section -->
+    <section class="visi-section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <!-- Headline -->
-                    <h1 class="coach-headline display-5">
-                        Bangun Bisnis yang Kuat & Tersistem<br>dengan Bimbingan Coach FJS
-                    </h1>
-
-                    <!-- Image -->
-                    <div class="coach-image-container">
-                        <!-- Using fitra0.png based on previous file edits/knowledge, or placeholder if needed -->
-                        <img src="img/fitra0.png" alt="Coach Fitra Jaya Saleh" class="coach-image">
-                    </div>
-
-                    <!-- Social Icons -->
-                    <!-- <div class="social-icons-row">
-                        <a href="#" class="social-icon-btn"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon-btn"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-icon-btn"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon-btn"><i class="fab fa-tiktok"></i></a>
-                    </div> -->
-
-                    <!-- Name & Bio -->
-                    <h2 class="coach-name display-6">Coach Fitra Jaya Saleh</h2>
-                    <div class="coach-bio text-start text-md-center">
-                        <p>
-                            Coach Fitra adalah seorang <strong>profesional</strong> berpengalaman dan pemimpin visioner
-                            dengan peran penting di berbagai organisasi. Beliau adalah CEO dari Helas Corp dan Pondok
-                            Preneur Indonesia, dua perusahaan yang bergerak di bidang pengembangan bisnis dan teknologi.
-                            Dengan gelar Master G Coach dan <strong>pengalaman sebagai Trainer Bisnis Nasional</strong>,
-                            Coach Fitra telah <strong>membantu</strong> banyak Business Owner dan perusahaan
-                            <strong>mencapai kesuksesan</strong> melalui program <strong>pelatihan dan konsultasi bisnis
-                                yang inovatif</strong>.
-                        </p>
-                    </div>
-
-                </div>
+            <h2 class="fw-bold mb-5 text-uppercase" style="color: var(--smi-cyan);">Visi Kami</h2>
+            <div class="visi-box" data-aos="zoom-in">
+                <p class="visi-text">
+                    "Melahirkan entrepreneur Muslim Indonesia yang berakhlak, bersyariah, dan berdaya saing global,
+                    dengan menjadikan nilai-nilai Islam sebagai landasan bisnis yang berkah dan berkelanjutan."
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Experience & Expertise Section -->
-    <section class="py-5 bg-white">
+    <!-- Misi Section -->
+    <section class="misi-section">
         <div class="container">
-            <h2 class="section-title h1">Pengalaman & Keahlian Utama</h2>
-            <ul class="feature-list lead fs-6">
-                <li>
-                    <i class="fas fa-check-square"></i>
-                    <span><strong>Business Systemization</strong> – Membantu bisnis berjalan tanpa ketergantungan pada
-                        owner</span>
-                </li>
-                <li>
-                    <i class="fas fa-check-square"></i>
-                    <span><strong>Sales & Marketing Growth</strong> – Strategi meningkatkan omset dengan cara
-                        efektif</span>
-                </li>
-                <li>
-                    <i class="fas fa-check-square"></i>
-                    <span><strong>Leadership & Team Development</strong> – Membangun tim yang solid dan produktif</span>
-                </li>
-                <li>
-                    <i class="fas fa-check-square"></i>
-                    <span><strong>Financial Management</strong> – Menata keuangan bisnis agar sehat dan
-                        menguntungkan</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section class="py-5" style="background-color: var(--smi-light-cyan);">
-        <div class="container">
+            <h2 class="fw-bold mb-5 text-center text-uppercase" style="color: var(--smi-cyan);">Misi Kami</h2>
             <div class="row g-4 justify-content-center">
-                <div class="col-md-4">
-                    <div class="certificate-card">
-                        <!-- Placeholder for certificates, user can replace source -->
-                        <img src="img/sertif_kelashr.png" class="certificate-img" alt="Sertifikat KelasHR">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="certificate-card">
-                        <img src="img/sertif_ibgbc_blue.png" class="certificate-img" alt="Sertifikat IBGBC Blue">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="certificate-card">
-                        <img src="img/sertif_ibgbc_green.jpg" class="certificate-img" alt="Sertifikat IBGBC Green">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Achievements Section -->
-    <section class="py-5 bg-white">
-        <div class="container">
-            <h2 class="section-title h1">Prestasi & Pengalaman Profesional</h2>
-            <ul class="feature-list lead fs-6">
-                <li>
-                    <i class="fas fa-check-square"></i>
-                    <span><strong>Founder Muslim Business Coaching (MBC)</strong> – Program mentoring bisnis berbasis
-                        sistem & keberkahan</span>
-                </li>
-                <li>
-                    <i class="fas fa-check-square"></i>
-                    <span><strong>1000++ Pengusaha Dibantu</strong> – Melalui seminar, workshop, dan coaching</span>
-                </li>
-                <li>
-                    <i class="fas fa-check-square"></i>
-                    <span><strong>Trainer Bisnis Nasional</strong> ( PT PLN, PT Nibras, Sr12, Samira tour and Travel,
-                        dll )</span>
-                </li>
-                <li>
-                    <i class="fas fa-check-square"></i>
-                    <span><strong>Financial Management</strong> – Menata keuangan bisnis agar sehat dan
-                        menguntungkan</span>
-                </li>
-            </ul>
+                <!-- Misi 1 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="misi-card">
+                        <div class="misi-number">01</div>
+                        <p class="misi-text">Membangun karakter dan adab entrepreneur Muslim berlandaskan nilai-nilai
+                            Islam.</p>
+                    </div>
+                </div>
+
+                <!-- Misi 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="misi-card">
+                        <div class="misi-number">02</div>
+                        <p class="misi-text">Menyediakan pembinaan bisnis terintegrasi prinsip syariah dari perencanaan
+                            hingga keuangan.</p>
+                    </div>
+                </div>
+
+                <!-- Misi 3 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="misi-card">
+                        <div class="misi-number">03</div>
+                        <p class="misi-text">Mengajarkan keterampilan bisnis digital yang selaras dengan etika dan nilai
+                            Islam.</p>
+                    </div>
+                </div>
+
+                <!-- Misi 4 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="misi-card">
+                        <div class="misi-number">04</div>
+                        <p class="misi-text">Menciptakan komunitas (ukhuwah islamiyah) yang saling mendukung dalam
+                            membangun bisnis bermakna.</p>
+                    </div>
+                </div>
+
+                <!-- Misi 5 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="misi-card">
+                        <div class="misi-number">05</div>
+                        <p class="misi-text">Membimbing peserta memiliki bisnis terstruktur, bertarget, dan
+                            berkontribusi positif bagi perekonomian umat.</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -439,11 +360,11 @@
                         <div class="col-sm-4 col-6 text-lg-end text-start">
                             <h5 class="fw-bold fst-italic text-uppercase mb-3" style="color: #FFD21F;">Tentang Kami</h5>
                             <ul class="list-unstyled d-flex flex-column gap-2">
-                                <li><a href="coach.html" class="text-white text-decoration-none hover-underline"
-                                        style="text-decoration: underline !important; color: #FFD21F !important;">Coach
+                                <li><a href="coach.html" class="text-white text-decoration-none hover-underline">Coach
                                         Fitra Jaya Saleh</a></li>
-                                <li><a href="#" class="text-white text-decoration-none hover-underline">Visi & Misi</a>
-                                </li>
+                                <li><a href="visi-misi.html" class="text-white text-decoration-none hover-underline"
+                                        style="text-decoration: underline !important; color: #FFD21F !important;">Visi &
+                                        Misi</a></li>
                             </ul>
                         </div>
 
@@ -513,7 +434,7 @@
     <script>
         AOS.init();
 
-        // WA Logic (Same as index.html)
+        // WA Logic
         const admins = [
             { name: "Tursia", phone: "6289602697425", message: "Hallo Kak Tursia, saya mau Konsultasi Program Startup Muslim yaa kak" },
             { name: "Latifah", phone: "6289525742386", message: "Hallo Kak Latifah, saya mau Konsultasi Program Startup Muslim yaa kak" }
