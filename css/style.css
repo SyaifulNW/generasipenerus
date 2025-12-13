@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    color: #d70726, #ffffff /* Default text color */ ;
+    color: #236565, #ffffff /* Default text color */ ;
     font-size: 16px;
     line-height: 1.6;
     text-decoration: none;
@@ -15,7 +15,7 @@
   font-family: "Poppins", "Segoe UI", sans-serif; /* pilih font yang khas untuk headline */
   font-size: 1.3rem; /* lebih besar biar kesan judul */
   font-weight: 800; /* tebal */
-  color: #dc3545; /* warna sesuai tema */
+  color: #236565; /* warna sesuai tema */
   text-align: center; /* opsional, biar fokus di tengah */
   margin-bottom: 1rem;
   line-height: 1.4;
@@ -28,7 +28,7 @@
 
 blockquote{
   background: #f8f9fa;
-  border-left: 5px solid #dc3545;
+  border-left: 5px solid #236565;
   padding: 15px 20px;
   margin: 10px 0;
   font-style: italic;
@@ -76,7 +76,7 @@ body {
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
-  font-size:30px;
+    font-size:30px;
 	box-shadow: 2px 2px 3px #999;
   z-index:100;
 }
@@ -87,7 +87,7 @@ body {
 
 
 header.hero {
-    background: linear-gradient(to right, #810113, #d70726);
+    background: linear-gradient(to right, #13392d, #236565);
     color: white;
     padding: 40px 20px;
     text-align: center;
@@ -108,12 +108,12 @@ h1 {
 }
 
 h2 {  
-    color: #810113;
+    color: #13392d;
     font-weight: 700;
 } 
 
 h3 {
-    color: #810113;
+    color: #13392d;
     font-weight: 700;
 }
 
@@ -146,7 +146,7 @@ table th {
 
 .cta {
     display: inline-block;
-    background-color:#d70726;
+    background-color:#236565;
     color: white;
     padding: 12px 24px;
     text-decoration: none;
@@ -186,7 +186,7 @@ table th {
   }
 
   .navbar-nav .nav-link.active {
-    color: #dc3545; /* warna merah untuk menu aktif */
+    color: #236565; /* warna merah untuk menu aktif */
   }
 
 
@@ -212,13 +212,13 @@ table th {
 }
 
 .logo-text strong {
-  color: #a00000;
+  color: #13392d;
   font-size: 16px;
   line-height: 1.2;
 }
 
 .logo-text span {
-  color: #a00000;
+  color: #13392d;
   font-weight: bold;
   font-size: 16px;
 }
@@ -248,7 +248,7 @@ table th {
 }
 
 .nav-links a.active {
-  color: #d12020;
+  color: #236565;
   font-weight: bold;
 
 }
@@ -332,7 +332,7 @@ table th {
 } */
 
 .cta:hover {
-    background-color: #810113;
+    background-color: #13392d;
 }
 
 footer {
@@ -346,7 +346,7 @@ footer p {
     color: #555;
 }
 a {
-    color:  #d12020;
+    color:  #236565;
     text-decoration: none;
 }
 a:hover {
@@ -388,7 +388,7 @@ a:hover {
 }
 
 .benefit {
-  background-color: #d62828; /* merah terang */
+  background-color: #236565; /* merah terang */
   color: black;
   padding: 60px 20px;
   border-radius: 12px;
@@ -472,7 +472,7 @@ a:hover {
 }
 
  .daftar {
-    background-color:  #c40000;
+    background-color:  #13392d;
     color: #ffff;
     padding: 25px;
     border-radius: 10px;
@@ -486,7 +486,7 @@ a:hover {
   .daftar h2 {
     font-size: 28px;
     font-weight: 700;
-    color: #d1001f;
+    color: #e1c482;
     margin-bottom: 15px;
   }
 
@@ -501,7 +501,7 @@ a:hover {
     margin: 15px 0;
     padding: 12px 24px;
     background-color: white;
-    color: red;
+    color: #236565;
     text-decoration: none;
     font-weight: bold;
     border-radius: 6px;
@@ -513,12 +513,12 @@ a:hover {
   }
 
   .daftar strong {
-    color: #a80000;
+    color: #e1c482;
   }
 
    .kutipan {
-    background-color: #fff0f2; /* merah muda lembut */
-    border-left: 5px solid #d70726;
+    background-color: #eff7f7; /* merah muda lembut */
+    border-left: 5px solid #236565;
     padding: 20px 25px;
     margin: 30px auto;
     border-radius: 8px;
@@ -528,7 +528,7 @@ a:hover {
   }
 
   .kutipan h2 {
-    color: #d70726;
+    color: #236565;
     font-size: 1.5em;
     font-weight: 600;
     line-height: 1.5;
@@ -599,7 +599,7 @@ section.daftar {
     background-blend-mode:  overlay;
     /* Background kombinasi gradasi */
  background: linear-gradient(135deg, 
-#d70726, #810113), url('https://cdn.pixabay.com/photo/2016/11/29/09/08/people-1868728_1280.jpg');
+#236565, #13392d), url('https://cdn.pixabay.com/photo/2016/11/29/09/08/people-1868728_1280.jpg');
     background-position: center;
     background-repeat: no-repeat;
     height: 80vh;
@@ -610,7 +610,7 @@ section.daftar {
 .cta-btn {
   display: inline-block;
   background-color: #fff;
-  color: #d70726;
+  color: #236565;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
@@ -618,6 +618,6 @@ section.daftar {
 }
 
 .cta-btn:hover {
-  background-color: #f7e2e5;
-  color: #a5051c;
+  background-color: #e0f0f0;
+  color: #13392d;
 }
