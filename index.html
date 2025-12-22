@@ -262,9 +262,9 @@
     // Daftar admin WA
     const admins = [
       {
-        name: "Tursia",
+        name: "Puput",
         phone: "6289602697425",
-        message: "Hallo Kak Tursia, saya mau Konsultasi Program Startup Muslim yaa kak"
+        message: "Hallo Kak Puput, saya mau Konsultasi Program Startup Muslim yaa kak"
       },
       {
         name: "Latifah",
@@ -285,7 +285,7 @@
 
         // Tentukan admin berikutnya
         let nextAdmin;
-        if (lastAdmin === "Tursia") {
+        if (lastAdmin === "Puput") {
           nextAdmin = admins[1];
         } else {
           nextAdmin = admins[0];
@@ -319,16 +319,14 @@
 
         <div class="highlight-card mt-4 text-start" data-aos="fade-up" data-aos-delay="100">
           <p class="mb-0" style="text-align: justify;">
-            <strong>SMI</strong> adalah program kuliah bisnis intensif selama <strong>6 bulan</strong> yang ingin
-            membangun bisnis dengan fondasi kuat, terarah,
-            dan berkelanjutan.
+            <strong>Start Up Muslim Indonesia</strong> program kuliah dan mentoring bisnis selama <strong>6
+              bulan</strong> untuk para pelaku startup Muslim.
             <br><br>
-            Program ini menggabungkan <strong>pendekatan hybrid (online + offline)</strong>, pendampingan mentor
-            pribadi, komunitas supportif, serta kurikulum terstruktur yang mencakup pengembangan diri, ilmu bisnis, dan
-            strategi digital.
+            Mahasiswa dibimbing 3 Kekuatan Utama yaitu : agar jago digital, rapi dalam manajemen bisnis, dan kuat dalam
+            leadership diri.
             <br><br>
-            SMI hadir sebagai jawaban atas tantangan utama anak muda dalam berbisnis: <strong>kurangnya mentor, sistem,
-              dan lingkungan yang tepat</strong>.
+            Di akhir program, peserta memiliki final project dan strategi pertumbuhan bisnis yang siap dijalankan selama
+            1 tahun ke depan.
           </p>
         </div>
       </div>
@@ -813,7 +811,7 @@
               “Jangan Tunggu Hingga Terlambat. Siapkan Anak Muda Anda Jadi Pengusaha Juara Sekarang!”
             </h3>
             <div class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
-              <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Tursia,%20saya%20mau%20Konsultasi%20Program%20Startup%20Muda%20yaa%20kak"
+              <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Puput,%20saya%20mau%20Konsultasi%20Program%20Startup%20Muda%20yaa%20kak"
                 class="btn btn-success btn-lg px-3 py-2">Daftar Sekarang</a>
               <a href="#program" class="btn btn-outline-success btn-lg px-3 py-2">Pelajari Program</a>
             </div>
@@ -1074,7 +1072,7 @@
               Dalam 6 bulan, kamu tidak hanya paham teori,<br>
               tapi punya bisnis nyata yang bisa terus berkembang!
             </p>
-            <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Tursia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak"
+            <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Puput,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak"
               class="btn btn-success btn-lg mt-3 px-4">
               Daftar Sekarang
             </a>
@@ -2709,14 +2707,14 @@
             // Data admin WhatsApp
             const admin = [
               {
-                name: "Tursia",
+                name: "Puput",
                 phone: "6289602697425",
-                message: "Hallo Kak Tursia, saya mau Konsultasi Program Startup Muda yaa kak"
+                message: "Hallo Kak Puput, saya mau Konsultasi Program Startup Muda yaa kak"
               },
               {
                 name: "Latifah",
                 phone: "6289525742386",
-                message: "Hallo Kak Latifah, saya mau Konsultasi Program Startup Muda yaa kak"
+                message: "Hallo Kak , saya mau Konsultasi Program Startup Muda yaa kak"
               }
             ];
 
@@ -2730,7 +2728,7 @@
 
               // Ambil admin terakhir
               let lastClicked = localStorage.getItem("lastAdmin");
-              let nextAdmin = lastClicked === "Tursia" ? admins[1] : admins[0];
+              let nextAdmin = lastClicked === "Puput" ? admins[1] : admins[0];
 
               // Simpan admin yang baru
               localStorage.setItem("lastAdmin", nextAdmin.name);
