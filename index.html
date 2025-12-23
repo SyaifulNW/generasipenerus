@@ -262,14 +262,24 @@
     // Daftar admin WA
     const admins = [
       {
-        name: "Tursia",
-        phone: "6289602697425",
-        message: "Hallo Kak Tursia, saya mau Konsultasi Program Startup Muslim yaa kak"
+        name: "Puput",
+        phone: "62882008421509",
+        message: "Hallo Kak Puput, saya mau daftar program Startup Muslim Indonesia"
       },
       {
-        name: "Latifah",
-        phone: "6289525742386",
-        message: "Hallo Kak Latifah, saya mau Konsultasi Program Startup Muslim yaa kak"
+        name: "Yasmin",
+        phone: "62882008421508",
+        message: "Hallo Kak Yasmin, saya mau daftar program Startup Muslim Indonesia"
+      },
+      {
+        name: "Linda",
+        phone: "628561490495",
+        message: "Hallo Kak Linda, saya mau daftar program Startup Muslim Indonesia"
+      },
+      {
+        name: "Qiyya",
+        phone: "6285725113721",
+        message: "Hallo Kak Qiyya, saya mau daftar program Startup Muslim Indonesia"
       }
     ];
 
@@ -280,19 +290,15 @@
       btn.addEventListener("click", function (e) {
         e.preventDefault();
 
-        // Ambil admin terakhir dari localStorage
-        let lastAdmin = localStorage.getItem("lastAdmin");
+        // Ambil index admin terakhir dari localStorage
+        let lastIndex = parseInt(localStorage.getItem("lastAdminIndex")) || 0;
 
-        // Tentukan admin berikutnya
-        let nextAdmin;
-        if (lastAdmin === "Tursia") {
-          nextAdmin = admins[1];
-        } else {
-          nextAdmin = admins[0];
-        }
+        // Tentukan admin berikutnya (cycle)
+        let nextIndex = (lastIndex + 1) % admins.length;
+        let nextAdmin = admins[nextIndex];
 
-        // Simpan admin terakhir yang diklik
-        localStorage.setItem("lastAdmin", nextAdmin.name);
+        // Simpan index terakhir yang diklik
+        localStorage.setItem("lastAdminIndex", nextIndex);
 
         // Buat link WA
         const waLink = `https://api.whatsapp.com/send?phone=${nextAdmin.phone}&text=${encodeURIComponent(nextAdmin.message)}`;
@@ -811,8 +817,7 @@
               “Jangan Tunggu Hingga Terlambat. Siapkan  Jadi Pengusaha Juara Sekarang!”
             </h3>
             <div class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
-              <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Tursia,%20saya%20mau%20Konsultasi%20Program%20Startup%20Muda%20yaa%20kak"
-                class="btn btn-success btn-lg px-3 py-2">Daftar Sekarang</a>
+              <a href="#" class="btn btn-success btn-lg px-3 py-2 wa-cta">Daftar Sekarang</a>
               <a href="#program" class="btn btn-outline-success btn-lg px-3 py-2">Pelajari Program</a>
             </div>
           </div>
@@ -1072,10 +1077,10 @@
               Dalam 6 bulan, kamu tidak hanya paham teori,<br>
               tapi punya bisnis nyata yang bisa terus berkembang!
             </p>
-            <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Tursia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak"
+            <!-- <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Tursia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak"
               class="btn btn-success btn-lg mt-3 px-4">
               Daftar Sekarang
-            </a>
+            </a> -->
           </div>
         </div>
       </section>
