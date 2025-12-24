@@ -262,9 +262,9 @@
     // Daftar admin WA
     const admins = [
       {
-        name: "Tursia",
+        name: "Puput",
         phone: "6289602697425",
-        message: "Hallo Kak Tursia, saya mau Konsultasi Program Startup Muslim yaa kak"
+        message: "Hallo Kak Puput, saya mau Konsultasi Program Startup Muslim yaa kak"
       },
       {
         name: "Linda",
@@ -275,6 +275,11 @@
         name: "Qiyya",
         phone: "6285725113721",
         message: "Hallo Kak Qiyya, saya mau daftar program Startup Muslim Indonesia"
+      },
+      {
+        name: "Yasmin",
+        phone: "62882008421508",
+        message: "Hallo Kak Yasmin, saya mau daftar program Startup Muslim Indonesia"
       }
     ];
 
@@ -286,17 +291,18 @@
         e.preventDefault();
 
         // Ambil index admin terakhir dari localStorage
-        let lastIndex = parseInt(localStorage.getItem("lastAdminIndex")) || 0;
+        let lastIndex = parseInt(localStorage.getItem("lastAdminIndex"));
 
-        // Tentukan admin berikutnya
-        let nextAdmin;
-        if (lastAdmin === "Tursia") {
-          nextAdmin = admins[1];
-        } else {
-          nextAdmin = admins[0];
+        // Validasi lastIndex
+        if (isNaN(lastIndex)) {
+          lastIndex = -1; // Supaya next dimulai dari index 0
         }
 
-        // Simpan index terakhir yang diklik
+        // Tentukan admin berikutnya (rotasi 0 -> 1 -> 2 -> 0)
+        let nextIndex = (lastIndex + 1) % admins.length;
+        let nextAdmin = admins[nextIndex];
+
+        // Simpan index admin yang terpilih
         localStorage.setItem("lastAdminIndex", nextIndex);
 
         // Buat link WA
@@ -814,7 +820,7 @@
               “Jangan Tunggu Hingga Terlambat. Siapkan Jadi Pengusaha Juara Sekarang!”
             </h3>
             <div class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
-              <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Tursia,%20saya%20mau%20Konsultasi%20Program%20Startup%20Muda%20yaa%20kak"
+              <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Puput,%20saya%20mau%20Konsultasi%20Program%20Startup%20Muda%20yaa%20kak"
                 class="btn btn-success btn-lg px-3 py-2">Daftar Sekarang</a>
               <a href="#program" class="btn btn-outline-success btn-lg px-3 py-2">Pelajari Program</a>
             </div>
@@ -1075,10 +1081,10 @@
               Dalam 6 bulan, kamu tidak hanya paham teori,<br>
               tapi punya bisnis nyata yang bisa terus berkembang!
             </p>
-            <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Tursia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak"
+            <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Puput,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak"
               class="btn btn-success btn-lg mt-3 px-4">
               Daftar Sekarang
-            </a> -->
+            </a>
           </div>
         </div>
       </section>
@@ -2533,7 +2539,7 @@
               <div id="faq7" class="accordion-collapse collapse" aria-labelledby="faqHeading7"
                 data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Ya ✅. Kamu akan mendapat <em>Sertifikat Startup Muda Indonesia</em> yang bisa menjadi nilai tambah
+                  Ya ✅. Kamu akan mendapat <em>Sertifikat Startup Muslim Indonesia</em> yang bisa menjadi nilai tambah
                   untuk karier maupun usaha.
                 </div>
               </div>
@@ -2550,8 +2556,8 @@
               <div id="faq8" class="accordion-collapse collapse" aria-labelledby="faqHeading8"
                 data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Ada 🚀. Peserta otomatis masuk ke <em>komunitas alumni Startup Muda Indonesia</em> yang isinya anak
-                  muda visioner, tempat kolaborasi, networking, dan peluang bisnis baru.
+                  Ada 🚀. Peserta otomatis masuk ke <em>komunitas alumni Startup Muslim Indonesia</em> yang isinya
+                  anak muda visioner, tempat kolaborasi, networking, dan peluang bisnis baru.
                 </div>
               </div>
             </div>
@@ -2715,9 +2721,19 @@
                 message: "Hallo Kak Puput, saya mau Konsultasi Program Startup Muda yaa kak"
               },
               {
-                name: "Latifah",
-                phone: "6289525742386",
-                message: "Hallo Kak , saya mau Konsultasi Program Startup Muda yaa kak"
+                name: "Linda",
+                phone: "628561490495",
+                message: "Hallo Kak Linda, saya mau daftar program Startup Muslim Indonesia"
+              },
+              {
+                name: "Qiyya",
+                phone: "6285725113721",
+                message: "Hallo Kak Qiyya, saya mau daftar program Startup Muslim Indonesia"
+              },
+              {
+                name: "Yasmin",
+                phone: "62882008421508",
+                message: "Hallo Kak Yasmin, saya mau daftar program Startup Muslim Indonesia"
               }
             ];
 
