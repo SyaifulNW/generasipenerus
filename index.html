@@ -168,7 +168,7 @@
 <body>
   <!-- Google Tag Manager (noscript) -->
   <!-- Tombol WhatsApp Floating -->
-  <a href="#" class="wa-cta float position-fixed" target="_blank" title="Konsultasi via WhatsApp"
+  <a href="javascript:void(0)" class="wa-cta float position-fixed" title="Konsultasi via WhatsApp"
     style="position:fixed;width:60px;height:60px;bottom:20px;right:20px;background-color:#25d366;color:#fff;border-radius:50px;text-align:center;font-size:30px;box-shadow:2px 2px 3px #999;z-index:1000;">
     <i class="fa fa-whatsapp my-float" style="margin-top:16px;"></i>
     <span class="badge"
@@ -177,150 +177,70 @@
     </span>
   </a>
 
-
-  <!-- ===== NAVBAR SMI ===== -->
-  <!-- <nav class="navbar navbar-expand-lg navbar-dark smi-navbar fixed-top shadow-sm">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="img/logosmi.png" alt="Logo SMI" class="smi-logo">
-        <span class="brand-text">Start-Up Muslim Indonesia</span>
-      </a>
-
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSMI"
-        aria-controls="navbarSMI" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSMI">
-        <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-3">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Home
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#home">Beranda</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="coach.html">Coach FJS</a></li>
-              <li><a class="dropdown-item" href="visi-misi.html">Visi & Misi</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#program">Program</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link text-white" href="#faq">FAQ</a></li>
-
-          <li class="nav-item">
-            <a href="#" class="btn daftar-btn position-relative wa-cta">
-              Daftar Sekarang
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> 
-
   <script>
-    // START: Fix Navbar Closure Issue
-    document.addEventListener('DOMContentLoaded', function () {
-      const navbarBox = document.querySelector('.smi-navbar');
-      const navbarToggler = document.querySelector('.navbar-toggler');
-      const navbarCollapse = document.querySelector('.navbar-collapse');
-      const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)'); // Select all links except dropdowns
-
-      if (navbarToggler && navbarCollapse) {
-
-        // 1. Close navbar when a link is clicked
-        navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            if (navbarCollapse.classList.contains('show')) {
-              navbarToggler.click(); // Simulate click to leverage Bootstrap's built-in toggle
-            }
-          });
-        });
-
-        // 2. Close navbar when clicking outside
-        document.addEventListener('click', function (event) {
-          const isClickInside = navbarBox.contains(event.target);
-          if (!isClickInside && navbarCollapse.classList.contains('show')) {
-            navbarToggler.click(); // Close if clicked outside
-          }
-        });
-
-        // 3. Ensure the toggler itself works (Force close if stuck)
-        navbarToggler.addEventListener('click', function () {
-          // This listener is mainly for debugging, 
-          // Bootstrap should handle the toggle. 
-          // If 'show' class exists, Bootstrap removes it.
-        });
-      }
-    });
-    // END: Fix Navbar Closure Issue
-
     // Daftar admin WA
-    const admins = [
-      {
-        name: "Puput",
-        phone: "6289602697425",
-        message: "Hallo Kak Puput, saya mau Konsultasi Program Startup Muslim yaa kak"
-      },
+    const waAdminsData = [
       {
         name: "Linda",
         phone: "628561490495",
-        message: "Hallo Kak Linda, saya mau daftar program Startup Muslim Indonesia"
-      },
-      {
-        name: "Qiyya",
-        phone: "6285725113721",
-        message: "Hallo Kak Qiyya, saya mau daftar program Startup Muslim Indonesia"
+        message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak 😊 "
       },
       {
         name: "Yasmin",
         phone: "62882008421508",
-        message: "Hallo Kak Yasmin, saya mau daftar program Startup Muslim Indonesia"
+        message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak 😊 "
+      },
+      {
+        name: "Puput",
+        phone: "6289602710354",
+        message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak 😊 "
+      },
+      {
+        name: "Qiyya",
+        phone: "6285725113721",
+        message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak 😊 "
+      },
+      {
+        name: "Awan",
+        phone: "6289525742386",
+        message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak 😊 "
       }
     ];
 
-    // Tangkap semua tombol WA
-    const waButtons = document.querySelectorAll(".wa-cta");
+    // Assign to window for global access
+    window.waAdmins = waAdminsData;
 
-    waButtons.forEach(btn => {
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
+    document.addEventListener("DOMContentLoaded", function () {
+      // Tangkap KHUSUS tombol float WhatsApp saja
+      const waFloatBtn = document.querySelector(".wa-cta.float");
 
-        // Ambil index admin terakhir dari localStorage
-        let lastIndex = parseInt(localStorage.getItem("lastAdminIndex"));
+      if (waFloatBtn) {
+        waFloatBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
 
-        // Validasi lastIndex
-        if (isNaN(lastIndex)) {
-          lastIndex = -1; // Supaya next dimulai dari index 0
-        }
+          // Logic Rotasi
+          let waList = window.waAdmins;
+          // Fallback checking just in case
+          if (!waList || waList.length === 0) waList = waAdminsData;
 
-        // Tentukan admin berikutnya (rotasi 0 -> 1 -> 2 -> 0)
-        let nextIndex = (lastIndex + 1) % admins.length;
-        let nextAdmin = admins[nextIndex];
+          let lastIndex = parseInt(localStorage.getItem("lastAdminIndex"));
+          if (isNaN(lastIndex)) lastIndex = -1;
 
-        // Simpan index admin yang terpilih
-        localStorage.setItem("lastAdminIndex", nextIndex);
+          let nextIndex = (lastIndex + 1) % waList.length;
+          let nextAdmin = waList[nextIndex];
 
-        // Buat link WA
-        const waLink = `https://api.whatsapp.com/send?phone=${nextAdmin.phone}&text=${encodeURIComponent(nextAdmin.message)}`;
+          localStorage.setItem("lastAdminIndex", nextIndex);
 
-        // Buka di tab baru
-        window.open(waLink, "_blank");
-      });
+          const waLink = `https://api.whatsapp.com/send?phone=${nextAdmin.phone}&text=${encodeURIComponent(nextAdmin.message)}`;
+          window.open(waLink, "_blank");
+        });
+      }
     });
   </script>
 
 
 
-
-  <!-- ===== STARTUP SECTION ===== -->
 
 
   <section id="home" class="startup-section">
@@ -358,9 +278,9 @@
           </div>
 
 
-          <p class="mt-4 fw-bold text-teal fst-italic">
-            "SMI hadir sebagai jawaban atas tantangan utama pebisnis pemula dalam berbisnis yaitu: Penjualan Stagnan,
-            Ingin Scale-Up, Butuh Mentor & Komunitas."
+          <p class="mt-4" style="text-align: justify;">
+            <strong>SMI</strong> hadir sebagai jawaban atas tantangan utama pebisnis pemula dalam berbisnis yaitu:
+            Penjualan Stagnan, Ingin Scale-Up, Butuh Mentor & Komunitas.
           </p>
           </p>
         </div>
@@ -368,21 +288,18 @@
 
 
       <div class="coach-area">
-        <div class="coach-card">
-          <img src="img/fitra0.png" alt="Coach Fitra Jaya Saleh" class="coach-photo">
-          <div class="coach-info">
-            <h5>Coach Fitra Jaya Saleh</h5>
-            <p>Founder SMI</p>
-          </div>
+        <div class="tiktok-container">
+          <iframe src="https://www.tiktok.com/embed/v2/7584298035685985557"
+            style="width: 325px; height: 580px; border: none;" scrolling="no" allowfullscreen
+            referrerpolicy="no-referrer">
+          </iframe>
         </div>
       </div>
 
     </div>
 
 
-    <a href="https://wa.me/6281234567890" class="whatsapp-float" target="_blank">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <!-- Duplicate button removed -->
   </section>
   <!-- ===== END SECTION ===== -->
 
@@ -402,14 +319,13 @@
             <!-- Item 1 -->
             <div class="audience-card">
               <div class="icon-box">
-                <i class="fas fa-user-tie"></i>
+                <i class="fas fa-mosque"></i>
               </div>
               <div class="content-box">
-                <h5 class="fw-bold text-teal">1. Calon Pengusaha Muslim</h5>
+                <h5 class="fw-bold text-teal">1. Muslim yang Ingin Bisnis Selaras Syariah</h5>
                 <ul>
-                  <li>Punya niat kuat berbisnis, tapi masih bingung mulai dari mana</li>
-                  <li>Ingin bisnis halal, terstruktur, dan tidak trial-error terus</li>
-                  <li>Cocok untuk karyawan, profesional, atau fresh graduate yang ingin hijrah ke dunia usaha</li>
+                  <li>Menghindari riba, gharar, dan praktik tidak sehat</li>
+                  <li>Ingin bisnis jadi sumber nafkah, ladang dakwah, dan warisan peradaban</li>
                 </ul>
               </div>
             </div>
@@ -464,13 +380,14 @@
             <!-- Item 5 -->
             <div class="audience-card">
               <div class="icon-box">
-                <i class="fas fa-mosque"></i>
+                <i class="fas fa-user-tie"></i>
               </div>
               <div class="content-box">
-                <h5 class="fw-bold text-teal">5. Muslim yang Ingin Bisnis Selaras Syariah</h5>
+                <h5 class="fw-bold text-teal">5. Calon Pengusaha Muslim</h5>
                 <ul>
-                  <li>Menghindari riba, gharar, dan praktik tidak sehat</li>
-                  <li>Ingin bisnis jadi sumber nafkah, ladang dakwah, dan warisan peradaban</li>
+                  <li>Punya niat kuat berbisnis, tapi masih bingung mulai dari mana</li>
+                  <li>Ingin bisnis halal, terstruktur, dan tidak trial-error terus</li>
+                  <li>Cocok untuk karyawan, profesional, atau fresh graduate yang ingin hijrah ke dunia usaha</li>
                 </ul>
               </div>
             </div>
@@ -886,6 +803,42 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    /* TikTok Phone Mockup Style */
+    .tiktok-container {
+      position: relative;
+      width: 340px;
+      /* Slightly wider than iframe for bezel */
+      height: 600px;
+      /* Slightly taller */
+      background: #000;
+      /* Phone body color */
+      border-radius: 30px;
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.2),
+        0 0 0 2px #333,
+        /* Inner bezel frame */
+        0 0 0 5px #111;
+      /* Outer bezel frame */
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 4px solid #444;
+      /* Metallic edge feel */
+      transition: transform 0.3s ease;
+    }
+
+    .tiktok-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .tiktok-container iframe {
+      border-radius: 24px;
+      /* Slightly less than container */
+      background: #000;
     }
 
     .coach-card {
@@ -3050,7 +3003,7 @@
       <br>
       <!-- Tombol WA Admin Tursia -->
       <!-- ✅ TOMBOL HUBUNGI ADMIN -->
-      <a href="#" id="hubungiAdminBtn"
+      <a href="javascript:void(0)" id="hubungiAdminBtn"
         class="cta-btn btn btn-success text-white fw-bold mb-2 w-80 d-inline-flex align-items-center justify-content-center gap-2"
         style="position: relative; overflow: hidden; border-radius: 12px; transition: 0.3s;">
         <i class="fa fa-whatsapp"></i>
@@ -3062,59 +3015,54 @@
 
       <!-- ✅ SCRIPT -->
       <script>
-        // Data admin WhatsApp
-        const admin = [
-          {
-            name: "Puput",
-            phone: "6289602697425",
-            message: "Hallo Kak Puput, saya mau Konsultasi Program Startup Muda yaa kak"
-          },
-          {
-            name: "Linda",
-            phone: "628561490495",
-            message: "Hallo Kak Linda, saya mau daftar program Startup Muslim Indonesia"
-          },
-          {
-            name: "Qiyya",
-            phone: "6285725113721",
-            message: "Hallo Kak Qiyya, saya mau daftar program Startup Muslim Indonesia"
-          },
-          {
-            name: "Yasmin",
-            phone: "62882008421508",
-            message: "Hallo Kak Yasmin, saya mau daftar program Startup Muslim Indonesia"
-          }
-        ];
-
         const hubungiAdminBtn = document.getElementById("hubungiAdminBtn");
 
         hubungiAdminBtn.addEventListener("click", function (e) {
           e.preventDefault();
+          e.stopPropagation();
 
           // Animasi shimmer aktif
           hubungiAdminBtn.classList.add("active");
 
-          // Ambil admin terakhir
-          let lastClicked = localStorage.getItem("lastAdmin");
-          let nextAdmin = lastClicked === "Puput" ? admins[1] : admins[0];
+          // Fallback logic in case global var missing
+          let waList = window.waAdmins;
+          if (!waList || waList.length === 0) {
+            waList = [
+              { name: "Linda", phone: "628561490495", message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak 😊 " },
+              { name: "Yasmin", phone: "62882008421508", message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak 😊 " },
+              { name: "Puput", phone: "6289602710354", message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak 😊 " },
+              { name: "Qiyya", phone: "6285725113721", message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak 😊 " },
+              { name: "Awan", phone: "6289525742386", message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak 😊 " }
+            ];
+          }
 
-          // Simpan admin yang baru
-          localStorage.setItem("lastAdmin", nextAdmin.name);
+          // Logic Rotasi
+          let lastIndex = parseInt(localStorage.getItem("lastAdminIndex"));
+          if (isNaN(lastIndex)) {
+            lastIndex = -1;
+          }
+          let nextIndex = (lastIndex + 1) % waList.length;
+          let nextAdmin = waList[nextIndex];
+          localStorage.setItem("lastAdminIndex", nextIndex);
 
           // Ubah teks sementara
-          hubungiAdminBtn.querySelector("span").textContent = `Menghubungi ${nextAdmin.name}...`;
+          const spanText = hubungiAdminBtn.querySelector("span");
+          if (spanText) spanText.textContent = `Menghubungi ${nextAdmin.name}...`;
 
           // Animasi rotasi ikon
           const icon = hubungiAdminBtn.querySelector("i");
-          icon.style.transition = "transform 0.6s ease";
-          icon.style.transform = "rotate(360deg)";
+          if (icon) {
+            icon.style.transition = "transform 0.6s ease";
+            icon.style.transform = "rotate(360deg)";
+          }
 
           // Arahkan ke WhatsApp
           const waLink = `https://api.whatsapp.com/send?phone=${nextAdmin.phone}&text=${encodeURIComponent(nextAdmin.message)}`;
+
           setTimeout(() => {
             window.open(waLink, "_blank");
-            hubungiAdminBtn.querySelector("span").textContent = "Hubungi Admin";
-            icon.style.transform = "rotate(0deg)";
+            if (spanText) spanText.textContent = "Hubungi Admin";
+            if (icon) icon.style.transform = "rotate(0deg)";
             hubungiAdminBtn.classList.remove("active");
           }, 800);
         });
