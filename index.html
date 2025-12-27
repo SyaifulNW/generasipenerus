@@ -324,20 +324,25 @@
     <div class="content-container" data-aos="fade-up">
 
       <div class="text-area">
-        <h2 class="headline">
-          <span> START-UP MUSLIM INDONESIA</span>
-        </h2>
+        <h1 class="headline">
+          <span style="font-size: 32px;">KAMPUS START-UP MUSLIM INDONESIA</span>
+        </h1>
+        <div class="mt-3 mb-4">
+          <span class="tagline"
+            style="margin-top: 0; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">
+            Kuliah dan Mentoring Bisnis 6 Bulan
+          </span>
+        </div>
 
         <div class="highlight-card mt-4 text-start" data-aos="fade-up" data-aos-delay="100">
           <p class="mb-0" style="text-align: justify;">
-            <strong>Start Up Muslim Indonesia</strong> program kuliah dan mentoring bisnis selama <strong>6
-              bulan</strong> untuk para pelaku startup Muslim.
+            <strong>SMI</strong> adalah Program Mentoring bisnis untuk pebisnis Start up Muslim Indonesia.
             <br><br>
-            Mahasiswa dibimbing 3 Kekuatan Utama yaitu : agar jago digital, rapi dalam manajemen bisnis, dan kuat dalam
-            leadership diri.
+            Program ini FOKUS pada 3 PILAR PONDASI AWAL yaitu <strong>PEMBENAHAN SALES MARKETING, DIGITAL MARKETING dan
+              LEADERSHIP</strong>.
             <br><br>
-            SMI hadir sebagai jawaban atas tantangan utama anak muda dalam berbisnis: <strong>kurangnya mentor, sistem,
-              dan lingkungan yang tepat</strong>.
+            <strong>SMI</strong> hadir sebagai jawaban atas tantangan utama pebisnis pemula dalam berbisnis yaitu,
+            Penjualan Stagnan, ingin mencari cara menumbuhkan bisnis nya, butuh Mentor, semuanya di temukan disini.
           </p>
         </div>
       </div>
@@ -447,8 +452,9 @@
     /* ===== HERO SECTION ===== */
     .startup-section {
       position: relative;
-      background: url('img/gp1.jpg') center/cover no-repeat;
-      color: #fff;
+      background-color: #ffffff;
+      /* Warna dasar putih */
+      color: #13392d;
       padding: 8rem 2rem 5rem;
       display: flex;
       justify-content: center;
@@ -460,8 +466,35 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 80, 80, 0.8);
+      /* Gradient Overlay supaya lebih manis menyatu dengan gambar */
+      background: linear-gradient(135deg, rgba(198, 202, 202, 0.95) 20%, rgba(87, 92, 92, 0.7) 100%),
+        url('img/gp1.jpg') center/cover no-repeat;
+      opacity: 0.5;
       z-index: 0;
+    }
+
+    /* Decorative Floating Circle */
+    .startup-section::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 114, 114, 0.15) 0%, rgba(255, 210, 31, 0.05) 70%);
+      border-radius: 50%;
+      top: -100px;
+      left: -50px;
+      z-index: 1;
+      animation: floatMove 8s infinite alternate ease-in-out;
+    }
+
+    @keyframes floatMove {
+      from {
+        transform: translateY(0) translateX(0);
+      }
+
+      to {
+        transform: translateY(20px) translateX(20px);
+      }
     }
 
     .content-container {
@@ -482,26 +515,50 @@
     }
 
     .headline span {
-      background: linear-gradient(90deg, #FFD21F, #FFF7B0);
+      background: linear-gradient(90deg, #FFD21F, #f3cf2d);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 800;
-      font-size: 2.3rem;
+      font-size: 2.8rem;
+      /* Larger font */
+      -webkit-text-stroke: 1.5px #005a5a;
+      filter: drop-shadow(0 4px 6px rgba(0, 90, 90, 0.2));
+      display: inline-block;
+      animation: fadeInDown 1s ease-out;
     }
 
-    /* High Contrast Card Style */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* High Contrast Glass Card Style */
     .highlight-card {
-      background: rgba(255, 255, 255, 0.95);
-      /* High contrast white background */
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       color: #13392d;
-      /* Dark text for readability */
-      padding: 1.5rem;
-      border-radius: 12px;
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
       border-left: 6px solid #FFD21F;
-      /* Gold accent */
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       line-height: 1.8;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-5px);
     }
 
     .highlight-card strong {
@@ -535,13 +592,16 @@
     }
 
     .coach-card {
-      background: rgba(0, 0, 0, 0);
-      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 20px;
       text-align: center;
-      padding-bottom: 1rem;
-      transition: all 0.4s ease;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.12);
-      max-width: 300px;
+      padding-bottom: 1.5rem;
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      max-width: 320px;
     }
 
     .coach-card:hover {
@@ -559,12 +619,12 @@
     .coach-info h5 {
       margin-top: 0.8rem;
       font-weight: 700;
-      color: #FFD21F;
+      color: #007272;
     }
 
     .coach-info p {
       font-size: 0.9rem;
-      color: #eee;
+      color: #333;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -779,50 +839,68 @@
     <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
 
       <!-- Headline -->
-      <h2 class="fw-bold mb-4 text-center  headline  font-size:2rem;" style="color:#007272;">
-        BANYAK PEBISNIS MUSLIM BINGUNG MAU MULAI USAHA.
-
-
+      <h2 class="fw-bold mb-4 text-center headline responsive-headline" style="color:#007272;">
+        BANYAK PEBISNIS MUSLIM BINGUNG CARA MEMULAI DAN MENGEMBANGKAN USAHA
       </h2>
 
-      <!-- Subheadline -->
-      <div class="mb-5 p-4 rounded shadow-lg subheadline-box">
-        <p class="lead text-center mb-0 subheadline-text">
-          <strong>
-            Jangan salah langkah… program kuliah bisnis 6 bulan percepatan peningkatan kemampuan untuk jadi pengusaha
-            Bermental Baja, Bermindset Juara, Berkemampuan Profesional dan Berakhlak Mulia.
-          </strong>
 
-        </p>
-      </div>
 
       <!-- Masalah List -->
-      <h3 class="fw-bold text-center text-dark mb-4">
+      <!-- <h3 class="fw-bold text-center text-dark mb-4">
         Masalah Umum Start Up, Pengusaha Pemula
-      </h3>
+      </h3> -->
 
       <!-- Headline Chart -->
       <h4 class="fw-bold text-center text-danger mb-3 chart-title">
         Tingkat Masalah yang Paling Sering Dialami
       </h4>
       <!-- Chart Section -->
-      <section class="chart-section py-5">
-        <div class="container text-center">
+      <section class="chart-section py-5 position-relative" style="overflow: hidden;">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
 
-          <!-- Chart -->
-          <div class="mb-3 chart-container">
-            <canvas id="masalahAnakBar"></canvas>
+            <!-- Image Column (Orang Pusing) -->
+            <div class="col-md-5 text-center mb-4 mb-md-0" data-aos="fade-right">
+              <img src="img/3d_confused_businessman.png" alt="Bingung Mulai Bisnis" class="img-fluid mobile-img-adjust"
+                style="filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.15));">
+            </div>
+
+            <!-- Chart Column -->
+            <div class="col-md-7" data-aos="fade-left">
+              <div class="card border-0 shadow-sm p-3 bg-white rounded">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <!-- Chart Area -->
+                    <div class="col-md-7">
+                      <div class="chart-wrapper">
+                        <canvas id="masalahAnakPie"></canvas>
+                      </div>
+                    </div>
+                    <!-- Custom Legend Area -->
+                    <div class="col-md-5">
+                      <div id="chartLegend" class="mt-4 mt-md-0 px-2"></div>
+                    </div>
+                  </div>
+
+                  <div class="text-center mt-4">
+                    <p class="fst-italic text-muted">"Masalah terbesar adalah <strong>Kurang Pengalaman &
+                        Pengetahuan</strong>"</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           <!-- CTA -->
-          <div class="text-center px-2">
+          <div class="text-center mt-5 px-2" data-aos="fade-up">
             <h3 class="fw-bold text-dark mb-3 cta-text">
               “Jangan Tunggu Hingga Terlambat. Siapkan Jadi Pengusaha Juara Sekarang!”
             </h3>
             <div class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
               <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Puput,%20saya%20mau%20Konsultasi%20Program%20Startup%20Muda%20yaa%20kak"
-                class="btn btn-success btn-lg px-3 py-2">Daftar Sekarang</a>
-              <a href="#program" class="btn btn-outline-success btn-lg px-3 py-2">Pelajari Program</a>
+                class="btn btn-success btn-lg px-3 py-2 shadow-sm">Daftar Sekarang</a>
+              <a href="#program" class="btn btn-outline-success btn-lg px-3 py-2 shadow-sm">Pelajari Program</a>
             </div>
           </div>
 
@@ -830,11 +908,43 @@
       </section>
 
       <style>
-        /* Chart Container Responsive */
-        .chart-container {
+        /* Responsive Headline */
+        .responsive-headline {
+          font-size: 1.2rem;
+          line-height: 1.4;
+        }
+
+        @media (min-width: 768px) {
+          .responsive-headline {
+            font-size: 1.6rem;
+            white-space: nowrap;
+          }
+        }
+
+        /* Chart Wrapper */
+        .chart-wrapper {
           position: relative;
-          height: auto;
-          min-height: 300px;
+          width: 100%;
+          height: 250px;
+          /* Mobile height */
+        }
+
+        @media (min-width: 768px) {
+          .chart-wrapper {
+            height: 350px;
+            /* Desktop height */
+          }
+        }
+
+        /* Image Adjustment */
+        .mobile-img-adjust {
+          max-height: 250px;
+        }
+
+        @media (min-width: 768px) {
+          .mobile-img-adjust {
+            max-height: 450px;
+          }
         }
 
         /* Badge Custom */
@@ -843,34 +953,15 @@
           color: #fff;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 992px) {
-          .chart-container {
-            min-height: 280px;
-          }
-
-          .cta-text {
-            font-size: 1.3rem;
-          }
-        }
-
+        /* Mobile Responsive adjustments */
         @media (max-width: 768px) {
-          .chart-container {
-            min-height: 240px;
-          }
-
           .cta-text {
             font-size: 1.1rem;
           }
 
           .btn {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             padding: 0.5rem 1rem;
-          }
-
-          .badge {
-            font-size: 0.8rem;
-            padding: 0.35rem 0.6rem;
           }
         }
       </style>
@@ -878,217 +969,93 @@
       <!-- Chart.js CDN -->
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script>
-        const ctxBar = document.getElementById('masalahAnakBar');
+        const ctxPie = document.getElementById('masalahAnakPie');
 
-        new Chart(ctxBar, {
-          type: 'bar',
+        // Data Sorted (Highest to Lowest)
+        const labelsData = [
+          'Kurang Pengalaman & Pengetahuan', // 90
+          'Mindset & Mental Belum Siap',     // 80
+          'Kurang Percaya Diri & Visi Jelas',// 75
+          'Kurang Jaringan & Mentor',        // 70
+          'Manajemen Waktu & Prioritas'      // 65
+        ];
+
+        const dataValues = [90, 80, 75, 70, 65];
+        const backgroundColors = [
+          '#dc3545',  // Merah (Terbesar)
+          '#fd7e14',  // Orange
+          '#ffc107',  // Kuning
+          '#0d6efd',  // Biru
+          '#198754'   // Hijau
+        ];
+
+        new Chart(ctxPie, {
+          type: 'doughnut', // Pie/Donut chart
           data: {
-            labels: [
-              'Kurang Pengalaman & Pengetahuan',
-              'Mindset & Mental Belum Siap',
-              'Kurang Jaringan & Mentor',
-              'Manajemen Waktu & Prioritas',
-              'Kurang Percaya Diri & Visi Jelas'
-            ],
+            labels: labelsData,
             datasets: [{
               label: 'Tingkat Masalah (%)',
-              data: [90, 80, 70, 65, 75],
-              backgroundColor: [
-                '#dc3545',  // merah
-                '#fd7e14',  // orange
-                '#ffc107',  // kuning
-                '#198754',  // hijau
-                '#0d6efd'   // biru
-              ],
+              data: dataValues,
+              backgroundColor: backgroundColors,
+              borderColor: '#fff',
               borderWidth: 2,
-              borderRadius: 6
+              hoverOffset: 10
             }]
           },
           options: {
-            indexAxis: 'y', // buat horizontal bar agar label panjang lebih rapi
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-              legend: { display: false },
+              legend: {
+                display: false // Hide default legend, use custom one
+              },
               tooltip: {
+                backgroundColor: 'rgba(0,0,0,0.8)',
+                padding: 12,
+                titleFont: { size: 14 },
+                bodyFont: { size: 13 },
                 callbacks: {
                   label: function (context) {
-                    return context.raw + '% mengalami masalah ini';
+                    return ` ${context.label}: ${context.raw}% Responden`;
                   }
                 }
               }
             },
-            scales: {
-              x: {
-                beginAtZero: true, max: 100,
-                ticks: { stepSize: 20, callback: val => val + '%' },
-                grid: { color: '#eee' }
-              },
-              y: {
-                ticks: { font: { size: 13, weight: 'bold' }, color: '#333' },
-                grid: { display: false }
-              }
-            },
-            animation: { duration: 1200, easing: 'easeOutCubic' }
+            layout: {
+              padding: 10
+            }
           }
         });
+
+        // Function to generate Custom Legend
+        function generateLegend() {
+          const legendContainer = document.getElementById('chartLegend');
+          let html = '<ul style="list-style: none; padding: 0; margin: 0;">';
+
+          labelsData.forEach((label, index) => {
+            const color = backgroundColors[index];
+            const value = dataValues[index];
+            html += `
+                    <li style="margin-bottom: 12px; display: flex; align-items: center; font-family: 'Poppins', sans-serif; font-size: 14px; color: #333;">
+                        <span style="display: inline-block; width: 15px; height: 15px; background-color: ${color}; border-radius: 4px; margin-right: 10px;"></span>
+                        <div style="flex: 1;">
+                            <strong>${label}</strong>
+                            <div style="font-size: 12px; color: #666;">${value}% Responden</div>
+                        </div>
+                    </li>
+                `;
+          });
+          html += '</ul>';
+          legendContainer.innerHTML = html;
+        }
+
+        generateLegend();
       </script>
 
 
       <!-- Section Pengertian -->
 
       <!-- Apa itu Start-Up Muda Indonesia -->
-      <section id="about-smi" class="py-5" style="background: #007272;">
-        <div class="container" data-aos="fade-up">
-          <!-- Headline -->
-          <!-- <h2 class="fw-bold text-center text-warning mb-4" style="font-size:2rem;">
-            Apa Itu Program Start Up Muda...??
-          </h2>
-          <p class="text-center text-white mb-5"
-            style="font-size:1.1rem; max-width:800px; margin:auto; line-height:1.6;">
-            Program pendidikan bisnis modern yang dirancang khusus untuk anak muda Indonesia.
-            Peserta akan <span class="text-warning fw-bold">belajar, praktek, dan sukses membangun bisnis nyata</span>
-            dalam 6 bulan intensif.
-          </p> -->
-
-
-          <!-- Features Grid -->
-          <!-- Fitur Program -->
-          <section id="fitur-program" class="py-5 bg-light">
-            <div class="container">
-              <div class="text-center mb-5">
-                <h2 class="fw-bold text-dark">Apa yang Akan Kamu Dapatkan?</h2>
-                <p class="text-muted">Pelajari berbagai aspek penting untuk menjadi pengusaha sukses muda.</p>
-              </div>
-
-              <!-- Baris Pertama (3 Card) -->
-              <div class="row g-4 justify-content-center mb-4">
-                <div class="col-md-4 col-sm-6">
-                  <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
-                    <div class="icon mb-3">
-                      <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h5 class="fw-bold">Mindset & Skill</h5>
-                    <p>Belajar mindset & skill pengusaha sukses yang terbukti berhasil.</p>
-                  </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                  <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
-                    <div class="icon mb-3">
-                      <i class="fas fa-tools"></i>
-                    </div>
-                    <h5 class="fw-bold">Tools & Leadership</h5>
-                    <p>Belajar puluhan tools bisnis, manajemen, dan leadership modern.</p>
-                  </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                  <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
-                    <div class="icon mb-3">
-                      <i class="fas fa-handshake"></i>
-                    </div>
-                    <h5 class="fw-bold">Networking</h5>
-                    <p>Berjejaring langsung dengan pengusaha & komunitas pebisnis muda.</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Baris Kedua (2 Card) -->
-              <div class="row g-4 justify-content-center">
-                <div class="col-md-4 col-sm-6">
-                  <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
-                    <div class="icon mb-3">
-                      <i class="fas fa-building"></i>
-                    </div>
-                    <h5 class="fw-bold">Belajar di Lapangan</h5>
-                    <p>Hadapi persoalan bisnis nyata & belajar cara menyelesaikannya.</p>
-                  </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                  <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
-                    <div class="icon mb-3">
-                      <i class="fas fa-rocket"></i>
-                    </div>
-                    <h5 class="fw-bold">Proyek Nyata</h5>
-                    <p>Dibimbing membuat proyek bisnis nyata dari nol bersama coach.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Style Tambahan -->
-          <style>
-            #fitur-program {
-              background: #fff;
-              /* Reset section bg to clean */
-            }
-
-            .feature-card {
-              transition: all 0.3s ease;
-              border-radius: 1rem;
-              /* Gold Gradient Background */
-              background: linear-gradient(135deg, #FFD21F 0%, #FFF59B 100%);
-              border: 1px solid #e1c482;
-            }
-
-            .feature-card:hover {
-              transform: translateY(-8px);
-              box-shadow: 0 12px 25px rgba(255, 210, 31, 0.4);
-            }
-
-            /* Icon Styling */
-            .feature-card .icon i {
-              font-size: 2.5rem;
-              color: #13392d;
-              /* Dark Deep Green */
-              transition: color 0.3s ease;
-            }
-
-            .feature-card:hover .icon i {
-              color: #004d4d;
-            }
-
-            /* Headers and Text */
-            .feature-card h5 {
-              color: #13392d;
-              /* Dark Green */
-              font-weight: 800;
-            }
-
-            .feature-card p {
-              color: #004d4d;
-              /* Greenish Text */
-              font-weight: 600;
-            }
-
-            @media (max-width: 767px) {
-              .feature-card {
-                margin-bottom: 1rem;
-              }
-            }
-          </style>
-
-          <!-- FontAwesome -->
-          <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-
-          <!-- CTA -->
-          <div class="text-center mt-5">
-            <p class="fw-semibold text-white" style="font-size:1.2rem;">
-              Dalam 6 bulan, kamu tidak hanya paham teori,<br>
-              tapi punya bisnis nyata yang bisa terus berkembang!
-            </p>
-            <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Puput,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak"
-              class="btn btn-success btn-lg mt-3 px-4">
-              Daftar Sekarang
-            </a>
-          </div>
-        </div>
-      </section>
-
 
       <!-- Section Slide kelas -->
       <section id="GaleriKelas" class="py-5" style="background-color: #007272;">
@@ -1107,16 +1074,28 @@
           <div class="swiper mySwiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="img/gp1.jpg" alt="Kelas 1" class="img-fluid rounded shadow" />
+                <img src="img/GP1.jpeg" alt="Kelas 1" class="img-fluid rounded shadow" />
               </div>
               <div class="swiper-slide">
-                <img src="img/gp1.jpg" alt="Kelas 4" class="img-fluid rounded shadow" />
+                <img src="img/GP2.jpeg" alt="Kelas 4" class="img-fluid rounded shadow" />
               </div>
               <div class="swiper-slide">
-                <img src="img/gp4.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
+                <img src="img/GP3.jpeg" alt="Kelas 5" class="img-fluid rounded shadow" />
               </div>
               <div class="swiper-slide">
-                <img src="img/gp4.jpg" alt="Kelas 6" class="img-fluid rounded shadow" />
+                <img src="img/GP4.jpeg" alt="Kelas 6" class="img-fluid rounded shadow" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/GP5.jpeg" alt="Kelas 6" class="img-fluid rounded shadow" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/GP6.jpeg" alt="Kelas 6" class="img-fluid rounded shadow" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/GP7.jpeg" alt="Kelas 6" class="img-fluid rounded shadow" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/GP8.jpeg" alt="Kelas 6" class="img-fluid rounded shadow" />
               </div>
 
             </div>
@@ -1150,6 +1129,18 @@
             },
           });
         </script>
+
+        <style>
+          /* Force all swipe images to be same height */
+          .mySwiper .swiper-slide img {
+            width: 100%;
+            height: 350px;
+            /* Fixed height for uniformity */
+            object-fit: cover;
+            /* Maintain aspect ratio, crop if needed */
+            border-radius: 12px;
+          }
+        </style>
 
         <!-- Keterangan -->
         <div class="text-center mt-3" data-aos="fade-up" data-aos-duration="1200">
@@ -1435,18 +1426,13 @@
                     <div><i class="fas fa-bullhorn mb-1 d-block fs-3"></i> DIGITAL MARKETING</div>
                   </div>
                   <div class="card-body bg-light-warning px-4 py-4">
-                    <ul class="list-unstyled mb-0 fw-medium text-dark small">
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-warning me-2 mt-1"></i> <span>Menguasai
-                          Meta Ads & TikTok Ads</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-warning me-2 mt-1"></i> <span>Optimasi
-                          marketplace & social media</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-warning me-2 mt-1"></i> <span>Membuat
-                          konten dan copywriting yang menjual</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-warning me-2 mt-1"></i> <span>Membangun
-                          landing page & aset digital</span></li>
-                      <li class="d-flex"><i class="fas fa-check-circle text-warning me-2 mt-1"></i> <span>Memanfaatkan
-                          AI untuk percepat hasil</span></li>
-                    </ul>
+                    <ol class="mb-0 fw-medium text-dark small ps-3">
+                      <li class="mb-2"><span>Menguasai Meta Ads & TikTok Ads</span></li>
+                      <li class="mb-2"><span>Optimasi marketplace & social media</span></li>
+                      <li class="mb-2"><span>Membuat konten dan copywriting yang menjual</span></li>
+                      <li class="mb-2"><span>Membangun landing page & aset digital</span></li>
+                      <li><span>Memanfaatkan AI untuk percepat hasil</span></li>
+                    </ol>
                   </div>
                 </div>
               </div>
@@ -1459,26 +1445,16 @@
                   <div
                     class="card-header text-white fw-bold py-3 px-4 d-flex align-items-center justify-content-center text-center"
                     style="background-color: #00bfbf;">
-                    <div><i class="fas fa-chart-line mb-1 d-block fs-3"></i> BISNIS EXPERT</div>
+                    <div><i class="fas fa-chart-line mb-1 d-block fs-3"></i> SALES MARKETING</div>
                   </div>
                   <div class="card-body px-4 py-4" style="background-color: #e0f7f7;">
-                    <ul class="list-unstyled mb-0 fw-medium text-dark small">
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle me-2 mt-1" style="color: #007272;"></i>
-                        <span>Mempelajari 20 Tools Managemen Bisnis</span>
-                      </li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle me-2 mt-1" style="color: #007272;"></i>
-                        <span>Meningkatkan Skill Penjualan</span>
-                      </li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle me-2 mt-1" style="color: #007272;"></i>
-                        <span>Meningkatkan kemampuan Problem Solving</span>
-                      </li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle me-2 mt-1" style="color: #007272;"></i>
-                        <span>Meningkatkan kemampuan Marketing</span>
-                      </li>
-                      <li class="d-flex"><i class="fas fa-check-circle me-2 mt-1" style="color: #007272;"></i>
-                        <span>Meningkatkan kemampuan mengelola Team</span>
-                      </li>
-                    </ul>
+                    <ol class="mb-0 fw-medium text-dark small ps-3">
+                      <li class="mb-2"><span>Mempelajari 20 Tools Managemen Bisnis</span></li>
+                      <li class="mb-2"><span>Meningkatkan Skill Penjualan</span></li>
+                      <li class="mb-2"><span>Meningkatkan kemampuan Problem Solving</span></li>
+                      <li class="mb-2"><span>Meningkatkan kemampuan Marketing</span></li>
+                      <li><span>Meningkatkan kemampuan mengelola Team</span></li>
+                    </ol>
                   </div>
                 </div>
               </div>
@@ -1494,18 +1470,13 @@
                     <div><i class="fas fa-users-cog mb-1 d-block fs-3"></i> LEADERSHIP</div>
                   </div>
                   <div class="card-body px-4 py-4" style="background-color: #f0f4f3;">
-                    <ul class="list-unstyled mb-0 fw-medium text-dark small">
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-dark me-2 mt-1"></i> <span>Membangun
-                          mindset pemenang & mental kuat</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-dark me-2 mt-1"></i> <span>Membentuk
-                          kebiasaan efektif & disiplin</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-dark me-2 mt-1"></i> <span>Meningkatkan
-                          percaya diri dalam memimpin</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-dark me-2 mt-1"></i> <span>Mengatur
-                          waktu & fokus lebih terarah</span></li>
-                      <li class="d-flex"><i class="fas fa-check-circle text-dark me-2 mt-1"></i> <span>Menemukan visi &
-                          arah hidup sebagai entrepreneur</span></li>
-                    </ul>
+                    <ol class="mb-0 fw-medium text-dark small ps-3">
+                      <li class="mb-2"><span>Membangun mindset pemenang & mental kuat</span></li>
+                      <li class="mb-2"><span>Membentuk kebiasaan efektif & disiplin</span></li>
+                      <li class="mb-2"><span>Meningkatkan percaya diri dalam memimpin</span></li>
+                      <li class="mb-2"><span>Mengatur waktu & fokus lebih terarah</span></li>
+                      <li><span>Menemukan visi & arah hidup sebagai entrepreneur</span></li>
+                    </ol>
                   </div>
                 </div>
               </div>
