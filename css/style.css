@@ -652,3 +652,53 @@ section.daftar {
   background-color: #e0f0f0;
   color: #13392d;
 }
+
+/* --- Modern Navbar & Dropdown Styles --- */
+.dropdown-menu {
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+  margin-top: 15px !important;
+  display: none;
+  /* Changed from default block to allow toggle handling */
+}
+
+/* Override default bootstrap show behavior */
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  color: #333;
+  font-weight: 500;
+  padding: 10px 20px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(35, 101, 101, 0.08);
+  /* Light tint of brand color */
+  color: #236565;
+  transform: translateX(5px);
+  font-weight: 600;
+}
+
+/* Custom separator */
+.dropdown-divider {
+  border-top-color: rgba(0, 0, 0, 0.08);
+  margin: 8px 0;
+}
+
+/* Arrow for dropdown toggle */
+.dropdown-toggle::after {
+  transition: transform 0.3s ease;
+}
+
+.nav-item.dropdown.show .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
