@@ -342,11 +342,23 @@
           <p class="mb-0" style="text-align: justify;">
             <strong>SMI</strong> adalah Program Mentoring bisnis untuk pebisnis Start up Muslim Indonesia.
             <br><br>
-            Program ini FOKUS pada 3 PILAR PONDASI AWAL yaitu <strong>PEMBENAHAN SALES MARKETING, DIGITAL MARKETING dan
-              LEADERSHIP</strong>.
-            <br><br>
-            <strong>SMI</strong> hadir sebagai jawaban atas tantangan utama pebisnis pemula dalam berbisnis yaitu,
-            Penjualan Stagnan, ingin mencari cara menumbuhkan bisnis nya, butuh Mentor, semuanya di temukan disini.
+            Program ini FOKUS pada 3 PILAR PONDASI AWAL. Yang sangat dibutuhkan oleh pengusaha untuk menaikkan level
+            bisnisnya. Yaitu:
+
+          <div class="pillar-list">
+            <div class="pillar-item">
+              <i class="fas fa-bullseye me-2"></i> PEMBENAHAN SALES MARKETING
+            </div>
+            <div class="pillar-item">
+              <i class="fas fa-laptop-code me-2"></i> DIGITAL MARKETING
+            </div>
+            <div class="pillar-item">
+              <i class="fas fa-users-cog me-2"></i> LEADERSHIP
+            </div>
+          </div>
+
+          <strong>SMI</strong> hadir sebagai jawaban atas tantangan utama pebisnis pemula dalam berbisnis yaitu,
+          Penjualan Stagnan, ingin mencari cara menumbuhkan bisnis nya, butuh Mentor, semuanya di temukan disini.
           </p>
         </div>
       </div>
@@ -581,6 +593,48 @@
       border-bottom: 4px solid #007272;
       box-shadow: 0 5px 20px rgba(255, 210, 31, 0.35);
       transition: all 0.3s ease;
+    }
+
+    /* Styles for the 3 Pillars */
+    .pillar-list {
+      margin: 25px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .pillar-item {
+      background: linear-gradient(135deg, #007272, #005656);
+      color: #ffffff;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-weight: 800;
+      /* Extra bold */
+      font-size: 1.1rem;
+      box-shadow: 0 5px 15px rgba(0, 114, 114, 0.2);
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 5px solid #FFD21F;
+      /* Gold accent */
+    }
+
+    .pillar-item:hover {
+      transform: translateX(8px);
+      box-shadow: 0 8px 20px rgba(0, 114, 114, 0.3);
+    }
+
+    .pillar-item i {
+      color: #FFD21F;
+      font-size: 1.4rem;
+      min-width: 30px;
+    }
+
+    @media (max-width: 576px) {
+      .pillar-item {
+        font-size: 1rem;
+        padding: 12px 15px;
+      }
     }
 
     .tagline:hover {
@@ -840,9 +894,9 @@
 
 
   <!-- Youtube / TikTok Section -->
-  <section class="py-5 position-relative overflow-hidden"
+  <!-- <section class="py-5 position-relative overflow-hidden"
     style="background: linear-gradient(180deg, #f0fdfd 0%, #ffffff 100%);">
-    <!-- Decorative Background Pattern -->
+
     <div class="position-absolute start-0 top-0 w-100 h-100"
       style="background-image: radial-gradient(#007272 0.8px, transparent 0.8px); background-size: 40px 40px; opacity: 0.05; pointer-events: none;">
     </div>
@@ -851,7 +905,7 @@
 
 
       <div class="row g-4 justify-content-center">
-        <!-- Video 1 -->
+
         <div class="col-lg-4 col-md-6 d-flex justify-content-center">
           <div class="tiktok-card w-100 h-100">
             <iframe src="https://www.tiktok.com/embed/v2/7584298035685985557"
@@ -859,7 +913,7 @@
               allowfullscreen referrerpolicy="no-referrer"></iframe>
           </div>
         </div>
-        <!-- Video 2 -->
+
         <div class="col-lg-4 col-md-6 d-flex justify-content-center">
           <div class="tiktok-card w-100 h-100">
             <iframe src="https://www.tiktok.com/embed/v2/7586491292381662485"
@@ -867,7 +921,7 @@
               allowfullscreen referrerpolicy="no-referrer"></iframe>
           </div>
         </div>
-        <!-- Video 3 -->
+    
         <div class="col-lg-4 col-md-6 d-flex justify-content-center">
           <div class="tiktok-card w-100 h-100">
             <iframe src="https://www.tiktok.com/embed/v2/7586590280866893063"
@@ -877,7 +931,6 @@
         </div>
       </div>
 
-      <!-- Button More -->
       <div class="text-center mt-5">
         <a href="https://www.tiktok.com/@startupmuslim.id" target="_blank"
           class="btn btn-outline-dark rounded-pill px-4 py-2 fw-bold hover-scale">
@@ -885,7 +938,7 @@
         </a>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <style>
     .tiktok-card {
