@@ -853,32 +853,26 @@
       <div class="row g-4 justify-content-center">
         <!-- Video 1 -->
         <div class="col-lg-4 col-md-6 d-flex justify-content-center">
-          <div class="tiktok-card">
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@startupmuslim.id/video/7584298035685985557"
-              data-video-id="7584298035685985557" style="max-width: 605px;min-width: 325px;">
-              <section> <a target="_blank" title="@startupmuslim.id"
-                  href="https://www.tiktok.com/@startupmuslim.id?refer=embed">@startupmuslim.id</a> </section>
-            </blockquote>
+          <div class="tiktok-card w-100 h-100">
+            <iframe src="https://www.tiktok.com/embed/v2/7584298035685985557"
+              style="width: 100%; height: 580px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.1);" scrolling="no"
+              allowfullscreen referrerpolicy="no-referrer"></iframe>
           </div>
         </div>
         <!-- Video 2 -->
         <div class="col-lg-4 col-md-6 d-flex justify-content-center">
-          <div class="tiktok-card">
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@startupmuslim.id/video/7586491292381662485"
-              data-video-id="7586491292381662485" style="max-width: 605px;min-width: 325px;">
-              <section> <a target="_blank" title="@startupmuslim.id"
-                  href="https://www.tiktok.com/@startupmuslim.id?refer=embed">@startupmuslim.id</a> </section>
-            </blockquote>
+          <div class="tiktok-card w-100 h-100">
+            <iframe src="https://www.tiktok.com/embed/v2/7586491292381662485"
+              style="width: 100%; height: 580px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.1);" scrolling="no"
+              allowfullscreen referrerpolicy="no-referrer"></iframe>
           </div>
         </div>
         <!-- Video 3 -->
         <div class="col-lg-4 col-md-6 d-flex justify-content-center">
-          <div class="tiktok-card">
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@startupmuslim.id/video/7586590280866893063"
-              data-video-id="7586590280866893063" style="max-width: 605px;min-width: 325px;">
-              <section> <a target="_blank" title="@startupmuslim.id"
-                  href="https://www.tiktok.com/@startupmuslim.id?refer=embed">@startupmuslim.id</a> </section>
-            </blockquote>
+          <div class="tiktok-card w-100 h-100">
+            <iframe src="https://www.tiktok.com/embed/v2/7586590280866893063"
+              style="width: 100%; height: 580px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.1);" scrolling="no"
+              allowfullscreen referrerpolicy="no-referrer"></iframe>
           </div>
         </div>
       </div>
@@ -895,33 +889,108 @@
 
   <style>
     .tiktok-card {
-      background: #fff;
+      display: block;
+      background: linear-gradient(145deg, #007272, #005f5f);
       border-radius: 20px;
-      padding: 10px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      padding: 0;
+      box-shadow: 0 10px 25px rgba(0, 114, 114, 0.25);
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      border: 1px solid rgba(0, 0, 0, 0.05);
       position: relative;
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      /* TikTok aspect ratio */
+      max-width: 325px;
+      /* Typical mobile width */
+      width: 100%;
+    }
+
+    /* Decorative circles */
+    .tiktok-card::before,
+    .tiktok-card::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .tiktok-card::before {
-      /* Mobile notch effect (optional, subtle) */
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 4px;
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 0 0 4px 4px;
-      z-index: 2;
+      width: 150px;
+      height: 150px;
+      top: -20px;
+      right: -20px;
     }
 
+    .tiktok-card::after {
+      width: 100px;
+      height: 100px;
+      bottom: 30px;
+      left: -20px;
+    }
+
+
     .tiktok-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 114, 114, 0.15);
-      border-color: #007272;
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 114, 114, 0.4);
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #fff;
+      z-index: 2;
+      position: relative;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .play-icon-wrapper {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .tiktok-card:hover .play-icon-wrapper {
+      transform: scale(1.1);
+      background: #fff;
+      color: #007272;
+    }
+
+    .play-icon-wrapper i {
+      font-size: 24px;
+      margin-left: 4px;
+      /* Optical adjustment */
+    }
+
+    .tiktok-logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      opacity: 0.8;
+    }
+
+    .video-caption {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    .cta-text {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      font-weight: 300;
     }
 
     .hover-scale {
@@ -933,8 +1002,9 @@
       background-color: #000;
       color: #fff;
     }
+
+    /* Mobile handling handled by bootstrap grid and max-width */
   </style>
-  <script async src="https://www.tiktok.com/embed.js"></script>
 
   <section class="py-5" style="background-color: #fff;">
     <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
