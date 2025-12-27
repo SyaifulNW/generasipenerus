@@ -1276,26 +1276,17 @@
           <div class="row align-items-center justify-content-center">
 
             <!-- Image Column (Orang Pusing) -->
-            <div class="col-md-5 text-center mb-4 mb-md-0 d-none d-md-block" data-aos="fade-right">
+            <!-- <div class="col-md-5 text-center mb-4 mb-md-0 d-none d-md-block" data-aos="fade-right">
               <img src="img/3d_confused_businessman.png" alt="Bingung Mulai Bisnis" class="img-fluid mobile-img-adjust"
                 style="filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.15));">
-            </div>
+            </div> -->
 
             <!-- Chart Column -->
-            <div class="col-md-7" data-aos="fade-left">
+            <div class="col-md-10" data-aos="fade-left">
               <div class="card border-0 shadow-sm p-3 bg-white rounded">
                 <div class="card-body">
-                  <div class="row align-items-center">
-                    <!-- Chart Area -->
-                    <div class="col-md-7">
-                      <div class="chart-wrapper">
-                        <canvas id="masalahAnakPie"></canvas>
-                      </div>
-                    </div>
-                    <!-- Custom Legend Area -->
-                    <div class="col-md-5">
-                      <div id="chartLegend" class="mt-4 mt-md-0 px-2"></div>
-                    </div>
+                  <div class="chart-wrapper" style="height: 500px;"> <!-- Increased height for labels -->
+                    <canvas id="masalahAnakPie"></canvas>
                   </div>
 
                   <div class="text-center mt-4">
@@ -1384,16 +1375,17 @@
 
       <!-- Chart.js CDN -->
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
       <script>
         const ctxPie = document.getElementById('masalahAnakPie');
 
         // Data Sorted (Highest to Lowest)
         const labelsData = [
-          'Kurang Pengalaman & Pengetahuan', // 90
-          'Mindset & Mental Belum Siap',     // 80
-          'Kurang Percaya Diri & Visi Jelas',// 75
-          'Kurang Jaringan & Mentor',        // 70
-          'Manajemen Waktu & Prioritas'      // 65
+          'Kurang Pengalaman \n& Pengetahuan',
+          'Mindset & Mental \nBelum Siap',
+          'Kurang Percaya Diri \n& Visi Jelas',
+          'Kurang Jaringan \n& Mentor',
+          'Manajemen Waktu \n& Prioritas'
         ];
 
         const dataValues = [90, 80, 75, 70, 65];
@@ -1405,8 +1397,11 @@
           '#198754'   // Hijau
         ];
 
+        // Register the plugin
+        Chart.register(ChartDataLabels);
+
         new Chart(ctxPie, {
-          type: 'doughnut', // Pie/Donut chart
+          type: 'doughnut',
           data: {
             labels: labelsData,
             datasets: [{
@@ -1421,51 +1416,40 @@
           options: {
             responsive: true,
             maintainAspectRatio: false,
+            layout: {
+              padding: 60 // Shrink diagram ("buletan dikecilkan") & give space for labels
+            },
             plugins: {
               legend: {
-                display: false // Hide default legend, use custom one
+                display: false // Hide default legend
+              },
+              datalabels: {
+                color: '#333',
+                anchor: 'end',
+                align: 'end',
+                offset: 5,
+                textAlign: 'start',
+                font: {
+                  weight: 'bold',
+                  size: 13
+                },
+                formatter: function (value, context) {
+                  return context.chart.data.labels[context.dataIndex] + '\n(' + value + '%)';
+                }
               },
               tooltip: {
                 backgroundColor: 'rgba(0,0,0,0.8)',
-                padding: 12,
-                titleFont: { size: 14 },
-                bodyFont: { size: 13 },
                 callbacks: {
                   label: function (context) {
-                    return ` ${context.label}: ${context.raw}% Responden`;
+                    return ` ${context.label.replace('\n', ' ')}: ${context.raw}% Responden`;
                   }
                 }
               }
-            },
-            layout: {
-              padding: 10
             }
           }
         });
 
-        // Function to generate Custom Legend
-        function generateLegend() {
-          const legendContainer = document.getElementById('chartLegend');
-          let html = '<ul style="list-style: none; padding: 0; margin: 0;">';
 
-          labelsData.forEach((label, index) => {
-            const color = backgroundColors[index];
-            const value = dataValues[index];
-            html += `
-                    <li style="margin-bottom: 12px; display: flex; align-items: center; font-family: 'Poppins', sans-serif; font-size: 14px; color: #333;">
-                        <span style="display: inline-block; width: 15px; height: 15px; background-color: ${color}; border-radius: 4px; margin-right: 10px;"></span>
-                        <div style="flex: 1;">
-                            <strong>${label}</strong>
-                            <div style="font-size: 12px; color: #666;">${value}% Responden</div>
-                        </div>
-                    </li>
-                `;
-          });
-          html += '</ul>';
-          legendContainer.innerHTML = html;
-        }
-
-        generateLegend();
       </script>
 
 
@@ -2236,7 +2220,7 @@
           <div class="row justify-content-center mb-4">
             <div class="col-lg-10 text-center">
               <h2 class="fw-bold text-warning">
-                Kenapa Ini Layak Diikuti Sekarang ?
+                KENAPA PROGRAM SMI INI COCOK UNTUK ANDA..??
               </h2>
             </div>
           </div>
