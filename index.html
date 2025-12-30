@@ -1378,11 +1378,23 @@
             <div class="col-md-10" data-aos="fade-left">
               <div class="card border-0 shadow-sm p-3 bg-white rounded">
                 <div class="card-body">
-                  <div class="chart-wrapper"> <!-- Increased height for labels -->
+
+                  <!-- Mobile Container (Side-by-Side: Bar Left, Legend Right) -->
+                  <div id="mobileChartContainer" class="d-md-none">
+                    <div style="width: 35%; height: 350px;">
+                      <canvas id="masalahAnakMobileBar"></canvas>
+                    </div>
+                    <div id="customMobileLegend">
+                      <!-- Legend Items Injected by JS -->
+                    </div>
+                  </div>
+
+                  <!-- Desktop Container (Original Pie) -->
+                  <div class="chart-wrapper d-none d-md-block"> <!-- Increased height for labels -->
                     <canvas id="masalahAnakPie"></canvas>
                   </div>
 
-                  <div class="text-center mt-4">
+                  <div class="text-center mt-4 d-none d-md-block">
                     <p class="fst-italic text-muted">"Masalah terbesar adalah <strong>Kurang Pengalaman &
                         Pengetahuan</strong>"</p>
                   </div>
@@ -1435,6 +1447,51 @@
           }
         }
 
+        /* Mobile Storage-like UI */
+        #mobileChartContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+        }
+
+        #customMobileLegend {
+          text-align: left;
+          flex: 1;
+        }
+
+        .legend-item {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 15px;
+        }
+
+        .legend-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          margin-top: 6px;
+          margin-right: 10px;
+          flex-shrink: 0;
+        }
+
+        .legend-content h6 {
+          margin: 0;
+          font-size: 0.9rem;
+          color: #555;
+          font-weight: 500;
+        }
+
+        .legend-content p {
+          margin: 0;
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #333;
+        }
+
+        /* Hide Canvas wrapper specific styles for mobile if needed handled by JS toggling classes usually but here we use media queries */
+
+
         /* Image Adjustment */
         .mobile-img-adjust {
           max-height: 250px;
@@ -1469,89 +1526,149 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
       <script>
-        const ctxPie = document.getElementById('masalahAnakPie');
-
-        // Data Sorted (Highest to Lowest)
+        // Data Definitions
         const labelsData = [
-          'Kurang Pengalaman \n& Pengetahuan',
-          'Mindset & Mental \nBelum Siap',
-          'Kurang Percaya Diri \n& Visi Jelas',
-          'Kurang Jaringan \n& Mentor',
-          'Manajemen Waktu \n& Prioritas'
+          'Kurang Pengalaman & Pengetahuan',
+          'Mindset & Mental Belum Siap',
+          'Kurang Percaya Diri & Visi Jelas',
+          'Kurang Jaringan & Mentor',
+          'Manajemen Waktu & Prioritas'
         ];
-
         const dataValues = [90, 80, 75, 70, 65];
-        const backgroundColors = [
-          '#dc3545',  // Merah (Terbesar)
-          '#fd7e14',  // Orange
-          '#ffc107',  // Kuning
-          '#0d6efd',  // Biru
-          '#198754'   // Hijau
-        ];
+        const backgroundColors = ['#dc3545', '#fd7e14', '#ffc107', '#0d6efd', '#198754'];
 
-        // Register the plugin
         Chart.register(ChartDataLabels);
-
-        // Detect mobile screen
         const isMobile = window.innerWidth < 768;
 
-        new Chart(ctxPie, {
-          type: 'pie',
-          data: {
-            labels: labelsData,
-            datasets: [{
-              label: 'Tingkat Masalah (%)',
-              data: dataValues,
-              backgroundColor: backgroundColors,
-              borderColor: '#fff',
-              borderWidth: 2,
-              hoverOffset: 10
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            layout: {
-              padding: 20
+        if (isMobile) {
+          // --- MOBILE CONFIGURATION (Stacked Vertical Bar + Custom Legend) ---
+
+          // Helper for 3D Cylinder Gradient
+          function create3DGradient(ctx, color) {
+            const gradient = ctx.createLinearGradient(0, 0, 150, 0); // Approx width of bar
+            // Simple lighting effect: Dark -> Light -> Dark
+            gradient.addColorStop(0, adjustBrightness(color, -30));
+            gradient.addColorStop(0.5, color);
+            gradient.addColorStop(1, adjustBrightness(color, -30));
+            return gradient;
+          }
+
+          // Helper to adjust hex brightness
+          function adjustBrightness(col, amt) {
+            var usePound = false;
+            if (col[0] == "#") {
+              col = col.slice(1);
+              usePound = true;
+            }
+            var num = parseInt(col, 16);
+            var r = (num >> 16) + amt;
+            if (r > 255) r = 255;
+            else if (r < 0) r = 0;
+            var b = ((num >> 8) & 0x00FF) + amt;
+            if (b > 255) b = 255;
+            else if (b < 0) b = 0;
+            var g = (num & 0x0000FF) + amt;
+            if (g > 255) g = 255;
+            else if (g < 0) g = 0;
+            return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
+          }
+
+          // 1. Render Chart
+          const ctxMobile = document.getElementById('masalahAnakMobileBar').getContext('2d');
+
+          // Pivot data for stacked bar with Gradients
+          const mobileDatasets = labelsData.map((label, index) => ({
+            label: label,
+            data: [dataValues[index]],
+            backgroundColor: create3DGradient(ctxMobile, backgroundColors[index]), // Apply 3D Gradient
+            borderWidth: 0,
+            barPercentage: 0.8, // Slightly thinner for "tube" look
+            categoryPercentage: 1.0,
+            // Add curve to top/bottom of the WHOLE stack is tricky in Chartjs, 
+            // but we use borderRadius on the top/bottom items if needed or just styling.
+            // For simple 3D effect, the gradient is the biggest factor.
+          }));
+
+          new Chart(ctxMobile, {
+            type: 'bar',
+            data: {
+              labels: [''],
+              datasets: mobileDatasets
             },
-            plugins: {
-              legend: {
-                display: true,
-                position: 'right', // Legend on the right side
-                labels: {
-                  padding: 20,
-                  usePointStyle: true,
-                  boxWidth: 6, // Smaller box for legend color
-                  font: {
-                    size: isMobile ? 16 : 18 // Larger text for legend
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              layout: { padding: 0 },
+              scales: {
+                x: { stacked: true, display: false },
+                y: { stacked: true, display: false, min: 0 }
+              },
+              plugins: {
+                legend: { display: false },
+                datalabels: { display: false },
+                tooltip: { enabled: true }
+              }
+            }
+          });
+
+          // 2. Generate Custom Legend
+          const legendContainer = document.getElementById('customMobileLegend');
+          labelsData.forEach((label, index) => {
+            const html = `
+              <div class="legend-item">
+                <div class="legend-dot" style="background-color: ${backgroundColors[index]}"></div>
+                <div class="legend-content">
+                  <h6>${label}</h6>
+                  <p>${dataValues[index]}%</p>
+                </div>
+              </div>
+            `;
+            legendContainer.innerHTML += html;
+          });
+
+        } else {
+          // --- DESKTOP CONFIGURATION (Pie Chart) ---
+          const ctxPie = document.getElementById('masalahAnakPie');
+          new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+              labels: labelsData,
+              datasets: [{
+                label: 'Tingkat Masalah (%)',
+                data: dataValues,
+                backgroundColor: backgroundColors,
+                borderColor: '#fff',
+                borderWidth: 2,
+                hoverOffset: 10
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              layout: { padding: 20 },
+              plugins: {
+                legend: {
+                  display: true,
+                  position: 'right',
+                  labels: {
+                    padding: 20, usePointStyle: true, boxWidth: 15,
+                    color: '#555', font: { size: 15, family: 'Poppins' }
                   }
-                }
-              },
-              datalabels: {
-                color: '#fff',
-                anchor: 'center',
-                align: 'center',
-                font: {
-                  weight: 'bold',
-                  size: isMobile ? 14 : 16
                 },
-                formatter: function (value) {
-                  return value + '%';
-                }
-              },
-              tooltip: {
-                backgroundColor: 'rgba(0,0,0,0.8)',
-                callbacks: {
-                  label: function (context) {
-                    return ` ${context.label.replace('\n', ' ')}: ${context.raw}% Responden`;
+                datalabels: {
+                  color: '#fff',
+                  font: { weight: 'bold', size: 16 },
+                  formatter: (value) => value + '%'
+                },
+                tooltip: {
+                  callbacks: {
+                    label: (context) => ` ${context.raw}%`
                   }
                 }
               }
             }
-          }
-        });
-
-
+          });
+        }
       </script>
 
 
