@@ -1378,7 +1378,7 @@
             <div class="col-md-10" data-aos="fade-left">
               <div class="card border-0 shadow-sm p-3 bg-white rounded">
                 <div class="card-body">
-                  <div class="chart-wrapper" style="height: 500px;"> <!-- Increased height for labels -->
+                  <div class="chart-wrapper"> <!-- Increased height for labels -->
                     <canvas id="masalahAnakPie"></canvas>
                   </div>
 
@@ -1400,11 +1400,10 @@
             <div class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
               <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Puput,%20saya%20mau%20Konsultasi%20Program%20Startup%20Muda%20yaa%20kak"
                 class="btn btn-success btn-lg px-3 py-2 shadow-sm">Daftar Sekarang</a>
-              <a href="#program" class="btn btn-outline-success btn-lg px-3 py-2 shadow-sm">Pelajari Program</a>
-            </div>
-          </div>
 
-        </div>
+            </div>
+
+          </div>
       </section>
 
       <style>
@@ -1425,13 +1424,13 @@
         .chart-wrapper {
           position: relative;
           width: 100%;
-          height: 350px;
-          /* Mobile height increased */
+          height: 450px;
+          /* Mobile height */
         }
 
         @media (min-width: 768px) {
           .chart-wrapper {
-            height: 350px;
+            height: 500px;
             /* Desktop height */
           }
         }
@@ -1497,7 +1496,7 @@
         const isMobile = window.innerWidth < 768;
 
         new Chart(ctxPie, {
-          type: 'doughnut',
+          type: 'pie',
           data: {
             labels: labelsData,
             datasets: [{
@@ -1513,26 +1512,31 @@
             responsive: true,
             maintainAspectRatio: false,
             layout: {
-              // Increase padding on mobile to make the chart smaller and give room for labels
-              padding: isMobile ? 80 : 60
+              padding: 20
             },
             plugins: {
               legend: {
-                display: false // Hide default legend
+                display: true,
+                position: 'right', // Legend on the right side
+                labels: {
+                  padding: 20,
+                  usePointStyle: true,
+                  boxWidth: 6, // Smaller box for legend color
+                  font: {
+                    size: isMobile ? 16 : 18 // Larger text for legend
+                  }
+                }
               },
               datalabels: {
-                color: '#333',
-                anchor: 'end',
-                align: 'end',
-                offset: isMobile ? 0 : 5,
-                textAlign: 'center', // Center align text for better balance
+                color: '#fff',
+                anchor: 'center',
+                align: 'center',
                 font: {
                   weight: 'bold',
-                  size: isMobile ? 9 : 12
+                  size: isMobile ? 14 : 16
                 },
-                formatter: function (value, context) {
-                  // Add logic to split long words if necessary, but built-in wrap usually works with spaces
-                  return context.chart.data.labels[context.dataIndex] + '\n(' + value + '%)';
+                formatter: function (value) {
+                  return value + '%';
                 }
               },
               tooltip: {
@@ -2458,6 +2462,239 @@
                   </table>
                 </div>
               </div>
+
+              <!-- Mobile Stacked View (New) -->
+              <div class="d-none">
+
+                <!-- 1. Digital Marketing -->
+                <div class="bg-white rounded-4 shadow-sm mb-4 overflow-hidden border">
+                  <div class="p-3 text-center" style="background-color: #e3f2fd;">
+                    <span class="badge bg-primary rounded-circle mb-2"
+                      style="width:32px; height:32px; line-height:23px; font-size:16px;">1</span>
+                    <h5 class="text-primary fw-bold mb-0">Digital Marketing</h5>
+                  </div>
+                  <div class="p-3">
+                    <!-- Item 1 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #ffebee;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">1.</span> <span>Posting asal rajin,
+                            tapi <strong class="text-danger">tidak tahu tujuan konten</strong></span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">1.</span> <span>Paham tujuan tiap
+                            konten (branding, edukasi, closing)</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #ffebee;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">2.</span> <span>Tidak paham <strong
+                              class="text-danger">funnel</strong> (awareness-consideration-closing)</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">2.</span> <span>Bisa menyusun
+                            content funnel yang efektif</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #ffebee;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">3.</span> <span>Tidak bisa baca
+                            <strong class="text-danger">insight IG/TikTok/Ads</strong></span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">3.</span> <span>Mengerti basic ads:
+                            target audiens, copy, CTA</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #ffebee;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">4.</span> <span>Leads masuk sedikit,
+                            <strong class="text-danger">tidak tahu kenapa</strong></span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">4.</span> <span>Bisa membaca data &
+                            insight untuk perbaikan</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="mb-2">
+                      <div class="p-2 mb-2 rounded" style="background-color: #ffebee;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">5.</span> <span>Mengira digital
+                            marketing = "viral"</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">5.</span> <span>Punya aset digital
+                            nyata (konten, landing, database)</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. Sales & Marketing -->
+                <div class="bg-white rounded-4 shadow-sm mb-4 overflow-hidden border">
+                  <div class="p-3 text-center" style="background-color: #ffebee;">
+                    <span class="badge bg-danger rounded-circle mb-2"
+                      style="width:32px; height:32px; line-height:23px; font-size:16px;">2</span>
+                    <h5 class="text-danger fw-bold mb-0">Sales & Marketing</h5>
+                  </div>
+                  <div class="p-3">
+                    <!-- Item 1 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #fff8f8;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">1.</span> <span>Jualan pakai <strong
+                              class="text-danger">harga dan diskon</strong>, bukan value</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">1.</span> <span>Punya alur penjualan
+                            jelas</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #fff8f8;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">2.</span> <span>Tidak punya <strong
+                              class="text-danger">script closing</strong></span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">2.</span> <span>Menguasai script
+                            presentasi & closing</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #fff8f8;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">3.</span> <span>Follow up asal, tidak
+                            terstruktur</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">3.</span> <span>Bisa mengelola
+                            database & follow up</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #fff8f8;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">4.</span> <span>Tidak bisa bedakan
+                            <strong class="text-danger">prospek panas vs dingin</strong></span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">4.</span> <span>Tahu cara naikkan
+                            conversion, bukan cuma traffic</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="mb-2">
+                      <div class="p-2 mb-2 rounded" style="background-color: #fff8f8;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">5.</span> <span>Takut nawarin produk
+                            sendiri</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">5.</span> <span>Berani jualan karena
+                            paham value produk</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. Leadership -->
+                <div class="bg-white rounded-4 shadow-sm mb-4 overflow-hidden border">
+                  <div class="p-3 text-center" style="background-color: #eeeeee;">
+                    <span class="badge bg-dark rounded-circle mb-2"
+                      style="width:32px; height:32px; line-height:23px; font-size:16px;">3</span>
+                    <h5 class="text-dark fw-bold mb-0">Leadership</h5>
+                  </div>
+                  <div class="p-3">
+                    <!-- Item 1 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #f5f5f5;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">1.</span> <span>Semua dikerjakan
+                            sendiri (one man show)</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">1.</span> <span>Bisa membagi peran &
+                            tanggung jawab</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #f5f5f5;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">2.</span> <span>Sulit ambil
+                            keputusan, ragu-ragu</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">2.</span> <span>Berani ambil
+                            keputusan berbasis data & tujuan</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #f5f5f5;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">3.</span> <span>Komunikasi ke tim
+                            tidak jelas</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">3.</span> <span>Komunikasi lebih
+                            tegas dan jelas</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #f5f5f5;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">4.</span> <span>Emosi naik turun saat
+                            bisnis seret</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">4.</span> <span>Mental lebih stabil
+                            saat bisnis naik-turun</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="mb-2">
+                      <div class="p-2 mb-2 rounded" style="background-color: #f5f5f5;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">5.</span> <span>Tidak punya sistem
+                            kerja, hanya niat</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">5.</span> <span>Mulai membangun
+                            bisnis yang bisa jalan tanpa dia</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
 
@@ -2478,6 +2715,7 @@
             }
 
             /* Stacked Mobile Style */
+            /* Stacked Mobile Style - DISABLED to match Desktop Table */
             @media (max-width: 768px) {
 
               /* Section Title Adjustment */
@@ -2485,102 +2723,8 @@
                 font-size: 1.4rem;
               }
 
-              /* Hide the main Table Head on Mobile because we can't stack it easily alongside content */
-              .custom-table thead {
-                display: none;
-              }
-
-              /* Stack Rows */
-              .custom-table tbody tr {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-              }
-
-              /* Reset Categories */
-              .custom-table tr.category-header {
-                margin-top: 20px;
-                border-top: 4px solid #007272;
-                border-radius: 8px 8px 0 0;
-              }
-
-              .custom-table tr.category-header td {
-                background-color: #f8f9fa !important;
-                text-align: center !important;
-                width: 100% !important;
-                display: block !important;
-                padding: 1rem !important;
-              }
-
-              /* Data Row Styling */
-              .custom-table tr:not(.category-header):not(.border-bottom) {
-                border-bottom: 8px solid white;
-                /* Spacing between comparison cards */
-              }
-
-              /* Left Cell (Problem) - Mobile Card Top */
-              .custom-table td.border-end {
-                display: block;
-                width: 100% !important;
-                border-right: none !important;
-                background-color: #fff5f5;
-                /* Light Red */
-                padding: 1.25rem !important;
-                border-bottom: 1px dashed #ffaeb6;
-                position: relative;
-              }
-
-              /* Add a pseudo-label for clearer context on mobile */
-              .custom-table td.border-end::before {
-                content: "MASALAH (Sebelum)";
-                display: block;
-                font-size: 0.75rem;
-                font-weight: 800;
-                color: #dc3545;
-                margin-bottom: 0.5rem;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-              }
-
-              /* Right Cell (Solution) - Mobile Card Bottom */
-              .custom-table td.bg-success-soft {
-                display: block;
-                width: 100% !important;
-                background-color: #ecfdf5 !important;
-                /* Light Green */
-                padding: 1.25rem !important;
-                position: relative;
-              }
-
-              /* Add a pseudo-label for clearer context on mobile */
-              .custom-table td.bg-success-soft::before {
-                content: "SOLUSI (Sesudah)";
-                display: block;
-                font-size: 0.75rem;
-                font-weight: 800;
-                color: #198754;
-                margin-bottom: 0.5rem;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-              }
-
-              /* Adjust Flex Alignment */
-              .custom-table .d-flex {
-                align-items: flex-start;
-              }
-
-              .custom-table span.fs-5 {
-                font-size: 1.1rem !important;
-                min-width: 28px;
-              }
-
-              /* Quote Footer */
-              .custom-table tr:last-child td {
-                width: 100% !important;
-                display: block !important;
-                border-radius: 0 0 8px 8px;
-              }
-
+              /* We want the table to be exactly like desktop, so we rely on .table-responsive horizontal scroll.
+                 We REMOVE all custom stacking logic that breaks the table layout. */
             }
           </style>
         </div>
