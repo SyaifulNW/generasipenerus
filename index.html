@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <script>
   !function (f, b, e, v, n, t, s) {
@@ -168,7 +168,7 @@
 <body>
   <!-- Google Tag Manager (noscript) -->
   <!-- Tombol WhatsApp Floating -->
-  <a href="#" class="wa-cta float position-fixed" target="_blank" title="Konsultasi via WhatsApp"
+  <a href="javascript:void(0)" class="wa-cta float position-fixed" title="Konsultasi via WhatsApp"
     style="position:fixed;width:60px;height:60px;bottom:20px;right:20px;background-color:#25d366;color:#fff;border-radius:50px;text-align:center;font-size:30px;box-shadow:2px 2px 3px #999;z-index:1000;">
     <i class="fa fa-whatsapp my-float" style="margin-top:16px;"></i>
     <span class="badge"
@@ -177,187 +177,436 @@
     </span>
   </a>
 
-
-  <!-- ===== NAVBAR SMI ===== -->
-  <nav class="navbar navbar-expand-lg navbar-dark smi-navbar fixed-top shadow-sm">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="img/logosmi.png" alt="Logo SMI" class="smi-logo">
-        <span class="brand-text">Start-Up Muslim Indonesia</span>
-      </a>
-
-      <!-- Tombol toggle mobile -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSMI"
-        aria-controls="navbarSMI" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Menu -->
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSMI">
-        <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-3">
-          <li class="nav-item"><a class="nav-link text-white" href="#home">Home</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Tentang Kami
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="coach.html">Coach FJS</a></li>
-              <li><a class="dropdown-item" href="visi-misi.html">Visi & Misi</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link text-white" href="#program">Program</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#roadmap">Roadmap</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#faq">FAQ</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#client">Client</a></li>
-
-          <!-- Tombol daftar yang juga ikut rotasi WA -->
-          <li class="nav-item">
-            <a href="#" class="btn daftar-btn position-relative wa-cta">
-              Daftar Sekarang
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
   <script>
-    // START: Fix Navbar Closure Issue
-    document.addEventListener('DOMContentLoaded', function () {
-      const navbarBox = document.querySelector('.smi-navbar');
-      const navbarToggler = document.querySelector('.navbar-toggler');
-      const navbarCollapse = document.querySelector('.navbar-collapse');
-      const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)'); // Select all links except dropdowns
-
-      if (navbarToggler && navbarCollapse) {
-
-        // 1. Close navbar when a link is clicked
-        navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            if (navbarCollapse.classList.contains('show')) {
-              navbarToggler.click(); // Simulate click to leverage Bootstrap's built-in toggle
-            }
-          });
-        });
-
-        // 2. Close navbar when clicking outside
-        document.addEventListener('click', function (event) {
-          const isClickInside = navbarBox.contains(event.target);
-          if (!isClickInside && navbarCollapse.classList.contains('show')) {
-            navbarToggler.click(); // Close if clicked outside
-          }
-        });
-
-        // 3. Ensure the toggler itself works (Force close if stuck)
-        navbarToggler.addEventListener('click', function () {
-          // This listener is mainly for debugging, 
-          // Bootstrap should handle the toggle. 
-          // If 'show' class exists, Bootstrap removes it.
-        });
-      }
-    });
-    // END: Fix Navbar Closure Issue
-
     // Daftar admin WA
-    const admins = [
+    const waAdminsData = [
       {
-        name: "Puput",
-        phone: "62882008421509",
-        message: "Hallo Kak Puput, saya mau daftar program Startup Muslim Indonesia"
+        name: "Linda",
+        phone: "628561490495",
+        message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak   "
       },
       {
         name: "Yasmin",
         phone: "62882008421508",
-        message: "Hallo Kak Yasmin, saya mau daftar program Startup Muslim Indonesia"
+        message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak   "
       },
       {
-        name: "Linda",
-        phone: "628561490495",
-        message: "Hallo Kak Linda, saya mau daftar program Startup Muslim Indonesia"
+        name: "Puput",
+        phone: "6289602710354",
+        message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak   "
       },
       {
         name: "Qiyya",
         phone: "6285725113721",
-        message: "Hallo Kak Qiyya, saya mau daftar program Startup Muslim Indonesia"
+        message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak   "
+      },
+      {
+        name: "Awan",
+        phone: "6289525742386",
+        message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak   "
       }
     ];
 
-    // Tangkap semua tombol WA
-    const waButtons = document.querySelectorAll(".wa-cta");
+    // Assign to window for global access
+    window.waAdmins = waAdminsData;
 
-    waButtons.forEach(btn => {
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
+    document.addEventListener("DOMContentLoaded", function () {
+      // Tangkap KHUSUS tombol float WhatsApp saja
+      const waFloatBtn = document.querySelector(".wa-cta.float");
 
-        // Ambil index admin terakhir dari localStorage
-        let lastIndex = parseInt(localStorage.getItem("lastAdminIndex")) || 0;
+      if (waFloatBtn) {
+        waFloatBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
 
-        // Tentukan admin berikutnya (cycle)
-        let nextIndex = (lastIndex + 1) % admins.length;
-        let nextAdmin = admins[nextIndex];
+          // Logic Rotasi
+          let waList = window.waAdmins;
+          // Fallback checking just in case
+          if (!waList || waList.length === 0) waList = waAdminsData;
 
-        // Simpan index terakhir yang diklik
-        localStorage.setItem("lastAdminIndex", nextIndex);
+          let lastIndex = parseInt(localStorage.getItem("lastAdminIndex"));
+          if (isNaN(lastIndex)) lastIndex = -1;
 
-        // Buat link WA
-        const waLink = `https://api.whatsapp.com/send?phone=${nextAdmin.phone}&text=${encodeURIComponent(nextAdmin.message)}`;
+          let nextIndex = (lastIndex + 1) % waList.length;
+          let nextAdmin = waList[nextIndex];
 
-        // Buka di tab baru
-        window.open(waLink, "_blank");
-      });
+          localStorage.setItem("lastAdminIndex", nextIndex);
+
+          const waLink = `https://api.whatsapp.com/send?phone=${nextAdmin.phone}&text=${encodeURIComponent(nextAdmin.message)}`;
+          window.open(waLink, "_blank");
+        });
+      }
     });
   </script>
 
 
 
-  <!-- ===== END NAVBAR ===== -->
 
-  <!-- ===== STARTUP SECTION ===== -->
+
   <section id="home" class="startup-section">
     <div class="carousel-bg"></div>
     <div class="content-container" data-aos="fade-up">
 
       <div class="text-area">
-        <h2 class="headline">
-          <span> START-UP MUSLIM INDONESIA</span>
-        </h2>
+        <h1 class="headline">
+          <span style="font-size: 32px;">KAMPUS START-UP MUSLIM INDONESIA</span>
+        </h1>
+        <div class="mt-3 mb-4">
+          <span class="tagline"
+            style="margin-top: 0; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">
+            Program Intensif Kuliah dan Mentoring Bisnis 6 Bulan
+          </span>
+        </div>
 
         <div class="highlight-card mt-4 text-start" data-aos="fade-up" data-aos-delay="100">
           <p class="mb-0" style="text-align: justify;">
-            <strong>SMI</strong> adalah program kuliah bisnis intensif selama <strong>6 bulan</strong> yang ingin
-            membangun bisnis dengan fondasi kuat, terarah,
-            dan berkelanjutan.
+            <strong>SMI</strong> adalah Program Mentoring bisnis untuk pebisnis Start up Muslim Indonesia.
             <br><br>
-            Program ini menggabungkan <strong>pendekatan hybrid (online + offline)</strong>, pendampingan mentor
-            pribadi, komunitas supportif, serta kurikulum terstruktur yang mencakup pengembangan diri, ilmu bisnis, dan
-            strategi digital.
-            <br><br>
-            SMI hadir sebagai jawaban atas tantangan utama seorang muslim dalam berbisnis: <strong>kurangnya mentor, sistem,
-              dan lingkungan yang tepat</strong>.
+            Program ini FOKUS pada 3 PILAR PONDASI AWAL. Yang sangat dibutuhkan oleh pengusaha untuk menaikkan level
+            bisnisnya. Yaitu:
+
+          <div class="pillar-list">
+            <div class="pillar-item">
+              <i class="fas fa-bullseye me-2"></i> DIGITAL MARKETING
+            </div>
+            <div class="pillar-item">
+              <i class="fas fa-laptop-code me-2"></i> LEADERSHIP
+            </div>
+            <div class="pillar-item">
+              <i class="fas fa-users-cog me-2"></i> BISNIS EXPERT
+            </div>
+          </div>
+
+
+          <p class="mt-4" style="text-align: justify;">
+            <strong>SMI</strong> hadir sebagai jawaban atas tantangan utama pebisnis pemula dalam berbisnis yaitu:
+            Penjualan Stagnan, Ingin Scale-Up, Butuh Mentor & Komunitas.
+          </p>
           </p>
         </div>
       </div>
 
 
       <div class="coach-area">
-        <div class="coach-card">
-          <img src="img/fitra0.png" alt="Coach Fitra Jaya Saleh" class="coach-photo">
-          <div class="coach-info">
-            <h5>Coach Fitra Jaya Saleh</h5>
-            <p>Founder SMI</p>
-          </div>
+        <div class="tiktok-container">
+          <iframe src="https://www.tiktok.com/embed/v2/7584298035685985557"
+            style="width: 325px; height: 580px; border: none;" scrolling="no" allowfullscreen
+            referrerpolicy="no-referrer">
+          </iframe>
         </div>
       </div>
 
     </div>
 
 
-    <a href="https://wa.me/6281234567890" class="whatsapp-float" target="_blank">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <!-- Duplicate button removed -->
   </section>
   <!-- ===== END SECTION ===== -->
+
+  <!-- ===== AUDIENCE SECTION ===== -->
+  <!-- ===== AUDIENCE SECTION (COLORFUL FLIP ICONS V2) ===== -->
+  <section class="py-5 position-relative" style="background-color: #f7f9fc;">
+    <div class="container container-audience" data-aos="fade-up">
+
+      <!-- Section Title -->
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-dark d-inline-block position-relative pb-2 section-title-audience display-6">
+          SIAPA YANG COCOK IKUT PROGRAM INI?
+          <div class="underline-custom"></div>
+        </h2>
+      </div>
+
+      <!-- Grid System -->
+      <div class="row g-4 justify-content-center">
+
+        <!-- CARD 1: Syariah (Green/Gold) -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-white shadow-sm rounded-4 h-100 overflow-hidden d-flex flex-column">
+            <div class="p-4 text-center pb-2">
+              <h5 class="fw-bold text-dark lh-base mb-0">1. Muslim yang Ingin Bisnis Selaras Syariah</h5>
+            </div>
+            <div class="gradient-1 p-4 flex-grow-1 d-flex align-items-center">
+              <div class="w-100">
+                <div class="list-item mb-3">
+                  <span class="num-badge">1</span>
+                  <span class="text-white list-text">Menghindari riba, gharar, & praktik batil</span>
+                </div>
+                <div class="list-item">
+                  <span class="num-badge">2</span>
+                  <span class="text-white list-text">Menjadikan bisnis ladang dakwah & amal jariyah</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: Startup (Blue/Cyan) -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-white shadow-sm rounded-4 h-100 overflow-hidden d-flex flex-column">
+            <div class="p-4 text-center pb-2">
+              <h5 class="fw-bold text-dark lh-base mb-0">2. Founder Startup / UMKM yang Sudah Jalan</h5>
+            </div>
+            <div class="gradient-2 p-4 flex-grow-1 d-flex align-items-center">
+              <div class="w-100">
+                <div class="list-item mb-3">
+                  <span class="num-badge">1</span>
+                  <span class="text-white list-text">Omzet stagnan butuh terobosan baru</span>
+                </div>
+                <div class="list-item mb-3">
+                  <span class="num-badge">2</span>
+                  <span class="text-white list-text">Marketing masih manual & tradisional</span>
+                </div>
+                <div class="list-item">
+                  <span class="num-badge">3</span>
+                  <span class="text-white list-text">Ingin scale-up sistemasi bisnis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: Digital (Purple/Pink) -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="bg-white shadow-sm rounded-4 h-100 overflow-hidden d-flex flex-column">
+            <div class="p-4 text-center pb-2">
+              <h5 class="fw-bold text-dark lh-base mb-0">3. Pebisnis yang Ingin Jago Digital</h5>
+            </div>
+            <div class="gradient-3 p-4 flex-grow-1 d-flex align-items-center">
+              <div class="w-100">
+                <div class="list-item mb-3">
+                  <span class="num-badge">1</span>
+                  <span class="text-white list-text">Kuasai Meta Ads, Tiktok & Funnel</span>
+                </div>
+                <div class="list-item mb-3">
+                  <span class="num-badge">2</span>
+                  <span class="text-white list-text">Branding & Positioning kuat</span>
+                </div>
+                <div class="list-item">
+                  <span class="num-badge">3</span>
+                  <span class="text-white list-text">Jualan online orientasi profit</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: Professional (Navy/Blue) -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="bg-white shadow-sm rounded-4 h-100 overflow-hidden d-flex flex-column">
+            <div class="p-4 text-center pb-2">
+              <h5 class="fw-bold text-dark lh-base mb-0">4. Profesional & Pengelola Bisnis</h5>
+            </div>
+            <div class="gradient-4 p-4 flex-grow-1 d-flex align-items-center">
+              <div class="w-100">
+                <div class="list-item mb-3">
+                  <span class="num-badge">1</span>
+                  <span class="text-white list-text">HRD, Sales Manager, atau COO</span>
+                </div>
+                <div class="list-item mb-3">
+                  <span class="num-badge">2</span>
+                  <span class="text-white list-text">Pahami bisnis hulu ke hilir</span>
+                </div>
+                <div class="list-item">
+                  <span class="num-badge">3</span>
+                  <span class="text-white list-text">Siap jadi Strategic Partner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5: Calon (Orange/Red) -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="bg-white shadow-sm rounded-4 h-100 overflow-hidden d-flex flex-column">
+            <div class="p-4 text-center pb-2">
+              <h5 class="fw-bold text-dark lh-base mb-0">5. Calon Pengusaha Muslim</h5>
+            </div>
+            <div class="gradient-5 p-4 flex-grow-1 d-flex align-items-center">
+              <div class="w-100">
+                <div class="list-item mb-3">
+                  <span class="num-badge">1</span>
+                  <span class="text-white list-text">Bingung mulai darimana?</span>
+                </div>
+                <div class="list-item mb-3">
+                  <span class="num-badge">2</span>
+                  <span class="text-white list-text">Ingin bisnis halal tanpa ribet</span>
+                </div>
+                <div class="list-item">
+                  <span class="num-badge">3</span>
+                  <span class="text-white list-text">Hijrah dari karyawan ke pengusaha</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* UTILS */
+    .section-title-audience {
+      color: #007272;
+    }
+
+    .underline-custom {
+      width: 80px;
+      height: 4px;
+      background: #FFD21F;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* CARD WRAPPER */
+    .flip-card-wrapper {
+      background-color: transparent;
+      width: 100%;
+      height: 320px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-style: preserve-3d;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .flip-card-wrapper:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* FACE STYLES */
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .flip-card-front {
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    /* ICONS - COLORFUL GRADIENTS */
+    .icon-bubble {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .gradient-icon-1 {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      box-shadow: 0 8px 16px rgba(16, 185, 129, 0.2);
+    }
+
+    .gradient-icon-2 {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+    }
+
+    .gradient-icon-3 {
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+      box-shadow: 0 8px 16px rgba(236, 72, 153, 0.2);
+    }
+
+    .gradient-icon-4 {
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+      box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+    }
+
+    .gradient-icon-5 {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      box-shadow: 0 8px 16px rgba(245, 158, 11, 0.2);
+    }
+
+    .flip-card-wrapper:hover .icon-bubble {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* BACK GRADIENTS MATCHING FRONT ICONS */
+    .gradient-1 {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    }
+
+    .gradient-2 {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    }
+
+    .gradient-3 {
+      background: linear-gradient(135deg, #db2777 0%, #be185d 100%);
+    }
+
+    .gradient-4 {
+      background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+    }
+
+    .gradient-5 {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    }
+
+    .flip-card-back {
+      color: white;
+      transform: rotateY(180deg);
+      box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.15);
+      /* Internal texture */
+    }
+
+    /* BADGES & TEXT LIST */
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .num-badge {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      /* Bigger Badge */
+      background-color: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(5px);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 1rem;
+      /* Larger font */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .list-text {
+      font-size: 1rem;
+      /* Larger text */
+      line-height: 1.5;
+      font-weight: 500;
+      padding-top: 2px;
+      /* Align with badge center visually */
+    }
+  </style>
 
   <style>
     * {
@@ -444,9 +693,10 @@
     /* ===== HERO SECTION ===== */
     .startup-section {
       position: relative;
-      background: url('img/gp1.jpg') center/cover no-repeat;
-      color: #fff;
-      padding: 8rem 2rem 5rem;
+      background-color: #ffffff;
+      /* Warna dasar putih */
+      color: #13392d;
+      padding: 6rem 2rem 3rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -457,8 +707,35 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 80, 80, 0.8);
+      /* Gradient Overlay supaya lebih manis menyatu dengan gambar */
+      background: linear-gradient(135deg, rgba(198, 202, 202, 0.95) 20%, rgba(87, 92, 92, 0.7) 100%),
+        url('img/gp1.jpg') center/cover no-repeat;
+      opacity: 0.5;
       z-index: 0;
+    }
+
+    /* Decorative Floating Circle */
+    .startup-section::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 114, 114, 0.15) 0%, rgba(255, 210, 31, 0.05) 70%);
+      border-radius: 50%;
+      top: -100px;
+      left: -50px;
+      z-index: 1;
+      animation: floatMove 8s infinite alternate ease-in-out;
+    }
+
+    @keyframes floatMove {
+      from {
+        transform: translateY(0) translateX(0);
+      }
+
+      to {
+        transform: translateY(20px) translateX(20px);
+      }
     }
 
     .content-container {
@@ -479,26 +756,50 @@
     }
 
     .headline span {
-      background: linear-gradient(90deg, #FFD21F, #FFF7B0);
+      background: linear-gradient(90deg, #FFD21F, #f3cf2d);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 800;
-      font-size: 2.3rem;
+      font-size: 2.8rem;
+      /* Larger font */
+      -webkit-text-stroke: 1.5px #005a5a;
+      filter: drop-shadow(0 4px 6px rgba(0, 90, 90, 0.2));
+      display: inline-block;
+      animation: fadeInDown 1s ease-out;
     }
 
-    /* High Contrast Card Style */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* High Contrast Glass Card Style */
     .highlight-card {
-      background: rgba(255, 255, 255, 0.95);
-      /* High contrast white background */
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       color: #13392d;
-      /* Dark text for readability */
-      padding: 1.5rem;
-      border-radius: 12px;
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
       border-left: 6px solid #FFD21F;
-      /* Gold accent */
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       line-height: 1.8;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-5px);
     }
 
     .highlight-card strong {
@@ -519,6 +820,72 @@
       transition: all 0.3s ease;
     }
 
+    /* Styles for the 3 Pillars */
+    .pillar-list {
+      margin: 25px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .pillar-item {
+      background: linear-gradient(135deg, #007272, #005656);
+      color: #ffffff;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-weight: 800;
+      /* Extra bold */
+      font-size: 1.1rem;
+      box-shadow: 0 5px 15px rgba(0, 114, 114, 0.2);
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 5px solid #FFD21F;
+      /* Gold accent */
+    }
+
+    .pillar-item:hover {
+      transform: translateX(8px);
+      box-shadow: 0 8px 20px rgba(0, 114, 114, 0.3);
+    }
+
+    .pillar-item i {
+      color: #FFD21F;
+      font-size: 1.4rem;
+      min-width: 30px;
+    }
+
+    @media (max-width: 576px) {
+      .pillar-item {
+        font-size: 1rem;
+        padding: 12px 15px;
+      }
+    }
+
+    /* Audience Section Styles */
+    .text-teal {
+      color: #007272 !important;
+    }
+
+    .bg-teal {
+      background-color: #007272 !important;
+      color: #fff;
+    }
+
+    .audience-item ul {
+      list-style-type: disc;
+      margin-top: 5px;
+    }
+
+    .audience-item li {
+      margin-bottom: 3px;
+    }
+
+    .audience-item i {
+      width: 16px;
+      text-align: center;
+    }
+
     .tagline:hover {
       background: #fff176;
       transform: scale(1.07);
@@ -531,14 +898,53 @@
       align-items: center;
     }
 
+    /* TikTok Phone Mockup Style */
+    .tiktok-container {
+      position: relative;
+      width: 340px;
+      /* Slightly wider than iframe for bezel */
+      height: 600px;
+      /* Slightly taller */
+      background: #000;
+      /* Phone body color */
+      border-radius: 30px;
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.2),
+        0 0 0 2px #333,
+        /* Inner bezel frame */
+        0 0 0 5px #111;
+      /* Outer bezel frame */
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 4px solid #444;
+      /* Metallic edge feel */
+      transition: transform 0.3s ease;
+    }
+
+    .tiktok-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .tiktok-container iframe {
+      border-radius: 24px;
+      /* Slightly less than container */
+      background: #000;
+    }
+
     .coach-card {
-      background: rgba(0, 0, 0, 0);
-      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 20px;
       text-align: center;
-      padding-bottom: 1rem;
-      transition: all 0.4s ease;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.12);
-      max-width: 300px;
+      padding-bottom: 1.5rem;
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      max-width: 320px;
     }
 
     .coach-card:hover {
@@ -556,12 +962,12 @@
     .coach-info h5 {
       margin-top: 0.8rem;
       font-weight: 700;
-      color: #FFD21F;
+      color: #007272;
     }
 
     .coach-info p {
       font-size: 0.9rem;
-      color: #eee;
+      color: #333;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -772,65 +1178,329 @@
 
 
 
+  <!-- Youtube / TikTok Section -->
+  <!-- <section class="py-5 position-relative overflow-hidden"
+    style="background: linear-gradient(180deg, #f0fdfd 0%, #ffffff 100%);">
+
+    <div class="position-absolute start-0 top-0 w-100 h-100"
+      style="background-image: radial-gradient(#007272 0.8px, transparent 0.8px); background-size: 40px 40px; opacity: 0.05; pointer-events: none;">
+    </div>
+
+    <div class="container position-relative" data-aos="fade-up">
+
+
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+          <div class="tiktok-card w-100 h-100">
+            <iframe src="https://www.tiktok.com/embed/v2/7584298035685985557"
+              style="width: 100%; height: 580px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.1);" scrolling="no"
+              allowfullscreen referrerpolicy="no-referrer"></iframe>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+          <div class="tiktok-card w-100 h-100">
+            <iframe src="https://www.tiktok.com/embed/v2/7586491292381662485"
+              style="width: 100%; height: 580px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.1);" scrolling="no"
+              allowfullscreen referrerpolicy="no-referrer"></iframe>
+          </div>
+        </div>
+    
+        <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+          <div class="tiktok-card w-100 h-100">
+            <iframe src="https://www.tiktok.com/embed/v2/7586590280866893063"
+              style="width: 100%; height: 580px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.1);" scrolling="no"
+              allowfullscreen referrerpolicy="no-referrer"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="https://www.tiktok.com/@startupmuslim.id" target="_blank"
+          class="btn btn-outline-dark rounded-pill px-4 py-2 fw-bold hover-scale">
+          <i class="fab fa-tiktok me-2"></i> Tonton Lebih Banyak
+        </a>
+      </div>
+    </div>
+  </section> -->
+
+  <style>
+    .tiktok-card {
+      display: block;
+      background: linear-gradient(145deg, #007272, #005f5f);
+      border-radius: 20px;
+      padding: 0;
+      box-shadow: 0 10px 25px rgba(0, 114, 114, 0.25);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      /* TikTok aspect ratio */
+      max-width: 325px;
+      /* Typical mobile width */
+      width: 100%;
+    }
+
+    /* Decorative circles */
+    .tiktok-card::before,
+    .tiktok-card::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tiktok-card::before {
+      width: 150px;
+      height: 150px;
+      top: -20px;
+      right: -20px;
+    }
+
+    .tiktok-card::after {
+      width: 100px;
+      height: 100px;
+      bottom: 30px;
+      left: -20px;
+    }
+
+
+    .tiktok-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 114, 114, 0.4);
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #fff;
+      z-index: 2;
+      position: relative;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .play-icon-wrapper {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .tiktok-card:hover .play-icon-wrapper {
+      transform: scale(1.1);
+      background: #fff;
+      color: #007272;
+    }
+
+    .play-icon-wrapper i {
+      font-size: 24px;
+      margin-left: 4px;
+      /* Optical adjustment */
+    }
+
+    .tiktok-logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      opacity: 0.8;
+    }
+
+    .video-caption {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    .cta-text {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      font-weight: 300;
+    }
+
+    .hover-scale {
+      transition: transform 0.2s;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Mobile handling handled by bootstrap grid and max-width */
+  </style>
+
   <section class="py-5" style="background-color: #fff;">
     <div class="container text-dark" data-aos="fade-up" data-aos-duration="1200">
 
       <!-- Headline -->
-      <h2 class="fw-bold mb-4 text-center  headline  font-size:2rem;" style="color:#007272;">
-        BANYAK PEBISNIS MUSLIM BINGUNG MAU MULAI USAHA.
-
-
+      <h2 class="fw-bold mb-4 text-center headline responsive-headline" style="color:#007272;">
+        BANYAK PEBISNIS MUSLIM BINGUNG CARA MEMULAI DAN MENGEMBANGKAN USAHA
       </h2>
 
-      <!-- Subheadline -->
-      <div class="mb-5 p-4 rounded shadow-lg subheadline-box">
-        <p class="lead text-center mb-0 subheadline-text">
-          <strong>
-            Jangan salah langkah… program kuliah bisnis 6 bulan percepatan peningkatan kemampuan untuk jadi pengusaha
-            Bermental Baja, Bermindset Juara, Berkemampuan Profesional dan Berakhlak Mulia.
-          </strong>
 
-        </p>
-      </div>
 
       <!-- Masalah List -->
-      <h3 class="fw-bold text-center text-dark mb-4">
-        Masalah Umum Start Up, Pengusaha Pemula 
-      </h3>
+      <!-- <h3 class="fw-bold text-center text-dark mb-4">
+        Masalah Umum Start Up, Pengusaha Pemula
+      </h3> -->
 
       <!-- Headline Chart -->
       <h4 class="fw-bold text-center text-danger mb-3 chart-title">
         Tingkat Masalah yang Paling Sering Dialami
       </h4>
       <!-- Chart Section -->
-      <section class="chart-section py-5">
-        <div class="container text-center">
+      <section class="chart-section py-5 position-relative" style="overflow: hidden;">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
 
-          <!-- Chart -->
-          <div class="mb-3 chart-container">
-            <canvas id="masalahAnakBar"></canvas>
+            <!-- Image Column (Orang Pusing) -->
+            <!-- <div class="col-md-5 text-center mb-4 mb-md-0 d-none d-md-block" data-aos="fade-right">
+              <img src="img/3d_confused_businessman.png" alt="Bingung Mulai Bisnis" class="img-fluid mobile-img-adjust"
+                style="filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.15));">
+            </div> -->
+
+            <!-- Chart Column -->
+            <div class="col-md-10" data-aos="fade-left">
+              <div class="card border-0 shadow-sm p-3 bg-white rounded">
+                <div class="card-body">
+
+                  <!-- Mobile Container (Side-by-Side: Bar Left, Legend Right) -->
+                  <div id="mobileChartContainer" class="d-md-none">
+                    <div style="width: 35%; height: 350px;">
+                      <canvas id="masalahAnakMobileBar"></canvas>
+                    </div>
+                    <div id="customMobileLegend">
+                      <!-- Legend Items Injected by JS -->
+                    </div>
+                  </div>
+
+                  <!-- Desktop Container (Original Pie) -->
+                  <div class="chart-wrapper d-none d-md-block"> <!-- Increased height for labels -->
+                    <canvas id="masalahAnakPie"></canvas>
+                  </div>
+
+                  <div class="text-center mt-4 d-none d-md-block">
+                    <p class="fst-italic text-muted">"Masalah terbesar adalah <strong>Kurang Pengalaman &
+                        Pengetahuan</strong>"</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           <!-- CTA -->
-          <div class="text-center px-2">
+          <div class="text-center mt-5 px-2" data-aos="fade-up">
             <h3 class="fw-bold text-dark mb-3 cta-text">
-              “Jangan Tunggu Hingga Terlambat. Siapkan  Jadi Pengusaha Juara Sekarang!”
+              Jangan Tunggu Hingga Terlambat. Siapkan Jadi Pengusaha Juara Sekarang!
             </h3>
             <div class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
-              <a href="#" class="btn btn-success btn-lg px-3 py-2 wa-cta">Daftar Sekarang</a>
-              <a href="#program" class="btn btn-outline-success btn-lg px-3 py-2">Pelajari Program</a>
-            </div>
-          </div>
+              <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Puput,%20saya%20mau%20Konsultasi%20Program%20Startup%20Muda%20yaa%20kak"
+                class="btn btn-success btn-lg px-3 py-2 shadow-sm">Daftar Sekarang</a>
 
-        </div>
+            </div>
+
+          </div>
       </section>
 
       <style>
-        /* Chart Container Responsive */
-        .chart-container {
+        /* Responsive Headline */
+        .responsive-headline {
+          font-size: 1.2rem;
+          line-height: 1.4;
+        }
+
+        @media (min-width: 768px) {
+          .responsive-headline {
+            font-size: 1.6rem;
+            white-space: nowrap;
+          }
+        }
+
+        /* Chart Wrapper */
+        .chart-wrapper {
           position: relative;
-          height: auto;
-          min-height: 300px;
+          width: 100%;
+          height: 450px;
+          /* Mobile height */
+        }
+
+        @media (min-width: 768px) {
+          .chart-wrapper {
+            height: 500px;
+            /* Desktop height */
+          }
+        }
+
+        /* Mobile Storage-like UI */
+        #mobileChartContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+        }
+
+        #customMobileLegend {
+          text-align: left;
+          flex: 1;
+        }
+
+        .legend-item {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 15px;
+        }
+
+        .legend-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          margin-top: 6px;
+          margin-right: 10px;
+          flex-shrink: 0;
+        }
+
+        .legend-content h6 {
+          margin: 0;
+          font-size: 0.9rem;
+          color: #555;
+          font-weight: 500;
+        }
+
+        .legend-content p {
+          margin: 0;
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #333;
+        }
+
+        /* Hide Canvas wrapper specific styles for mobile if needed handled by JS toggling classes usually but here we use media queries */
+
+
+        /* Image Adjustment */
+        .mobile-img-adjust {
+          max-height: 250px;
+        }
+
+        @media (min-width: 768px) {
+          .mobile-img-adjust {
+            max-height: 450px;
+          }
         }
 
         /* Badge Custom */
@@ -839,252 +1509,172 @@
           color: #fff;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 992px) {
-          .chart-container {
-            min-height: 280px;
-          }
-
-          .cta-text {
-            font-size: 1.3rem;
-          }
-        }
-
+        /* Mobile Responsive adjustments */
         @media (max-width: 768px) {
-          .chart-container {
-            min-height: 240px;
-          }
-
           .cta-text {
             font-size: 1.1rem;
           }
 
           .btn {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             padding: 0.5rem 1rem;
-          }
-
-          .badge {
-            font-size: 0.8rem;
-            padding: 0.35rem 0.6rem;
           }
         }
       </style>
 
       <!-- Chart.js CDN -->
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
       <script>
-        const ctxBar = document.getElementById('masalahAnakBar');
+        // Data Definitions
+        const labelsData = [
+          'Kurang Pengalaman & Pengetahuan',
+          'Mindset & Mental Belum Siap',
+          'Kurang Percaya Diri & Visi Jelas',
+          'Kurang Jaringan & Mentor',
+          'Manajemen Waktu & Prioritas'
+        ];
+        const dataValues = [90, 80, 75, 70, 65];
+        const backgroundColors = ['#dc3545', '#fd7e14', '#ffc107', '#0d6efd', '#198754'];
 
-        new Chart(ctxBar, {
-          type: 'bar',
-          data: {
-            labels: [
-              'Kurang Pengalaman & Pengetahuan',
-              'Mindset & Mental Belum Siap',
-              'Kurang Jaringan & Mentor',
-              'Manajemen Waktu & Prioritas',
-              'Kurang Percaya Diri & Visi Jelas'
-            ],
-            datasets: [{
-              label: 'Tingkat Masalah (%)',
-              data: [90, 80, 70, 65, 75],
-              backgroundColor: [
-                '#dc3545',  // merah
-                '#fd7e14',  // orange
-                '#ffc107',  // kuning
-                '#198754',  // hijau
-                '#0d6efd'   // biru
-              ],
-              borderWidth: 2,
-              borderRadius: 6
-            }]
-          },
-          options: {
-            indexAxis: 'y', // buat horizontal bar agar label panjang lebih rapi
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                callbacks: {
-                  label: function (context) {
-                    return context.raw + '% mengalami masalah ini';
+        Chart.register(ChartDataLabels);
+        const isMobile = window.innerWidth < 768;
+
+        if (isMobile) {
+          // --- MOBILE CONFIGURATION (Stacked Vertical Bar + Custom Legend) ---
+
+          // Helper for 3D Cylinder Gradient
+          function create3DGradient(ctx, color) {
+            const gradient = ctx.createLinearGradient(0, 0, 150, 0); // Approx width of bar
+            // Simple lighting effect: Dark -> Light -> Dark
+            gradient.addColorStop(0, adjustBrightness(color, -30));
+            gradient.addColorStop(0.5, color);
+            gradient.addColorStop(1, adjustBrightness(color, -30));
+            return gradient;
+          }
+
+          // Helper to adjust hex brightness
+          function adjustBrightness(col, amt) {
+            var usePound = false;
+            if (col[0] == "#") {
+              col = col.slice(1);
+              usePound = true;
+            }
+            var num = parseInt(col, 16);
+            var r = (num >> 16) + amt;
+            if (r > 255) r = 255;
+            else if (r < 0) r = 0;
+            var b = ((num >> 8) & 0x00FF) + amt;
+            if (b > 255) b = 255;
+            else if (b < 0) b = 0;
+            var g = (num & 0x0000FF) + amt;
+            if (g > 255) g = 255;
+            else if (g < 0) g = 0;
+            return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
+          }
+
+          // 1. Render Chart
+          const ctxMobile = document.getElementById('masalahAnakMobileBar').getContext('2d');
+
+          // Pivot data for stacked bar with Gradients
+          const mobileDatasets = labelsData.map((label, index) => ({
+            label: label,
+            data: [dataValues[index]],
+            backgroundColor: create3DGradient(ctxMobile, backgroundColors[index]), // Apply 3D Gradient
+            borderWidth: 0,
+            barPercentage: 0.8, // Slightly thinner for "tube" look
+            categoryPercentage: 1.0,
+            // Add curve to top/bottom of the WHOLE stack is tricky in Chartjs, 
+            // but we use borderRadius on the top/bottom items if needed or just styling.
+            // For simple 3D effect, the gradient is the biggest factor.
+          }));
+
+          new Chart(ctxMobile, {
+            type: 'bar',
+            data: {
+              labels: [''],
+              datasets: mobileDatasets
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              layout: { padding: 0 },
+              scales: {
+                x: { stacked: true, display: false },
+                y: { stacked: true, display: false, min: 0 }
+              },
+              plugins: {
+                legend: { display: false },
+                datalabels: { display: false },
+                tooltip: { enabled: true }
+              }
+            }
+          });
+
+          // 2. Generate Custom Legend
+          const legendContainer = document.getElementById('customMobileLegend');
+          labelsData.forEach((label, index) => {
+            const html = `
+              <div class="legend-item">
+                <div class="legend-dot" style="background-color: ${backgroundColors[index]}"></div>
+                <div class="legend-content">
+                  <h6>${label}</h6>
+                  <p>${dataValues[index]}%</p>
+                </div>
+              </div>
+            `;
+            legendContainer.innerHTML += html;
+          });
+
+        } else {
+          // --- DESKTOP CONFIGURATION (Pie Chart) ---
+          const ctxPie = document.getElementById('masalahAnakPie');
+          new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+              labels: labelsData,
+              datasets: [{
+                label: 'Tingkat Masalah (%)',
+                data: dataValues,
+                backgroundColor: backgroundColors,
+                borderColor: '#fff',
+                borderWidth: 2,
+                hoverOffset: 10
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              layout: { padding: 20 },
+              plugins: {
+                legend: {
+                  display: true,
+                  position: 'right',
+                  labels: {
+                    padding: 20, usePointStyle: true, boxWidth: 15,
+                    color: '#555', font: { size: 15, family: 'Poppins' }
+                  }
+                },
+                datalabels: {
+                  color: '#fff',
+                  font: { weight: 'bold', size: 16 },
+                  formatter: (value) => value + '%'
+                },
+                tooltip: {
+                  callbacks: {
+                    label: (context) => ` ${context.raw}%`
                   }
                 }
               }
-            },
-            scales: {
-              x: {
-                beginAtZero: true, max: 100,
-                ticks: { stepSize: 20, callback: val => val + '%' },
-                grid: { color: '#eee' }
-              },
-              y: {
-                ticks: { font: { size: 13, weight: 'bold' }, color: '#333' },
-                grid: { display: false }
-              }
-            },
-            animation: { duration: 1200, easing: 'easeOutCubic' }
-          }
-        });
+            }
+          });
+        }
       </script>
 
 
       <!-- Section Pengertian -->
 
       <!-- Apa itu Start-Up Muda Indonesia -->
-      <section id="about-smi" class="py-5" style="background: #007272;">
-        <div class="container" data-aos="fade-up">
-          <!-- Headline -->
-          <!-- <h2 class="fw-bold text-center text-warning mb-4" style="font-size:2rem;">
-            Apa Itu Program Start Up Muda...??
-          </h2>
-          <p class="text-center text-white mb-5"
-            style="font-size:1.1rem; max-width:800px; margin:auto; line-height:1.6;">
-            Program pendidikan bisnis modern yang dirancang khusus untuk anak muda Indonesia.
-            Peserta akan <span class="text-warning fw-bold">belajar, praktek, dan sukses membangun bisnis nyata</span>
-            dalam 6 bulan intensif.
-          </p> -->
-
-
-          <!-- Features Grid -->
-          <!-- Fitur Program -->
-          <section id="fitur-program" class="py-5 bg-light">
-            <div class="container">
-              <div class="text-center mb-5">
-                <h2 class="fw-bold text-dark">Apa yang Akan Kamu Dapatkan?</h2>
-                <p class="text-muted">Pelajari berbagai aspek penting untuk menjadi pengusaha sukses muda.</p>
-              </div>
-
-              <!-- Baris Pertama (3 Card) -->
-              <div class="row g-4 justify-content-center mb-4">
-                <div class="col-md-4 col-sm-6">
-                  <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
-                    <div class="icon mb-3">
-                      <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h5 class="fw-bold">Mindset & Skill</h5>
-                    <p>Belajar mindset & skill pengusaha sukses yang terbukti berhasil.</p>
-                  </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                  <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
-                    <div class="icon mb-3">
-                      <i class="fas fa-tools"></i>
-                    </div>
-                    <h5 class="fw-bold">Tools & Leadership</h5>
-                    <p>Belajar puluhan tools bisnis, manajemen, dan leadership modern.</p>
-                  </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                  <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
-                    <div class="icon mb-3">
-                      <i class="fas fa-handshake"></i>
-                    </div>
-                    <h5 class="fw-bold">Networking</h5>
-                    <p>Berjejaring langsung dengan pengusaha & komunitas pebisnis muda.</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Baris Kedua (2 Card) -->
-              <div class="row g-4 justify-content-center">
-                <div class="col-md-4 col-sm-6">
-                  <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
-                    <div class="icon mb-3">
-                      <i class="fas fa-building"></i>
-                    </div>
-                    <h5 class="fw-bold">Belajar di Lapangan</h5>
-                    <p>Hadapi persoalan bisnis nyata & belajar cara menyelesaikannya.</p>
-                  </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                  <div class="card feature-card shadow-sm h-100 border-0 text-center p-4">
-                    <div class="icon mb-3">
-                      <i class="fas fa-rocket"></i>
-                    </div>
-                    <h5 class="fw-bold">Proyek Nyata</h5>
-                    <p>Dibimbing membuat proyek bisnis nyata dari nol bersama coach.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Style Tambahan -->
-          <style>
-            #fitur-program {
-              background: #fff;
-              /* Reset section bg to clean */
-            }
-
-            .feature-card {
-              transition: all 0.3s ease;
-              border-radius: 1rem;
-              /* Gold Gradient Background */
-              background: linear-gradient(135deg, #FFD21F 0%, #FFF59B 100%);
-              border: 1px solid #e1c482;
-            }
-
-            .feature-card:hover {
-              transform: translateY(-8px);
-              box-shadow: 0 12px 25px rgba(255, 210, 31, 0.4);
-            }
-
-            /* Icon Styling */
-            .feature-card .icon i {
-              font-size: 2.5rem;
-              color: #13392d;
-              /* Dark Deep Green */
-              transition: color 0.3s ease;
-            }
-
-            .feature-card:hover .icon i {
-              color: #004d4d;
-            }
-
-            /* Headers and Text */
-            .feature-card h5 {
-              color: #13392d;
-              /* Dark Green */
-              font-weight: 800;
-            }
-
-            .feature-card p {
-              color: #004d4d;
-              /* Greenish Text */
-              font-weight: 600;
-            }
-
-            @media (max-width: 767px) {
-              .feature-card {
-                margin-bottom: 1rem;
-              }
-            }
-          </style>
-
-          <!-- FontAwesome -->
-          <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-
-          <!-- CTA -->
-          <div class="text-center mt-5">
-            <p class="fw-semibold text-white" style="font-size:1.2rem;">
-              Dalam 6 bulan, kamu tidak hanya paham teori,<br>
-              tapi punya bisnis nyata yang bisa terus berkembang!
-            </p>
-            <!-- <a href="https://api.whatsapp.com/send?phone=6289602697425&text=Hallo%20Kak%20Tursia,%20saya%20mau%20Konsultasi%20Program%20Generasi%20Penerus%20yaa%20kak"
-              class="btn btn-success btn-lg mt-3 px-4">
-              Daftar Sekarang
-            </a> -->
-          </div>
-        </div>
-      </section>
-
 
       <!-- Section Slide kelas -->
       <section id="GaleriKelas" class="py-5" style="background-color: #007272;">
@@ -1103,16 +1693,28 @@
           <div class="swiper mySwiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="img/gp1.jpg" alt="Kelas 1" class="img-fluid rounded shadow" />
+                <img src="img/GP1.jpeg" alt="Kelas 1" class="img-fluid rounded shadow" />
               </div>
               <div class="swiper-slide">
-                <img src="img/gp1.jpg" alt="Kelas 4" class="img-fluid rounded shadow" />
+                <img src="img/GP2.jpeg" alt="Kelas 4" class="img-fluid rounded shadow" />
               </div>
               <div class="swiper-slide">
-                <img src="img/gp4.jpg" alt="Kelas 5" class="img-fluid rounded shadow" />
+                <img src="img/GP3.jpeg" alt="Kelas 5" class="img-fluid rounded shadow" />
               </div>
               <div class="swiper-slide">
-                <img src="img/gp4.jpg" alt="Kelas 6" class="img-fluid rounded shadow" />
+                <img src="img/GP4.jpeg" alt="Kelas 6" class="img-fluid rounded shadow" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/GP5.jpeg" alt="Kelas 6" class="img-fluid rounded shadow" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/GP6.jpeg" alt="Kelas 6" class="img-fluid rounded shadow" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/GP7.jpeg" alt="Kelas 6" class="img-fluid rounded shadow" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/GP8.jpeg" alt="Kelas 6" class="img-fluid rounded shadow" />
               </div>
 
             </div>
@@ -1146,6 +1748,18 @@
             },
           });
         </script>
+
+        <style>
+          /* Force all swipe images to be same height */
+          .mySwiper .swiper-slide img {
+            width: 100%;
+            height: 350px;
+            /* Fixed height for uniformity */
+            object-fit: cover;
+            /* Maintain aspect ratio, crop if needed */
+            border-radius: 12px;
+          }
+        </style>
 
         <!-- Keterangan -->
         <div class="text-center mt-3" data-aos="fade-up" data-aos-duration="1200">
@@ -1186,22 +1800,22 @@
 
           <div class="program-cards">
             <div class="program-card" data-aos="fade-up" data-aos-delay="200">
-              <p>🚀 <strong>Belajar Langsung Praktik:</strong> Kamu tidak hanya belajar teori, tapi dibimbing langkah
+              <p>Ã°Å¸Å¡â‚¬ <strong>Belajar Langsung Praktik:</strong> Kamu tidak hanya belajar teori, tapi dibimbing langkah
                 demi langkah dengan roadmap jelas, didukung mentor berpengalaman.</p>
             </div>
 
             <div class="program-card" data-aos="fade-up" data-aos-delay="300">
-              <p>🤝 <strong>Komunitas Supportive:</strong> Dikelilingi komunitas pengusaha muda yang saling mendukung
+              <p>Ã°Å¸Â¤Â <strong>Komunitas Supportive:</strong> Dikelilingi komunitas pengusaha muda yang saling mendukung
                 dan berbagi pengalaman.</p>
             </div>
 
             <div class="program-card" data-aos="fade-up" data-aos-delay="400">
-              <p>📈 <strong>Hasil Nyata 6 Bulan:</strong> <br> Dalam 6 bulan, kamu bisa punya bisnis yang berjalan,
+              <p>Ã°Å¸â€œË† <strong>Hasil Nyata 6 Bulan:</strong> <br> Dalam 6 bulan, kamu bisa punya bisnis yang berjalan,
                 jaringan teman pebisnis se-Indonesia, dan melampaui keraguan.</p>
             </div>
 
             <div class="smi-quote text-center  text-warning" data-aos="fade-up" data-aos-delay="500">
-              <p>⚡ <strong>Masa depan dimenangkan oleh mereka yang berani mulai lebih cepat!</strong></p>
+              <p>Ã¢Å¡Â¡ <strong>Masa depan dimenangkan oleh mereka yang berani mulai lebih cepat!</strong></p>
             </div>
           </div>
         </div>
@@ -1338,7 +1952,7 @@
       <div class="col-lg-5 col-md-8 col-sm-12 mb-3">
         <div class="card shadow-sm p-3 h-100 border-start border-5 border-danger">
           <p class="mb-0" style="font-size: 1.1rem; text-align: justify;">
-            🚀 <strong>Anak muda usia 15–28 tahun</strong> yang punya semangat membangun usaha, tapi masih bingung mulai dari mana.
+            Ã°Å¸Å¡â‚¬ <strong>Anak muda usia 15Ã¢â‚¬â€œ28 tahun</strong> yang punya semangat membangun usaha, tapi masih bingung mulai dari mana.
           </p>
         </div>
       </div>
@@ -1346,7 +1960,7 @@
       <div class="col-lg-5 col-md-8 col-sm-12 mb-3">
         <div class="card shadow-sm p-3 h-100 border-start border-5 border-danger">
           <p class="mb-0" style="font-size: 1.1rem; text-align: justify;">
-            🏢 <strong>Anak pengusaha</strong> yang ingin meneruskan atau mengembangkan bisnis keluarga dengan cara yang lebih modern dan relevan dengan zaman.
+            Ã°Å¸ÂÂ¢ <strong>Anak pengusaha</strong> yang ingin meneruskan atau mengembangkan bisnis keluarga dengan cara yang lebih modern dan relevan dengan zaman.
           </p>
         </div>
       </div>
@@ -1354,7 +1968,7 @@
       <div class="col-lg-5 col-md-8 col-sm-12 mb-3">
         <div class="card shadow-sm p-3 h-100 border-start border-5 border-danger">
           <p class="mb-0" style="font-size: 1.1rem; text-align: justify;">
-            🎓 <strong>Mahasiswa atau pelajar</strong> yang ingin belajar bisnis sejak dini supaya tidak hanya mengandalkan ijazah.
+            Ã°Å¸Å½â€œ <strong>Mahasiswa atau pelajar</strong> yang ingin belajar bisnis sejak dini supaya tidak hanya mengandalkan ijazah.
           </p>
         </div>
       </div>
@@ -1362,7 +1976,7 @@
       <div class="col-lg-5 col-md-8 col-sm-12 mb-3">
         <div class="card shadow-sm p-3 h-100 border-start border-5 border-danger">
           <p class="mb-0" style="font-size: 1.1rem; text-align: justify;">
-            💼 <strong>Freelancer atau pekerja muda</strong> yang ingin naik level, tidak sekadar jualan kecil-kecilan, tapi membangun bisnis yang serius dan berkelanjutan.
+            Ã°Å¸â€™Â¼ <strong>Freelancer atau pekerja muda</strong> yang ingin naik level, tidak sekadar jualan kecil-kecilan, tapi membangun bisnis yang serius dan berkelanjutan.
           </p>
         </div>
       </div>
@@ -1370,7 +1984,7 @@
       <div class="col-lg-5 col-md-8 col-sm-12 mb-3">
         <div class="card shadow-sm p-3 h-100 border-start border-5 border-danger">
           <p class="mb-0" style="font-size: 1.1rem; text-align: justify;">
-            📈 <strong>Pengusaha pemula</strong> yang sudah mulai usaha kecil, tapi merasa stagnan dan butuh arahan supaya bisnisnya bisa naik kelas.
+            Ã°Å¸â€œË† <strong>Pengusaha pemula</strong> yang sudah mulai usaha kecil, tapi merasa stagnan dan butuh arahan supaya bisnisnya bisa naik kelas.
           </p>
         </div>
       </div>
@@ -1417,8 +2031,12 @@
         <div class="container position-relative" style="z-index: 2;">
           <!-- Headline -->
           <div class="text-center mb-5">
-            <h2 class="section-title text-white fw-bold mb-3">Apa yang Akan Anda Pelajari?</h2>
-            <div class="mx-auto" style="height: 4px; width: 80px; background: #FFD21F; border-radius: 2px;"></div>
+            <h2 class="section-title text-white fw-bold mb-3">KENAPA HARUS MENGIKUTI PROGRAM SMI INI ?</h2>
+            <div class="mx-auto mb-4" style="height: 4px; width: 80px; background: #FFD21F; border-radius: 2px;"></div>
+            <p class="text-white fs-5" style="max-width: 800px; margin: 0 auto;">
+              3 Hal Pokok Fundamental yang Dikuatkan di SMI : <br>
+
+            </p>
           </div>
 
           <div class="row g-4 justify-content-center">
@@ -1431,18 +2049,13 @@
                     <div><i class="fas fa-bullhorn mb-1 d-block fs-3"></i> DIGITAL MARKETING</div>
                   </div>
                   <div class="card-body bg-light-warning px-4 py-4">
-                    <ul class="list-unstyled mb-0 fw-medium text-dark small">
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-warning me-2 mt-1"></i> <span>Menguasai
-                          Meta Ads & TikTok Ads</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-warning me-2 mt-1"></i> <span>Optimasi
-                          marketplace & social media</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-warning me-2 mt-1"></i> <span>Membuat
-                          konten dan copywriting yang menjual</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-warning me-2 mt-1"></i> <span>Membangun
-                          landing page & aset digital</span></li>
-                      <li class="d-flex"><i class="fas fa-check-circle text-warning me-2 mt-1"></i> <span>Memanfaatkan
-                          AI untuk percepat hasil</span></li>
-                    </ul>
+                    <ol class="mb-0 fw-medium text-dark small ps-3">
+                      <li class="mb-2"><span>Menguasai Meta Ads & TikTok Ads</span></li>
+                      <li class="mb-2"><span>Optimasi marketplace & social media</span></li>
+                      <li class="mb-2"><span>Membuat konten dan copywriting yang menjual</span></li>
+                      <li class="mb-2"><span>Membangun landing page & aset digital</span></li>
+                      <li><span>Memanfaatkan AI untuk percepat hasil</span></li>
+                    </ol>
                   </div>
                 </div>
               </div>
@@ -1458,23 +2071,13 @@
                     <div><i class="fas fa-chart-line mb-1 d-block fs-3"></i> BISNIS EXPERT</div>
                   </div>
                   <div class="card-body px-4 py-4" style="background-color: #e0f7f7;">
-                    <ul class="list-unstyled mb-0 fw-medium text-dark small">
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle me-2 mt-1" style="color: #007272;"></i>
-                        <span>Mempelajari 20 Tools Managemen Bisnis</span>
-                      </li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle me-2 mt-1" style="color: #007272;"></i>
-                        <span>Meningkatkan Skill Penjualan</span>
-                      </li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle me-2 mt-1" style="color: #007272;"></i>
-                        <span>Meningkatkan kemampuan Problem Solving</span>
-                      </li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle me-2 mt-1" style="color: #007272;"></i>
-                        <span>Meningkatkan kemampuan Marketing</span>
-                      </li>
-                      <li class="d-flex"><i class="fas fa-check-circle me-2 mt-1" style="color: #007272;"></i>
-                        <span>Meningkatkan kemampuan mengelola Team</span>
-                      </li>
-                    </ul>
+                    <ol class="mb-0 fw-medium text-dark small ps-3">
+                      <li class="mb-2"><span>Mempelajari 20 Tools Managemen Bisnis</span></li>
+                      <li class="mb-2"><span>Meningkatkan Skill Penjualan</span></li>
+                      <li class="mb-2"><span>Meningkatkan kemampuan Problem Solving</span></li>
+                      <li class="mb-2"><span>Meningkatkan kemampuan Marketing</span></li>
+                      <li><span>Meningkatkan kemampuan mengelola Team</span></li>
+                    </ol>
                   </div>
                 </div>
               </div>
@@ -1490,18 +2093,13 @@
                     <div><i class="fas fa-users-cog mb-1 d-block fs-3"></i> LEADERSHIP</div>
                   </div>
                   <div class="card-body px-4 py-4" style="background-color: #f0f4f3;">
-                    <ul class="list-unstyled mb-0 fw-medium text-dark small">
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-dark me-2 mt-1"></i> <span>Membangun
-                          mindset pemenang & mental kuat</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-dark me-2 mt-1"></i> <span>Membentuk
-                          kebiasaan efektif & disiplin</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-dark me-2 mt-1"></i> <span>Meningkatkan
-                          percaya diri dalam memimpin</span></li>
-                      <li class="mb-2 d-flex"><i class="fas fa-check-circle text-dark me-2 mt-1"></i> <span>Mengatur
-                          waktu & fokus lebih terarah</span></li>
-                      <li class="d-flex"><i class="fas fa-check-circle text-dark me-2 mt-1"></i> <span>Menemukan visi &
-                          arah hidup sebagai entrepreneur</span></li>
-                    </ul>
+                    <ol class="mb-0 fw-medium text-dark small ps-3">
+                      <li class="mb-2"><span>Membangun mindset pemenang & mental kuat</span></li>
+                      <li class="mb-2"><span>Membentuk kebiasaan efektif & disiplin</span></li>
+                      <li class="mb-2"><span>Meningkatkan percaya diri dalam memimpin</span></li>
+                      <li class="mb-2"><span>Mengatur waktu & fokus lebih terarah</span></li>
+                      <li><span>Menemukan visi & arah hidup sebagai entrepreneur</span></li>
+                    </ol>
                   </div>
                 </div>
               </div>
@@ -1600,28 +2198,28 @@
           <div class="row mt-5">
      
             <div class="col-md-6 mb-4">
-              <h4 class="fw-bold mb-3">📚 Pembelajaran Di Kelas </h4>
+              <h4 class="fw-bold mb-3">Ã°Å¸â€œÅ¡ Pembelajaran Di Kelas </h4>
               <ul class="list-unstyled" style="font-size: 1.1rem">
-                <li class="mb-2">✅ Mindset Juara & Leadership</li>
-                <li class="mb-2">✅ Manajemen Bisnis</li>
-                <li class="mb-2">✅ Pengelolaan Keuangan</li>
-                <li class="mb-2">✅ Digital Marketing, AI, dan Desain Grafis</li>
-                <li class="mb-2">✅ Karakter Pemenang </li>
-                <li class="mb-2">✅ Akhlaqul Karimah & Adab Islami </li>
+                <li class="mb-2">Ã¢Å“â€¦ Mindset Juara & Leadership</li>
+                <li class="mb-2">Ã¢Å“â€¦ Manajemen Bisnis</li>
+                <li class="mb-2">Ã¢Å“â€¦ Pengelolaan Keuangan</li>
+                <li class="mb-2">Ã¢Å“â€¦ Digital Marketing, AI, dan Desain Grafis</li>
+                <li class="mb-2">Ã¢Å“â€¦ Karakter Pemenang </li>
+                <li class="mb-2">Ã¢Å“â€¦ Akhlaqul Karimah & Adab Islami </li>
               </ul>
             </div>
 
       
             <div class="col-md-6 mb-4">
-              <h4 class="fw-bold mb-3">🛠️ Pembelajaran Lapangan</h4>
+              <h4 class="fw-bold mb-3">Ã°Å¸â€ºÂ Ã¯Â¸Â Pembelajaran Lapangan</h4>
               <ul class="list-unstyled" style="font-size: 1.1rem">
-                <li class="mb-2">✅ Praktek langsung di perusahaan mitra MBC</li>
-                <li class="mb-2">✅ Membuat Project Bisnis</li>
-                <li class="mb-2">✅ Networking Pengusaha</li>
-                <li class="mb-2">✅ Dimentori oleh praktisi berpengalaman</li>
-                <li class="mb-2">✅ Problem Solving & Decision Making</li>
+                <li class="mb-2">Ã¢Å“â€¦ Praktek langsung di perusahaan mitra MBC</li>
+                <li class="mb-2">Ã¢Å“â€¦ Membuat Project Bisnis</li>
+                <li class="mb-2">Ã¢Å“â€¦ Networking Pengusaha</li>
+                <li class="mb-2">Ã¢Å“â€¦ Dimentori oleh praktisi berpengalaman</li>
+                <li class="mb-2">Ã¢Å“â€¦ Problem Solving & Decision Making</li>
                 <li class="mb-2">
-                  ✅ Menjalankan proyek nyata dari awal sampai pitching
+                  Ã¢Å“â€¦ Menjalankan proyek nyata dari awal sampai pitching
                 </li>
               </ul>
             </div>
@@ -1635,230 +2233,6 @@
         </div>
       </section> -->
 
-      <!-- ROADMAP KURIKULUM 6 BULAN -->
-      <section id="roadmap" style="background:#007272; padding:60px 0;">
-        <div class="container text-center">
-
-          <h2 class="fw-bold mb-5" style="color: #FFD21F;">
-            KURIKULUM TERPADU START UP MUSLIM INDONESIA
-          </h2>
-
-          <div class="timeline">
-
-            <!-- NODE 1: BISNIS EXPERT (1-2) -->
-            <div class="fase left">
-              <div class="pin">1</div>
-              <div class="content">
-                <h5 class="fw-bold text-dark">A. BISNIS EXPERT</h5>
-                <hr class="my-2">
-
-                <h6 class="fw-bold mt-3" style="color: #007272;">Modul 1: Validasi Ide & Pasar</h6>
-                <ol class="ps-3 mb-2 small text-muted">
-                  <li>Lean Canvas (Model bisnis 1 halaman)</li>
-                  <li>Customer Persona (Profil pelanggan ideal)</li>
-                  <li>Market Validation Framework (Metode uji pasar)</li>
-                </ol>
-
-                <h6 class="fw-bold mt-3" style="color: #007272;">Modul 2: Desain Produk & MVP</h6>
-                <ol class="ps-3 mb-0 small text-muted">
-                  <li>Value Proposition Canvas (Rancangan nilai produk)</li>
-                  <li>MVP Plan (Rencana produk minimum layak)</li>
-                  <li>Product Roadmap (Peta jalan pengembangan)</li>
-                </ol>
-              </div>
-            </div>
-
-            <!-- NODE 2: BISNIS EXPERT (3-4) -->
-            <div class="fase right">
-              <div class="pin">2</div>
-              <div class="content">
-                <h5 class="fw-bold text-dark">A. BISNIS EXPERT</h5>
-                <hr class="my-2">
-
-                <h6 class="fw-bold mt-3" style="color: #007272;">Modul 3: Model Bisnis & Keuangan</h6>
-                <ol class="ps-3 mb-2 small text-muted">
-                  <li>Business Model Canvas (Canvas model bisnis)</li>
-                  <li>Unit Economics (CAC, CLV) (Analisis unit ekonomi)</li>
-                  <li>Revenue Model Design (Perancangan model pendapatan)</li>
-                </ol>
-
-                <h6 class="fw-bold mt-3" style="color: #007272;">Modul 4: Marketing & Growth</h6>
-                <ol class="ps-3 mb-0 small text-muted">
-                  <li>Marketing Mix 4P/7P (Bauran pemasaran)</li>
-                  <li>Sales Funnel Mapping (Pemetaan saluran penjualan)</li>
-                  <li>Content Strategy Framework (Kerangka strategi konten)</li>
-                </ol>
-              </div>
-            </div>
-
-            <!-- NODE 3: BISNIS EXPERT (5-6) -->
-            <div class="fase left">
-              <div class="pin">3</div>
-              <div class="content">
-                <h5 class="fw-bold text-dark">A. BISNIS EXPERT</h5>
-                <hr class="my-2">
-
-                <h6 class="fw-bold mt-3" style="color: #007272;">Modul 5: Operasional & Eksekusi</h6>
-                <ol class="ps-3 mb-2 small text-muted">
-                  <li>OKR (Objective & Key Results)</li>
-                  <li>KPI Dashboard (Dasbor indikator kinerja)</li>
-                  <li>SOP Builder (Pembangun prosedur operasional standar)</li>
-                </ol>
-
-                <h6 class="fw-bold mt-3" style="color: #007272;">Modul 6: Pitching, Branding & Funding</h6>
-                <ol class="ps-3 mb-0 small text-muted">
-                  <li>Pitch Deck Template (Template presentasi bisnis)</li>
-                  <li>Brand Positioning Map (Peta posisi merek)</li>
-                  <li>Investor Q&A Sheet (Lembar tanya jawab investor)</li>
-                </ol>
-              </div>
-            </div>
-
-            <!-- NODE 4: LITERASI DIGITAL -->
-            <div class="fase right">
-              <div class="pin">4</div>
-              <div class="content">
-                <h5 class="fw-bold text-dark">B. LITERASI DIGITAL</h5>
-                <hr class="my-2">
-                <ol class="ps-3 mb-0 small text-muted">
-                  <li>Meta ads: Facebook dan IG</li>
-                  <li>TikTok ads</li>
-                  <li>Marketplace</li>
-                  <li>Artificial Intelligence (AI)</li>
-                </ol>
-              </div>
-            </div>
-
-            <!-- NODE 5: LEADERSHIP -->
-            <div class="fase left">
-              <div class="pin">5</div>
-              <div class="content">
-                <h5 class="fw-bold text-dark">C. LEADERSHIP</h5>
-                <hr class="my-2">
-                <ol class="ps-3 mb-0 small text-muted">
-                  <li>7 Habits for Highly Effective People</li>
-                  <li>Growth Mindset</li>
-                  <li>Great Mentality</li>
-                  <li>Rich Dad Poor Dad</li>
-                  <li>Ikigai</li>
-                </ol>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <style>
-        .timeline {
-          position: relative;
-          max-width: 1000px;
-          margin: 0 auto;
-          padding: 20px 0;
-        }
-
-        .timeline::after {
-          content: '';
-          position: absolute;
-          width: 4px;
-          background: rgba(255, 255, 255, 0.3);
-          top: 0;
-          bottom: 0;
-          left: 50%;
-          margin-left: -2px;
-        }
-
-        .fase {
-          padding: 20px;
-          position: relative;
-          width: 50%;
-        }
-
-        .fase .content {
-          padding: 25px;
-          background: #fff;
-          border-radius: 12px;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-          text-align: left;
-          border-bottom: 5px solid #FFD21F;
-          transition: transform 0.3s ease;
-        }
-
-        .fase .content:hover {
-          transform: translateY(-5px);
-        }
-
-        .fase ol li {
-          margin-bottom: 6px;
-          line-height: 1.5;
-        }
-
-        .fase .pin {
-          width: 32px;
-          height: 32px;
-          line-height: 32px;
-          text-align: center;
-          font-size: 14px;
-          font-weight: bold;
-          background: #e74c3c;
-          color: #fff;
-          border-radius: 50%;
-          position: absolute;
-          top: 20px;
-          z-index: 1;
-        }
-
-        .fase.left {
-          left: 0;
-        }
-
-        .fase.left .pin {
-          right: -16px;
-        }
-
-        .fase.right {
-          left: 50%;
-        }
-
-        .fase.right .pin {
-          left: -16px;
-        }
-
-        .fase h5 {
-          font-size: 16px;
-          margin-bottom: 6px;
-          color: #e74c3c;
-        }
-
-        .fase ul {
-          padding-left: 18px;
-          margin: 0;
-          font-size: 13px;
-        }
-
-        @media (max-width: 768px) {
-          .timeline::after {
-            left: 20px;
-          }
-
-          .fase {
-            width: 100%;
-            padding-left: 50px;
-            padding-right: 0;
-          }
-
-          .fase.right {
-            left: 0;
-          }
-
-          .fase .pin {
-            left: 0;
-            right: auto;
-          }
-        }
-      </style>
-
-
       <!-- Section Timeline Kegiatan Fitur Kalender -->
       <!-- Section Timeline Kegiatan Fitur Kalender -->
 
@@ -1866,7 +2240,7 @@
       <!-- <section class="py-5" style="background:#f8f9fa;">
   <div class="container">
     <h2 class="fw-bold text-center mb-5 text-danger" style="font-size:2rem;">
-      📅 Kalender Kegiatan Program
+      Ã°Å¸â€œâ€¦ Kalender Kegiatan Program
     </h2>
 
     <div class="calendar-wrapper p-4 bg-white rounded-3 shadow">
@@ -1877,275 +2251,597 @@
 
 
 
-      <!-- FullCalendar & SweetAlert -->
-      <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
-      <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-      <style>
-        /* Kalender container */
-        #calendar {
-          width: 100%;
-          max-width: 100%;
-          margin: 0 auto;
-          padding: 15px;
-          background: #fff;
-          border-radius: 12px;
-        }
-
-        .calendar-wrapper {
-          border: 2px solid #eee;
-        }
-
-        .fc-toolbar-title {
-          font-weight: bold;
-          font-size: 1.5em;
-          color: #25799E;
-        }
-
-        .fc-col-header-cell-cushion {
-          color: #333;
-          font-weight: 600;
-        }
-
-        .fc-daygrid-day-number {
-          color: #444;
-          font-weight: 600;
-        }
-
-        .fc-day-today .fc-daygrid-day-number {
-          border: 2px solid #25799E;
-          border-radius: 50%;
-          padding: 4px 7px;
-          color: white;
-          background-color: #25799E;
-        }
-
-        .fc {
-          font-size: 1em;
-        }
-
-        .fc-event {
-          border-radius: 6px;
-          padding: 3px 6px;
-          font-size: 0.85em;
-        }
-
-        /* Responsive style */
-        @media (max-width: 768px) {
-          .fc-toolbar-title {
-            font-size: 1.2em;
-          }
-
-          .fc {
-            font-size: 0.85em;
-          }
-
-          .calendar-wrapper {
-            padding: 8px;
-          }
-        }
-      </style>
-
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          var calendarEl = document.getElementById('calendar');
-          var calendar = new FullCalendar.Calendar(calendarEl, {
-            locale: 'id',
-            height: 'auto',
-            headerToolbar: {
-              left: 'prev,next today',
-              center: 'title',
-              right: 'dayGridMonth,timeGridWeek,listWeek'
-            },
-
-            dayHeaderFormat: { weekday: 'long' }, //// auto switch
-            events: [
-              {
-                title: 'Orientasi & Ice Breaking',
-                start: '2025-07-01',
-                description: 'Memperkenalkan peserta dengan program dan membangun semangat kebersamaan.'
-              },
-              {
-                title: 'Workshop Mindset Juara',
-                start: '2025-07-08',
-                description: 'Membangun pola pikir positif dan mental juara dalam berbisnis.'
-              },
-              {
-                title: 'Pelatihan Digital Marketing',
-                start: '2025-07-15',
-                description: 'Mengenal strategi pemasaran digital untuk bisnis modern.'
-              },
-              {
-                title: 'Praktek Lapangan 1',
-                start: '2025-07-22',
-                description: 'Mengaplikasikan ilmu yang telah dipelajari di lingkungan bisnis nyata.'
-              },
-              {
-                title: 'Workshop Manajemen Keuangan',
-                start: '2025-07-29',
-                description: 'Belajar mengelola keuangan bisnis dengan efektif dan efisien.'
-              },
-              {
-                title: 'Praktek Lapangan 2',
-                start: '2025-08-05',
-                description: 'Melanjutkan praktek lapangan dengan fokus pada pengelolaan keuangan.'
-              },
-              {
-                title: 'Sesi Mentoring Bisnis',
-                start: '2025-08-12',
-                description: 'Diskusi langsung dengan mentor berpengalaman untuk membahas tantangan bisnis.'
-              },
-              {
-                title: 'Final Project Presentation',
-                start: '2025-08-19',
-                description: 'Presentasi hasil proyek bisnis yang telah dikerjakan selama program.'
-              },
-              {
-                title: 'Graduation & Sertifikat',
-                start: '2025-08-26',
-                description: 'Acara penutupan program dan pemberian sertifikat kelulusan kepada peserta.'
-              }
-            ],
-            eventClick: function (info) {
-              Swal.fire({
-                title: info.event.title,
-                text: info.event.extendedProps.description,
-                icon: 'info',
-                confirmButtonText: 'OK'
-              });
-            },
-            dayCellDidMount: function (info) {
-              if (info.date.getDay() === 0) {
-                info.el.style.backgroundColor = '#ffe5e5';
-              }
-            }
-          });
-
-          calendar.render();
-
-          // Responsive re-render jika layar di-resize
-          window.addEventListener('resize', function () {
-            var newView = window.innerWidth < 768 ? 'listWeek' : 'dayGridMonth';
-            if (calendar.view.type !== newView) {
-              calendar.changeView(newView);
-            }
-          });
-        });
-      </script>
-
-
-
-      <!-- Tabel Transformasi -->
-      <script>
-        function toggleContent() {
-          const content = document.getElementById("more-content");
-          const button = document.getElementById("readMoreBtn");
-          if (content.style.display === "none") {
-            content.style.display = "block";
-            button.innerText = "Sembunyikan";
-          } else {
-            content.style.display = "none";
-            button.innerText = "Lihat Selengkapnya";
-          }
-        }
-      </script>
-
-
-      <section style="background-color: #007272; padding: 60px 0;">
+      <!-- Section: Kenapa Program SMI Cocok -->
+      <section class="smi-comparison py-5" style="background-color: #007272;">
         <div class="container">
-          <div class="row justify-content-center mb-4">
+          <!-- Section Header -->
+          <div class="row justify-content-center mb-5" data-aos="fade-up">
             <div class="col-lg-10 text-center">
-              <h2 class="fw-bold text-warning">
-                Transformasi Kepribadian Peserta yang Akan Terjadi
+              <h2 class="fw-bold text-warning mb-3" style="text-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                KENAPA PROGRAM SMI INI COCOK UNTUK ANDA..??
               </h2>
+              <div class="mx-auto" style="height: 4px; width: 100px; background: #FFD21F; border-radius: 2px;"></div>
             </div>
           </div>
-          <div class="row justify-content-center">
-            <div class="col-lg-10">
-              <div class="table-responsive shadow-lg rounded-4 overflow-hidden">
-                <table class="table mb-0 align-middle custom-table">
-                  <thead>
-                    <tr>
-                      <th class="w-50 text-center py-4 text-white border-0" style="background-color: #13392d;">
-                        <i class="fas fa-user-times fs-2 mb-2 d-block opacity-75"></i>
-                        SEBELUM IKUT PROGRAM
-                      </th>
-                      <th class="w-50 text-center py-4 text-dark bg-warning border-0"
-                        style="background: linear-gradient(135deg, #FFD21F, #FFF59B);">
-                        <i class="fas fa-user-check fs-2 mb-2 d-block text-success"></i>
-                        SETELAH IKUT PROGRAM
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody class="bg-white">
-                    <tr>
-                      <td class="py-3 px-4 text-dark border-bottom border-light">
-                        <i class="fas fa-times-circle text-danger me-2"></i> Belum Tertarik Sama Bisnis
-                      </td>
-                      <td class="py-3 px-4 fw-bold text-dark border-bottom border-warning bg-light-warning">
-                        <i class="fas fa-check-circle text-success me-2"></i> Menjadi Tertarik Dengan Bisnis
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="py-3 px-4 text-muted border-bottom border-light">
-                        <i class="fas fa-times-circle text-danger me-2"></i> Bingung arah hidup
-                      </td>
-                      <td class="py-3 px-4 fw-bold text-dark border-bottom border-warning bg-light-warning">
-                        <i class="fas fa-check-circle text-success me-2"></i> Visioner, punya rencana jangka panjang
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="py-3 px-4 text-muted border-bottom border-light">
-                        <i class="fas fa-times-circle text-danger me-2"></i> Malu & minder
-                      </td>
-                      <td class="py-3 px-4 fw-bold text-dark border-bottom border-warning bg-light-warning">
-                        <i class="fas fa-check-circle text-success me-2"></i> Percaya diri berbicara di depan publik
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="py-3 px-4 text-muted border-bottom border-light">
-                        <i class="fas fa-times-circle text-danger me-2"></i> Tidak paham bisnis
-                      </td>
-                      <td class="py-3 px-4 fw-bold text-dark border-bottom border-warning bg-light-warning">
-                        <i class="fas fa-check-circle text-success me-2"></i> Paham keuangan, SDM, operasional
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="py-3 px-4 text-muted border-bottom border-light">
-                        <i class="fas fa-times-circle text-danger me-2"></i> Sering konflik dengan ortu
-                      </td>
-                      <td class="py-3 px-4 fw-bold text-dark border-bottom border-warning bg-light-warning">
-                        <i class="fas fa-check-circle text-success me-2"></i> Jadi partner diskusi dan pengambil
-                        keputusan
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="py-3 px-4 text-muted border-0">
-                        <i class="fas fa-times-circle text-danger me-2"></i> Gaptek & konsumtif
-                      </td>
-                      <td class="py-3 px-4 fw-bold text-dark border-0 bg-light-warning">
-                        <i class="fas fa-check-circle text-success me-2"></i> Melek AI, digital marketing, dan punya
-                        portofolio nyata
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+
+          <!-- Comparison Table Card -->
+          <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-11 col-xl-10">
+              <div class="comparison-card shadow-lg overflow-hidden rounded-4 bg-white">
+                <div class="table-responsive">
+                  <table class="table mb-0 align-middle custom-table">
+                    <thead>
+                      <tr>
+                        <!-- Before Header -->
+                        <th class="w-50 text-center py-4 text-white border-0 position-relative"
+                          style="background-color: #13392d;">
+                          <div
+                            class="header-badge mb-2 bg-white text-dark d-inline-block px-3 py-1 rounded-pill fw-bold shadow-sm"
+                            style="font-size: 0.8rem;">MASALAH</div>
+                          <div class="fs-4 fw-bold">SEBELUM IKUT SMI</div>
+                          <span class="d-block mt-1 text-white-50" style="font-size: 0.85rem;">(KONDISI TEKNIS
+                            PESERTA)</span>
+                        </th>
+                        <!-- After Header -->
+                        <th class="w-50 text-center py-4 text-dark border-0 position-relative"
+                          style="background: linear-gradient(135deg, #FFD21F 0%, #fff176 100%);">
+                          <div
+                            class="header-badge mb-2 bg-dark text-white d-inline-block px-3 py-1 rounded-pill fw-bold shadow-sm"
+                            style="font-size: 0.8rem;">SOLUSI</div>
+                          <div class="fs-4 fw-bold">SETELAH IKUT SMI</div>
+                          <span class="d-block mt-1 text-dark-50" style="font-size: 0.85rem;">(HASIL TEKNIS &
+                            TERUKUR)</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white">
+
+                      <!-- === 1. Digital Marketing === -->
+                      <tr class="category-header">
+                        <td colspan="2" class="px-4 py-3 bg-light border-bottom border-secondary">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <span class="badge bg-primary rounded-circle p-2 me-2 shadow-sm fs-6"
+                              style="width:35px; height:35px; display:flex; align-items:center; justify-content:center;">1</span>
+                            <h5 class="fw-bold m-0 text-primary">Digital Marketing</h5>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- Row 1 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top position-relative">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">1.</span>
+                            <span class="text-secondary">Posting asal rajin, tapi <strong
+                                class="text-danger bg-danger-soft px-1">tidak tahu tujuan konten</strong></span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">1.</span>
+                            <span class="fw-medium">Paham <strong class="text-dark">tujuan tiap konten</strong>
+                              (branding, edukasi, closing)</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Row 2 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">2.</span>
+                            <span class="text-secondary">Tidak paham <strong
+                                class="text-danger bg-danger-soft px-1">funnel</strong>
+                              (awareness-consideration-closing)</span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">2.</span>
+                            <span class="fw-medium">Bisa menyusun <strong class="text-dark">content funnel</strong> yang
+                              efektif</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Row 3 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">3.</span>
+                            <span class="text-secondary">Tidak bisa baca <strong
+                                class="text-danger bg-danger-soft px-1">insight IG/TikTok/Ads</strong></span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">3.</span>
+                            <span class="fw-medium">Mengerti <strong class="text-dark">basic ads: target audiens, copy,
+                                CTA</strong></span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Row 4 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">4.</span>
+                            <span class="text-secondary">Leads masuk sedikit, <strong
+                                class="text-danger bg-danger-soft px-1">tidak tahu kenapa</strong></span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">4.</span>
+                            <span class="fw-medium">Bisa membaca <strong class="text-dark">data & insight</strong> untuk
+                              perbaikan</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="border-bottom">
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">5.</span>
+                            <span class="text-secondary">Mengira digital marketing = "viral"</span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">5.</span>
+                            <span class="fw-medium">Punya <strong class="text-dark">aset digital nyata</strong> (konten,
+                              landing, database)</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Quote Footer -->
+
+
+                      <!-- === 2. Sales & Marketing === -->
+                      <tr class="category-header">
+                        <td colspan="2" class="px-4 py-3 bg-light border-bottom border-secondary border-top-0">
+                          <div class="d-flex align-items-center justify-content-center mt-3">
+                            <span class="badge bg-danger rounded-circle p-2 me-2 shadow-sm fs-6"
+                              style="width:35px; height:35px; display:flex; align-items:center; justify-content:center;">2</span>
+                            <h5 class="fw-bold m-0 text-danger">BISNIS EXPERT</h5>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Row 1 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">1.</span>
+                            <span class="text-secondary">Jualan pakai <strong
+                                class="text-danger bg-danger-soft px-1">harga dan diskon</strong>, bukan value</span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">1.</span>
+                            <span class="fw-medium">Punya <strong class="text-dark">alur penjualan jelas</strong></span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Row 2 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">2.</span>
+                            <span class="text-secondary">Tidak punya <strong
+                                class="text-danger bg-danger-soft px-1">script closing</strong></span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">2.</span>
+                            <span class="fw-medium">Menguasai <strong class="text-dark">script presentasi &
+                                closing</strong></span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Row 3 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">3.</span>
+                            <span class="text-secondary">Follow up asal, tidak terstruktur</span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">3.</span>
+                            <span class="fw-medium">Bisa mengelola database & follow up</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Row 4 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">4.</span>
+                            <span class="text-secondary">Tidak bisa bedakan <strong
+                                class="text-danger bg-danger-soft px-1">prospek panas vs dingin</strong></span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">4.</span>
+                            <span class="fw-medium">Tahu cara <strong class="text-dark">naikkan conversion</strong>,
+                              bukan cuma traffic</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="border-bottom">
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">5.</span>
+                            <span class="text-secondary">Takut nawarin produk sendiri</span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">5.</span>
+                            <span class="fw-medium">Berani jualan karena paham value produk</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Quote Footer -->
+
+
+                      <!-- === 3. Leadership === -->
+                      <tr class="category-header">
+                        <td colspan="2" class="px-4 py-3 bg-light border-bottom border-secondary border-top-0">
+                          <div class="d-flex align-items-center justify-content-center mt-3">
+                            <span class="badge bg-dark rounded-circle p-2 me-2 shadow-sm fs-6"
+                              style="width:35px; height:35px; display:flex; align-items:center; justify-content:center;">3</span>
+                            <h5 class="fw-bold m-0 text-dark">Leadership</h5>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Row 1 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">1.</span>
+                            <span class="text-secondary">Semua dikerjakan sendiri <span class="small text-muted">(one
+                                man show)</span></span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">1.</span>
+                            <span class="fw-medium">Bisa membagi peran & tanggung jawab</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Row 2 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">2.</span>
+                            <span class="text-secondary">Sulit ambil keputusan, ragu-ragu</span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">2.</span>
+                            <span class="fw-medium">Berani ambil keputusan berbasis data & tujuan</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Row 3 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">3.</span>
+                            <span class="text-secondary">Komunikasi ke tim tidak jelas</span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">3.</span>
+                            <span class="fw-medium">Komunikasi lebih tegas dan jelas</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Row 4 -->
+                      <tr>
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">4.</span>
+                            <span class="text-secondary">Emosi naik turun saat bisnis seret</span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">4.</span>
+                            <span class="fw-medium">Mental lebih stabil saat bisnis naik-turun</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="border-bottom">
+                        <td class="p-4 border-end border-light align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-danger me-3 fs-5">5.</span>
+                            <span class="text-secondary">Tidak punya sistem kerja, hanya niat</span>
+                          </div>
+                        </td>
+                        <td class="p-4 bg-success-soft align-top">
+                          <div class="d-flex">
+                            <span class="fw-bold text-success me-3 fs-5">5.</span>
+                            <span class="fw-medium">Mulai membangun <strong class="text-dark">bisnis yang bisa jalan
+                                tanpa dia</strong></span>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Quote Footer -->
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Mobile Stacked View (New) -->
+              <div class="d-none">
+
+                <!-- 1. Digital Marketing -->
+                <div class="bg-white rounded-4 shadow-sm mb-4 overflow-hidden border">
+                  <div class="p-3 text-center" style="background-color: #e3f2fd;">
+                    <span class="badge bg-primary rounded-circle mb-2"
+                      style="width:32px; height:32px; line-height:23px; font-size:16px;">1</span>
+                    <h5 class="text-primary fw-bold mb-0">Digital Marketing</h5>
+                  </div>
+                  <div class="p-3">
+                    <!-- Item 1 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #ffebee;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">1.</span> <span>Posting asal rajin,
+                            tapi <strong class="text-danger">tidak tahu tujuan konten</strong></span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">1.</span> <span>Paham tujuan tiap
+                            konten (branding, edukasi, closing)</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #ffebee;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">2.</span> <span>Tidak paham <strong
+                              class="text-danger">funnel</strong> (awareness-consideration-closing)</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">2.</span> <span>Bisa menyusun
+                            content funnel yang efektif</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #ffebee;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">3.</span> <span>Tidak bisa baca
+                            <strong class="text-danger">insight IG/TikTok/Ads</strong></span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">3.</span> <span>Mengerti basic ads:
+                            target audiens, copy, CTA</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #ffebee;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">4.</span> <span>Leads masuk sedikit,
+                            <strong class="text-danger">tidak tahu kenapa</strong></span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">4.</span> <span>Bisa membaca data &
+                            insight untuk perbaikan</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="mb-2">
+                      <div class="p-2 mb-2 rounded" style="background-color: #ffebee;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">5.</span> <span>Mengira digital
+                            marketing = "viral"</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">5.</span> <span>Punya aset digital
+                            nyata (konten, landing, database)</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. Sales & Marketing -->
+                <div class="bg-white rounded-4 shadow-sm mb-4 overflow-hidden border">
+                  <div class="p-3 text-center" style="background-color: #ffebee;">
+                    <span class="badge bg-danger rounded-circle mb-2"
+                      style="width:32px; height:32px; line-height:23px; font-size:16px;">2</span>
+                    <h5 class="text-danger fw-bold mb-0">BISNIS EXPERT</h5>
+                  </div>
+                  <div class="p-3">
+                    <!-- Item 1 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #fff8f8;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">1.</span> <span>Jualan pakai <strong
+                              class="text-danger">harga dan diskon</strong>, bukan value</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">1.</span> <span>Punya alur penjualan
+                            jelas</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #fff8f8;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">2.</span> <span>Tidak punya <strong
+                              class="text-danger">script closing</strong></span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">2.</span> <span>Menguasai script
+                            presentasi & closing</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #fff8f8;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">3.</span> <span>Follow up asal, tidak
+                            terstruktur</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">3.</span> <span>Bisa mengelola
+                            database & follow up</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #fff8f8;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">4.</span> <span>Tidak bisa bedakan
+                            <strong class="text-danger">prospek panas vs dingin</strong></span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">4.</span> <span>Tahu cara naikkan
+                            conversion, bukan cuma traffic</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="mb-2">
+                      <div class="p-2 mb-2 rounded" style="background-color: #fff8f8;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">5.</span> <span>Takut nawarin produk
+                            sendiri</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">5.</span> <span>Berani jualan karena
+                            paham value produk</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. Leadership -->
+                <div class="bg-white rounded-4 shadow-sm mb-4 overflow-hidden border">
+                  <div class="p-3 text-center" style="background-color: #eeeeee;">
+                    <span class="badge bg-dark rounded-circle mb-2"
+                      style="width:32px; height:32px; line-height:23px; font-size:16px;">3</span>
+                    <h5 class="text-dark fw-bold mb-0">Leadership</h5>
+                  </div>
+                  <div class="p-3">
+                    <!-- Item 1 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #f5f5f5;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">1.</span> <span>Semua dikerjakan
+                            sendiri (one man show)</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">1.</span> <span>Bisa membagi peran &
+                            tanggung jawab</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #f5f5f5;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">2.</span> <span>Sulit ambil
+                            keputusan, ragu-ragu</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">2.</span> <span>Berani ambil
+                            keputusan berbasis data & tujuan</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #f5f5f5;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">3.</span> <span>Komunikasi ke tim
+                            tidak jelas</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">3.</span> <span>Komunikasi lebih
+                            tegas dan jelas</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="mb-4">
+                      <div class="p-2 mb-2 rounded" style="background-color: #f5f5f5;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">4.</span> <span>Emosi naik turun saat
+                            bisnis seret</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">4.</span> <span>Mental lebih stabil
+                            saat bisnis naik-turun</span></div>
+                      </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="mb-2">
+                      <div class="p-2 mb-2 rounded" style="background-color: #f5f5f5;">
+                        <div class="fw-bold text-danger small mb-1">MASALAH (SEBELUM)</div>
+                        <div class="d-flex"><span class="fw-bold text-danger me-2">5.</span> <span>Tidak punya sistem
+                            kerja, hanya niat</span></div>
+                      </div>
+                      <div class="p-2 rounded border border-success" style="background-color: #e8f5e9;">
+                        <div class="fw-bold text-success small mb-1">SOLUSI (SESUDAH)</div>
+                        <div class="d-flex"><span class="fw-bold text-success me-2">5.</span> <span>Mulai membangun
+                            bisnis yang bisa jalan tanpa dia</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
+
           <style>
-            .bg-light-warning {
-              background-color: #fffbef !important;
+            .bg-danger-soft {
+              background-color: rgba(220, 53, 69, 0.1);
+              border-radius: 4px;
             }
 
-            .custom-table tr:hover td {
-              background-color: rgba(0, 0, 0, 0.02);
-              transition: background-color 0.3s;
+            .bg-success-soft {
+              background-color: #f0fff4 !important;
             }
 
-            .custom-table tr:hover td.bg-light-warning {
-              background-color: #fff5cc !important;
+            /* Default Desktop Style */
+            .custom-table th,
+            .custom-table td {
+              width: 50%;
+            }
+
+            /* Stacked Mobile Style */
+            /* Stacked Mobile Style - DISABLED to match Desktop Table */
+            @media (max-width: 768px) {
+
+              /* Section Title Adjustment */
+              .smi-comparison h2 {
+                font-size: 1.4rem;
+              }
+
+              /* We want the table to be exactly like desktop, so we rely on .table-responsive horizontal scroll.
+                 We REMOVE all custom stacking logic that breaks the table layout. */
             }
           </style>
         </div>
@@ -2199,7 +2895,7 @@
         transform: scale(1);
       }
     }
-/* ⚡ Efek elegan dominan putih untuk Seat Terbatas */
+/* Ã¢Å¡Â¡ Efek elegan dominan putih untuk Seat Terbatas */
 .seat-terbatas {
   position: relative;
   display: inline-block;
@@ -2216,7 +2912,7 @@
   animation: glowWhite 2.5s ease-in-out infinite, floatUp 4s ease-in-out infinite;
 }
 
-/* ✨ Efek berpendar putih lembut dengan aksen lemon & cyan */
+/* Ã¢Å“Â¨ Efek berpendar putih lembut dengan aksen lemon & cyan */
 @keyframes glowWhite {
   0% {
     text-shadow:
@@ -2244,7 +2940,7 @@
   }
 }
 
-/* 🌬️ Sedikit efek floating lembut */
+/* Ã°Å¸Å’Â¬Ã¯Â¸Â Sedikit efek floating lembut */
 @keyframes floatUp {
   0%, 100% {
     transform: translateY(0);
@@ -2254,7 +2950,7 @@
   }
 }
 
-/* 🌫️ Refleksi putih samar di bawah teks */
+/* Ã°Å¸Å’Â«Ã¯Â¸Â Refleksi putih samar di bawah teks */
 .seat-terbatas::after {
   content: attr(data-text);
   position: absolute;
@@ -2276,14 +2972,14 @@
 
   <div class="text-center text-white">
     <p>
-      💰 Biaya Masuk:
+      Ã°Å¸â€™Â° Biaya Masuk:
       <strong>
         <span class="strike-red">Rp15.000.000</span>
-        ➜ <span class="gratis-text">GRATIS!</span>
+        Ã¢Å¾Å“ <span class="gratis-text">GRATIS!</span>
       </strong>
     </p>
 
-    <p>📈 SPP Bulanan: <strong class="text-warning">Rp2.500.000 x 6 bulan</strong></p>
+    <p>Ã°Å¸â€œË† SPP Bulanan: <strong class="text-warning">Rp2.500.000 x 6 bulan</strong></p>
    
 
     <p><strong class="seat-terbatas"> SEAT TERBATAS!</strong></p>
@@ -2294,60 +2990,240 @@
   </div>
 </section> -->
 
-
-
-
-
       <!-- Testimoni -->
-      <!-- <section id="testimoni" class="py-5 bg-light">
-        <div class="container">
-          <h2 class="text-center mb-5" style="color: #007272; font-weight: 800;">
-            <i class="bi bi-chat-dots-fill text-warning me-2"></i> Testimoni Peserta
-          </h2>
+      <!-- ===== KURIKULUM DOWNLOAD SECTION ===== -->
+      <section class="py-5" style="background-color: #f7f9fc;">
+        <div class="container" data-aos="fade-up">
+          <div class="rounded-5 p-4 p-md-5 position-relative overflow-hidden shadow-lg"
+            style="background: linear-gradient(135deg, #0b2e23 0%, #007272 100%);">
 
-          <div class="row justify-content-center gy-4">
 
-            <div class="col-md-4">
-              <div class="instagram-card p-3 rounded-4 shadow-sm bg-white h-100">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQ1V6hHE5pQ/"
-                  data-instgrm-version="14"
-                  style="background:#fff; border:0; margin:0 auto; width:100%; max-width:100%;">
-                </blockquote>
+            <div class="position-absolute rounded-circle bg-white opacity-10"
+              style="width: 300px; height: 300px; top: -100px; right: -50px; opacity: 0.1;"></div>
+            <div class="position-absolute rounded-circle bg-white opacity-10"
+              style="width: 150px; height: 150px; bottom: -30px; left: 50px; opacity: 0.1;"></div>
+
+            <div class="row align-items-center position-relative z-index-1">
+              <!-- Text Content -->
+              <div class="col-lg-7 text-white text-center text-lg-start mb-4 mb-lg-0">
+                <h2 class="fw-bold display-6 mb-3">Kurikulum Kampus Start-Up Muslim Indonesia</h2>
+                <p class="fs-5 mb-4 opacity-100" style="max-width: 600px; margin: 0 auto 1.5rem 0;">
+                  Dapatkan panduan lengkap materi dan kurikulum yang akan Anda pelajari dalam program ini.
+                </p>
+                <a href="krs.pdf"
+                  class="btn btn-light text-warning fw-bold rounded-pill px-4 py-3 shadow-lg btn-download-hover d-inline-flex align-items-center justify-content-center">
+                  <i class="fas fa-file-pdf me-2 fs-5 text-danger"></i>
+                  <span class="text-danger"> KRS SMI PDF</span>
+                </a>
               </div>
-            </div>
 
-
-            <div class="col-md-4">
-              <div class="instagram-card p-3 rounded-4 shadow-sm bg-white h-100">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DOx0AfKk075/"
-                  data-instgrm-version="14"
-                  style="background:#fff; border:0; margin:0 auto; width:100%; max-width:100%;">
-                </blockquote>
-              </div>
-            </div>
-
- 
-            <div class="col-md-4">
-              <div class="instagram-card p-3 rounded-4 shadow-sm bg-white h-100">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQusNZOk168/"
-                  data-instgrm-version="14"
-                  style="background:#fff; border:0; margin:0 auto; width:100%; max-width:100%;">
-                </blockquote>
+              <!-- Image Content -->
+              <div class="col-lg-5 text-center position-relative">
+                <div class="brochure-container" data-aos="zoom-in" data-aos-delay="100">
+                  <!-- Visual representation of a document/brochure -->
+                  <div class="bg-white p-2 rounded-3 shadow-lg d-inline-block" style="transform: rotate(-3deg);">
+                    <img src="img/logosmi_new.png" alt="KRS SMI" class="img-fluid rounded-2"
+                      style="max-height: 250px; width: auto; object-fit: contain; background: #fff;">
+                    <div class="mt-2 text-dark fw-bold small">KRS SMI </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
+
+      <style>
+        .btn-download-hover {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-download-hover:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+        }
+      </style>
+
+      <!-- ===== TESTIMONI PREMIUM (BENTO GRID) ===== -->
+      <!-- <section id="testimoni" class="py-5"
+        style="background-color: #0b2e23; background-image: none; color: white; overflow: hidden;">
+        <div class="container" data-aos="fade-up">
+
+          <div class="row mb-5 justify-content-center text-center">
+            <div class="col-lg-12">
+              <h2 class="display-5 fw-bold text-white mb-3" style="letter-spacing: -1px;">Testimoni Peserta yang Telah
+                Ikut SMI</h2>
+            </div>
+          </div>
+
+
+          <div class="row g-4 align-items-stretch">
+
+
+            <div class="col-lg-6">
+              <div class="card border-0 rounded-5 h-100 position-relative overflow-hidden"
+                style="background: linear-gradient(145deg, #FFD21F 0%, #ffc107 100%);">
+
+                <div class="position-absolute bottom-0 end-0 p-0" style="opacity: 0.1; transform: translate(20%, 20%);">
+                  <i class="fas fa-bullhorn" style="font-size: 15rem; color: #000;"></i>
+                </div>
+
+                <div class="card-body p-5 d-flex flex-column justify-content-between position-relative z-1">
+
+                  <div class="mb-4">
+                    <span class="badge bg-black text-warning rounded-pill px-3 py-2 fs-6 fw-bold">
+                      <i class="fas fa-laptop-code me-2"></i> DIGITAL MARKETING
+                    </span>
+                  </div>
+
+
+                  <div class="mb-5">
+                    <h3 class="fw-bold text-black mb-3" style="font-size: 2.2rem; line-height: 1.2;">"Iklan Boncos Jadi
+                      Profit 10x Lipat!"</h3>
+                    <p class="text-black fw-medium lead" style="line-height: 1.6; font-size: 1.1rem;">
+                      "Dulu buta soal Ads, asal posting sepi orderan. Di SMI diajarkan <strong>Meta Ads &
+                        Funneling</strong> yang benar. Sekarang lead masuk otomatis ribuan per bulan, ROAS stabil di
+                      angka 10."
+                    </p>
+                  </div>
+
+                  <div class="d-flex align-items-center bg-white bg-opacity-25 p-3 rounded-4 backdrop-blur shadow-sm">
+                    <img src="img/persona-startup.png" class="rounded-circle border border-2 border-black" width="56"
+                      height="56" style="object-fit: cover;" alt="User">
+                    <div class="ms-3 lh-1">
+                      <h6 class="fw-bold text-black mb-1">Rizky Perdana</h6>
+                      <small class="text-black fw-bold opacity-75" style="font-size: 0.85rem;">Brand Owner
+                        Fashion</small>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="d-flex flex-column gap-4 h-100">
+
+
+                <div class="card border-0 rounded-5 bg-white text-dark shadow-lg flex-fill">
+                  <div class="card-body p-4 p-xl-5 d-flex flex-column justify-content-center position-relative">
+
+                    <div class="position-absolute top-0 end-0 m-4 text-teal opacity-10">
+                      <i class="fas fa-chart-line fa-4x"></i>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                      <span class="badge bg-teal text-white rounded-pill px-3 py-2">SALES MARKETING</span>
+                      <div class="text-warning small ms-auto">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                          class="fas fa-star"></i><i class="fas fa-star"></i>
+                      </div>
+                    </div>
+
+                    <h4 class="fw-bold text-teal mb-2">"Tim Sales Jadi Mesin Closing"</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.6;">
+                      "Setelah terapkan <strong>Script Closing & KPI</strong> dari SMI, conversion rate tim naik
+                      drastis. Mereka jadi PD jualan tanpa perang harga."
+                    </p>
+
+                    <div class="d-flex align-items-center mt-auto">
+                      <div
+                        class="bg-teal text-white rounded-circle d-flex align-items-center justify-content-center fw-bold fs-5 shadow-sm"
+                        style="width: 48px; height: 48px;">RF</div>
+                      <div class="ms-3 lh-1">
+                        <div class="fw-bold text-dark mb-1">Rina Fajria</div>
+                        <div class="small text-muted fw-bold">Manager Properti</div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+
+                <div class="card border-0 rounded-5 text-white shadow-lg flex-fill"
+                  style="background: linear-gradient(135deg, #1f4d3d 0%, #112e24 100%);">
+                  <div class="card-body p-4 p-xl-5 d-flex flex-column justify-content-center position-relative">
+
+
+                    <div class="position-absolute top-0 end-0 m-4 text-white opacity-10">
+                      <i class="fas fa-crown fa-4x"></i>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                      <span class="badge bg-white text-dark rounded-pill px-3 py-2">LEADERSHIP</span>
+                    </div>
+
+                    <h4 class="fw-bold text-warning mb-2">"Dari 'One Man Show' Jadi CEO"</h4>
+                    <p class="text-white-50 mb-4" style="line-height: 1.6;">
+                      "Membangun <strong>Super Team</strong> yang solid adalah kunci. Sekarang bisnis jalan tanpa saya
+                      harus nungguin toko 24 jam. Terima kasih SMI."
+                    </p>
+
+                    <div class="d-flex align-items-center mt-auto">
+                      <img src="img/persona-muslim.png" class="rounded-circle border border-white" width="48"
+                        height="48" style="object-fit: cover;" alt="User">
+                      <div class="ms-3 lh-1">
+                        <div class="fw-bold text-white mb-1">Hendra Wijaya</div>
+                        <div class="small text-white-50 fw-bold">Founder Tech Startup</div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
       </section> -->
+
+      <style>
+        .backdrop-blur {
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+        }
+
+        .text-teal {
+          color: #007272;
+        }
+
+        .bg-teal {
+          background-color: #007272;
+        }
+
+        /* Font Improve */
+        #testimoni h3,
+        #testimoni h4,
+        #testimoni h5 {
+          letter-spacing: -0.5px;
+        }
+
+        #testimoni p strong {
+          font-weight: 800;
+        }
+      </style>
+
+      <style>
+        .text-light-teal {
+          color: rgba(0, 114, 114, 0.2);
+        }
+
+        .bg-teal {
+          background-color: #007272;
+        }
+
+        .text-teal {
+          color: #007272;
+        }
+      </style>
 
       <!-- Instagram Embed Script -->
       <script async src="https://www.instagram.com/embed.js"></script>
 
       <!-- CSS tambahan -->
       <style>
-        #testimoni {
-          background: linear-gradient(180deg, #f9ffff, #e7f9f9);
-        }
-
         .instagram-card {
           transition: all 0.3s ease;
         }
@@ -2407,9 +3283,39 @@
 
       <!-- FAQ Section -->
       <section id="faq" class="faq-section py-5">
+        <!-- ===== TESTIMONI ALUMNI ===== -->
+
+
+        <style>
+          .text-teal {
+            color: #007272 !important;
+          }
+
+          .bg-gradient-teal {
+            background: linear-gradient(135deg, #007272, #004d4d);
+          }
+
+          .bg-gradient-gold {
+            background: linear-gradient(135deg, #FFD21F, #e6b800);
+          }
+
+          .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+
+          .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 114, 114, 0.15) !important;
+          }
+
+          .letter-spacing-2 {
+            letter-spacing: 2px;
+          }
+        </style>
+
         <div class="container">
           <h2 class="section-title text-center mb-4" data-aos="fade-up">
-            FAQ – Startup Muslim Indonesia
+            FAQ Startup Muslim Indonesia
           </h2>
 
           <div class="accordion" id="faqAccordion">
@@ -2428,7 +3334,7 @@
                   <ol class="mb-0" style="padding-left: 1.2rem;">
                     <li class="mb-2">Mahasiswa/Sarjana Baru, Semester akhir (5+) atau <em>fresh graduate</em> yang minat
                       bisnis, punya ide/kegiatan bisnis kecil, serta aktif digital.</li>
-                    <li class="mb-2">Pengusaha/Pebisnis Pemula/UMKM yang sudah menjalankan usaha 1–3 tahun
+                    <li class="mb-2">Pengusaha/Pebisnis Pemula/UMKM yang sudah menjalankan usaha 3 tahun
                       (online/offline) dan ingin bisnisnya naik kelas.</li>
                     <li>Anak Muda dari Latar Keluarga Pebisnis/Pengusaha yang diharapkan meneruskan atau mengembangkan
                       bisnis keluarga.</li>
@@ -2448,7 +3354,7 @@
               <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faqHeading2"
                 data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Bisa banget 👍. Program ini membantu kamu menemukan ide bisnis, memvalidasinya, lalu memandu
+                  Bisa banget Program ini membantu kamu menemukan ide bisnis, memvalidasinya, lalu memandu
                   langkah-langkah membangun bisnis dari nol.
                 </div>
               </div>
@@ -2483,7 +3389,7 @@
               <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faqHeading4"
                 data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Lebih banyak praktik 💪. Kamu akan dibimbing step-by-step, membuat proyek bisnis nyata, bahkan
+                  Lebih banyak praktik Kamu akan dibimbing step-by-step, membuat proyek bisnis nyata, bahkan
                   presentasi hasilnya di akhir program.
                 </div>
               </div>
@@ -2535,7 +3441,7 @@
               <div id="faq7" class="accordion-collapse collapse" aria-labelledby="faqHeading7"
                 data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Ya ✅. Kamu akan mendapat <em>Sertifikat Startup Muda Indonesia</em> yang bisa menjadi nilai tambah
+                  Ya Kamu akan mendapat <em>Sertifikat Startup Muslim Indonesia</em> yang bisa menjadi nilai tambah
                   untuk karier maupun usaha.
                 </div>
               </div>
@@ -2552,8 +3458,8 @@
               <div id="faq8" class="accordion-collapse collapse" aria-labelledby="faqHeading8"
                 data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Ada 🚀. Peserta otomatis masuk ke <em>komunitas alumni Startup Muda Indonesia</em> yang isinya anak
-                  muda visioner, tempat kolaborasi, networking, dan peluang bisnis baru.
+                  Ada Peserta otomatis masuk ke <em>komunitas alumni Startup Muslim Indonesia</em> yang isinya
+                  anak muda visioner, tempat kolaborasi, networking, dan peluang bisnis baru.
                 </div>
               </div>
             </div>
@@ -2586,7 +3492,8 @@
               <div id="faq10" class="accordion-collapse collapse" aria-labelledby="faqHeading10"
                 data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Klik tombol <strong>“Daftar Sekarang”</strong> di website ini, isi data singkat, lalu tim kami akan
+                  Klik tombol <strong>Daftar Sekarang</strong> di website ini, isi data singkat, lalu tim kami
+                  akan
                   menghubungi untuk konfirmasi dan panduan pembayaran.
                 </div>
               </div>
@@ -2696,8 +3603,8 @@
           <p style="font-weight: 600;">Klik tombol di bawah ini untuk konsultasi & pendaftaran:</p>
           <br>
           <!-- Tombol WA Admin Tursia -->
-          <!-- ✅ TOMBOL HUBUNGI ADMIN -->
-          <a href="#" id="hubungiAdminBtn"
+          <!-- Ã¢Å“â€¦ TOMBOL HUBUNGI ADMIN -->
+          <a href="javascript:void(0)" id="hubungiAdminBtn"
             class="cta-btn btn btn-success text-white fw-bold mb-2 w-80 d-inline-flex align-items-center justify-content-center gap-2"
             style="position: relative; overflow: hidden; border-radius: 12px; transition: 0.3s;">
             <i class="fa fa-whatsapp"></i>
@@ -2707,57 +3614,62 @@
           <br>
 
 
-          <!-- ✅ SCRIPT -->
+          <!-- Ã¢Å“â€¦ SCRIPT -->
           <script>
-            // Data admin WhatsApp
-            const admin = [
-              {
-                name: "Tursia",
-                phone: "6289602697425",
-                message: "Hallo Kak Tursia, saya mau Konsultasi Program Startup Muda yaa kak"
-              },
-              {
-                name: "Latifah",
-                phone: "6289525742386",
-                message: "Hallo Kak Latifah, saya mau Konsultasi Program Startup Muda yaa kak"
-              }
-            ];
-
             const hubungiAdminBtn = document.getElementById("hubungiAdminBtn");
 
             hubungiAdminBtn.addEventListener("click", function (e) {
               e.preventDefault();
+              e.stopPropagation();
 
               // Animasi shimmer aktif
               hubungiAdminBtn.classList.add("active");
 
-              // Ambil admin terakhir
-              let lastClicked = localStorage.getItem("lastAdmin");
-              let nextAdmin = lastClicked === "Tursia" ? admins[1] : admins[0];
+              // Fallback logic in case global var missing
+              let waList = window.waAdmins;
+              if (!waList || waList.length === 0) {
+                waList = [
+                  { name: "Linda", phone: "628561490495", message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak   " },
+                  { name: "Yasmin", phone: "62882008421508", message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak   " },
+                  { name: "Puput", phone: "6289602710354", message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak   " },
+                  { name: "Qiyya", phone: "6285725113721", message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak   " },
+                  { name: "Awan", phone: "6289525742386", message: "Halo kak, Saya mau konsultasi program Start Up Muslim Indonesia ya Kak   " }
+                ];
+              }
 
-              // Simpan admin yang baru
-              localStorage.setItem("lastAdmin", nextAdmin.name);
+              // Logic Rotasi
+              let lastIndex = parseInt(localStorage.getItem("lastAdminIndex"));
+              if (isNaN(lastIndex)) {
+                lastIndex = -1;
+              }
+              let nextIndex = (lastIndex + 1) % waList.length;
+              let nextAdmin = waList[nextIndex];
+              localStorage.setItem("lastAdminIndex", nextIndex);
 
               // Ubah teks sementara
-              hubungiAdminBtn.querySelector("span").textContent = `Menghubungi ${nextAdmin.name}...`;
+              const spanText = hubungiAdminBtn.querySelector("span");
+              if (spanText) spanText.textContent = `Menghubungi ${nextAdmin.name}...`;
 
               // Animasi rotasi ikon
               const icon = hubungiAdminBtn.querySelector("i");
-              icon.style.transition = "transform 0.6s ease";
-              icon.style.transform = "rotate(360deg)";
+              if (icon) {
+                icon.style.transition = "transform 0.6s ease";
+                icon.style.transform = "rotate(360deg)";
+              }
 
               // Arahkan ke WhatsApp
               const waLink = `https://api.whatsapp.com/send?phone=${nextAdmin.phone}&text=${encodeURIComponent(nextAdmin.message)}`;
+
               setTimeout(() => {
                 window.open(waLink, "_blank");
-                hubungiAdminBtn.querySelector("span").textContent = "Hubungi Admin";
-                icon.style.transform = "rotate(0deg)";
+                if (spanText) spanText.textContent = "Hubungi Admin";
+                if (icon) icon.style.transform = "rotate(0deg)";
                 hubungiAdminBtn.classList.remove("active");
               }, 800);
             });
           </script>
 
-          <!-- ✅ CSS ANIMASI -->
+          <!-- Ã¢Å“â€¦ CSS ANIMASI -->
           <style>
             .cta-btn {
               background-color: #25d366;
@@ -2772,7 +3684,7 @@
               transform: translateY(-2px);
             }
 
-            /* ✨ Efek shimmer */
+            /* Ã¢Å“Â¨ Efek shimmer */
             .cta-btn .shimmer {
               content: "";
               position: absolute;
@@ -3078,24 +3990,7 @@
       <script src="script.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
       <script>
-        // Dropdown toggle on click (bukan hover)
-        document
-          .querySelectorAll(".nav-item.dropdown .nav-link")
-          .forEach(function (el) {
-            el.addEventListener("click", function (e) {
-              e.preventDefault();
-              let dropdown = el.nextElementSibling;
-              let isShown = dropdown.classList.contains("show");
-              document
-                .querySelectorAll(".dropdown-menu.show")
-                .forEach(function (d) {
-                  d.classList.remove("show");
-                });
-              if (!isShown) {
-                dropdown.classList.add("show");
-              }
-            });
-          });
+
 
         // Klik di luar menu, tutup semua dropdown
         document.addEventListener("click", function (e) {

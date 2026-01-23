@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="id">
+<script>
+    !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+        n.queue = []; t = b.createElement(e); t.async = !0;
+        t.src = v; s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1124885449775971');
+    fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1124885449775971&ev=PageView&noscript=1" /></noscript>
+<!-- End Facebook Pixel Code -->
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendaftaran - START-UP MUSLIM INDONESIA</title>
+    <!-- favicon -->
+    <link rel="icon" href="../img/favicon.ico" type="image/png" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <meta name="facebook-domain-verification" content="khe2ju8y46da83zp6uyb8d35m2thov" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        /* UTILITIES & BASE */
+        :root {
+            --primary-teal: #007272;
+            --dark-teal: #005656;
+            --accent-gold: #FFD21F;
+            --bg-light: #f7f9fc;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+        .smi-navbar {
+            background-color: var(--primary-teal) !important;
+            border-bottom: 3px solid var(--accent-gold);
+            padding: 15px 0;
+        }
+
+        .smi-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #fff;
+        }
+
+        .brand-text {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.9)), url('../img/gp1.jpg') center/cover;
+            padding: 100px 0 60px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-headline {
+            font-weight: 800;
+            font-size: 3rem;
+            line-height: 1.2;
+            color: var(--primary-teal);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subhead {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .btn-gold {
+            background: linear-gradient(90deg, #FFD21F, #f3cf2d);
+            color: #004d4d;
+            font-weight: 700;
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(255, 210, 31, 0.4);
+            transition: transform 0.3s;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 210, 31, 0.5);
+            background: #ffe066;
+        }
+
+        /* SECTION STYLES */
+        .section-title {
+            font-weight: 700;
+            color: var(--primary-teal);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-gold);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* PROBLEM CARD */
+        .problem-card {
+            background: #fff;
+            border: 1px solid #ffeeba;
+            border-left: 5px solid #dc3545;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateX(5px);
+        }
+
+        .problem-icon {
+            color: #dc3545;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        /* NEED CARD */
+        .need-card {
+            background: var(--primary-teal);
+            color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            height: 100%;
+            box-shadow: 0 10px 20px rgba(0, 114, 114, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .need-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .need-icon {
+            background: #fff;
+            color: var(--primary-teal);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        /* SMI INFO */
+        .smi-info-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--accent-gold);
+        }
+
+        .pillar-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pillar-item {
+            background: #f0fdfd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-teal);
+        }
+
+        .pillar-item i {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-right: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            .hero-section {
+                padding-top: 120px;
+                text-align: center;
+            }
+
+            .hero-headline {
+                font-size: 2.2rem;
+            }
+
+            .hero-img {
+                margin-top: 30px;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar fixed-top smi-navbar">
+        <div class="container justify-content-center justify-content-lg-between">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../img/logosmi_new.png" alt="SMI Logo" class="smi-logo shadow-sm ml-2">
+                <span class="brand-text ms-2">Start-Up Muslim Indonesia</span>
+            </a>
+            <!-- Optional: Add contact button in navbar for desktop -->
+            <a href="https://api.whatsapp.com/send?phone=628561490495&text=Halo%20Admin%20SMI,%20Saya%20ingin%20mendaftar"
+                class="btn btn-gold d-none d-lg-block">Daftar Sekarang</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">Open Batch
+                        Terbaru</span>
+                    <h1 class="hero-headline">Siap Menjadi Pengusaha Muslim yang Sukses & Berkah?</h1>
+                    <p class="hero-subhead">
+                        Program Mentoring Intensif yang membantu Anda membangun fondasi bisnis yang kuat, sistemasi yang
+                        rapi, dan scale-up tanpa melupakan syariat.
+                    </p>
+                    <div class="d-flex flex-column flex-md-row gap-3">
+                        <a href="#daftar" class="btn btn-gold btn-lg shadow">Daftar Sekarang <i
+                                class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="#masalah" class="btn btn-outline-dark btn-lg">Pelajari Dulu</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <!-- Placeholder for hero image, using one from repo or creative placeholder -->
+                    <img src="../img/fitra0.png" alt="SMI Hero" class="img-fluid hero-img"
+                        style="max-height: 500px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION (The "Problem" Request) -->
+    <section id="masalah" class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Apakah Anda Merasakan Hal Ini?</h2>
+                <p class="mb-5 text-muted" style="max-width: 700px; margin: 0 auto;">Banyak pengusaha pemula layu
+                    sebelum berkembang karena terjebak dalam masalah klasik yang sebenarnya bisa dihindari.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="problem-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-chart-line problem-icon"></i>
+                            <div>
+                                <h5 class="fw-bold mb-1">Penjualan Stagnan</h5>
+                                <p class="mb-0 text-muted small">Sudah coba berbagai cara tapi omset segitu-gitu saja,
+                                    bahkan cenderung turun.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-compass problem-icon"></i>
+                            <div>
+                                <h5 class="fw-bold mb-1">Bingung Mulai Darimana</h5>
+                                <p class="mb-0 text-muted small">Punya banyak ide tapi kesulitan mengeksekusi menjadi
+                                    bisnis nyata yang profitable.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="problem-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-users-slash problem-icon"></i>
+                            <div>
+                                <h5 class="fw-bold mb-1">Sendirian Tanpa Mentor</h5>
+                                <p class="mb-0 text-muted small">Tidak punya tempat bertanya saat ada masalah, sering
+                                    salah ambil keputusan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="problem-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-balance-scale-right problem-icon"></i>
+                            <div>
+                                <h5 class="fw-bold mb-1">Takut Riba & Syubhat</h5>
+                                <p class="mb-0 text-muted small">Ingin bisnis kencang tapi takut terjerumus dalam
+                                    praktik yang dilarang agama.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SMI SOLUTION SECTION -->
+    <section class="py-5" style="background-color: #f0fdfd;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h2 class="fw-bold mb-3" style="color: var(--primary-teal);">SMI Hadir Sebagai Solusi</h2>
+                    <p class="lead mb-4">Start-Up Muslim Indonesia (SMI) bukan sekadar tempat belajar, tapi ekosistem
+                        pertumbuhan bisnis Anda.</p>
+
+                    <div class="smi-info-box">
+                        <h4 class="fw-bold mb-3 text-dark">Fokus 3 Pilar Utama:</h4>
+                        <ul class="pillar-list">
+                            <li class="pillar-item">
+                                <i class="fas fa-bullseye"></i> PEMBENAHAN SALES & MARKETING
+                            </li>
+                            <li class="pillar-item">
+                                <i class="fas fa-laptop-code"></i> DIGITAL MARKETING MASTERY
+                            </li>
+                            <li class="pillar-item">
+                                <i class="fas fa-users-cog"></i> LEADERSHIP & TEAM BUILDING
+                            </li>
+                        </ul>
+                        <p class="mt-3 small text-muted">*Kurikulum didesain khusus agar mudah dipraktikkan langsung
+                            (Action-Oriented).</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="zoom-in">
+                    <!-- Embed Video or Image -->
+                    <div class="tiktok-container mx-auto"
+                        style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
+                        <iframe src="https://www.tiktok.com/embed/v2/7584298035685985557"
+                            style="width: 100%; height: 500px; border: none;" scrolling="no" allowfullscreen
+                            referrerpolicy="no-referrer">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEED SECTION (The "Need" Request) -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Apa yang Sebenarnya Anda Butuhkan?</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="need-card">
+                        <div class="need-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h5 class="fw-bold">Mentor Praktisi</h5>
+                        <p class="small opacity-75">Bimbingan langsung dari mereka yang sudah terbukti sukses membangun
+                            bisnis.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="need-card" style="background: var(--dark-teal);">
+                        <div class="need-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h5 class="fw-bold">Peta Jalan (Roadmap)</h5>
+                        <p class="small opacity-75">Kurikulum step-by-step yang jelas agar Anda tidak tersesat di tengah
+                            jalan.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="need-card">
+                        <div class="need-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h5 class="fw-bold">Circle Positif</h5>
+                        <p class="small opacity-75">Lingkungan teman seperjuangan yang saling mendukung dalam kebaikan.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="need-card" style="background: var(--dark-teal);">
+                        <div class="need-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h5 class="fw-bold">Tools & Sistem</h5>
+                        <p class="small opacity-75">Akses ke alat bantu dan sistem yang mempercepat pertumbuhan bisnis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA REGISTER SECTION -->
+    <section id="daftar" class="py-5"
+        style="background: url('../img/footer-bg.jpg') center/cover no-repeat; position: relative;">
+        <div class="container position-relative z-2 text-center text-white py-5">
+            <h2 class="fw-bold display-5 mb-3">Siap Mengubah Nasib Bisnis Anda?</h2>
+            <p class="lead mb-4">Jangan biarkan tahun ini berlalu tanpa penigkatan. Gabung sekarang bersama ratusan
+                alumni sukses lainnya.</p>
+
+            <div class="card mx-auto p-4 rounded-4 shadow-lg text-dark"
+                style="max-width: 500px; background: rgba(255,255,255,0.95);">
+                <h4 class="fw-bold mb-3">Pendaftaran SMI Batch Terbaru</h4>
+                <p class="mb-4">Klik tombol di bawah untuk konsultasi & daftar via WhatsApp:</p>
+
+                <a href="https://api.whatsapp.com/send?phone=628561490495&text=Halo%20Admin%20SMI,%20Saya%20tertarik%20mendaftar%20program%20SMI"
+                    class="btn btn-success btn-lg w-100 fw-bold py-3 pulse-button">
+                    <i class="fab fa-whatsapp me-2"></i> DAFTAR VIA WHATSAPP
+                </a>
+                <small class="text-muted d-block mt-3">Terbatas untuk 30 Pendaftar Pertama!</small>
+            </div>
+        </div>
+        <!-- Overlay -->
+        <div style="position: absolute; inset: 0; background: rgba(0, 114, 114, 0.9);"></div>
+    </section>
+
+    <style>
+        .pulse-button {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(40, 167, 69, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+    </style>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <img src="../img/logosmi_new.png" alt="SMI Logo" style="height: 60px; margin-bottom: 20px;">
+            <h5 class="fw-bold text-white mb-3">START-UP MUSLIM INDONESIA</h5>
+            <p class="text-white-50">Mencetak Pengusaha Muslim yang Tangguh, Kaya, dan Bertakwa.</p>
+            <hr style="border-color: rgba(255,255,255,0.2); width: 50px; margin: 20px auto;">
+            <p class="small mb-0">&copy; 2025 Start-Up Muslim Indonesia. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+
+</html>
